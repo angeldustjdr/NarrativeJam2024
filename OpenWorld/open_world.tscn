@@ -1,24 +1,130 @@
-[gd_scene load_steps=4 format=3 uid="uid://1c2poulo2qea"]
+[gd_scene load_steps=6 format=3 uid="uid://1c2poulo2qea"]
 
 [ext_resource type="Shader" path="res://OpenWorld/open_world_background.gdshader" id="1_mopfe"]
 [ext_resource type="PackedScene" uid="uid://bst1xbumpsfra" path="res://OpenWorld/player.tscn" id="2_334qi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3nnu2"]
 shader = ExtResource("1_mopfe")
-shader_parameter/WATER_COL = Color(0.314316, 0.314316, 0.314316, 1)
-shader_parameter/WATER2_COL = Color(0.438136, 0.171504, 0.450062, 1)
+shader_parameter/WATER_COL = Color(0.658428, 0.519339, 0.788861, 1)
+shader_parameter/WATER2_COL = Color(0.0588235, 0.529412, 0.776471, 1)
 shader_parameter/FOAM_COL = Color(0.87451, 0.988235, 1, 1)
 shader_parameter/distortion_speed = 2.0
 shader_parameter/tile = Vector2(2, 2)
 shader_parameter/offset = Vector2(0, 0)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jm5ta"]
+size = Vector2(1097, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vw0p"]
+size = Vector2(476, 363)
+
 [node name="OpenWorld" type="Node2D"]
 
 [node name="Background" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_3nnu2")
-offset_left = -2068.0
-offset_top = -1704.0
-offset_right = 3757.0
-offset_bottom = 2838.0
+offset_left = -3997.0
+offset_top = -3376.0
+offset_right = 4520.0
+offset_bottom = 3915.0
+
+[node name="Terrain" type="Node2D" parent="."]
+
+[node name="Obstacle2" type="StaticBody2D" parent="Terrain"]
+position = Vector2(29, -283)
+
+[node name="ColorRect" type="ColorRect" parent="Terrain/Obstacle2"]
+offset_left = -1098.0
+offset_top = -458.0
+offset_right = -2.0
+offset_bottom = -437.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Obstacle2"]
+position = Vector2(-550, -448)
+shape = SubResource("RectangleShape2D_jm5ta")
+
+[node name="Obstacle3" type="StaticBody2D" parent="Terrain"]
+position = Vector2(1080, 194)
+
+[node name="ColorRect" type="ColorRect" parent="Terrain/Obstacle3"]
+offset_left = -1098.0
+offset_top = -458.0
+offset_right = -2.0
+offset_bottom = -437.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Obstacle3"]
+position = Vector2(-550, -448)
+shape = SubResource("RectangleShape2D_jm5ta")
+
+[node name="Obstacle4" type="StaticBody2D" parent="Terrain"]
+position = Vector2(-1530, 574)
+rotation = 1.309
+
+[node name="ColorRect" type="ColorRect" parent="Terrain/Obstacle4"]
+offset_left = -1098.0
+offset_top = -458.0
+offset_right = -2.0
+offset_bottom = -437.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Obstacle4"]
+position = Vector2(-550, -448)
+shape = SubResource("RectangleShape2D_jm5ta")
+
+[node name="FrictionZone" type="Area2D" parent="Terrain"]
+linear_damp = 34.921
+
+[node name="ColorRect" type="ColorRect" parent="Terrain/FrictionZone"]
+offset_left = 499.0
+offset_top = 189.0
+offset_right = 975.0
+offset_bottom = 553.0
+color = Color(0, 0.341176, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Terrain/FrictionZone"]
+offset_left = 670.0
+offset_top = 363.0
+offset_right = 770.0
+offset_bottom = 386.0
+text = "Friction zone"
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/FrictionZone"]
+position = Vector2(737, 369.5)
+shape = SubResource("RectangleShape2D_1vw0p")
+
+[node name="FrictionZone2" type="Area2D" parent="Terrain"]
+position = Vector2(-554, -865)
+linear_damp = 34.921
+
+[node name="ColorRect" type="ColorRect" parent="Terrain/FrictionZone2"]
+offset_left = 499.0
+offset_top = 189.0
+offset_right = 975.0
+offset_bottom = 553.0
+color = Color(0, 0.341176, 1, 1)
+
+[node name="Label" type="Label" parent="Terrain/FrictionZone2"]
+offset_left = 670.0
+offset_top = 363.0
+offset_right = 770.0
+offset_bottom = 386.0
+text = "Friction zone"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/FrictionZone2"]
+position = Vector2(737, 369.5)
+shape = SubResource("RectangleShape2D_1vw0p")
 
 [node name="player" parent="." instance=ExtResource("2_334qi")]
+unique_name_in_owner = true
+floor_block_on_wall = false
+
+[connection signal="body_entered" from="Terrain/FrictionZone" to="player" method="_on_friction_zone_body_entered"]
+[connection signal="body_exited" from="Terrain/FrictionZone" to="player" method="_on_friction_zone_body_exited"]
+[connection signal="body_entered" from="Terrain/FrictionZone2" to="player" method="_on_friction_zone_body_entered"]
+[connection signal="body_exited" from="Terrain/FrictionZone2" to="player" method="_on_friction_zone_body_exited"]

@@ -6,7 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1q7v0"]
 size = Vector2(129, 129)
 
-[node name="player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_dhf2n")
 
 [node name="Icon" type="Sprite2D" parent="."]
