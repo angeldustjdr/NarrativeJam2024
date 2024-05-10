@@ -13,5 +13,6 @@ func _process(delta):
 
 func _on_clickable_gui_input(event):
 	if event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		$Label.text = "It has been clicked."
+		if Dialogic.current_timeline == null:
+			Dialogic.start('Test_timeline')
 		pass
