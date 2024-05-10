@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw0hd8w8ahtgn"]
+
+[ext_resource type="Script" path="res://Hub/hub.gd" id="1_fsrsg"]
+
+[node name="Hub" type="Node2D"]
+script = ExtResource("1_fsrsg")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 226.0
+offset_top = 278.0
+offset_right = 861.0
+offset_bottom = 350.0
+theme_override_font_sizes/font_size = 52
+text = "Click on the white square"
+
+[node name="Clickable" type="ColorRect" parent="."]
+offset_left = 1034.0
+offset_top = 256.0
+offset_right = 1203.0
+offset_bottom = 389.0
+tooltip_text = "Click me"
+
+[connection signal="gui_input" from="Clickable" to="." method="_on_clickable_gui_input"]
