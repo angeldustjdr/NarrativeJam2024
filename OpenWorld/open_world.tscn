@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://1c2poulo2qea"]
+
+[ext_resource type="Shader" path="res://OpenWorld/open_world_background.gdshader" id="1_mopfe"]
+[ext_resource type="PackedScene" uid="uid://bst1xbumpsfra" path="res://OpenWorld/player.tscn" id="2_334qi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3nnu2"]
+shader = ExtResource("1_mopfe")
+shader_parameter/WATER_COL = Color(0.314316, 0.314316, 0.314316, 1)
+shader_parameter/WATER2_COL = Color(0.438136, 0.171504, 0.450062, 1)
+shader_parameter/FOAM_COL = Color(0.87451, 0.988235, 1, 1)
+shader_parameter/distortion_speed = 2.0
+shader_parameter/tile = Vector2(2, 2)
+shader_parameter/offset = Vector2(0, 0)
+
+[node name="OpenWorld" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_3nnu2")
+offset_left = -2068.0
+offset_top = -1704.0
+offset_right = 3757.0
+offset_bottom = 2838.0
+
+[node name="player" parent="." instance=ExtResource("2_334qi")]
