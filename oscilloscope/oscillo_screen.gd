@@ -81,7 +81,7 @@ func compute_similarity():
 		x += step
 		c += 1
 	mean_w2 /= c
-	print("ECART? %f - %f" % [mu2,mean_w2])
+	#print("ECART? %f - %f" % [mu2,mean_w2])
 	x = 0.0 + phi2
 	c = 0
 	while x < 2.0*PI/omega2 + phi2:
@@ -92,5 +92,5 @@ func compute_similarity():
 		x += step
 		c += 1
 	var R2 = 1.0-(score_num/score_denom)
-	print("R2 = %f" % R2)
+	#print("R2 = %f" % R2)
 	return 100.0*R2
