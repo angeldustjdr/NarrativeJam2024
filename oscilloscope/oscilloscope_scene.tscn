@@ -1,0 +1,134 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcso2iywa5mbr"]
+
+[ext_resource type="Script" path="res://oscilloscope/oscilloscope_scene.gd" id="1_7v8s3"]
+[ext_resource type="PackedScene" uid="uid://xwjc4o5q6885" path="res://oscilloscope/oscillo_screen.tscn" id="1_ulers"]
+
+[node name="oscilloscope_scene" type="ReferenceRect"]
+offset_right = 480.0
+offset_bottom = 270.0
+scale = Vector2(2, 2)
+script = ExtResource("1_7v8s3")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.033
+anchor_top = 0.83
+anchor_right = 0.4
+anchor_bottom = 0.948
+offset_left = 0.16396
+offset_top = -0.100006
+offset_right = -0.0720062
+offset_bottom = 0.039978
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OscilloScreen" parent="." instance=ExtResource("1_ulers")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.417
+anchor_top = 0.059
+anchor_right = 0.967
+anchor_bottom = 0.948
+offset_left = -0.10997
+offset_top = 0.0699987
+offset_right = -0.0440063
+offset_bottom = 0.039978
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="similarity_label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 200.0
+offset_right = -288.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SIMILARITY"
+horizontal_alignment = 1
+
+[node name="ampl_slider" type="VSlider" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.033
+anchor_top = 0.178
+anchor_right = 0.083
+anchor_bottom = 0.711
+offset_left = 0.16396
+offset_top = -0.0600014
+offset_right = 0.0499611
+offset_bottom = 0.0299988
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ampl_slider"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.222
+anchor_right = 1.0
+anchor_bottom = -0.062
+offset_top = -0.0319977
+offset_bottom = -0.0719995
+grow_horizontal = 2
+grow_vertical = 2
+text = "α"
+horizontal_alignment = 1
+
+[node name="phase_slider" type="VSlider" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 48.0
+offset_right = -392.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="phase_slider"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.222
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.0319977
+offset_bottom = -153.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "φ"
+horizontal_alignment = 1
+
+[node name="mean_slider" type="VSlider" parent="."]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 48.0
+offset_right = 136.0
+offset_bottom = 192.0
+
+[node name="Label" type="Label" parent="mean_slider"]
+layout_mode = 0
+offset_top = -32.0
+offset_right = 24.0
+offset_bottom = -9.0
+text = "μ"
+horizontal_alignment = 1
+
+[node name="freq_slider" type="VSlider" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 48.0
+offset_right = 184.0
+offset_bottom = 192.0
+
+[node name="Label" type="Label" parent="freq_slider"]
+layout_mode = 0
+offset_top = -32.0
+offset_right = 24.0
+offset_bottom = -9.0
+text = "ω"
+horizontal_alignment = 1
