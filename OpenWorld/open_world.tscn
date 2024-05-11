@@ -1,31 +1,102 @@
-[gd_scene load_steps=6 format=3 uid="uid://1c2poulo2qea"]
+[gd_scene load_steps=10 format=3 uid="uid://1c2poulo2qea"]
 
 [ext_resource type="Shader" path="res://OpenWorld/open_world_background.gdshader" id="1_mopfe"]
 [ext_resource type="PackedScene" uid="uid://bst1xbumpsfra" path="res://OpenWorld/player.tscn" id="2_334qi"]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_j6egv"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ctppc"]
+seamless = true
+noise = SubResource("FastNoiseLite_j6egv")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3nnu2"]
 shader = ExtResource("1_mopfe")
-shader_parameter/WATER_COL = Color(0.658428, 0.519339, 0.788861, 1)
-shader_parameter/WATER2_COL = Color(0.0588235, 0.529412, 0.776471, 1)
-shader_parameter/FOAM_COL = Color(0.87451, 0.988235, 1, 1)
-shader_parameter/distortion_speed = 2.0
-shader_parameter/tile = Vector2(2, 2)
-shader_parameter/offset = Vector2(0, 0)
+shader_parameter/stars_on = false
+shader_parameter/timeScaleFactor = 0.1
+shader_parameter/colour_muiltiplier = Color(1, 1, 1, 1)
+shader_parameter/colour_muiltiplier2 = Color(1, 1, 1, 1)
+shader_parameter/brightness = 1.5
+shader_parameter/clouds_resolution = 3.0
+shader_parameter/clouds_intesity = 0.0
+shader_parameter/waveyness = 0.5
+shader_parameter/fragmentation = 7.0
+shader_parameter/distortion = 0.5
+shader_parameter/clouds_alpha = 0.5
+shader_parameter/movement = 1.0
+shader_parameter/blur = 1.4
+shader_parameter/blur2 = 0.01
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ctppc")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vw0p"]
+size = Vector2(476, 363)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jm5ta"]
 size = Vector2(1097, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vw0p"]
-size = Vector2(476, 363)
+[sub_resource type="Gradient" id="Gradient_oqyjn"]
+offsets = PackedFloat32Array(0, 0.642857)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vh3s1"]
+gradient = SubResource("Gradient_oqyjn")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="OpenWorld" type="Node2D"]
 
 [node name="Background" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_3nnu2")
-offset_left = -3997.0
-offset_top = -3376.0
-offset_right = 4520.0
-offset_bottom = 3915.0
+offset_left = -5142.0
+offset_top = -3538.0
+offset_right = 3375.0
+offset_bottom = 3753.0
+
+[node name="FrictionZones" type="Node2D" parent="."]
+
+[node name="FrictionZone" type="Area2D" parent="FrictionZones"]
+linear_damp = 34.921
+
+[node name="ColorRect" type="ColorRect" parent="FrictionZones/FrictionZone"]
+offset_left = 499.0
+offset_top = 189.0
+offset_right = 975.0
+offset_bottom = 553.0
+color = Color(0, 0.341176, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="FrictionZones/FrictionZone"]
+offset_left = 670.0
+offset_top = 363.0
+offset_right = 770.0
+offset_bottom = 386.0
+text = "Friction zone"
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrictionZones/FrictionZone"]
+position = Vector2(737, 369.5)
+shape = SubResource("RectangleShape2D_1vw0p")
+
+[node name="FrictionZone2" type="Area2D" parent="FrictionZones"]
+position = Vector2(-554, -865)
+linear_damp = 34.921
+
+[node name="ColorRect" type="ColorRect" parent="FrictionZones/FrictionZone2"]
+offset_left = 499.0
+offset_top = 189.0
+offset_right = 975.0
+offset_bottom = 553.0
+color = Color(0, 0.341176, 1, 1)
+
+[node name="Label" type="Label" parent="FrictionZones/FrictionZone2"]
+offset_left = 670.0
+offset_top = 363.0
+offset_right = 770.0
+offset_bottom = 386.0
+text = "Friction zone"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrictionZones/FrictionZone2"]
+position = Vector2(737, 369.5)
+shape = SubResource("RectangleShape2D_1vw0p")
 
 [node name="Terrain" type="Node2D" parent="."]
 
@@ -75,48 +146,29 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(-550, -448)
 shape = SubResource("RectangleShape2D_jm5ta")
 
-[node name="FrictionZone" type="Area2D" parent="Terrain"]
+[node name="AccelarationZones" type="Node2D" parent="."]
+
+[node name="AccelarationZone" type="Area2D" parent="AccelarationZones"]
+position = Vector2(-1310, 120)
 linear_damp = 34.921
 
-[node name="ColorRect" type="ColorRect" parent="Terrain/FrictionZone"]
+[node name="ColorRect" type="ColorRect" parent="AccelarationZones/AccelarationZone"]
 offset_left = 499.0
 offset_top = 189.0
 offset_right = 975.0
 offset_bottom = 553.0
-color = Color(0, 0.341176, 1, 1)
+color = Color(0, 0.858824, 0.392157, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Terrain/FrictionZone"]
+[node name="Label" type="Label" parent="AccelarationZones/AccelarationZone"]
 offset_left = 670.0
 offset_top = 363.0
 offset_right = 770.0
 offset_bottom = 386.0
-text = "Friction zone"
+text = "Acceleration zone"
 metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/FrictionZone"]
-position = Vector2(737, 369.5)
-shape = SubResource("RectangleShape2D_1vw0p")
-
-[node name="FrictionZone2" type="Area2D" parent="Terrain"]
-position = Vector2(-554, -865)
-linear_damp = 34.921
-
-[node name="ColorRect" type="ColorRect" parent="Terrain/FrictionZone2"]
-offset_left = 499.0
-offset_top = 189.0
-offset_right = 975.0
-offset_bottom = 553.0
-color = Color(0, 0.341176, 1, 1)
-
-[node name="Label" type="Label" parent="Terrain/FrictionZone2"]
-offset_left = 670.0
-offset_top = 363.0
-offset_right = 770.0
-offset_bottom = 386.0
-text = "Friction zone"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/FrictionZone2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AccelarationZones/AccelarationZone"]
 position = Vector2(737, 369.5)
 shape = SubResource("RectangleShape2D_1vw0p")
 
@@ -124,7 +176,31 @@ shape = SubResource("RectangleShape2D_1vw0p")
 unique_name_in_owner = true
 floor_block_on_wall = false
 
-[connection signal="body_entered" from="Terrain/FrictionZone" to="player" method="_on_friction_zone_body_entered"]
-[connection signal="body_exited" from="Terrain/FrictionZone" to="player" method="_on_friction_zone_body_exited"]
-[connection signal="body_entered" from="Terrain/FrictionZone2" to="player" method="_on_friction_zone_body_entered"]
-[connection signal="body_exited" from="Terrain/FrictionZone2" to="player" method="_on_friction_zone_body_exited"]
+[node name="Ambient" type="DirectionalLight2D" parent="."]
+blend_mode = 1
+
+[node name="Beacon" type="ColorRect" parent="."]
+offset_left = -1749.0
+offset_top = 20.0
+offset_right = -1600.0
+offset_bottom = 144.0
+color = Color(1, 0.290196, 1, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="Beacon"]
+scale = Vector2(76.1875, 76.6094)
+texture = SubResource("GradientTexture2D_vh3s1")
+
+[node name="Label" type="Label" parent="Beacon"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 46.0
+offset_right = 98.0
+offset_bottom = 69.0
+text = "Beacon"
+
+[connection signal="body_entered" from="FrictionZones/FrictionZone" to="player" method="_on_friction_zone_body_entered"]
+[connection signal="body_exited" from="FrictionZones/FrictionZone" to="player" method="_on_friction_zone_body_exited"]
+[connection signal="body_entered" from="FrictionZones/FrictionZone2" to="player" method="_on_friction_zone_body_entered"]
+[connection signal="body_exited" from="FrictionZones/FrictionZone2" to="player" method="_on_friction_zone_body_exited"]
+[connection signal="body_entered" from="AccelarationZones/AccelarationZone" to="player" method="_on_accelaration_zone_body_entered"]
+[connection signal="body_exited" from="AccelarationZones/AccelarationZone" to="player" method="_on_accelaration_zone_body_exited"]

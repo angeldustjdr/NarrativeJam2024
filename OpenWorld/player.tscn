@@ -1,14 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://bst1xbumpsfra"]
+[gd_scene load_steps=9 format=3 uid="uid://bst1xbumpsfra"]
 
 [ext_resource type="Texture2D" uid="uid://8gmmwuv683rs" path="res://icon.svg" id="1_8u2h7"]
 [ext_resource type="Script" path="res://OpenWorld/player.gd" id="1_dhf2n"]
+[ext_resource type="Script" path="res://OpenWorld/Trail.gd" id="3_3ebvi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1q7v0"]
-size = Vector2(129, 129)
+[sub_resource type="Curve" id="Curve_ylb2w"]
+_data = [Vector2(0, 0.527472), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_bvtq1"]
+offsets = PackedFloat32Array(0, 0.567073)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p667r"]
+radius = 60.1041
+
+[sub_resource type="Gradient" id="Gradient_upi44"]
+offsets = PackedFloat32Array(0, 0.619048)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v8oie"]
+gradient = SubResource("Gradient_upi44")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_dhf2n")
+
+[node name="Trail" type="Line2D" parent="."]
+width = 100.0
+width_curve = SubResource("Curve_ylb2w")
+gradient = SubResource("Gradient_bvtq1")
+script = ExtResource("3_3ebvi")
 
 [node name="Icon" type="Sprite2D" parent="."]
 texture = ExtResource("1_8u2h7")
@@ -17,4 +41,8 @@ texture = ExtResource("1_8u2h7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -0.5)
-shape = SubResource("RectangleShape2D_1q7v0")
+shape = SubResource("CircleShape2D_p667r")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(20.9219, 15)
+texture = SubResource("GradientTexture2D_v8oie")
