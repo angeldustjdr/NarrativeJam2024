@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5g0m7kn4paqq"]
+
+[ext_resource type="Shader" path="res://oscilloscope/oscillo.gdshader" id="1_g60mg"]
+[ext_resource type="Script" path="res://oscilloscope/oscillo_shader.gd" id="2_ykm2j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5rgyw"]
+resource_local_to_scene = true
+shader = ExtResource("1_g60mg")
+shader_parameter/freq = 25.0
+shader_parameter/ampl = 0.5
+shader_parameter/phase = 5.0
+shader_parameter/mean = 5.0
+shader_parameter/vel = 5.0
+shader_parameter/tightness = 20.0
+shader_parameter/modulate = Color(0, 1, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_p856g"]
+
+[node name="oscillo_shader" type="TextureRect"]
+material = SubResource("ShaderMaterial_5rgyw")
+offset_right = 100.0
+offset_bottom = 100.0
+texture = SubResource("CanvasTexture_p856g")
+expand_mode = 1
+script = ExtResource("2_ykm2j")
