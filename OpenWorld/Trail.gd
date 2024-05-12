@@ -1,7 +1,7 @@
 extends Line2D
 
 var N = 50
-var trail_threshold = 0.05
+var trail_threshold = 0.1
 
 func _process(_delta):
 	global_position = Vector2.ZERO

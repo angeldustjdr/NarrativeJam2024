@@ -6,6 +6,13 @@ var acceleration = 0.02
 var rotation_speed = 0.5
 var rotation_acc = 0.1
 
+var objective = null
+var interactable = null
+
+func _ready():
+	Radio.connect("bodyEnteredObjective",bodyEnteredObjective)
+	Radio.connect("bodyExitedObjective",bodyExitedObjective)
+
 func _physics_process(delta):
 	# Movement manager
 	var ahead_vector = Vector2(0.0,-1.0).rotated(rotation)
@@ -40,6 +47,14 @@ func _physics_process(delta):
 		var collision = get_slide_collision(0)
 		if collision != null:
 			velocity = temp_velocity.bounce(collision.get_normal())
+			
+	# reticule objectif
+	if objective != null :
+		$Fleche.visible = true
+		var direction_to_obj = objective.position - position
+		$Fleche.rotation = ahead_vector.angle_to(direction_to_obj)
+	else :
+		$Fleche.visible = false
 
 
 func _on_friction_zone_body_entered(body):
@@ -61,3 +76,18 @@ func _on_accelaration_zone_body_exited(body):
 	if body==self : 
 		speed /= 4
 		velocity /=4
+
+func bodyEnteredObjective(interactableObjective,whoEntered):
+	if whoEntered == self:
+		interactable = interactableObjective
+		$Message.visible = true
+
+func bodyExitedObjective(_interactableObjective,whoEntered):
+	if whoEntered == self:
+		interactable = null
+		$Message.visible = false
+
+func _unhandled_input(event):
+	if event.is_action_pressed("Interact") :
+		if interactable !=null :
+			Radio.emit_signal("interaction",interactable)

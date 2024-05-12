@@ -1,32 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbep1cdm6i073"]
+[gd_scene load_steps=9 format=3 uid="uid://d2dy7i3w8ddv0"]
 
-[ext_resource type="Shader" path="res://OpenWorld/wave.gdshader" id="1_vmno4"]
-[ext_resource type="Texture2D" uid="uid://mpbfvmdjuuln" path="res://OpenWorld/Point_blanc.png" id="2_46ter"]
+[ext_resource type="Texture2D" uid="uid://mpbfvmdjuuln" path="res://OpenWorld/Point_blanc.png" id="1_a24kw"]
+[ext_resource type="Script" path="res://OpenWorld/objective.gd" id="1_jq82l"]
 
-[sub_resource type="Gradient" id="Gradient_wr6iv"]
-offsets = PackedFloat32Array(0, 0.647059)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_y4tq7"]
-gradient = SubResource("Gradient_wr6iv")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yckjq"]
-shader = ExtResource("1_vmno4")
-shader_parameter/color = null
-shader_parameter/num_cells = 20.0
-shader_parameter/speed = 1.0
-shader_parameter/smoothness = 1.0
-shader_parameter/angle = 45.0
-shader_parameter/mask = SubResource("GradientTexture2D_y4tq7")
-
-[sub_resource type="Gradient" id="Gradient_1aas8"]
+[sub_resource type="Gradient" id="Gradient_upi44"]
 offsets = PackedFloat32Array(0, 0.619048)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_4xv0y"]
-gradient = SubResource("Gradient_1aas8")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0tigb"]
+gradient = SubResource("Gradient_upi44")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
@@ -68,24 +50,20 @@ _data = {
 "light_anim": SubResource("Animation_m5uiq")
 }
 
-[node name="Ward" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_mvbp7"]
+radius = 199.161
 
-[node name="Waves" type="ColorRect" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_yckjq")
-offset_left = -240.0
-offset_top = -240.0
-offset_right = 240.0
-offset_bottom = 240.0
+[node name="Objective" type="Node2D"]
+script = ExtResource("1_jq82l")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(35, 35)
+scale = Vector2(15, 15)
 energy = 2.0
-texture = SubResource("GradientTexture2D_4xv0y")
+texture = SubResource("GradientTexture2D_0tigb")
 
 [node name="PointBlanc" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.196078)
-texture = ExtResource("2_46ter")
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("1_a24kw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../PointBlanc")
@@ -93,3 +71,11 @@ libraries = {
 "": SubResource("AnimationLibrary_ovlu1")
 }
 autoplay = "light_anim"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_mvbp7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
