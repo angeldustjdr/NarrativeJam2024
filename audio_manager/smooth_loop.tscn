@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cysuqq7mfjitr"]
+
+[ext_resource type="Script" path="res://audio_manager/smooth_loop.gd" id="1_8whnj"]
+
+[node name="smooth_loop" type="Node"]
+script = ExtResource("1_8whnj")
+
+[node name="channel_1" type="AudioStreamPlayer" parent="."]
+
+[node name="channel_2" type="AudioStreamPlayer" parent="."]
+
+[node name="song_timer" type="Timer" parent="."]

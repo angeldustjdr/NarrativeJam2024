@@ -16,6 +16,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+MusicManager="*res://audio_manager/MusicManager.gd"
+SoundManager="*res://audio_manager/SoundManager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Radio="*res://Radio.gd"
 
