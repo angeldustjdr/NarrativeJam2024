@@ -59,17 +59,17 @@ func _update_after_slider_changed():
 	self._update_amplification()
 	
 func _amplitude_changed(value):
-	$OscilloScreen.set_pilotable_amplitude(value)
+	$OscilloScreen.set_pilotable_property_value("ampl",value)
 	self._update_after_slider_changed()
 	
 func _phase_changed(value):
-	$OscilloScreen.set_pilotable_phase(value)
+	$OscilloScreen.set_pilotable_property_value("phase",value)
 	self._update_after_slider_changed()
 
 func _mean_changed(value):
-	$OscilloScreen.set_pilotable_mean(value)
+	$OscilloScreen.set_pilotable_property_value("mean",value)
 	self._update_after_slider_changed()
 	
 func _frequence_changed(value):
-	$OscilloScreen.set_pilotable_frequence(value)
+	$OscilloScreen.set_pilotable_property_value("period",value)
 	self._update_after_slider_changed()

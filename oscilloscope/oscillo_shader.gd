@@ -1,5 +1,10 @@
 extends TextureRect
 
+var _effective_property_values = {"ampl": 0.0,
+								"mean": 0.0,
+								"period":0.0,
+								"phase":0.0}
+
 func get_uniform_property_range(uniform_property_name):
 	var properties=self.material.get_property_list()
 	var the_hint_range:String
@@ -22,6 +27,29 @@ func get_property_value(property_name):
 
 func set_color(color):
 	self.material.set_shader_parameter("modulate",color)
+
+func set_property_value(property_name,property_value,property_range):
+	self._effective_property_values[property_name] = property_value
+	if property_name =="period":
+		var new_p_range = [1.0/property_range[1],1.0/property_range[0]]
+		#var p_val_conv = self._convert_property("freq",1.0/property_value,new_p_range)
+		var p_val_conv = self._convert_property("freq",property_value,property_range)
+		self.material.set_shader_parameter("freq",p_val_conv)
+	else:
+		var p_val_conv = self._convert_property(property_name,property_value,property_range)
+		self.material.set_shader_parameter(property_name,p_val_conv)
+
+func get_effective_property_value(property_name):
+	if property_name == "freq":
+		return self._effective_property_values["period"]
+	else:
+		return self._effective_property_values[property_name]
+
+func _convert_property(p_name,p_value,p_range):
+	var p_range_dest = get_uniform_property_range(p_name)
+	var norm_p_value = (p_value-p_range[0])/(p_range[1]-p_range[0])
+	var conv_p_value = norm_p_value*(p_range_dest[1]-p_range_dest[0]) + p_range_dest[0]
+	return conv_p_value
 
 func set_frequence(frequence):
 	self.material.set_shader_parameter("freq",frequence)
