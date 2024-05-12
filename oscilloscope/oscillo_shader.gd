@@ -31,8 +31,6 @@ func set_color(color):
 func set_property_value(property_name,property_value,property_range):
 	self._effective_property_values[property_name] = property_value
 	if property_name =="period":
-		var new_p_range = [1.0/property_range[1],1.0/property_range[0]]
-		#var p_val_conv = self._convert_property("freq",1.0/property_value,new_p_range)
 		var p_val_conv = self._convert_property("freq",property_value,property_range)
 		self.material.set_shader_parameter("freq",p_val_conv)
 	else:
@@ -40,10 +38,7 @@ func set_property_value(property_name,property_value,property_range):
 		self.material.set_shader_parameter(property_name,p_val_conv)
 
 func get_effective_property_value(property_name):
-	if property_name == "freq":
-		return self._effective_property_values["period"]
-	else:
-		return self._effective_property_values[property_name]
+	return self._effective_property_values[property_name]
 
 func _convert_property(p_name,p_value,p_range):
 	var p_range_dest = get_uniform_property_range(p_name)

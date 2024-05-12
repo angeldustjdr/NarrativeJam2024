@@ -1,16 +1,37 @@
 extends ReferenceRect
 
+var target_signal_properties = {"ampl":0.5,
+								"mean":-0.5,
+								"period":6.0*PI,
+								"phase":0.5}
+
+var property_activated = {"ampl":1,
+						  "mean":1,
+						  "period":1,
+						  "phase":1}
+
 var _saturation_factor = 0.8 # at _saturation_factor similarity there is no white_noise left
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	self._deactivation_of_sliders()
+	$OscilloScreen.set_target_signal_properties(self.target_signal_properties)
+	$OscilloScreen.set_property_activated(self.property_activated)
 	self._init_sliders()
 	self._update_similarity()
 	self._init_audio()
 
+func _deactivation_of_sliders():
+	for property_name in $OscilloScreen.properties:
+		if self.property_activated[property_name] < 1:
+			var p_range = $OscilloScreen.get_uniform_property_range(property_name)
+			var p_val = 0.5 *(p_range[0]+p_range[1])
+			self.target_signal_properties[property_name] = p_val
+			self.get_node(property_name+"_slider").process_mode = Node.PROCESS_MODE_DISABLED
+			self.get_node(property_name+"_slider").set_block_signals(true)
+
 func _init_sliders():
-	var properties_names = ["ampl","phase","mean","freq"]
-	for property_name in properties_names:
+	for property_name in $OscilloScreen.properties:
 		var current_slider = self.get_node(property_name+"_slider")
 		var prop_range = $OscilloScreen.get_uniform_property_range(property_name)
 		current_slider.min_value = prop_range[0] #set range of slider
@@ -20,7 +41,7 @@ func _init_sliders():
 	$ampl_slider.value_changed.connect(self._amplitude_changed)
 	$phase_slider.value_changed.connect(self._phase_changed)
 	$mean_slider.value_changed.connect(self._mean_changed)
-	$freq_slider.value_changed.connect(self._frequence_changed)
+	$period_slider.value_changed.connect(self._frequence_changed)
 
 func _get_db_from_lin(x):
 	return 10.0*(log(x)/log(10.0))
