@@ -25,6 +25,6 @@ func poserWard():
 func setObjective(objective):
 	if objective==null:
 		iObjective += 1
-		if iObjective>len(objectiveArray): $player.objective = objective
+		if iObjective>len(objectiveArray)-1: $player.objective = objective
 		else : $player.objective = objectiveArray[iObjective]
 	else : $player.objective = objective
