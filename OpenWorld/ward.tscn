@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbep1cdm6i073"]
+
+[ext_resource type="Shader" path="res://OpenWorld/wave.gdshader" id="1_vmno4"]
+
+[sub_resource type="Gradient" id="Gradient_wr6iv"]
+offsets = PackedFloat32Array(0, 0.647059)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y4tq7"]
+gradient = SubResource("Gradient_wr6iv")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yckjq"]
+shader = ExtResource("1_vmno4")
+shader_parameter/color = null
+shader_parameter/num_cells = 20.0
+shader_parameter/speed = 1.0
+shader_parameter/smoothness = 1.0
+shader_parameter/angle = 45.0
+shader_parameter/mask = SubResource("GradientTexture2D_y4tq7")
+
+[sub_resource type="Gradient" id="Gradient_upi44"]
+offsets = PackedFloat32Array(0, 0.619048)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4xv0y"]
+gradient = SubResource("Gradient_upi44")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Ward" type="Node2D"]
+
+[node name="Waves" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_yckjq")
+offset_left = -240.0
+offset_top = -240.0
+offset_right = 240.0
+offset_bottom = 240.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1, 3)
+scale = Vector2(20.9219, 15)
+energy = 2.0
+texture = SubResource("GradientTexture2D_4xv0y")

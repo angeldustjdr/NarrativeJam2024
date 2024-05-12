@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgu7vtn73lh4b"]
+
+[ext_resource type="Texture2D" uid="uid://4ugf6btmmepu" path="res://OpenWorld/lantern-flame.svg" id="1_vbr5e"]
+[ext_resource type="Script" path="res://OpenWorld/ward_button.gd" id="2_oweuu"]
+
+[node name="WardButton" type="Button"]
+theme_override_font_sizes/font_size = 18
+text = "Ward #1"
+icon = ExtResource("1_vbr5e")
+expand_icon = true
+script = ExtResource("2_oweuu")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

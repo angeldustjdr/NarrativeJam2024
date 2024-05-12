@@ -9,7 +9,7 @@
 offsets = PackedFloat32Array(0, 0.647059)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_y4tq7"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_us4aq"]
 gradient = SubResource("Gradient_04xli")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
@@ -21,7 +21,7 @@ shader_parameter/num_cells = 20.0
 shader_parameter/speed = 1.0
 shader_parameter/smoothness = 1.0
 shader_parameter/angle = 45.0
-shader_parameter/mask = SubResource("GradientTexture2D_y4tq7")
+shader_parameter/mask = SubResource("GradientTexture2D_us4aq")
 
 [sub_resource type="Curve" id="Curve_ylb2w"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 0.0, 0.0, 0, 0]
@@ -35,12 +35,12 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
 radius = 18.0
 height = 42.0
 
-[sub_resource type="Gradient" id="Gradient_upi44"]
+[sub_resource type="Gradient" id="Gradient_jcr24"]
 offsets = PackedFloat32Array(0, 0.619048)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_v8oie"]
-gradient = SubResource("Gradient_upi44")
+gradient = SubResource("Gradient_jcr24")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
