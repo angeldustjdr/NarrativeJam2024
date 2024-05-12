@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://1c2poulo2qea"]
+[gd_scene load_steps=35 format=3 uid="uid://1c2poulo2qea"]
 
 [ext_resource type="Script" path="res://OpenWorld/open_world.gd" id="1_dqjoa"]
 [ext_resource type="Shader" path="res://OpenWorld/open_world_background.gdshader" id="1_mopfe"]
@@ -16,8 +16,11 @@
 [ext_resource type="Texture2D" uid="uid://dcdkfimh6un4w" path="res://OpenWorld/obstacle4.png" id="7_7440p"]
 [ext_resource type="Script" path="res://OpenWorld/VelocityProgressBar.gd" id="7_d3i1c"]
 [ext_resource type="Script" path="res://OpenWorld/RotationProgressBar.gd" id="8_alurk"]
+[ext_resource type="Script" path="res://OpenWorld/Depression1.gd" id="9_42640"]
+[ext_resource type="Texture2D" uid="uid://b42m8p14ct0bs" path="res://OpenWorld/moins_blanc.png" id="9_gv1ta"]
 [ext_resource type="Script" path="res://OpenWorld/Anchor.gd" id="9_il8ov"]
 [ext_resource type="PackedScene" uid="uid://d2dy7i3w8ddv0" path="res://OpenWorld/objective.tscn" id="9_rqvr2"]
+[ext_resource type="PackedScene" uid="uid://bsqs7hvavmdhe" path="res://OpenWorld/acc_1.tscn" id="10_0tbb1"]
 [ext_resource type="Script" path="res://OpenWorld/Alert Message.gd" id="11_ti07w"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_j6egv"]
@@ -43,6 +46,9 @@ shader_parameter/movement = 1.0
 shader_parameter/blur = 1.4
 shader_parameter/blur2 = 0.01
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_ctppc")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2e4h2"]
+size = Vector2(1029, 2213)
 
 [sub_resource type="Animation" id="Animation_6qugl"]
 length = 0.001
@@ -312,8 +318,49 @@ position = Vector2(944, 5047)
 [node name="Ward7" parent="Ward" instance=ExtResource("3_vogn0")]
 position = Vector2(2058, 4826)
 
+[node name="DepressionZones" type="Node2D" parent="."]
+
+[node name="Depression1" type="Area2D" parent="DepressionZones"]
+script = ExtResource("9_42640")
+
+[node name="TextureRect" type="TextureRect" parent="DepressionZones/Depression1"]
+offset_left = 5060.0
+offset_top = 2731.0
+offset_right = 6096.0
+offset_bottom = 4960.0
+texture = ExtResource("9_gv1ta")
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="DepressionZones/Depression1"]
+offset_left = 4726.0
+offset_top = 3659.0
+offset_right = 5050.0
+offset_bottom = 3710.0
+theme_override_font_sizes/font_size = 48
+text = "Depression Zone"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DepressionZones/Depression1"]
+position = Vector2(5583.5, 3853.5)
+shape = SubResource("RectangleShape2D_2e4h2")
+
+[node name="AccelerationZones" type="Node2D" parent="."]
+
+[node name="Acc1" parent="AccelerationZones" instance=ExtResource("10_0tbb1")]
+
 [node name="Objective" parent="." instance=ExtResource("9_rqvr2")]
 position = Vector2(3960, 3558)
+
+[node name="Objective2" parent="." instance=ExtResource("9_rqvr2")]
+position = Vector2(2350, 769)
+
+[node name="Objective3" parent="." instance=ExtResource("9_rqvr2")]
+position = Vector2(7028, 2727)
+
+[node name="Objective4" parent="." instance=ExtResource("9_rqvr2")]
+position = Vector2(5096, 769)
+
+[node name="Objective5" parent="." instance=ExtResource("9_rqvr2")]
+position = Vector2(8241, 4236)
 
 [node name="player" parent="." instance=ExtResource("2_334qi")]
 unique_name_in_owner = true
@@ -321,6 +368,7 @@ position = Vector2(838, 4603)
 floor_block_on_wall = false
 
 [node name="Ambient" type="DirectionalLight2D" parent="."]
+visible = false
 blend_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -563,5 +611,7 @@ libraries = {
 }
 autoplay = "flicker"
 
+[connection signal="body_entered" from="DepressionZones/Depression1" to="DepressionZones/Depression1" method="_on_body_entered"]
+[connection signal="body_exited" from="DepressionZones/Depression1" to="DepressionZones/Depression1" method="_on_body_exited"]
 [connection signal="pressed" from="CanvasLayer/UI/Right/CenterContainer/MarginContainer/VBoxContainer/EngineZone/VBoxContainer/Anchor" to="player" method="_on_anchor_pressed"]
 [connection signal="timeout" from="CanvasLayer/Alert Message/Timer" to="CanvasLayer/Alert Message" method="_on_timer_timeout"]

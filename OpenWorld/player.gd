@@ -12,6 +12,10 @@ var interactable = null
 func _ready():
 	Radio.connect("bodyEnteredObjective",bodyEnteredObjective)
 	Radio.connect("bodyExitedObjective",bodyExitedObjective)
+	Radio.connect("bodyEnteredAccelerationZone",_on_accelaration_zone_body_entered)
+	Radio.connect("bodyExitedAccelerationZone",_on_accelaration_zone_body_exited)
+	Radio.connect("bodyEnteredDepressionZone",_on_friction_zone_body_entered)
+	Radio.connect("bodyExitedDepressionZone",_on_friction_zone_body_exited)
 
 func _physics_process(delta):
 	# Movement manager
@@ -61,16 +65,13 @@ func _on_friction_zone_body_entered(body):
 	if body==self : 
 		speed /= 4
 
-
 func _on_friction_zone_body_exited(body):
 	if body==self : 
 		speed *= 4
 
-
 func _on_accelaration_zone_body_entered(body):
 	if body==self : 
 		speed *= 4
-
 
 func _on_accelaration_zone_body_exited(body):
 	if body==self : 
