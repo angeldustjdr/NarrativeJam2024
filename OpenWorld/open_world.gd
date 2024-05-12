@@ -11,13 +11,6 @@ func _ready():
 		w.setText(i+1)
 		%VBoxContainer_Ward.add_child(w)
 
-func _process(_delta):
-	# control panel
-	$player.speed_factor = %VelocitySlider.value / %VelocitySlider.max_value
-	%VelocityLabel.text = "Velocity : " + str(%VelocitySlider.value) + "%"
-	$player.rotation_target = %RotationSlider.value-50
-	%RotationLabel.text = "Rotation : " + str(%RotationSlider.value-50) + "%"
-
 func poserWard():
 	var w = ward.instantiate()
 	w.global_position = $player.global_position

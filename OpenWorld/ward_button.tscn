@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://OpenWorld/ward_button.gd" id="2_oweuu"]
 
 [node name="WardButton" type="Button"]
+focus_mode = 0
 theme_override_font_sizes/font_size = 18
 text = "Ward #1"
 icon = ExtResource("1_vbr5e")
