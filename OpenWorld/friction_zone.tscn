@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://ci1eb4y2upjve"]
+
+[node name="FrictionZone" type="Area2D"]
+linear_damp = 34.921

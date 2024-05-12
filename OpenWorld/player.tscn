@@ -1,19 +1,39 @@
-[gd_scene load_steps=9 format=3 uid="uid://bst1xbumpsfra"]
+[gd_scene load_steps=13 format=3 uid="uid://bst1xbumpsfra"]
 
-[ext_resource type="Texture2D" uid="uid://8gmmwuv683rs" path="res://icon.svg" id="1_8u2h7"]
 [ext_resource type="Script" path="res://OpenWorld/player.gd" id="1_dhf2n"]
+[ext_resource type="Texture2D" uid="uid://dft684dgc0o5j" path="res://OpenWorld/WaterTrailGradient_alpha.png" id="2_q7j1v"]
+[ext_resource type="Shader" path="res://OpenWorld/wave.gdshader" id="2_q8raa"]
 [ext_resource type="Script" path="res://OpenWorld/Trail.gd" id="3_3ebvi"]
 
+[sub_resource type="Gradient" id="Gradient_04xli"]
+offsets = PackedFloat32Array(0, 0.647059)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y4tq7"]
+gradient = SubResource("Gradient_04xli")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_42n32"]
+shader = ExtResource("2_q8raa")
+shader_parameter/color = null
+shader_parameter/num_cells = 20.0
+shader_parameter/speed = 1.0
+shader_parameter/smoothness = 1.0
+shader_parameter/angle = 45.0
+shader_parameter/mask = SubResource("GradientTexture2D_y4tq7")
+
 [sub_resource type="Curve" id="Curve_ylb2w"]
-_data = [Vector2(0, 0.527472), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_bvtq1"]
-offsets = PackedFloat32Array(0, 0.567073)
+offsets = PackedFloat32Array(0, 0.780488)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_p667r"]
-radius = 60.1041
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1rkpf"]
+radius = 18.0
+height = 42.0
 
 [sub_resource type="Gradient" id="Gradient_upi44"]
 offsets = PackedFloat32Array(0, 0.619048)
@@ -28,21 +48,35 @@ fill_from = Vector2(0.5, 0.5)
 motion_mode = 1
 script = ExtResource("1_dhf2n")
 
+[node name="Waves" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_42n32")
+offset_left = -240.0
+offset_top = -240.0
+offset_right = 240.0
+offset_bottom = 240.0
+
 [node name="Trail" type="Line2D" parent="."]
-width = 100.0
+position = Vector2(0, 32)
+width = 64.0
 width_curve = SubResource("Curve_ylb2w")
 gradient = SubResource("Gradient_bvtq1")
+texture = ExtResource("2_q7j1v")
+texture_mode = 1
 script = ExtResource("3_3ebvi")
 
-[node name="Icon" type="Sprite2D" parent="."]
-texture = ExtResource("1_8u2h7")
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 0.223529, 0, 1)
+polygon = PackedVector2Array(0, -32, 32, 32, -32, 32)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -0.5)
-shape = SubResource("CircleShape2D_p667r")
+position = Vector2(0, 11)
+shape = SubResource("CapsuleShape2D_1rkpf")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1, 3)
 scale = Vector2(20.9219, 15)
+energy = 2.0
 texture = SubResource("GradientTexture2D_v8oie")

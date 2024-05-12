@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 400
+var speed = 200
 var friction = 0.01
 var acceleration = 0.02
 var rotation_speed = 1.0
