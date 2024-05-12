@@ -1,5 +1,7 @@
 extends ReferenceRect
 
+var _saturation_factor = 0.8 # at _saturation_factor similarity there is no white_noise left
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self._init_sliders()
@@ -30,7 +32,9 @@ func _update_amplification():
 	var idx_bus_wn = AudioServer.get_bus_index("oscillo_white_noise")
 	var idx_bus_c = AudioServer.get_bus_index("oscillo_crowd")
 	var similarity_factor = $ProgressBar.value / 100.0
-	AudioServer.get_bus_effect(idx_bus_wn,0).volume_db = self._get_db_from_lin(1.0-similarity_factor)
+	# correction for similarity
+	var white_noise_volume = max(self._saturation_factor - similarity_factor,0.0) * (1.0/self._saturation_factor)
+	AudioServer.get_bus_effect(idx_bus_wn,0).volume_db = self._get_db_from_lin(white_noise_volume)
 	AudioServer.get_bus_effect(idx_bus_c,0).volume_db = self._get_db_from_lin(similarity_factor)
 
 func _init_audio():
