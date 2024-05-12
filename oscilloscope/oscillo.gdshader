@@ -1,10 +1,10 @@
 shader_type canvas_item;
 
-uniform float freq : hint_range(1.0, 100.0, 1.0) = 25.0;
-uniform float ampl : hint_range(0.0, 2.0, 0.05) = 0.5;
-uniform float phase : hint_range(0.0, 25.0, 1.0) = 5.0;
-uniform float mean : hint_range(-2.0, 2.0, 0.1) = 0.0;
-uniform float vel : hint_range(0.0, 25.0, 0.5) = 5.0;
+uniform float freq : hint_range(1.0, 20.0, 0.1) = 10.0;
+uniform float ampl : hint_range(0.0, 2.0, 0.01) = 1.0;
+uniform float phase : hint_range(0.0, 5.0, 0.05) = 5.0;
+uniform float mean : hint_range(-2.0, 2.0, 0.01) = 0.0;
+uniform float vel : hint_range(0.0, 25.0, 0.1) = 5.0;
 uniform float tightness : hint_range(0.0, 30.0, 0.1) = 20.0;
 //uniform bool quality_signal = false;
 uniform vec4 modulate : source_color = vec4(0.0, 1.0, 0.0, 1.0);

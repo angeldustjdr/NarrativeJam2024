@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcso2iywa5mbr"]
+[gd_scene load_steps=4 format=3 uid="uid://bcso2iywa5mbr"]
 
 [ext_resource type="Script" path="res://oscilloscope/oscilloscope_scene.gd" id="1_7v8s3"]
 [ext_resource type="PackedScene" uid="uid://xwjc4o5q6885" path="res://oscilloscope/oscillo_screen.tscn" id="1_ulers"]
+[ext_resource type="PackedScene" uid="uid://cysuqq7mfjitr" path="res://audio_manager/smooth_loop.tscn" id="3_n1h8k"]
 
 [node name="oscilloscope_scene" type="ReferenceRect"]
 offset_right = 480.0
@@ -132,3 +133,9 @@ offset_right = 24.0
 offset_bottom = -9.0
 text = "ω"
 horizontal_alignment = 1
+
+[node name="crowd_loop" parent="." instance=ExtResource("3_n1h8k")]
+volume_max = -10.0
+
+[node name="white_noise_loop" parent="." instance=ExtResource("3_n1h8k")]
+volume_max = -20.0
