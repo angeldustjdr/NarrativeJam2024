@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8172s8ej6cxs"]
+
+[ext_resource type="PackedScene" uid="uid://1yyj200c6esy" path="res://visual_novel/ilot_generic.tscn" id="1_puyjx"]
+[ext_resource type="Script" path="res://visual_novel/ilot_1.gd" id="2_80w8w"]
+
+[node name="VisualNovelGeneric" instance=ExtResource("1_puyjx")]
+script = ExtResource("2_80w8w")
