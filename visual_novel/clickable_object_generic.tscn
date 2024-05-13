@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://ealq7p4fp0k2"]
+
+[ext_resource type="Script" path="res://visual_novel/clickable_object_generic.gd" id="1_ot40a"]
+
+[node name="clickable_object_generic" type="Node2D"]
+script = ExtResource("1_ot40a")
+
+[node name="area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="mouse_entered" from="area" to="." method="_on_area_mouse_entered"]
+[connection signal="mouse_exited" from="area" to="." method="_on_area_mouse_exited"]

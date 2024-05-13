@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://by4oqsx5q8i15"]
-
-[ext_resource type="Script" path="res://Hub/talk_to.gd" id="1_owh85"]
-
-[node name="TalkTo" type="Button"]
-text = "toto"
-script = ExtResource("1_owh85")
-
-[connection signal="pressed" from="." to="." method="_on_pressed"]

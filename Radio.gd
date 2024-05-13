@@ -14,4 +14,4 @@ signal bodyExitedAccelerationZone
 signal bodyEnteredDepressionZone
 signal bodyExitedDepressionZone
 
-signal talkTo
+signal clickObject

@@ -1,12 +1,13 @@
 extends Node2D
 
 func _ready():
-	Radio.connect("talkTo",talkTo)
+	Radio.connect("clickObject",clickObject)
 
-func talkTo(_who):
-	if Dialogic.current_timeline == null:
-		Dialogic.start('Test_timeline') # A modifier
-
+func clickObject(which):
+	$CanvasLayer.visible = true
+	match which:
+		"Organigram" : %ArmadaOrga.visible = true
+		_ : pass
 
 func _on_armada_pressed():
 	if Dialogic.current_timeline == null: 
@@ -28,3 +29,6 @@ func clear(exclude):
 		if elem != exclude : elem.visible = false
 
 
+func _on_close_button_pressed():
+	for elem in $CanvasLayer.get_children() : elem.visible = false
+	$CanvasLayer.visible = false
