@@ -2,7 +2,7 @@ extends Node2D
 
 var dialogic_time_line = "Test_timeline"
 
-var is_clickable
+@export var is_clickable : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
