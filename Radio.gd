@@ -13,3 +13,5 @@ signal bodyEnteredAccelerationZone
 signal bodyExitedAccelerationZone
 signal bodyEnteredDepressionZone
 signal bodyExitedDepressionZone
+
+signal talkTo
