@@ -29,7 +29,7 @@ shader_parameter/modulate = Color(0, 1, 0, 1)
 [node name="OscilloScreen" type="ColorRect"]
 offset_right = 392.0
 offset_bottom = 264.0
-color = Color(0, 0, 0, 1)
+color = Color(0.0885599, 0.0885599, 0.0885599, 1)
 script = ExtResource("1_yuav7")
 
 [node name="target_signal_shader" parent="." instance=ExtResource("1_pi6mu")]

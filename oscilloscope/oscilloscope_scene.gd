@@ -12,14 +12,25 @@ var property_activated = {"ampl":1,
 
 var _saturation_factor = 0.8 # at _saturation_factor similarity there is no white_noise left
 
+var _victory_ceil = 90.0 # ceil at which the victory in earned in %
+
+signal victory
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$emit_button.pressed.connect(self._on_emit_button_pressed)
 	self._deactivation_of_sliders()
 	$OscilloScreen.set_target_signal_properties(self.target_signal_properties)
 	$OscilloScreen.set_property_activated(self.property_activated)
 	self._init_sliders()
 	self._update_similarity()
 	self._init_audio()
+
+func _on_emit_button_pressed():
+	if $ProgressBar.value > self._victory_ceil:
+		victory.emit(self)
+	else:
+		print("NOT THIS TIME SUCKA")
 
 func _deactivation_of_sliders():
 	for property_name in $OscilloScreen.properties:

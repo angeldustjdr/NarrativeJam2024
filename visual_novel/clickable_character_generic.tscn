@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfejgrwswugdy"]
+
+[ext_resource type="Script" path="res://visual_novel/clickable_character_generic.gd" id="1_aktk7"]
+[ext_resource type="Texture2D" uid="uid://8gmmwuv683rs" path="res://icon.svg" id="1_t5vlo"]
+
+[node name="clickable_character_generic" type="Node2D"]
+script = ExtResource("1_aktk7")
+
+[node name="area" type="Area2D" parent="."]
+
+[node name="sprite" type="Sprite2D" parent="area"]
+position = Vector2(64, 64)
+texture = ExtResource("1_t5vlo")
+
+[node name="collision_shape" type="CollisionPolygon2D" parent="area"]
+polygon = PackedVector2Array(8, 0, 120, 0, 128, 8, 128, 120, 120, 128, 8, 128, 0, 120, 0, 8)
