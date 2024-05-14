@@ -5,3 +5,5 @@
 [resource]
 default_font = ExtResource("1_o5nsy")
 default_font_size = 24
+CheckBox/colors/font_disabled_color = Color(1, 1, 1, 1)
+CheckBox/font_sizes/font_size = 24

@@ -52,3 +52,6 @@ func get_current_window_ratio():
 	return min(float(v_port_size[0])/ProjectSettings.get_setting("display/window/size/viewport_width"),
 			   float(v_port_size[1])/ProjectSettings.get_setting("display/window/size/viewport_height"))
 	
+
+########### ACHIEVEMENTS
+@onready var nbCoffee = 0

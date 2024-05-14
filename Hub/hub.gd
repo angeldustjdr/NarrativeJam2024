@@ -1,42 +1,49 @@
 extends Node2D
 
+@onready var unlock = preload("res://achivement_unlocked.tscn")
+
 func _ready():
 	GameState.check_mission_status()
 	Radio.connect("clickObject",clickObject)
+	Achievements.connect("unlock",showUnlock)
 
 func clickObject(which):
-	$CanvasLayer.visible = true
 	match which:
 		"Organigram" : 
 			%ArmadaOrga.visible = true
-			for clickable in $clickables.get_children():
-				clickable.set_process(false)
+			setClickableProcess()
 		"Door" :
 			$scene_transition.transition_to_packed_scene(GameState.openworld_packed_scene)
+		"Employee" : 
+			%EmployeeMonth.visible = true
+			setClickableProcess()
+		"Coffee":
+			GameState.nbCoffee += 1
+			Achievements.checkCoffee(GameState.nbCoffee)
+		"Achivement" :
+			%AchivementsPanel.updatePanel()
+			%AchivementsPanel.visible = true
+			setClickableProcess()
 		_ : 
 			push_warning("clickable not recognized")
-
-func _on_armada_pressed():
-	if Dialogic.current_timeline == null: 
-		clear(%ArmadaOrga)
-		%ArmadaOrga.visible = !%ArmadaOrga.visible
-
-func _on_career_pressed():
-	if Dialogic.current_timeline == null: 
-		clear(%CareerInfo)
-		%CareerInfo.visible = !%CareerInfo.visible
-
-func _on_ach_pressed():
-	if Dialogic.current_timeline == null: 
-		clear(%Achievements)
-		%Achievements.visible = !%Achievements.visible
 
 func clear(exclude):
 	for elem in $CanvasLayer/Control.get_children() : 
 		if elem != exclude : elem.visible = false
 
-func _on_close_button_pressed():
-	for elem in $CanvasLayer.get_children() : 
-		elem.visible = false
-	for clickable in $clickables.get_children():
-		clickable.set_process(true)
+func _on_panel_gui_input(event):
+	if event is InputEventMouseButton:
+			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+				for elem in $CanvasLayer.get_children() : 
+					elem.visible = false
+				for clickable in $clickables.get_children():
+					clickable.set_process(true)
+
+func setClickableProcess():
+	for clickable in $clickables.get_children(): clickable.set_process(false)
+
+func showUnlock(message):
+	var u = unlock.instantiate()
+	u.text = "Achivement unlocked : " + message
+	u.position = Vector2(64,1020-u.size.y)
+	add_child(u)

@@ -15,3 +15,6 @@ signal bodyEnteredDepressionZone
 signal bodyExitedDepressionZone
 
 signal clickObject
+
+########### ACHIEVEMENTS
+signal coffeeMade

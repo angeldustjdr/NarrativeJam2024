@@ -21,6 +21,7 @@ MusicManager="*res://audio_manager/MusicManager.gd"
 SoundManager="*res://audio_manager/SoundManager.gd"
 GameState="*res://GameState.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Achievements="*res://Achievements.gd"
 
 [dialogic]
 
