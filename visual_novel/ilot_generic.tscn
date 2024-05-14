@@ -38,3 +38,6 @@ texture_scale = 4.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="visual_novel_scene" index="5"]
 color = Color(0, 0, 0, 1)
+
+[node name="scene_transition" parent="CanvasLayer" index="0"]
+z_index = 1

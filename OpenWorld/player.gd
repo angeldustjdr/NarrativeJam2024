@@ -10,6 +10,10 @@ var objective = null
 var interactable = null
 
 func _ready():
+	pass
+
+func player_connect():
+	self.global_position = GameState.player_position
 	Radio.connect("bodyEnteredObjective",bodyEnteredObjective)
 	Radio.connect("bodyExitedObjective",bodyExitedObjective)
 	Radio.connect("bodyEnteredAccelerationZone",_on_accelaration_zone_body_entered)
@@ -80,10 +84,16 @@ func _on_accelaration_zone_body_exited(body):
 
 func bodyEnteredObjective(interactableObjective,whoEntered):
 	if whoEntered == self:
+		#print("WESH : ", whoEntered, "entered ", interactableObjective)
+		#print("player : ", whoEntered.position, " global ", whoEntered.global_position)
+		#print("cshape : ", whoEntered.get_node("CollisionShape2D").position, " global ", whoEntered.get_node("CollisionShape2D").global_position)
 		interactable = interactableObjective
 		$Message.visible = true
 
-func bodyExitedObjective(_interactableObjective,whoEntered):
+func bodyExitedObjective(interactableObjective,whoEntered):
+	#print("WESH : ", whoEntered, " exited ", interactableObjective)
+	#print("player : ", whoEntered.position, " global ", whoEntered.global_position)
+	#print("cshape : ", whoEntered.get_node("CollisionShape2D").position, " global ", whoEntered.get_node("CollisionShape2D").global_position)
 	if whoEntered == self:
 		interactable = null
 		$Message.visible = false

@@ -15,14 +15,6 @@ var ilot_scenes_path = ["res://visual_novel/ilot_1.tscn",
 @onready var iObjective = GameState.get_current_objective_idx()
 
 func _ready():
-	# Updating GAMESTATE#################################
-	if GameState.player_position == Vector2(0.0,0.0):
-		print("GameState.player_position updated")
-		GameState.player_position = $player.global_position
-	else:
-		print("GameState.player_position used to position player")
-		$player.global_position = GameState.player_position
-	#####################################################
 	# Updating objective scene ##########################
 	for i in range(0,len(self.objectiveArray)):
 		objectiveArray[i].set_next_scene(ilot_scenes_path[i])
@@ -30,12 +22,13 @@ func _ready():
 	#####################################################
 	Radio.connect("poserWard",poserWard)
 	Radio.connect("setObjective",setObjective)
-	
+	#####################################################
 	for i in range(nb_available_wards) : 
 		var w = wardbutton.instantiate()
 		w.setText(i+1)
 		%VBoxContainer_Ward.add_child(w)
 	setObjective()
+	$player.player_connect()
 
 func _scene_change(scene_name):
 	$scene_transition.transition_to_file_scene(scene_name)

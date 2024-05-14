@@ -368,11 +368,10 @@ position = Vector2(872, 4776)
 
 [node name="player" parent="." instance=ExtResource("2_334qi")]
 unique_name_in_owner = true
-position = Vector2(838, 4603)
+position = Vector2(-3248, 8448)
 floor_block_on_wall = false
 
 [node name="Ambient" type="DirectionalLight2D" parent="."]
-visible = false
 blend_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -616,6 +615,7 @@ libraries = {
 autoplay = "flicker"
 
 [node name="scene_transition" parent="." instance=ExtResource("23_v371n")]
+z_index = 1
 offset_left = -3032.0
 offset_top = -2008.0
 offset_right = 13496.0

@@ -1,7 +1,5 @@
 extends Node2D
 
-@onready var open_world_packed_scene = preload("res://OpenWorld/open_world.tscn")
-
 func _ready():
 	GameState.check_mission_status()
 	Radio.connect("clickObject",clickObject)
@@ -14,7 +12,7 @@ func clickObject(which):
 			for clickable in $clickables.get_children():
 				clickable.set_process(false)
 		"Door" :
-			$scene_transition.transition_to_packed_scene(open_world_packed_scene)
+			$scene_transition.transition_to_packed_scene(GameState.openworld_packed_scene)
 		_ : 
 			push_warning("clickable not recognized")
 

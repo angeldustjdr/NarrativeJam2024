@@ -4,13 +4,16 @@ class_name IlotGeneric
 @export var ilot_color : Color
 @export var difficulty : int
 
-@onready var _openworld_scene = preload("res://OpenWorld/open_world.tscn")
-@onready var _oscillo_scene = preload("res://oscilloscope/oscilloscope_scene.tscn")
+var _current_time_line : String
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# SCENE TRANSITION
 	$CanvasLayer/scene_transition.visible = true
 	$visual_novel_scene/get_out_button.pressed.connect(self._on_button_pressed)
+	# DIALOG ASPECTS
+	self._update_time_line()
+	# VISUAL_NOVEL
 	Radio.connect("clickObject",clickObject)
 	if not(GameState.ilot_states[self.name]["revealed"]):
 		$visual_novel_scene/CanvasModulate.visible = true
@@ -20,11 +23,20 @@ func _ready():
 		$visual_novel_scene/get_out_button.disabled = true
 	else:
 		$visual_novel_scene/CanvasModulate.visible = false
-		$visual_novel_scene/visual_novel_ward.visible = false
+		$visual_novel_scene/oscillo_light.visible = false
 		$visual_novel_scene/clickable_character.is_clickable = true
 		$visual_novel_scene/get_out_button.disabled = false
 		$visual_novel_scene/clickable_oscilloscope.is_clickable = false
 	$visual_novel_scene/oscillo_light.position = $visual_novel_scene/clickable_oscilloscope.position
+
+func _update_time_line():
+	self._set_current_time_line()
+
+func _get_ilot_number():
+	return int(self.name.split("_")[-1]) - 1
+
+func _set_current_time_line():
+	$visual_novel_scene/clickable_character.dialogic_time_line = self._current_time_line
 
 func _input(event):
 	if event is InputEventKey:
@@ -40,12 +52,12 @@ func clickObject(which):
 
 func _on_button_pressed():
 	if GameState.ilot_states[self.name]["revealed"]:
-		$CanvasLayer/scene_transition.transition_to_packed_scene(self._openworld_scene)
+		$CanvasLayer/scene_transition.transition_to_packed_scene(GameState.openworld_packed_scene)
 
 func _on_oscillo_clicked():
 	for node in self.get_children():
 		node.set_process(false)
-	var oscillo_scene = self._oscillo_scene.instantiate()
+	var oscillo_scene = GameState.oscillo_packed_scene.instantiate()
 	oscillo_scene.set_signal_color(self.ilot_color)
 	oscillo_scene.set_difficulty(self.difficulty)
 	var v_port_size = get_viewport().size

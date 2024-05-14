@@ -25,10 +25,13 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"Test_character": "res://Dialogue/Test_character.dch"
+"Test_character": "res://Dialogue/Test_character.dch",
+"galerien": "res://Dialogue/characters/galerien.dch"
 }
 directories/dtl_directory={
-"Test_timeline": "res://Dialogue/Test_timeline.dtl"
+"Test_timeline": "res://Dialogue/Test_timeline.dtl",
+"tl_galerien_influenced": "res://Dialogue/timelines/tl_galerien_influenced.dtl",
+"tl_galerien_normal": "res://Dialogue/timelines/tl_galerien_normal.dtl"
 }
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
@@ -49,6 +52,7 @@ text/autopauses={}
 glossary/default_case_sensitive=true
 layout/style_list=[]
 layout/default_style="Default"
+variables={}
 
 [display]
 

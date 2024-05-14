@@ -2,13 +2,16 @@ extends Node
 
 enum {HUB = -1}
 
+@onready var openworld_packed_scene = preload("res://OpenWorld/open_world.tscn")
+@onready var oscillo_packed_scene = preload("res://oscilloscope/oscilloscope_scene.tscn")
+
 @onready var ilot_states = {"ilot_1":{"revealed":false},
 							"ilot_2":{"revealed":false},
 							"ilot_test":{"revealed":false}}
 @onready var mission_states = {"mission_1":{"started":false,"finished":false},
 							   "mission_2":{"started":false,"finished":false}}
 							
-@onready var player_position = Vector2(0.0,0.0)
+@onready var player_position = Vector2(838,4603) # initial coordinates of player
 
 @onready var current_mission = null
 
