@@ -1,5 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8172s8ej6cxs"]
+[gd_scene load_steps=4 format=3 uid="uid://b8172s8ej6cxs"]
 
 [ext_resource type="PackedScene" uid="uid://1yyj200c6esy" path="res://visual_novel/ilot_generic.tscn" id="1_puyjx"]
+[ext_resource type="Texture2D" uid="uid://dd4nu8730bocw" path="res://assets/graphics/backgrounds/ilot_sketch.jpeg" id="2_csdcq"]
+[ext_resource type="Texture2D" uid="uid://dkmgnicleqvia" path="res://assets/graphics/items/placehold_oscillo.png" id="3_7wnnk"]
 
 [node name="ilot_1" instance=ExtResource("1_puyjx")]
+light_mask = 3
+z_as_relative = false
+ilot_color = Color(1, 0, 0, 1)
+
+[node name="Background" parent="visual_novel_scene" index="0"]
+texture = ExtResource("2_csdcq")
+
+[node name="Sprite2D" type="Sprite2D" parent="visual_novel_scene/clickable_oscilloscope" index="1"]
+position = Vector2(432, 768)
+scale = Vector2(0.605556, 0.605556)
+texture = ExtResource("3_7wnnk")
+
+[node name="clickable_character" parent="visual_novel_scene" index="2"]
+position = Vector2(1672, 592)
+
+[node name="get_out_button" parent="visual_novel_scene" index="3"]
+offset_left = 1432.0
+offset_top = 920.0
+offset_right = 1546.0
+offset_bottom = 954.0
+scale = Vector2(4, 4)
+text = "LEAVE"
+
+[node name="oscillo_light" parent="visual_novel_scene" index="4"]
+texture_scale = 6.0
+
+[node name="scene_transition" parent="CanvasLayer" index="0"]
+visible = false

@@ -46,12 +46,16 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
+glossary/default_case_sensitive=true
+layout/style_list=[]
+layout/default_style="Default"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=2
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 

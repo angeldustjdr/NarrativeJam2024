@@ -5,16 +5,20 @@
 [ext_resource type="PackedScene" uid="uid://cysuqq7mfjitr" path="res://audio_manager/smooth_loop.tscn" id="3_n1h8k"]
 
 [node name="oscilloscope_scene" type="ReferenceRect"]
-offset_right = 480.0
-offset_bottom = 270.0
-scale = Vector2(2, 2)
+texture_filter = 1
+offset_right = 400.0
+offset_bottom = 230.0
+scale = Vector2(4, 4)
 script = ExtResource("1_7v8s3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 480.0
-offset_bottom = 272.0
-color = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 1)
 
 [node name="emit_button" type="Button" parent="."]
 layout_mode = 1

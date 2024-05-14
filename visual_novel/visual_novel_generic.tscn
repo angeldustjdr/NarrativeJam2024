@@ -8,14 +8,18 @@
 [node name="VisualNovelGeneric" type="Node2D"]
 script = ExtResource("1_v17rm")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="visual_novel_scene" type="Node2D" parent="."]
+
+[node name="Background" type="TextureRect" parent="visual_novel_scene"]
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("2_ge8sn")
 
-[node name="clickable_character" parent="." instance=ExtResource("3_g33hg")]
+[node name="clickable_character" parent="visual_novel_scene" instance=ExtResource("3_g33hg")]
 position = Vector2(896, 336)
 
-[node name="scene_transition" parent="." instance=ExtResource("4_kwstp")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="scene_transition" parent="CanvasLayer" instance=ExtResource("4_kwstp")]
 offset_right = 1920.0
 offset_bottom = 1080.0

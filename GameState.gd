@@ -43,3 +43,9 @@ func get_current_objective_idx():
 		return HUB # then we need to return to the HUB
 	else:
 		return i # else we need to go to ilot i
+
+func get_current_window_ratio():
+	var v_port_size = get_viewport().size
+	return min(float(v_port_size[0])/ProjectSettings.get_setting("display/window/size/viewport_width"),
+			   float(v_port_size[1])/ProjectSettings.get_setting("display/window/size/viewport_height"))
+	

@@ -37,8 +37,15 @@ func _get_number_of_activated_property():
 		c += self.property_activated[p_name]
 	return c
 
-func _init_target_signal():
+func set_target_signal_color(s_color : Color):
+	self.target_signal_color = s_color
+	self._update_target_signal_color()
+	
+func _update_target_signal_color():
 	$target_signal_shader.set_color(self.target_signal_color)
+
+func _init_target_signal():
+	self._update_target_signal_color()
 	for property_name in self.properties:
 		var property_range = properties_ranges[property_name]
 		var property_value = target_signal_properties[property_name]

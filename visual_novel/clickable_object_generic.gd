@@ -38,7 +38,8 @@ func _on_input(_node,event,_idx):
 					Radio.emit_signal("clickObject",which)
 
 func _on_area_mouse_entered():
-	self.get_node(self._sprite_2d_name).modulate = imageModulate
+	if self.is_clickable:
+		self.get_node(self._sprite_2d_name).modulate = imageModulate
 
 
 func _on_area_mouse_exited():

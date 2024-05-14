@@ -16,6 +16,8 @@ var _victory_ceil = 90.0 # ceil at which the victory in earned in %
 
 signal victory
 
+var signal_color : Color = Color.BLUE
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$emit_button.pressed.connect(self._on_emit_button_pressed)
@@ -25,6 +27,21 @@ func _ready():
 	self._init_sliders()
 	self._update_similarity()
 	self._init_audio()
+
+func set_difficulty(difficulty : int):
+	match difficulty:
+		0:
+			self.property_activated = {"ampl":1,"mean":1,"period":0,"phase":0}
+		1:
+			self.property_activated = {"ampl":1,"mean":1,"period":1,"phase":0}
+		2:
+			self.property_activated = {"ampl":1,"mean":1,"period":1,"phase":1}
+		_:
+			push_error("Unknown difficulty")
+
+func set_signal_color(s_color : Color):
+	self.signal_color = s_color
+	$OscilloScreen.set_target_signal_color(s_color)
 
 func _on_emit_button_pressed():
 	if $ProgressBar.value > self._victory_ceil:

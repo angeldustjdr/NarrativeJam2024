@@ -1,21 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://1yyj200c6esy"]
+[gd_scene load_steps=6 format=3 uid="uid://1yyj200c6esy"]
 
 [ext_resource type="PackedScene" uid="uid://b47cy6nmnfgyq" path="res://visual_novel/visual_novel_generic.tscn" id="1_lw4cy"]
 [ext_resource type="Script" path="res://visual_novel/ilot_generic.gd" id="2_kqrqd"]
-[ext_resource type="PackedScene" uid="uid://cwfrxjrbsakx1" path="res://visual_novel/clickable_oscilloscope.tscn" id="3_stm6j"]
+[ext_resource type="PackedScene" uid="uid://ealq7p4fp0k2" path="res://visual_novel/clickable_object_generic.tscn" id="3_50bvs"]
+
+[sub_resource type="Gradient" id="Gradient_34ik3"]
+offsets = PackedFloat32Array(0, 0.610526)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2skqj"]
+gradient = SubResource("Gradient_34ik3")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
 
 [node name="VisualNovelGeneric" instance=ExtResource("1_lw4cy")]
 script = ExtResource("2_kqrqd")
+ilot_color = Color(0, 0, 0, 1)
+difficulty = 0
 
-[node name="clickable_character" parent="." index="1"]
-position = Vector2(1248, 472)
+[node name="clickable_oscilloscope" parent="visual_novel_scene" index="1" instance=ExtResource("3_50bvs")]
+is_clickable = true
+imageModulate = Color(1, 0, 0, 1)
+which = "oscilloscope"
 
-[node name="clickable_oscilloscope" parent="." index="2" instance=ExtResource("3_stm6j")]
-position = Vector2(544, 480)
-
-[node name="get_out_button" type="Button" parent="." index="3"]
+[node name="get_out_button" type="Button" parent="visual_novel_scene" index="3"]
 offset_left = 712.0
 offset_top = 648.0
 offset_right = 1232.0
 offset_bottom = 768.0
 text = "ON S'CASSE!"
+
+[node name="oscillo_light" type="PointLight2D" parent="visual_novel_scene" index="4"]
+texture = SubResource("GradientTexture2D_2skqj")
+texture_scale = 4.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="visual_novel_scene" index="5"]
+color = Color(0, 0, 0, 1)
