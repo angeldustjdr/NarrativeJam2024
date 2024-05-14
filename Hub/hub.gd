@@ -1,13 +1,22 @@
 extends Node2D
 
+@onready var open_world_packed_scene = preload("res://OpenWorld/open_world.tscn")
+
 func _ready():
+	GameState.check_mission_status()
 	Radio.connect("clickObject",clickObject)
 
 func clickObject(which):
 	$CanvasLayer.visible = true
 	match which:
-		"Organigram" : %ArmadaOrga.visible = true
-		_ : pass
+		"Organigram" : 
+			%ArmadaOrga.visible = true
+			for clickable in $clickables.get_children():
+				clickable.set_process(false)
+		"Door" :
+			$scene_transition.transition_to_packed_scene(open_world_packed_scene)
+		_ : 
+			push_warning("clickable not recognized")
 
 func _on_armada_pressed():
 	if Dialogic.current_timeline == null: 
@@ -28,7 +37,8 @@ func clear(exclude):
 	for elem in $CanvasLayer/Control.get_children() : 
 		if elem != exclude : elem.visible = false
 
-
 func _on_close_button_pressed():
-	for elem in $CanvasLayer.get_children() : elem.visible = false
-	$CanvasLayer.visible = false
+	for elem in $CanvasLayer.get_children() : 
+		elem.visible = false
+	for clickable in $clickables.get_children():
+		clickable.set_process(true)

@@ -12,3 +12,10 @@ position = Vector2(1248, 472)
 
 [node name="clickable_oscilloscope" parent="." index="2" instance=ExtResource("3_stm6j")]
 position = Vector2(544, 480)
+
+[node name="get_out_button" type="Button" parent="." index="3"]
+offset_left = 712.0
+offset_top = 648.0
+offset_right = 1232.0
+offset_bottom = 768.0
+text = "ON S'CASSE!"
