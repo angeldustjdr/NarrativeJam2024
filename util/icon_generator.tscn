@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgtpctmxdxc2r"]
+
+[ext_resource type="Script" path="res://util/icon_generator.gd" id="1_lasvl"]
+
+[node name="IconGenerator" type="SubViewportContainer"]
+script = ExtResource("1_lasvl")
+
+[node name="IconGeneratorVP" type="SubViewport" parent="."]
+handle_input_locally = false
+render_target_update_mode = 4

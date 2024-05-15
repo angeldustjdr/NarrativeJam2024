@@ -28,7 +28,6 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 directories/dch_directory={
 "Test_character": "res://Dialogue/Test_character.dch",
 "galerien": "res://Dialogue/characters/galerien.dch",
-"game": "res://Dialogue/characters/game.dch",
 "gamer": "res://Dialogue/characters/gamer.dch",
 "hacktivist": "res://Dialogue/characters/hacktivist.dch",
 "jcd": "res://Dialogue/characters/jcd.dch",

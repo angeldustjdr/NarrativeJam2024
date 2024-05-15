@@ -1,19 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwfrxjrbsakx1"]
+[gd_scene load_steps=5 format=3 uid="uid://cwfrxjrbsakx1"]
 
 [ext_resource type="Script" path="res://visual_novel/clickable_oscilloscope.gd" id="1_d3p4n"]
-[ext_resource type="Texture2D" uid="uid://dkmgnicleqvia" path="res://assets/graphics/items/placehold_oscillo.png" id="2_wnr2j"]
+[ext_resource type="PackedScene" uid="uid://bcso2iywa5mbr" path="res://oscilloscope/oscilloscope_scene.tscn" id="2_408of"]
+[ext_resource type="Script" path="res://oscilloscope/oscilloscope_scene_clickable.gd" id="3_5y8k5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpwle"]
+size = Vector2(400, 232)
 
 [node name="clickable_oscilloscope" type="Node2D"]
 script = ExtResource("1_d3p4n")
 
+[node name="oscilloscope_scene" parent="." instance=ExtResource("2_408of")]
+anchors_preset = 0
+offset_left = -200.0
+offset_top = -120.0
+offset_right = 200.0
+offset_bottom = 110.0
+scale = Vector2(1, 1)
+script = ExtResource("3_5y8k5")
+
 [node name="area" type="Area2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="area"]
-position = Vector2(2, -6)
-scale = Vector2(0.604167, 0.604167)
-polygon = PackedVector2Array(8, 40, 8, 104, 16, 104, 16, 112, 32, 112, 32, 104, 96, 104, 96, 112, 112, 112, 112, 104, 120, 104, 120, 32, 112, 32, 112, 24, 80, 24, 80, 16, 24, 16, 16, 32, 8, 32)
-
-[node name="sprite" type="Sprite2D" parent="area"]
-position = Vector2(40.875, 32.875)
-scale = Vector2(0.173889, 0.173889)
-texture = ExtResource("2_wnr2j")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_jpwle")

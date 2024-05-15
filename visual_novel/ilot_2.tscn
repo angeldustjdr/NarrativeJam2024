@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cohvmhjds856j"]
+[gd_scene load_steps=5 format=3 uid="uid://cohvmhjds856j"]
 
 [ext_resource type="PackedScene" uid="uid://1yyj200c6esy" path="res://visual_novel/ilot_generic.tscn" id="1_yjlni"]
 [ext_resource type="Script" path="res://visual_novel/ilot_2.gd" id="2_yxq2s"]
 [ext_resource type="Texture2D" uid="uid://diwnfxnl2m11f" path="res://assets/graphics/backgrounds/ilot_jcd.jpg" id="3_mynfc"]
+[ext_resource type="Texture2D" uid="uid://b0vg5l83hfntc" path="res://assets/graphics/items/oscillo_icon_2.png" id="4_004n3"]
 
 [node name="ilot_2" instance=ExtResource("1_yjlni")]
 script = ExtResource("2_yxq2s")
@@ -19,7 +20,8 @@ target_signal_prop = {
 texture = ExtResource("3_mynfc")
 
 [node name="Sprite2D" parent="visual_novel_scene/clickable_oscilloscope" index="1"]
-position = Vector2(1032, 816)
+position = Vector2(1088, 840)
+texture = ExtResource("4_004n3")
 
 [node name="clickable_character" parent="visual_novel_scene" index="3"]
 position = Vector2(488, 536)
