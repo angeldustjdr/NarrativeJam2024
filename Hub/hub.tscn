@@ -362,8 +362,7 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="scene_transition" parent="." instance=ExtResource("10_l8gwk")]
-visible = false
-z_index = 1
+z_index = 2
 offset_right = 1920.0
 offset_bottom = 1080.0
 

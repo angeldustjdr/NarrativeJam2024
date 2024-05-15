@@ -90,7 +90,7 @@ func bodyEnteredObjective(interactableObjective,whoEntered):
 		interactable = interactableObjective
 		$Message.visible = true
 
-func bodyExitedObjective(interactableObjective,whoEntered):
+func bodyExitedObjective(_interactableObjective,whoEntered):
 	#print("WESH : ", whoEntered, " exited ", interactableObjective)
 	#print("player : ", whoEntered.position, " global ", whoEntered.global_position)
 	#print("cshape : ", whoEntered.get_node("CollisionShape2D").position, " global ", whoEntered.get_node("CollisionShape2D").global_position)

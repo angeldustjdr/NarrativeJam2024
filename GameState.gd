@@ -42,6 +42,7 @@ func check_mission_status():
 	var ilot = self.ilot_states.keys()[mission_idx]
 	if self.ilot_states[ilot]["revealed"]:
 		self.mission_states[mission]["finished"] = true
+	self.check_intemperie()
 
 func get_current_mission():
 	var mission_keys = self.mission_states.keys()
@@ -59,3 +60,12 @@ func get_current_window_ratio():
 	var v_port_size = get_viewport().size
 	return min(float(v_port_size[0])/ProjectSettings.get_setting("display/window/size/viewport_width"),
 			   float(v_port_size[1])/ProjectSettings.get_setting("display/window/size/viewport_height"))
+			
+func check_intemperie():
+	# Si la mission_3 est en cours
+	if self.mission_states["mission_3"]["started"] and not self.mission_states["mission_3"]["finished"]:
+		MusicManager.set_intemperie(MusicManager.WEAK)
+	elif self.mission_states["mission_5"]["started"] and not self.mission_states["mission_5"]["finished"]:
+		MusicManager.set_intemperie(MusicManager.STRONG)
+	else:
+		MusicManager.set_intemperie(MusicManager.NONE)

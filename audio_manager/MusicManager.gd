@@ -1,8 +1,13 @@
 extends Node
 
-var musics_names = {"placehold":"res://assets/musics/1-05. Negative Mass.mp3"}
-var musics_base_volumes = {"placehold":0.0}
-var musics_loops = {"placehold":true}
+enum {NONE, WEAK, STRONG}
+
+var musics_names = {"placehold":"res://assets/musics/1-05. Negative Mass.mp3",
+					"navigation":"res://assets/musics/Music - Explo.wav"}
+var musics_base_volumes = {"placehold":0.0,
+						   "navigation":0.0}
+var musics_loops = {"placehold":true,
+					"navigation":true}
 var _streams = {}
 var _current_music_name = null
 var _bus_name = "music"
@@ -18,6 +23,17 @@ func _ready():
 	for music_name in musics_names:
 		self._streams[music_name] = load(musics_names[music_name])
 
+func set_intemperie(intemperie_level : int):
+	match intemperie_level:
+		STRONG:
+			self.set_bus("intemperie_strong") 
+		WEAK:
+			self.set_bus("intemperie_weak")
+		NONE:
+			self.set_bus("music")
+		_:
+			self.set_bus("music")
+
 func playMusicNamed(music_name,fade_in=-1.0):
 	self.stopCurrent(fade_in) # à modifier pour faire un blend si besoin
 	var ap = self.get_node("music_player")
@@ -27,11 +43,11 @@ func playMusicNamed(music_name,fade_in=-1.0):
 	ap.finished.connect(self.musicIsFinished)
 	# play with fade_in
 	if (fade_in > 0.0):
-		self._play_fade_in(self._bus_name,fade_in)
+		self._play_fade_in(fade_in)
 	ap.play()
 
-func _play_fade_out(bus_name,duration):
-	var idx_bus = AudioServer.get_bus_index(bus_name)
+func _play_fade_out(duration):
+	var idx_bus = AudioServer.get_bus_index("music")
 	var effect = AudioServer.get_bus_effect(idx_bus,0)
 	if not effect is AudioEffectAmplify:
 		push_error("effect for fade in should be amplify")
@@ -41,8 +57,8 @@ func _play_fade_out(bus_name,duration):
 	tween.tween_property(effect,"volume_db",-80.0,duration).set_trans(Tween.TRANS_SINE)
 	tween.tween_callback(self._stop)
 
-func _play_fade_in(bus_name,duration):
-	var idx_bus = AudioServer.get_bus_index(bus_name)
+func _play_fade_in(duration):
+	var idx_bus = AudioServer.get_bus_index("music")
 	var effect = AudioServer.get_bus_effect(idx_bus,0)
 	if not effect is AudioEffectAmplify:
 		push_error("effect for fade in should be amplify")
@@ -54,7 +70,7 @@ func stopCurrent(fade_out=-1.0):
 	var ap = self.get_node("music_player")
 	if ap.stream != null:
 		if fade_out > 0.0:
-			self._play_fade_out(self._bus_name,fade_out)
+			self._play_fade_out(fade_out)
 		else:
 			self._stop()
 
@@ -73,3 +89,7 @@ func musicIsFinished():
 		ap.stop()
 		ap.stream = null
 		self._current_music_name = null
+		
+func set_bus(bus_name):
+	self._bus_name = bus_name
+	self.get_node("music_player").bus = bus_name
