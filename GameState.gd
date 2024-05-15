@@ -17,12 +17,22 @@ enum {HUB = -1}
 							   "mission_4":{"started":false,"finished":false},
 							   "mission_5":{"started":false,"finished":false},
 							   "mission_6":{"started":false,"finished":false}}
-							
+@onready var mission_timer = {"mission_1": 60.,
+							   "mission_2": 60.,
+							   "mission_3": 60.,
+							   "mission_4": 60.,
+							   "mission_5": 60.,
+							   "mission_6": 60.}
 @onready var player_position = Vector2(838,4603) # initial coordinates of player
 
 ########### ACHIEVEMENTS
 @onready var nbCoffee = 0
 @onready var coffeeCredit = 3
+@onready var nbInteractions = {
+	"Shipgirl":0,
+	"Navigator1":0,
+	"Navigator2":0,
+	"Captain":0}
 
 
 func get_current_mission_idx():

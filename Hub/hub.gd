@@ -11,17 +11,22 @@ func _ready():
 func clickObject(which):
 	match which:
 		"Organigram" : 
+			%TalkToMenu.visible = false
 			%ArmadaOrga.visible = true
 			setClickableProcess()
 		"Door" :
+			%TalkToMenu.visible = false
 			$scene_transition.transition_to_packed_scene(GameState.openworld_packed_scene)
 		"Employee" : 
+			%TalkToMenu.visible = false
 			%EmployeeMonth.visible = true
 			setClickableProcess()
 		"Coffee":
+			%TalkToMenu.visible = false
 			%TalkToMenu.display()
 			setClickableProcess()
 		"Achivement" :
+			%TalkToMenu.visible = false
 			%AchivementsPanel.updatePanel()
 			%AchivementsPanel.visible = true
 			setClickableProcess()

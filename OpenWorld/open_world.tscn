@@ -468,9 +468,7 @@ libraries = {
 
 [node name="EtherTimer" type="Timer" parent="CanvasLayer/UI/Right/CenterContainer/MarginContainer/VBoxContainer/TimerZone/MarginContainer/VBoxContainer/HBoxContainer/TimerLabel"]
 unique_name_in_owner = true
-wait_time = 5.0
 one_shot = true
-autostart = true
 
 [node name="HSeparator3" type="HSeparator" parent="CanvasLayer/UI/Right/CenterContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -580,7 +578,8 @@ material = SubResource("ShaderMaterial_0jjg4")
 custom_minimum_size = Vector2(0, 144)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/UI/Right/CenterContainer/MarginContainer/VBoxContainer/ElectricalZone/ColorRect"]
+[node name="MissionLabel" type="Label" parent="CanvasLayer/UI/Right/CenterContainer/MarginContainer/VBoxContainer/ElectricalZone/ColorRect"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -624,5 +623,5 @@ offset_bottom = 7992.0
 
 [connection signal="body_entered" from="DepressionZones/Depression1" to="DepressionZones/Depression1" method="_on_body_entered"]
 [connection signal="body_exited" from="DepressionZones/Depression1" to="DepressionZones/Depression1" method="_on_body_exited"]
-[connection signal="pressed" from="CanvasLayer/UI/Right/CenterContainer/MarginContainer/VBoxContainer/EngineZone/VBoxContainer/Anchor" to="player" method="_on_anchor_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Right/CenterContainer/MarginContainer/VBoxContainer/EngineZone/VBoxContainer/Anchor" to="CanvasLayer/UI/Right/CenterContainer/MarginContainer/VBoxContainer/EngineZone/VBoxContainer/Anchor" method="_on_pressed"]
 [connection signal="timeout" from="CanvasLayer/Alert Message/Timer" to="CanvasLayer/Alert Message" method="_on_timer_timeout"]

@@ -33,4 +33,30 @@ func _on_leave_pressed():
 func _on_talk_to_shipgirl_pressed():
 	self.visible = false
 	if Dialogic.current_timeline == null :
+		GameState.nbInteractions["Shipgirl"] += 1
+		Achievements.checkInteraction("Shipgirl")
 		Dialogic.start("Test_timeline")
+
+
+func _on_talk_to_navigator_1_pressed():
+	self.visible = false
+	if Dialogic.current_timeline == null :
+		GameState.nbInteractions["Navigator1"] += 1
+		Achievements.checkInteraction("Navigator1")
+		#Dialogic.start("Test_timeline")
+
+
+func _on_talk_to_navigator_2_pressed():
+	self.visible = false
+	if Dialogic.current_timeline == null :
+		GameState.nbInteractions["Navigator2"] += 1
+		Achievements.checkInteraction("Navigator2")
+		#Dialogic.start("Test_timeline")
+
+
+func _on_talk_to_captain_pressed():
+	self.visible = false
+	if Dialogic.current_timeline == null :
+		GameState.nbInteractions["Captain"] += 1
+		Achievements.checkInteraction("Captain")
+		#Dialogic.start("Test_timeline")

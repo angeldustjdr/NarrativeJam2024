@@ -4,6 +4,8 @@ var nb_available_wards = 3
 var wardbutton = preload("res://OpenWorld/ward_button.tscn")
 var ward = preload("res://OpenWorld/ward.tscn")
 
+@onready var unlock = preload("res://achivement_unlocked.tscn")
+
 var ilot_scenes_path = ["res://visual_novel/ilot_1.tscn",
 						"res://visual_novel/ilot_2.tscn",
 						"res://visual_novel/ilot_3.tscn",
@@ -25,6 +27,7 @@ func _ready():
 	#####################################################
 	Radio.connect("poserWard",poserWard)
 	Radio.connect("setObjective",setObjective)
+	Achievements.connect("unlock",showUnlock)
 	#####################################################
 	for i in range(nb_available_wards) : 
 		var w = wardbutton.instantiate()
@@ -32,6 +35,10 @@ func _ready():
 		%VBoxContainer_Ward.add_child(w)
 	setObjective()
 	$player.player_connect()
+	
+	%MissionLabel.text = GameState.get_current_mission()
+	%EtherTimer.wait_time = GameState.mission_timer[GameState.get_current_mission()]
+	%EtherTimer.start()
 
 func _scene_change(scene_name):
 	MusicManager.stopCurrent($scene_transition.get_duration())
@@ -49,3 +56,8 @@ func setObjective():
 func _process(_delta):
 	# Update player position in GameState so that player appear in the good position after ilot
 	GameState.player_position = $player.position
+
+func showUnlock(message):
+	var u = unlock.instantiate()
+	u.text = "Achivement unlocked : " + message
+	$player.add_child(u)

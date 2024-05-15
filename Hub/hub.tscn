@@ -421,4 +421,7 @@ offset_bottom = 1080.0
 [connection signal="gui_input" from="CanvasLayer/EmployeeMonth/MarginContainer/Panel" to="." method="_on_panel_gui_input"]
 [connection signal="gui_input" from="CanvasLayer/AchivementsPanel/MarginContainer/Panel" to="." method="_on_panel_gui_input"]
 [connection signal="pressed" from="CanvasLayer/TalkToMenu/TalkToShipgirl" to="CanvasLayer/TalkToMenu" method="_on_talk_to_shipgirl_pressed"]
+[connection signal="pressed" from="CanvasLayer/TalkToMenu/TalkToNavigator1" to="CanvasLayer/TalkToMenu" method="_on_talk_to_navigator_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/TalkToMenu/TalkToNavigator2" to="CanvasLayer/TalkToMenu" method="_on_talk_to_navigator_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/TalkToMenu/TalkToCaptain" to="CanvasLayer/TalkToMenu" method="_on_talk_to_captain_pressed"]
 [connection signal="pressed" from="CanvasLayer/TalkToMenu/Leave" to="CanvasLayer/TalkToMenu" method="_on_leave_pressed"]
