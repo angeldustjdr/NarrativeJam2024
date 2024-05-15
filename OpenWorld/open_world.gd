@@ -5,10 +5,10 @@ var wardbutton = preload("res://OpenWorld/ward_button.tscn")
 var ward = preload("res://OpenWorld/ward.tscn")
 
 var ilot_scenes_path = ["res://visual_novel/ilot_1.tscn",
-						"res://visual_novel/ilot_test.tscn",
-						"res://visual_novel/ilot_test.tscn",
-						"res://visual_novel/ilot_test.tscn",
-						"res://visual_novel/ilot_test.tscn",
+						"res://visual_novel/ilot_2.tscn",
+						"res://visual_novel/ilot_3.tscn",
+						"res://visual_novel/ilot_4.tscn",
+						"res://visual_novel/ilot_5.tscn",
 						"res://Hub/hub.tscn"]
 
 @onready var objectiveArray = [$Objective,$Objective2,$Objective3,$Objective4,$Objective5,$HUB]

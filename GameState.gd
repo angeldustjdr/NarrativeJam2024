@@ -7,13 +7,21 @@ enum {HUB = -1}
 
 @onready var ilot_states = {"ilot_1":{"revealed":false},
 							"ilot_2":{"revealed":false},
+							"ilot_3":{"revealed":false},
+							"ilot_4":{"revealed":false},
+							"ilot_5":{"revealed":false},
 							"ilot_test":{"revealed":false}}
 @onready var mission_states = {"mission_1":{"started":false,"finished":false},
-							   "mission_2":{"started":false,"finished":false}}
+							   "mission_2":{"started":false,"finished":false},
+							   "mission_3":{"started":false,"finished":false},
+							   "mission_4":{"started":false,"finished":false},
+							   "mission_5":{"started":false,"finished":false},
+							   "mission_6":{"started":false,"finished":false}}
 							
 @onready var player_position = Vector2(838,4603) # initial coordinates of player
 
-@onready var current_mission = null
+########### ACHIEVEMENTS
+@onready var nbCoffee = 0
 
 func get_current_mission_idx():
 	var keep = true
@@ -51,7 +59,3 @@ func get_current_window_ratio():
 	var v_port_size = get_viewport().size
 	return min(float(v_port_size[0])/ProjectSettings.get_setting("display/window/size/viewport_width"),
 			   float(v_port_size[1])/ProjectSettings.get_setting("display/window/size/viewport_height"))
-	
-
-########### ACHIEVEMENTS
-@onready var nbCoffee = 0

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1xx7q4nuatrw"]
+
+[ext_resource type="PackedScene" uid="uid://1yyj200c6esy" path="res://visual_novel/ilot_generic.tscn" id="1_oembw"]
+[ext_resource type="Script" path="res://visual_novel/ilot_5.gd" id="2_ejrpw"]
+[ext_resource type="Texture2D" uid="uid://ceyxpx2mih7if" path="res://assets/graphics/backgrounds/ilot_hacktivist.jpg" id="3_1xomd"]
+
+[node name="ilot_5" instance=ExtResource("1_oembw")]
+script = ExtResource("2_ejrpw")
+ilot_color = Color(0.6038, 0.313619, 0.41181, 1)
+difficulty = 2
+target_signal_prop = {
+"ampl": 2.0,
+"mean": -1.0,
+"period": 0.785,
+"phase": 6.283
+}
+
+[node name="Background" parent="visual_novel_scene" index="0"]
+texture = ExtResource("3_1xomd")
+
+[node name="Sprite2D" parent="visual_novel_scene/clickable_oscilloscope" index="1"]
+position = Vector2(160, 928)
+
+[node name="clickable_character" parent="visual_novel_scene" index="3"]
+position = Vector2(1232, 88)

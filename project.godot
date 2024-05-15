@@ -20,19 +20,32 @@ Radio="*res://Radio.gd"
 MusicManager="*res://audio_manager/MusicManager.gd"
 SoundManager="*res://audio_manager/SoundManager.gd"
 GameState="*res://GameState.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Achievements="*res://Achievements.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
 directories/dch_directory={
 "Test_character": "res://Dialogue/Test_character.dch",
-"galerien": "res://Dialogue/characters/galerien.dch"
+"galerien": "res://Dialogue/characters/galerien.dch",
+"game": "res://Dialogue/characters/game.dch",
+"gamer": "res://Dialogue/characters/gamer.dch",
+"hacktivist": "res://Dialogue/characters/hacktivist.dch",
+"jcd": "res://Dialogue/characters/jcd.dch",
+"outcast": "res://Dialogue/characters/outcast.dch"
 }
 directories/dtl_directory={
 "Test_timeline": "res://Dialogue/Test_timeline.dtl",
 "tl_galerien_influenced": "res://Dialogue/timelines/tl_galerien_influenced.dtl",
-"tl_galerien_normal": "res://Dialogue/timelines/tl_galerien_normal.dtl"
+"tl_galerien_normal": "res://Dialogue/timelines/tl_galerien_normal.dtl",
+"tl_gamer_influenced": "res://Dialogue/timelines/tl_gamer_influenced.dtl",
+"tl_gamer_normal": "res://Dialogue/timelines/tl_gamer_normal.dtl",
+"tl_hacktivist_influenced": "res://Dialogue/timelines/tl_hacktivist_influenced.dtl",
+"tl_hacktivist_normal": "res://Dialogue/timelines/tl_hacktivist_normal.dtl",
+"tl_jcd_influenced": "res://Dialogue/timelines/tl_jcd_influenced.dtl",
+"tl_jcd_normal": "res://Dialogue/timelines/tl_jcd_normal.dtl",
+"tl_outcast_influenced": "res://Dialogue/timelines/tl_outcast_influenced.dtl",
+"tl_outcast_normal": "res://Dialogue/timelines/tl_outcast_normal.dtl"
 }
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
@@ -53,7 +66,9 @@ text/autopauses={}
 glossary/default_case_sensitive=true
 layout/style_list=[]
 layout/default_style="Default"
-variables={}
+variables={
+"armada_name": "armada"
+}
 
 [display]
 

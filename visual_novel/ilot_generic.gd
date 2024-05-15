@@ -3,6 +3,7 @@ class_name IlotGeneric
 
 @export var ilot_color : Color
 @export var difficulty : int
+@export var target_signal_prop : Dictionary = {"ampl":0.0,"mean":0.0,"period":0.0,"phase":0.0}
 
 var _current_time_line : String
 
@@ -60,6 +61,7 @@ func _on_oscillo_clicked():
 	var oscillo_scene = GameState.oscillo_packed_scene.instantiate()
 	oscillo_scene.set_signal_color(self.ilot_color)
 	oscillo_scene.set_difficulty(self.difficulty)
+	oscillo_scene.target_signal_properties = self.target_signal_prop
 	var v_port_size = get_viewport().size
 	var oscillo_size = oscillo_scene.size
 	var oscillo_scale = oscillo_scene.scale

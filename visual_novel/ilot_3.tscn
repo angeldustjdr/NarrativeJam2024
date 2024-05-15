@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyybmti7qvtoa"]
+
+[ext_resource type="PackedScene" uid="uid://1yyj200c6esy" path="res://visual_novel/ilot_generic.tscn" id="1_g1dbj"]
+[ext_resource type="Script" path="res://visual_novel/ilot_3.gd" id="2_rmwcy"]
+[ext_resource type="Texture2D" uid="uid://0n4l0x6h2672" path="res://assets/graphics/backgrounds/ilot_gamers.jpg" id="3_4idht"]
+
+[node name="ilot_3" instance=ExtResource("1_g1dbj")]
+script = ExtResource("2_rmwcy")
+ilot_color = Color(0.156802, 0.68246, 0.81973, 1)
+difficulty = 1
+target_signal_prop = {
+"ampl": 0.1,
+"mean": -0.8,
+"period": 3.142,
+"phase": 0.0
+}
+
+[node name="Background" parent="visual_novel_scene" index="0"]
+texture = ExtResource("3_4idht")
+
+[node name="Sprite2D" parent="visual_novel_scene/clickable_oscilloscope" index="1"]
+position = Vector2(1144, 904)
+
+[node name="clickable_character" parent="visual_novel_scene" index="3"]
+position = Vector2(224, 560)

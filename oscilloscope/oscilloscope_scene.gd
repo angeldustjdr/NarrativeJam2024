@@ -1,9 +1,9 @@
 extends ReferenceRect
 
-var target_signal_properties = {"ampl":0.5,
-								"mean":-0.5,
-								"period":6.0*PI,
-								"phase":0.5}
+var target_signal_properties = {"ampl":0.0,
+								"mean":0.0,
+								"period":0.0,
+								"phase":0.0}
 
 var property_activated = {"ampl":1,
 						  "mean":1,
@@ -40,6 +40,7 @@ func set_difficulty(difficulty : int):
 			push_error("Unknown difficulty")
 
 func set_signal_color(s_color : Color):
+	$background.color = s_color
 	self.signal_color = s_color
 	$OscilloScreen.set_target_signal_color(s_color)
 
