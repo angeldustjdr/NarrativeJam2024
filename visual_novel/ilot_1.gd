@@ -5,4 +5,3 @@ func _update_time_line(): # determine what dialog is available in clickable char
 		self._current_time_line = "tl_galerien_influenced"
 	else:
 		self._current_time_line = "tl_galerien_normal" # a complexifier au besoin
-	super()

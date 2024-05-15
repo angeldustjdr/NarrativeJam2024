@@ -37,7 +37,7 @@ func _get_ilot_number():
 	return int(self.name.split("_")[-1]) - 1
 
 func _set_current_time_line():
-	$visual_novel_scene/clickable_character.dialogic_time_line = self._current_time_line
+	push_error("Must be surchaged in inherited scene")
 
 func _input(event):
 	if event is InputEventKey:
@@ -48,8 +48,14 @@ func clickObject(which):
 	match which:
 		"oscilloscope":
 			self._on_oscillo_clicked()
+		"character":
+			self._on_character_clicked()
 		_ : 
 			push_warning("clickable not recognized")
+
+func _on_character_clicked():
+	if Dialogic.current_timeline == null:
+		Dialogic.start(self._current_time_line)
 
 func _on_button_pressed():
 	if GameState.ilot_states[self.name]["revealed"]:

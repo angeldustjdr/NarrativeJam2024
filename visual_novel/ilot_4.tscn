@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdri15o6wp5u6"]
+[gd_scene load_steps=6 format=3 uid="uid://cdri15o6wp5u6"]
 
 [ext_resource type="PackedScene" uid="uid://1yyj200c6esy" path="res://visual_novel/ilot_generic.tscn" id="1_41jp0"]
 [ext_resource type="Script" path="res://visual_novel/ilot_4.gd" id="2_gr6um"]
 [ext_resource type="Texture2D" uid="uid://c8u6pyst7ib3a" path="res://assets/graphics/backgrounds/ilot_outcast.jpg" id="3_4fkph"]
 [ext_resource type="Texture2D" uid="uid://dgruva5qi8bda" path="res://assets/graphics/items/oscillo_icon_4.png" id="4_agd6s"]
+[ext_resource type="Texture2D" uid="uid://b3bjr1e05jo4q" path="res://assets/graphics/characters/character-ilot3-outcast-v1.png" id="5_xd2kk"]
 
 [node name="ilot_4" instance=ExtResource("1_41jp0")]
 script = ExtResource("2_gr6um")
@@ -25,3 +26,9 @@ texture = ExtResource("4_agd6s")
 
 [node name="clickable_character" parent="visual_novel_scene" index="3"]
 position = Vector2(72, 568)
+
+[node name="Sprite2D" parent="visual_novel_scene/clickable_character" index="1"]
+position = Vector2(64, 24)
+scale = Vector2(0.19531, 0.19531)
+texture = ExtResource("5_xd2kk")
+flip_h = true

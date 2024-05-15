@@ -25,3 +25,7 @@ texture = ExtResource("4_tue12")
 
 [node name="clickable_character" parent="visual_novel_scene" index="3"]
 position = Vector2(1232, 88)
+
+[node name="Sprite2D" parent="visual_novel_scene/clickable_character" index="1"]
+position = Vector2(-232, 520)
+scale = Vector2(0.203834, 0.203834)

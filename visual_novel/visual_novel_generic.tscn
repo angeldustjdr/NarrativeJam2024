@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b47cy6nmnfgyq"]
+[gd_scene load_steps=6 format=3 uid="uid://b47cy6nmnfgyq"]
 
 [ext_resource type="Script" path="res://visual_novel/visual_novel_generic.gd" id="1_v17rm"]
 [ext_resource type="Texture2D" uid="uid://cq0b0e4f6crme" path="res://assets/graphics/backgrounds/placeholder-1920x1080.png" id="2_ge8sn"]
-[ext_resource type="PackedScene" uid="uid://cfejgrwswugdy" path="res://visual_novel/clickable_character_generic.tscn" id="3_g33hg"]
+[ext_resource type="PackedScene" uid="uid://ealq7p4fp0k2" path="res://visual_novel/clickable_object_generic.tscn" id="3_gedy5"]
+[ext_resource type="Texture2D" uid="uid://ba2p4lkasu3jx" path="res://assets/graphics/characters/character-hub-navigator1-entier.png" id="4_5pqyl"]
 [ext_resource type="PackedScene" uid="uid://fi00v13mgow6" path="res://scene_transition.tscn" id="4_kwstp"]
 
 [node name="VisualNovelGeneric" type="Node2D"]
@@ -15,8 +16,12 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("2_ge8sn")
 
-[node name="clickable_character" parent="visual_novel_scene" instance=ExtResource("3_g33hg")]
-position = Vector2(896, 336)
+[node name="clickable_character" parent="visual_novel_scene" instance=ExtResource("3_gedy5")]
+imageModulate = Color(1, 1, 1, 1)
+which = "character"
+
+[node name="Sprite2D" type="Sprite2D" parent="visual_novel_scene/clickable_character"]
+texture = ExtResource("4_5pqyl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
