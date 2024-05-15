@@ -22,6 +22,8 @@ enum {HUB = -1}
 
 ########### ACHIEVEMENTS
 @onready var nbCoffee = 0
+@onready var coffeeCredit = 3
+
 
 func get_current_mission_idx():
 	var keep = true

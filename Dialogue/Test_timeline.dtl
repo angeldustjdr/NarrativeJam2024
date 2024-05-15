@@ -1,4 +1,4 @@
 join Test_character 1
-Test_character (New portrait): Hello there ! This is a test message.\
+Test_character (Default): Hello there ! This is a test message.\
 No worries !
 [end_timeline]

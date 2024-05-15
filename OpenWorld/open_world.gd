@@ -1,6 +1,6 @@
 extends Node2D
 
-var nb_available_wards = 2
+var nb_available_wards = 3
 var wardbutton = preload("res://OpenWorld/ward_button.tscn")
 var ward = preload("res://OpenWorld/ward.tscn")
 

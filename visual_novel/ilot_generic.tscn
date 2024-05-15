@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b47cy6nmnfgyq" path="res://visual_novel/visual_novel_generic.tscn" id="1_lw4cy"]
 [ext_resource type="Script" path="res://visual_novel/ilot_generic.gd" id="2_kqrqd"]
 [ext_resource type="PackedScene" uid="uid://ealq7p4fp0k2" path="res://visual_novel/clickable_object_generic.tscn" id="3_50bvs"]
-[ext_resource type="Texture2D" uid="uid://dkmgnicleqvia" path="res://assets/graphics/items/placehold_oscillo.png" id="4_rbeap"]
+[ext_resource type="Texture2D" uid="uid://cslacxqhlyd8b" path="res://assets/graphics/items/placehold_oscillo.png" id="4_rbeap"]
 
 [sub_resource type="Gradient" id="Gradient_34ik3"]
 offsets = PackedFloat32Array(0, 0.610526)

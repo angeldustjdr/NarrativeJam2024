@@ -59,6 +59,7 @@ func _on_character_clicked():
 
 func _on_button_pressed():
 	if GameState.ilot_states[self.name]["revealed"]:
+		GameState.coffeeCredit = 3
 		$CanvasLayer/scene_transition.transition_to_packed_scene(GameState.openworld_packed_scene)
 
 func _on_oscillo_clicked():

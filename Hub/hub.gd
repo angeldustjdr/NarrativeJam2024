@@ -6,6 +6,7 @@ func _ready():
 	GameState.check_mission_status()
 	Radio.connect("clickObject",clickObject)
 	Achievements.connect("unlock",showUnlock)
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
 
 func clickObject(which):
 	match which:
@@ -18,8 +19,8 @@ func clickObject(which):
 			%EmployeeMonth.visible = true
 			setClickableProcess()
 		"Coffee":
-			GameState.nbCoffee += 1
-			Achievements.checkCoffee(GameState.nbCoffee)
+			%TalkToMenu.display()
+			setClickableProcess()
 		"Achivement" :
 			%AchivementsPanel.updatePanel()
 			%AchivementsPanel.visible = true
@@ -47,3 +48,10 @@ func showUnlock(message):
 	u.text = "Achivement unlocked : " + message
 	u.position = Vector2(64,1020-u.size.y)
 	add_child(u)
+
+func _on_timeline_ended():
+	if GameState.coffeeCredit > 0 :
+		GameState.nbCoffee += 1
+		GameState.coffeeCredit = max(0,GameState.coffeeCredit-1)
+		Achievements.checkCoffee(GameState.nbCoffee)
+		$clickables/CoffeeMachine/CoffeeCredits.updateCoffe()

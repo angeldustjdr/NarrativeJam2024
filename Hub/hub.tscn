@@ -1,16 +1,18 @@
-[gd_scene load_steps=17 format=3 uid="uid://brdj1bj3uct6x"]
+[gd_scene load_steps=20 format=3 uid="uid://brdj1bj3uct6x"]
 
 [ext_resource type="Script" path="res://Hub/hub.gd" id="1_fsrsg"]
-[ext_resource type="Texture2D" uid="uid://dpy2kod3iilkf" path="res://Hub/hub_test_image.jpg" id="2_t7rgc"]
-[ext_resource type="PackedScene" uid="uid://cfejgrwswugdy" path="res://visual_novel/clickable_character_generic.tscn" id="3_l3rfb"]
+[ext_resource type="Texture2D" uid="uid://bfksrp0kmirxp" path="res://Hub/hub_test_image.jpg" id="2_t7rgc"]
 [ext_resource type="PackedScene" uid="uid://ealq7p4fp0k2" path="res://visual_novel/clickable_object_generic.tscn" id="4_gnjvn"]
+[ext_resource type="Script" path="res://Hub/CoffeeCredits.gd" id="6_00twj"]
+[ext_resource type="Texture2D" uid="uid://c24snx88rf3ic" path="res://Hub/coffee-cup.svg" id="6_t3nfk"]
 [ext_resource type="Texture2D" uid="uid://8gmmwuv683rs" path="res://icon.svg" id="6_v0fu5"]
-[ext_resource type="Texture2D" uid="uid://b6gcrdi4jc01x" path="res://Hub/Armada_orga.png" id="7_c7lv1"]
-[ext_resource type="Texture2D" uid="uid://rvkrtlph8wxi" path="res://assets/graphics/items/logo-vect-v2.png" id="8_5a85t"]
-[ext_resource type="Texture2D" uid="uid://d1bnw78iail7c" path="res://OpenWorld/Point_blanc.png" id="8_5j0kt"]
-[ext_resource type="Texture2D" uid="uid://c4v8t88r4mul2" path="res://assets/graphics/characters/character-hub-navigator2-v1.png" id="9_8ieby"]
+[ext_resource type="Texture2D" uid="uid://dqmk77osr4ail" path="res://Hub/Armada_orga.png" id="7_c7lv1"]
+[ext_resource type="Texture2D" uid="uid://cq51ecbmfw5mk" path="res://assets/graphics/items/logo-vect-v2.png" id="8_5a85t"]
+[ext_resource type="Texture2D" uid="uid://mpbfvmdjuuln" path="res://OpenWorld/Point_blanc.png" id="8_5j0kt"]
+[ext_resource type="Texture2D" uid="uid://b3p1rub14sglc" path="res://assets/graphics/characters/character-hub-navigator2-v1.png" id="9_8ieby"]
 [ext_resource type="Script" path="res://Hub/AchivementsPanel.gd" id="10_5jfvp"]
 [ext_resource type="PackedScene" uid="uid://fi00v13mgow6" path="res://scene_transition.tscn" id="10_l8gwk"]
+[ext_resource type="Script" path="res://Hub/TalkToMenu.gd" id="12_obt7f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iklag"]
 bg_color = Color(0, 0, 0, 1)
@@ -56,6 +58,9 @@ _data = {
 "light_anim": SubResource("Animation_m5uiq")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vxtxh"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="Hub" type="Node2D"]
 script = ExtResource("1_fsrsg")
 
@@ -65,18 +70,6 @@ mouse_filter = 2
 texture = ExtResource("2_t7rgc")
 
 [node name="clickables" type="Node" parent="."]
-
-[node name="TestCharacter" parent="clickables" instance=ExtResource("3_l3rfb")]
-position = Vector2(755, 340)
-is_clickable = true
-
-[node name="Label" type="Label" parent="clickables/TestCharacter"]
-offset_left = 15.0
-offset_top = 131.0
-offset_right = 120.0
-offset_bottom = 157.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_iklag")
-text = "Talk to ..."
 
 [node name="Organigram" parent="clickables" instance=ExtResource("4_gnjvn")]
 position = Vector2(736, 128)
@@ -90,9 +83,10 @@ scale = Vector2(0.264079, 0.264079)
 texture = ExtResource("8_5a85t")
 
 [node name="Label" type="Label" parent="clickables/Organigram"]
-offset_left = -177.0
-offset_top = -117.0
-offset_bottom = -91.0
+offset_left = -170.0
+offset_top = 197.0
+offset_right = 7.0
+offset_bottom = 223.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_iklag")
 text = "Check organigram"
 
@@ -148,6 +142,27 @@ offset_right = 71.0
 offset_bottom = 96.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_aqduy")
 text = "Make Coffee"
+
+[node name="CoffeeCredits" type="Node2D" parent="clickables/CoffeeMachine"]
+script = ExtResource("6_00twj")
+
+[node name="Coffee-cup1" type="Sprite2D" parent="clickables/CoffeeMachine/CoffeeCredits"]
+visible = false
+position = Vector2(-89, 168)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_t3nfk")
+
+[node name="Coffee-cup2" type="Sprite2D" parent="clickables/CoffeeMachine/CoffeeCredits"]
+visible = false
+position = Vector2(14, 168)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_t3nfk")
+
+[node name="Coffee-cup3" type="Sprite2D" parent="clickables/CoffeeMachine/CoffeeCredits"]
+visible = false
+position = Vector2(117, 168)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_t3nfk")
 
 [node name="Achievements" parent="clickables" instance=ExtResource("4_gnjvn")]
 position = Vector2(1449, 793)
@@ -361,6 +376,41 @@ size_flags_vertical = 3
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="TalkToMenu" type="VBoxContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+offset_left = 1462.0
+offset_top = 501.0
+offset_right = 1666.0
+offset_bottom = 649.0
+script = ExtResource("12_obt7f")
+
+[node name="Label" type="Label" parent="CanvasLayer/TalkToMenu"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_vxtxh")
+text = "No more coffee"
+horizontal_alignment = 1
+
+[node name="TalkToShipgirl" type="Button" parent="CanvasLayer/TalkToMenu"]
+layout_mode = 2
+text = "Talk to Shipgirl"
+
+[node name="TalkToNavigator1" type="Button" parent="CanvasLayer/TalkToMenu"]
+layout_mode = 2
+text = "Talk To Navigator1"
+
+[node name="TalkToNavigator2" type="Button" parent="CanvasLayer/TalkToMenu"]
+layout_mode = 2
+text = "Talk To Navigator2"
+
+[node name="TalkToCaptain" type="Button" parent="CanvasLayer/TalkToMenu"]
+layout_mode = 2
+text = "Talk to Captain"
+
+[node name="Leave" type="Button" parent="CanvasLayer/TalkToMenu"]
+layout_mode = 2
+text = "Leave"
+
 [node name="scene_transition" parent="." instance=ExtResource("10_l8gwk")]
 visible = false
 z_index = 1
@@ -370,3 +420,5 @@ offset_bottom = 1080.0
 [connection signal="gui_input" from="CanvasLayer/ArmadaOrga/MarginContainer/Panel" to="." method="_on_panel_gui_input"]
 [connection signal="gui_input" from="CanvasLayer/EmployeeMonth/MarginContainer/Panel" to="." method="_on_panel_gui_input"]
 [connection signal="gui_input" from="CanvasLayer/AchivementsPanel/MarginContainer/Panel" to="." method="_on_panel_gui_input"]
+[connection signal="pressed" from="CanvasLayer/TalkToMenu/TalkToShipgirl" to="CanvasLayer/TalkToMenu" method="_on_talk_to_shipgirl_pressed"]
+[connection signal="pressed" from="CanvasLayer/TalkToMenu/Leave" to="CanvasLayer/TalkToMenu" method="_on_leave_pressed"]
