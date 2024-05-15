@@ -71,7 +71,6 @@ _data = {
 [node name="Ward" type="Node2D"]
 
 [node name="Waves" type="ColorRect" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_yckjq")
 offset_left = -240.0
 offset_top = -240.0

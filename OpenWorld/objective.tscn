@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://d2dy7i3w8ddv0"]
 
-[ext_resource type="Texture2D" uid="uid://d1bnw78iail7c" path="res://OpenWorld/Point_blanc.png" id="1_a24kw"]
+[ext_resource type="Texture2D" uid="uid://mpbfvmdjuuln" path="res://OpenWorld/Point_blanc.png" id="1_a24kw"]
 [ext_resource type="Script" path="res://OpenWorld/objective.gd" id="1_jq82l"]
 
 [sub_resource type="Gradient" id="Gradient_upi44"]
@@ -57,7 +57,7 @@ radius = 199.161
 script = ExtResource("1_jq82l")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(15, 15)
+scale = Vector2(10, 10)
 energy = 2.0
 texture = SubResource("GradientTexture2D_0tigb")
 
