@@ -7,6 +7,9 @@ extends ColorRect
 func _ready():
 	self._anim_player.play("fade_in")
 
+func get_duration():
+	return self._anim_player.current_animation_length
+
 func transition_to_packed_scene(next_packed_scene):
 	self._anim_player.animation_finished.connect(self._on_animation_finished_packed_scene)
 	# Plays the Fade animation and wait until it finishes

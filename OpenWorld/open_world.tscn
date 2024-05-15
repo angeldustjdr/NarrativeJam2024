@@ -157,6 +157,7 @@ _data = {
 
 [node name="OpenWorld" type="Node2D"]
 script = ExtResource("1_dqjoa")
+_music_name = "placehold"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -2854.0

@@ -14,7 +14,10 @@ var ilot_scenes_path = ["res://visual_novel/ilot_1.tscn",
 @onready var objectiveArray = [$Objective,$Objective2,$Objective3,$Objective4,$Objective5,$HUB]
 @onready var iObjective = GameState.get_current_objective_idx()
 
+@export var _music_name : String
+
 func _ready():
+	MusicManager.playMusicNamed(self._music_name,$scene_transition.get_duration())
 	# Updating objective scene ##########################
 	for i in range(0,len(self.objectiveArray)):
 		objectiveArray[i].set_next_scene(ilot_scenes_path[i])
@@ -31,6 +34,7 @@ func _ready():
 	$player.player_connect()
 
 func _scene_change(scene_name):
+	MusicManager.stopCurrent($scene_transition.get_duration())
 	$scene_transition.transition_to_file_scene(scene_name)
 
 func poserWard():
