@@ -19,6 +19,7 @@ var ilot_scenes_path = ["res://visual_novel/ilot_1.tscn",
 @export var _music_name : String
 
 func _ready():
+	GameState.check_intemperie()
 	MusicManager.playMusicNamed(self._music_name,$scene_transition.get_duration())
 	# Updating objective scene ##########################
 	for i in range(0,len(self.objectiveArray)):

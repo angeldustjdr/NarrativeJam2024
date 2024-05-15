@@ -1,7 +1,47 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://d3pfuif8kknyj"]
+[gd_resource type="AudioBusLayout" load_steps=10 format=3 uid="uid://d3pfuif8kknyj"]
 
 [sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_5ml1u"]
 resource_name = "Amplify"
+
+[sub_resource type="AudioEffectPhaser" id="AudioEffectPhaser_6kgdb"]
+resource_name = "Phaser"
+rate_hz = 0.1
+feedback = 0.1
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_22r1d"]
+resource_name = "Distortion"
+pre_gain = 5.0
+drive = 0.2
+post_gain = -2.0
+
+[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_aflf0"]
+resource_name = "Delay"
+tap1_delay_ms = 200.0
+tap1_level_db = -5.0
+tap2_active = false
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_op1jd"]
+resource_name = "PitchShift"
+pitch_scale = 0.95
+
+[sub_resource type="AudioEffectPhaser" id="AudioEffectPhaser_knofh"]
+resource_name = "Phaser"
+rate_hz = 10.0
+feedback = 0.1
+depth = 0.4
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_m28cv"]
+resource_name = "Distortion"
+pre_gain = 10.0
+drive = 0.4
+post_gain = -5.0
+
+[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_6yysj"]
+resource_name = "Delay"
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_w7tpi"]
+resource_name = "PitchShift"
+pitch_scale = 0.9
 
 [resource]
 bus/1/name = &"music"
@@ -30,3 +70,31 @@ bus/4/mute = false
 bus/4/bypass_fx = false
 bus/4/volume_db = 0.0
 bus/4/send = &"sound_effects"
+bus/5/name = &"intemperie_weak"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = 0.0
+bus/5/send = &"music"
+bus/5/effect/0/effect = SubResource("AudioEffectPhaser_6kgdb")
+bus/5/effect/0/enabled = true
+bus/5/effect/1/effect = SubResource("AudioEffectDistortion_22r1d")
+bus/5/effect/1/enabled = true
+bus/5/effect/2/effect = SubResource("AudioEffectDelay_aflf0")
+bus/5/effect/2/enabled = true
+bus/5/effect/3/effect = SubResource("AudioEffectPitchShift_op1jd")
+bus/5/effect/3/enabled = true
+bus/6/name = &"intemperie_strong"
+bus/6/solo = false
+bus/6/mute = false
+bus/6/bypass_fx = false
+bus/6/volume_db = 0.0
+bus/6/send = &"Master"
+bus/6/effect/0/effect = SubResource("AudioEffectPhaser_knofh")
+bus/6/effect/0/enabled = true
+bus/6/effect/1/effect = SubResource("AudioEffectDistortion_m28cv")
+bus/6/effect/1/enabled = true
+bus/6/effect/2/effect = SubResource("AudioEffectDelay_6yysj")
+bus/6/effect/2/enabled = true
+bus/6/effect/3/effect = SubResource("AudioEffectPitchShift_w7tpi")
+bus/6/effect/3/enabled = true
