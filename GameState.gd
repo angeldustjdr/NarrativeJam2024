@@ -4,7 +4,7 @@ enum {HUB = -1} # HUB position in list
 
 enum {NONE, WEAK, STRONG} # level of intemperie
 
-var _debug = false
+var _debug = true
 
 @onready var openworld_packed_scene = preload("res://OpenWorld/open_world.tscn")
 @onready var oscillo_packed_scene = preload("res://oscilloscope/oscilloscope_scene.tscn")
