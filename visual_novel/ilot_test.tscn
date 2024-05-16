@@ -1,9 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://diaojh2uk2gbl"]
+[gd_scene load_steps=2 format=3 uid="uid://diaojh2uk2gbl"]
 
 [ext_resource type="PackedScene" uid="uid://1yyj200c6esy" path="res://visual_novel/ilot_generic.tscn" id="1_ki16o"]
-[ext_resource type="Texture2D" uid="uid://cxb1a5w1uyn6r" path="res://assets/graphics/backgrounds/placeholder-1920x1080_ilot_test.png" id="2_pavlh"]
 
 [node name="ilot_test" instance=ExtResource("1_ki16o")]
-
-[node name="Background" parent="." index="0"]
-texture = ExtResource("2_pavlh")

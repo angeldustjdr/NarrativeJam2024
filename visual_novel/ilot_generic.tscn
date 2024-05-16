@@ -54,3 +54,5 @@ texture_scale = 6.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="visual_novel_scene" index="5"]
 color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2"]

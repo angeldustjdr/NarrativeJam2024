@@ -11,7 +11,6 @@ size = Vector2(400, 232)
 script = ExtResource("1_d3p4n")
 
 [node name="oscilloscope_scene" parent="." instance=ExtResource("2_408of")]
-anchors_preset = 0
 offset_left = -200.0
 offset_top = -120.0
 offset_right = 200.0
