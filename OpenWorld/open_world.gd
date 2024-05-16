@@ -22,9 +22,7 @@ func _ready():
 	self._set_intemperie()
 	MusicManager.playMusicNamed(self._music_name,SceneTransitionLayer.get_duration("fade_in"))
 	# Updating objective scene ##########################
-	for i in range(0,len(self.objectiveArray)):
-		objectiveArray[i].set_next_scene(ilot_scenes_path[i])
-		objectiveArray[i].scene_need_changing.connect(self._scene_change)
+	self._init_objectives()
 	#####################################################
 	Radio.connect("poserWard",poserWard)
 	Radio.connect("setObjective",setObjective)
@@ -41,6 +39,24 @@ func _ready():
 	GameState.update_ether_timer()
 	GameState.start_ether_timer()
 	SceneTransitionLayer.reveal_scene()
+
+func _init_objectives():
+	var i_obj : int = GameState.get_current_objective_idx()
+	for i in range(0,i_obj+1): 
+	# Activation of ilots until current objective
+		objectiveArray[i].process_mode = PROCESS_MODE_ALWAYS
+		objectiveArray[i].visible = true
+		objectiveArray[i].set_next_scene(ilot_scenes_path[i])
+		objectiveArray[i].scene_need_changing.connect(self._scene_change)
+	for i in range(i_obj+1,len(self.objectiveArray)-1): 
+	# Deactivation of upcoming objectives
+		objectiveArray[i].process_mode = PROCESS_MODE_DISABLED
+		objectiveArray[i].visible = false
+	# Activation of HUB
+	objectiveArray[GameState.HUB].process_mode = PROCESS_MODE_ALWAYS
+	objectiveArray[GameState.HUB].visible = true
+	objectiveArray[GameState.HUB].set_next_scene(ilot_scenes_path[GameState.HUB])
+	objectiveArray[GameState.HUB].scene_need_changing.connect(self._scene_change)
 
 func _set_intemperie():
 	var intemperie_level = GameState.check_intemperie()
