@@ -14,5 +14,4 @@ func transition_to_packed_scene(next_packed_scene):
 	$scene_transition.transition_to_packed_scene(next_packed_scene)
 	
 func transition_to_file_scene(next_packed_scene):
-	print(next_packed_scene)
 	$scene_transition.transition_to_file_scene(next_packed_scene)
