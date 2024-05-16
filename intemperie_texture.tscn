@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://pqgd1whitxiw"]
+
+[ext_resource type="Script" path="res://intemperie_texture.gd" id="1_1c2xs"]
+[ext_resource type="Shader" path="res://assets/shaders/vhs.gdshader" id="2_xvq4y"]
+
+[sub_resource type="Gradient" id="Gradient_awtmn"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g34nn"]
+noise_type = 4
+frequency = 0.5
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_j7wyq"]
+color_ramp = SubResource("Gradient_awtmn")
+noise = SubResource("FastNoiseLite_g34nn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0aey3"]
+shader = ExtResource("2_xvq4y")
+shader_parameter/vhs_resolution = Vector2(320, 240)
+shader_parameter/samples = 2
+shader_parameter/crease_noise = 2.0
+shader_parameter/crease_opacity = 0.1
+shader_parameter/filter_intensity = 0.1
+shader_parameter/tape_crease_smear = 0.2
+shader_parameter/tape_crease_intensity = 0.2
+shader_parameter/tape_crease_jitter = 0.1
+shader_parameter/tape_crease_speed = 0.5
+shader_parameter/tape_crease_discoloration = 1.0
+shader_parameter/bottom_border_thickness = 6.0
+shader_parameter/bottom_border_jitter = 6.0
+shader_parameter/noise_intensity = 0.1
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_j7wyq")
+
+[node name="intemperie_texture" type="CanvasLayer"]
+script = ExtResource("1_1c2xs")
+
+[node name="texture" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_0aey3")
+custom_minimum_size = Vector2(400, 400)
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
