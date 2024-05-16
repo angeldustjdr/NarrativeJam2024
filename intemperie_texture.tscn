@@ -9,7 +9,7 @@
 noise_type = 4
 frequency = 0.5
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_j7wyq"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8v0c7"]
 color_ramp = SubResource("Gradient_awtmn")
 noise = SubResource("FastNoiseLite_g34nn")
 
@@ -28,7 +28,7 @@ shader_parameter/tape_crease_discoloration = 1.0
 shader_parameter/bottom_border_thickness = 6.0
 shader_parameter/bottom_border_jitter = 6.0
 shader_parameter/noise_intensity = 0.1
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_j7wyq")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_8v0c7")
 
 [node name="intemperie_texture" type="CanvasLayer"]
 script = ExtResource("1_1c2xs")

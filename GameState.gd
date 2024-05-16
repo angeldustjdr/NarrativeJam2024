@@ -4,6 +4,8 @@ enum {HUB = -1} # HUB position in list
 
 enum {NONE, WEAK, STRONG} # level of intemperie
 
+var _debug = false
+
 @onready var openworld_packed_scene = preload("res://OpenWorld/open_world.tscn")
 @onready var oscillo_packed_scene = preload("res://oscilloscope/oscilloscope_scene.tscn")
 
@@ -35,7 +37,6 @@ enum {NONE, WEAK, STRONG} # level of intemperie
 	"Navigator1":0,
 	"Navigator2":0,
 	"Captain":0}
-
 
 func get_current_mission_idx():
 	var keep = true
@@ -87,3 +88,13 @@ func check_intemperie():
 	else:
 		MusicManager.set_intemperie(NONE)
 		return NONE
+
+func validate_current_mission_debug():
+	if self._debug:
+		var i_mission = self.get_current_mission_idx()
+		var mission_str = self.mission_states.keys()[i_mission]
+		var ilot_str = self.ilot_states.keys()[i_mission]
+		self.mission_states[mission_str]["finished"] = true
+		self.ilot_states[ilot_str]["revealed"] = true
+		self.start_current_mission()
+	return self._debug

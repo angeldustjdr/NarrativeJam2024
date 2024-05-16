@@ -17,18 +17,28 @@ func _ready():
 	# VISUAL_NOVEL
 	Radio.connect("clickObject",clickObject)
 	if not(GameState.ilot_states[self.name]["revealed"]):
+		$wave_timer.timeout.connect(self._on_wave_timer_timeout)
+		self._on_wave_timer_timeout()
+		$wave_timer.start()
 		$visual_novel_scene/CanvasModulate.visible = true
 		$visual_novel_scene/oscillo_light.visible = true
 		$visual_novel_scene/clickable_character.is_clickable = false
 		$visual_novel_scene/clickable_oscilloscope.is_clickable = true
 		$visual_novel_scene/get_out_button.disabled = true
 	else:
+		if GameState.get_current_mission_idx() > self._get_ilot_number():
+			MusicManager.playMusicNamed("ilot_corrupted",$CanvasLayer/scene_transition.get_duration())
+		else:
+			MusicManager.playMusicNamed(self.name,$CanvasLayer/scene_transition.get_duration())
 		$visual_novel_scene/CanvasModulate.visible = false
 		$visual_novel_scene/oscillo_light.visible = false
 		$visual_novel_scene/clickable_character.is_clickable = true
 		$visual_novel_scene/get_out_button.disabled = false
 		$visual_novel_scene/clickable_oscilloscope.is_clickable = false
 	$visual_novel_scene/oscillo_light.position = $visual_novel_scene/clickable_oscilloscope.position
+
+func _on_wave_timer_timeout():
+	SoundManager.playSoundNamed("wave_8bit")
 
 func _update_time_line():
 	self._set_current_time_line()
@@ -60,9 +70,11 @@ func _on_character_clicked():
 func _on_button_pressed():
 	if GameState.ilot_states[self.name]["revealed"]:
 		GameState.coffeeCredit = 3
+		MusicManager.stopCurrent($CanvasLayer/scene_transition.get_duration())
 		$CanvasLayer/scene_transition.transition_to_packed_scene(GameState.openworld_packed_scene)
 
 func _on_oscillo_clicked():
+	$wave_timer.stop()
 	for node in self.get_children():
 		node.set_process(false)
 	var oscillo_scene = GameState.oscillo_packed_scene.instantiate()
@@ -81,6 +93,7 @@ func _on_oscillo_clicked():
 	oscillo_scene.victory.connect(self._on_oscillo_victory)
 	
 func _on_oscillo_victory(oscillo_scene):
+	MusicManager.playMusicNamed(self.name,1.0)
 	$visual_novel_scene/clickable_oscilloscope.is_clickable = false
 	$CanvasLayer.remove_child(oscillo_scene)
 	GameState.ilot_states[self.name]["revealed"] = true

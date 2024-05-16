@@ -63,3 +63,10 @@ func showUnlock(message):
 	var u = unlock.instantiate()
 	u.text = "Achivement unlocked : " + message
 	$player.add_child(u)
+
+func _input(event):
+	if event is InputEventKey:
+		if event.keycode == KEY_V and event.pressed:
+			var dbg = GameState.validate_current_mission_debug()
+			if dbg:
+				self.setObjective()

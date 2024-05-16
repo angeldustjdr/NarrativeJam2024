@@ -1,6 +1,12 @@
-[gd_resource type="AudioBusLayout" load_steps=10 format=3 uid="uid://d3pfuif8kknyj"]
+[gd_resource type="AudioBusLayout" load_steps=12 format=3 uid="uid://d3pfuif8kknyj"]
 
 [sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_5ml1u"]
+resource_name = "Amplify"
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_bbequ"]
+resource_name = "Amplify"
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_uhoeg"]
 resource_name = "Amplify"
 
 [sub_resource type="AudioEffectPhaser" id="AudioEffectPhaser_6kgdb"]
@@ -64,12 +70,16 @@ bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = 0.0
 bus/3/send = &"sound_effects"
+bus/3/effect/0/effect = SubResource("AudioEffectAmplify_bbequ")
+bus/3/effect/0/enabled = true
 bus/4/name = &"oscillo_crowd"
 bus/4/solo = false
 bus/4/mute = false
 bus/4/bypass_fx = false
 bus/4/volume_db = 0.0
 bus/4/send = &"sound_effects"
+bus/4/effect/0/effect = SubResource("AudioEffectAmplify_uhoeg")
+bus/4/effect/0/enabled = true
 bus/5/name = &"intemperie_weak"
 bus/5/solo = false
 bus/5/mute = false

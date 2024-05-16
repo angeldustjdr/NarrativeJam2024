@@ -3,6 +3,7 @@ extends Node2D
 @onready var unlock = preload("res://achivement_unlocked.tscn")
 
 func _ready():
+	MusicManager.playMusicNamed(self.name,$scene_transition.get_duration())
 	GameState.check_mission_status()
 	Radio.connect("clickObject",clickObject)
 	Achievements.connect("unlock",showUnlock)
@@ -17,6 +18,7 @@ func clickObject(which):
 		"Door" :
 			%TalkToMenu.visible = false
 			GameState.start_current_mission()
+			MusicManager.stopCurrent($scene_transition.get_duration())
 			$scene_transition.transition_to_packed_scene(GameState.openworld_packed_scene)
 		"Employee" : 
 			%TalkToMenu.visible = false

@@ -1,7 +1,7 @@
 extends Node
 
 var num_players = 8
-var bus = "master"
+var bus = "sound_effect"
 
 var available = []  # The available players.
 var queue = []  # The queue of sounds to play.
@@ -10,16 +10,20 @@ var queue_pitch = []  # Pitch of the queued sounds.
 var queue_name = []  # name of the sound playing
 
 var sound_paths = {	"white_noise":"res://assets/sounds/white-noise-8117_cut.wav",
-					"crowd":"res://assets/sounds/mixkit-big-crowd-talking-loop-364.wav"}
+					"crowd":"res://assets/sounds/mixkit-big-crowd-talking-loop-364.wav",
+					"wave_8bit":"res://assets/sounds/8-bit_wave.wav"}
 
 var sound_loops = {"white_noise":true,
-				   "crowd":true}
+				   "crowd":true,
+				   "wave_8bit":false}
 
 var base_volumes = {"white_noise":-20.0,
-					"crowd":0.0}
+					"crowd":0.0,
+					"wave_8bit":-10.0}
 
 var base_pitches = {"white_noise":1.0,
-					"crowd":1.0}
+					"crowd":1.0,
+					"wave_8bit":0.9}
 
 func _ready():
 	# Create the pool of AudioStreamPlayer nodes.

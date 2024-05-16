@@ -1,12 +1,35 @@
 extends Node
 
 var musics_names = {"placehold":"res://assets/musics/1-05. Negative Mass.mp3",
-					"navigation":"res://assets/musics/Music - Explo.wav"}
+					"navigation":"res://assets/musics/Music - Explo.wav",
+					"ilot_1":"res://assets/musics/eathersea/ilot/galeriens/spring drive manufacturing process-AlexGrohl.mp3",
+					"ilot_2":"res://assets/musics/eathersea/ilot/jcd/hypnosphere-Evgeny_Bardyuzha.mp3",
+					"ilot_3":"res://assets/musics/eathersea/ilot/marginaux/taj mahal-Lesfm.mp3",
+					"ilot_4":"res://assets/musics/eathersea/ilot/gamers/techno driver-TazDev_music.mp3",
+					"ilot_5":"res://assets/musics/eathersea/ilot/activistes/trailer sport stylish-Anton_Vlasov.mp3",
+					"Hub":"res://assets/musics/hub/hub/elegant ambient science-Coma Media.mp3",
+					"ilot_corrupted":"res://assets/musics/eathersea/ilot/ilot corrompu/glitch abstract trap-QubeSounds.mp3"}
+
 var musics_base_volumes = {"placehold":0.0,
-						   "navigation":0.0}
+						   "navigation":0.0,
+						   "ilot_1":0.0,
+						   "ilot_2":0.0,
+						   "ilot_3":0.0,
+						   "ilot_4":0.0,
+						   "ilot_5":0.0,
+						   "Hub":0.0,
+						   "ilot_corrupted":0.0}
+						
 var musics_loops = {"placehold":true,
-					"navigation":true}
-var _streams = {}
+					"navigation":true,
+					"ilot_1":true,
+					"ilot_2":true,
+					"ilot_3":true,
+					"ilot_4":true,
+					"ilot_5":true,
+					"Hub":true,
+					"ilot_corrupted":true}
+					
 var _current_music_name = null
 var _bus_name = "music"
 
@@ -18,8 +41,6 @@ func _ready():
 	p.bus = self._bus_name
 	p.stream = null
 	self.add_child(p)
-	for music_name in musics_names:
-		self._streams[music_name] = load(musics_names[music_name])
 
 func set_intemperie(intemperie_level : int):
 	match intemperie_level:
@@ -35,7 +56,7 @@ func set_intemperie(intemperie_level : int):
 func playMusicNamed(music_name,fade_in=-1.0):
 	self.stopCurrent(fade_in) # à modifier pour faire un blend si besoin
 	var ap = self.get_node("music_player")
-	ap.stream = self._streams[music_name]
+	ap.stream = load(self.musics_names[music_name])
 	ap.volume_db = musics_base_volumes[music_name]
 	self._current_music_name = music_name
 	ap.finished.connect(self.musicIsFinished)

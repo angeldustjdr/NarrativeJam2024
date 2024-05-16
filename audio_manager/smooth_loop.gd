@@ -23,6 +23,9 @@ func _ready():
 func _process(_delta):
 	pass
 
+func is_playing():
+	return $channel_1.playing or $channel_2.playing
+
 func set_bus(bus_name):
 	self.effective_bus = bus_name
 	self._update_bus()

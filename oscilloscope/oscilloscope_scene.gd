@@ -94,10 +94,6 @@ func _init_audio():
 	$crowd_loop.set_bus("oscillo_crowd")
 	$crowd_loop.set_sound("crowd",true)
 	$crowd_loop.play()
-	var idx_bus_wn = AudioServer.get_bus_index("oscillo_white_noise")
-	var idx_bus_c = AudioServer.get_bus_index("oscillo_crowd")
-	AudioServer.add_bus_effect(idx_bus_wn,AudioEffectAmplify.new(),0)
-	AudioServer.add_bus_effect(idx_bus_c,AudioEffectAmplify.new(),0)
 	self._update_amplification()
 
 func _update_similarity():
