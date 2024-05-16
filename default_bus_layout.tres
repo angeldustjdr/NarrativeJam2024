@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=12 format=3 uid="uid://d3pfuif8kknyj"]
+[gd_resource type="AudioBusLayout" load_steps=13 format=3 uid="uid://d3pfuif8kknyj"]
 
 [sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_5ml1u"]
 resource_name = "Amplify"
@@ -48,6 +48,9 @@ resource_name = "Delay"
 [sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_w7tpi"]
 resource_name = "PitchShift"
 pitch_scale = 0.9
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_prhm5"]
+resource_name = "Amplify"
 
 [resource]
 bus/1/name = &"music"
@@ -99,7 +102,7 @@ bus/6/solo = false
 bus/6/mute = false
 bus/6/bypass_fx = false
 bus/6/volume_db = 0.0
-bus/6/send = &"Master"
+bus/6/send = &"music"
 bus/6/effect/0/effect = SubResource("AudioEffectPhaser_knofh")
 bus/6/effect/0/enabled = true
 bus/6/effect/1/effect = SubResource("AudioEffectDistortion_m28cv")
@@ -108,3 +111,11 @@ bus/6/effect/2/effect = SubResource("AudioEffectDelay_6yysj")
 bus/6/effect/2/enabled = true
 bus/6/effect/3/effect = SubResource("AudioEffectPitchShift_w7tpi")
 bus/6/effect/3/enabled = true
+bus/7/name = &"rocket"
+bus/7/solo = false
+bus/7/mute = false
+bus/7/bypass_fx = false
+bus/7/volume_db = 0.0
+bus/7/send = &"sound_effects"
+bus/7/effect/0/effect = SubResource("AudioEffectAmplify_prhm5")
+bus/7/effect/0/enabled = true

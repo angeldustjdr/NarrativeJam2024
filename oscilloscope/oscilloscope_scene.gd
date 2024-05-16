@@ -72,11 +72,7 @@ func _init_sliders():
 	$mean_slider.value_changed.connect(self._mean_changed)
 	$period_slider.value_changed.connect(self._frequence_changed)
 
-func _get_db_from_lin(x):
-	return 10.0*(log(x)/log(10.0))
-	
-func _get_lin_from_db(x):
-	return 10.0**(x/10.0)
+
 
 func _update_amplification():
 	var idx_bus_wn = AudioServer.get_bus_index("oscillo_white_noise")
@@ -84,8 +80,8 @@ func _update_amplification():
 	var similarity_factor = $ProgressBar.value / 100.0
 	# correction for similarity
 	var white_noise_volume = max(self._saturation_factor - similarity_factor,0.0) * (1.0/self._saturation_factor)
-	AudioServer.get_bus_effect(idx_bus_wn,0).volume_db = self._get_db_from_lin(white_noise_volume)
-	AudioServer.get_bus_effect(idx_bus_c,0).volume_db = self._get_db_from_lin(similarity_factor)
+	AudioServer.get_bus_effect(idx_bus_wn,0).volume_db = SoundManager.get_db_from_lin(white_noise_volume)
+	AudioServer.get_bus_effect(idx_bus_c,0).volume_db = SoundManager.get_db_from_lin(similarity_factor)
 
 func _init_audio():
 	$white_noise_loop.set_bus("oscillo_white_noise")

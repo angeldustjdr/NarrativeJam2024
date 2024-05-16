@@ -3,11 +3,12 @@ extends Node2D
 @onready var unlock = preload("res://achivement_unlocked.tscn")
 
 func _ready():
-	MusicManager.playMusicNamed(self.name,$scene_transition.get_duration())
+	MusicManager.playMusicNamed(self.name,SceneTransitionLayer.get_duration("fade_in"))
 	GameState.check_mission_status()
 	Radio.connect("clickObject",clickObject)
 	Achievements.connect("unlock",showUnlock)
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
+	SceneTransitionLayer.reveal_scene()
 
 func clickObject(which):
 	match which:
@@ -18,8 +19,8 @@ func clickObject(which):
 		"Door" :
 			%TalkToMenu.visible = false
 			GameState.start_current_mission()
-			MusicManager.stopCurrent($scene_transition.get_duration())
-			$scene_transition.transition_to_packed_scene(GameState.openworld_packed_scene)
+			MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
+			SceneTransitionLayer.transition_to_packed_scene(GameState.openworld_packed_scene)
 		"Employee" : 
 			%TalkToMenu.visible = false
 			%EmployeeMonth.visible = true

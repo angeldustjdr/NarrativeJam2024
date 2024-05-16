@@ -6,6 +6,8 @@ extends Node2D
 
 var _sprite_2d_name : String
 
+@onready var _outline_base_width = 3.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$area.input_event.connect(self._on_input)
@@ -22,6 +24,9 @@ func _udpate_sprite_2d_name():
 	for child in self.get_children():
 		if child is Sprite2D:
 			self._sprite_2d_name = child.name
+			child.material = ShaderMaterial.new()
+			child.material.shader = load("res://assets/shaders/Outline.gdshader")
+			child.material.set_shader_parameter("width",0.0)
 			break
 	if self._sprite_2d_name == "":
 		push_error("must add sprite2D node to clickable object")
@@ -39,8 +44,9 @@ func _on_input(_node,event,_idx):
 
 func _on_area_mouse_entered():
 	if self.is_clickable:
-		self.get_node(self._sprite_2d_name).modulate = imageModulate
-
+		var node = self.get_node(self._sprite_2d_name)
+		node.material.set_shader_parameter("width",self._outline_base_width*1.0/(node.scale[0]))
 
 func _on_area_mouse_exited():
-	self.get_node(self._sprite_2d_name).modulate = Color.WHITE
+	var node = self.get_node(self._sprite_2d_name)
+	node.material.set_shader_parameter("width",0.0)

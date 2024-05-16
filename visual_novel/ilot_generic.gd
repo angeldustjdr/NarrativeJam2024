@@ -9,8 +9,6 @@ var _current_time_line : String
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# SCENE TRANSITION
-	$CanvasLayer/scene_transition.visible = true
 	$visual_novel_scene/get_out_button.pressed.connect(self._on_button_pressed)
 	# DIALOG ASPECTS
 	self._update_time_line()
@@ -27,15 +25,16 @@ func _ready():
 		$visual_novel_scene/get_out_button.disabled = true
 	else:
 		if GameState.get_current_mission_idx() > self._get_ilot_number():
-			MusicManager.playMusicNamed("ilot_corrupted",$CanvasLayer/scene_transition.get_duration())
+			MusicManager.playMusicNamed("ilot_corrupted",SceneTransitionLayer.get_duration("fade_in"))
 		else:
-			MusicManager.playMusicNamed(self.name,$CanvasLayer/scene_transition.get_duration())
+			MusicManager.playMusicNamed(self.name,SceneTransitionLayer.get_duration("fade_in"))
 		$visual_novel_scene/CanvasModulate.visible = false
 		$visual_novel_scene/oscillo_light.visible = false
 		$visual_novel_scene/clickable_character.is_clickable = true
 		$visual_novel_scene/get_out_button.disabled = false
 		$visual_novel_scene/clickable_oscilloscope.is_clickable = false
 	$visual_novel_scene/oscillo_light.position = $visual_novel_scene/clickable_oscilloscope.position
+	SceneTransitionLayer.reveal_scene()
 
 func _on_wave_timer_timeout():
 	SoundManager.playSoundNamed("wave_8bit")
@@ -70,8 +69,8 @@ func _on_character_clicked():
 func _on_button_pressed():
 	if GameState.ilot_states[self.name]["revealed"]:
 		GameState.coffeeCredit = 3
-		MusicManager.stopCurrent($CanvasLayer/scene_transition.get_duration())
-		$CanvasLayer/scene_transition.transition_to_packed_scene(GameState.openworld_packed_scene)
+		MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
+		SceneTransitionLayer.transition_to_packed_scene(GameState.openworld_packed_scene)
 
 func _on_oscillo_clicked():
 	$wave_timer.stop()

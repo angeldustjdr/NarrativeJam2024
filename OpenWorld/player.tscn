@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://bst1xbumpsfra"]
+[gd_scene load_steps=15 format=3 uid="uid://bst1xbumpsfra"]
 
 [ext_resource type="Script" path="res://OpenWorld/player.gd" id="1_dhf2n"]
 [ext_resource type="Texture2D" uid="uid://b7bdcgjrpxrp5" path="res://OpenWorld/WaterTrailGradient_alpha.png" id="2_q7j1v"]
 [ext_resource type="Shader" path="res://OpenWorld/wave.gdshader" id="2_q8raa"]
 [ext_resource type="Script" path="res://OpenWorld/Trail.gd" id="3_3ebvi"]
 [ext_resource type="Texture2D" uid="uid://rqxdhbj2hbs5" path="res://OpenWorld/fleche.png" id="5_w7suv"]
+[ext_resource type="PackedScene" uid="uid://cysuqq7mfjitr" path="res://audio_manager/smooth_loop.tscn" id="6_n3ck4"]
 
 [sub_resource type="Gradient" id="Gradient_04xli"]
 offsets = PackedFloat32Array(0, 0.647059)
@@ -93,3 +94,9 @@ offset_top = -41.0
 offset_right = 144.0
 offset_bottom = -15.0
 text = "E to interact"
+
+[node name="rocket_loop" parent="." instance=ExtResource("6_n3ck4")]
+sound_name = "rocket"
+overlap = 0.1
+effective_bus = "rocket"
+volume_max = 0.0
