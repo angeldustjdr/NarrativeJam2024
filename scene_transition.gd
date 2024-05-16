@@ -14,14 +14,16 @@ func reveal_scene():
 	self._anim_player.play("fade_in")
 
 func transition_to_packed_scene(next_packed_scene):
-	self._anim_player.animation_finished.disconnect(self._on_animation_finished_file_scene)
+	if self._anim_player.animation_finished.is_connected(self._on_animation_finished_file_scene):
+		self._anim_player.animation_finished.disconnect(self._on_animation_finished_file_scene)
 	self._anim_player.animation_finished.connect(self._on_animation_finished_packed_scene)
 	# Plays the Fade animation and wait until it finishes
 	self._next_packed_scene = next_packed_scene
 	self._anim_player.play("fade_out")
 	
 func transition_to_file_scene(next_packed_scene):
-	self._anim_player.animation_finished.disconnect(self._on_animation_finished_packed_scene)
+	if self._anim_player.animation_finished.is_connected(self._on_animation_finished_packed_scene):
+		self._anim_player.animation_finished.disconnect(self._on_animation_finished_packed_scene)
 	self._anim_player.animation_finished.connect(self._on_animation_finished_file_scene)
 	# Plays the Fade animation and wait until it finishes
 	self._next_packed_scene = next_packed_scene
