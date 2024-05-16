@@ -38,8 +38,8 @@ func _ready():
 	$player.player_connect()
 	
 	%MissionLabel.text = GameState.get_current_mission()
-	%EtherTimer.wait_time = GameState.mission_timer[GameState.get_current_mission()]
-	%EtherTimer.start()
+	GameState.update_ether_timer()
+	GameState.start_ether_timer()
 	SceneTransitionLayer.reveal_scene()
 
 func _set_intemperie():
