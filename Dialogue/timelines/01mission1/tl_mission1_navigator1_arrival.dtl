@@ -1,0 +1,5 @@
+join "navigator 1" 1
+"navigator 1": You've arrived at the location.
+"navigator 1": Now, you need to setup the beacon. You'll have to make the beacon signal match the receiving signal.
+"navigator 1": Good luck !
+[end_timeline]

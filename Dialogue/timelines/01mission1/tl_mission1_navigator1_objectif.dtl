@@ -1,0 +1,5 @@
+join "navigator 1" 1
+"navigator 1": Mission command want you to set up a beacon nearby. 
+"navigator 1": It will scan the area, collect data and help us understant the Ethersea.
+"navigator 1": There is no danger here, you can go ahead and follow the red signal I'm sending you.
+[end_timeline]
