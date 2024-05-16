@@ -55,6 +55,14 @@ directories/dtl_directory={
 "tl_02mission2_jcd_normal": "res://Dialogue/timelines/02mission/tl_02mission2_jcd_normal.dtl",
 "tl_02mission2_objectif": "res://Dialogue/timelines/02mission/tl_02mission2_objectif.dtl",
 "tl_02mission2_return": "res://Dialogue/timelines/02mission/tl_02mission2_return.dtl",
+"tl_03hub_captain3_coffee": "res://Dialogue/timelines/03hub/tl_03hub_captain3_coffee.dtl",
+"tl_03hub_captain3_coffee_influenced1": "res://Dialogue/timelines/03hub/tl_03hub_captain3_coffee_influenced1.dtl",
+"tl_03hub_captain_missionlate": "res://Dialogue/timelines/03hub/tl_03hub_captain_missionlate.dtl",
+"tl_03hub_captain_missiontimely": "res://Dialogue/timelines/03hub/tl_03hub_captain_missiontimely.dtl",
+"tl_03hub_navigator1_coffee": "res://Dialogue/timelines/03hub/tl_03hub_navigator3_coffee.dtl",
+"tl_03hub_navigator3_coffee_influenced": "res://Dialogue/timelines/03hub/tl_03hub_navigator3_coffee_influenced.dtl",
+"tl_03hub_shipgirl3_coffee": "res://Dialogue/timelines/03hub/tl_03hub_shipgirl3_coffee.dtl",
+"tl_03hub_shipgirl3_coffee_influenced1": "res://Dialogue/timelines/03hub/tl_03hub_shipgirl3_coffee_influenced1.dtl",
 "tl_galerien_influenced": "res://Dialogue/timelines/tl_galerien_influenced.dtl",
 "tl_galerien_normal": "res://Dialogue/timelines/tl_galerien_normal.dtl",
 "tl_gamer_influenced": "res://Dialogue/timelines/tl_gamer_influenced.dtl",
@@ -97,7 +105,12 @@ layout/style_list=[]
 layout/default_style="Default"
 variables={
 "Var": "coucou",
-"armada_name": "armada"
+"armada_name": "armada",
+"captain_name": "Cap'",
+"mc_name": "f13B59",
+"navigator1_name": "Bernard",
+"navigator2_name": "navi",
+"shipgirl_name": "Shipgirl"
 }
 
 [display]
