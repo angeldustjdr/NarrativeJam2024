@@ -43,6 +43,7 @@ directories/dch_directory={
 directories/dtl_directory={
 "Test_timeline": "res://Dialogue/Test_timeline.dtl",
 "timeline_test": "res://Dialogue/timeline_test.dtl",
+"timeline_variable_test": "res://Dialogue/timeline_variable_test.dtl",
 "tl_02hub_captain_coffee": "res://Dialogue/timelines/02hub/tl_02hub_captain_coffee.dtl",
 "tl_02hub_captain_missionlate": "res://Dialogue/timelines/02hub/tl_02hub_captain_missionlate.dtl",
 "tl_02hub_captain_missiontimly": "res://Dialogue/timelines/02hub/tl_02hub_captain_missiontimly.dtl",
@@ -95,6 +96,7 @@ glossary/default_case_sensitive=true
 layout/style_list=[]
 layout/default_style="Default"
 variables={
+"Var": "coucou",
 "armada_name": "armada"
 }
 

@@ -1,0 +1,9 @@
+join Test_character 1
+yoyoyo ! dans la variable il y a \: {Var}. En va le changer en \:
+- toto
+	set {Var} = "toto"
+	maintenant il y a {Var}
+- titi
+	set {Var} = "titi"
+	maintenant il y a {Var}
+[end_timeline]
