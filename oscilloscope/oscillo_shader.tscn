@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://c5g0m7kn4paqq"]
 
-[ext_resource type="Shader" path="res://oscilloscope/oscillo.gdshader" id="1_g60mg"]
+[ext_resource type="Shader" path="res://assets/shaders/oscillo.gdshader" id="1_65tx7"]
 [ext_resource type="Script" path="res://oscilloscope/oscillo_shader.gd" id="2_ykm2j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5rgyw"]
 resource_local_to_scene = true
-shader = ExtResource("1_g60mg")
+shader = ExtResource("1_65tx7")
 shader_parameter/freq = 25.0
 shader_parameter/ampl = 0.5
 shader_parameter/phase = 5.0

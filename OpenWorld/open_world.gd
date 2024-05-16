@@ -15,11 +15,12 @@ var ilot_scenes_path = ["res://visual_novel/ilot_1.tscn",
 
 @onready var objectiveArray = [$Objective,$Objective2,$Objective3,$Objective4,$Objective5,$HUB]
 @onready var iObjective = GameState.get_current_objective_idx()
+@onready var _intemperie_level = GameState.check_intemperie()
 
 @export var _music_name : String
 
 func _ready():
-	GameState.check_intemperie()
+	$intemperie_texture.set_intemperie(self._intemperie_level)
 	MusicManager.playMusicNamed(self._music_name,$scene_transition.get_duration())
 	# Updating objective scene ##########################
 	for i in range(0,len(self.objectiveArray)):

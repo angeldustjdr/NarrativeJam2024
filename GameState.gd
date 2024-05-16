@@ -1,6 +1,8 @@
 extends Node
 
-enum {HUB = -1}
+enum {HUB = -1} # HUB position in list
+
+enum {NONE, WEAK, STRONG} # level of intemperie
 
 @onready var openworld_packed_scene = preload("res://OpenWorld/open_world.tscn")
 @onready var oscillo_packed_scene = preload("res://oscilloscope/oscilloscope_scene.tscn")
@@ -76,8 +78,12 @@ func get_current_window_ratio():
 func check_intemperie():
 	# Si la mission_3 est en cours
 	if self.mission_states["mission_3"]["started"] and not self.mission_states["mission_3"]["finished"]:
-		MusicManager.set_intemperie(MusicManager.WEAK)
+		MusicManager.set_intemperie(WEAK)
+		return WEAK
+	# Si la mission_5 est en cours
 	elif self.mission_states["mission_5"]["started"] and not self.mission_states["mission_5"]["finished"]:
-		MusicManager.set_intemperie(MusicManager.STRONG)
+		MusicManager.set_intemperie(STRONG)
+		return STRONG
 	else:
-		MusicManager.set_intemperie(MusicManager.NONE)
+		MusicManager.set_intemperie(NONE)
+		return NONE

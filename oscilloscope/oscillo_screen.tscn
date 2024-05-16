@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c5g0m7kn4paqq" path="res://oscilloscope/oscillo_shader.tscn" id="1_pi6mu"]
 [ext_resource type="Script" path="res://oscilloscope/oscillo_screen.gd" id="1_yuav7"]
-[ext_resource type="Shader" path="res://oscilloscope/oscillo.gdshader" id="3_2uatq"]
+[ext_resource type="Shader" path="res://assets/shaders/oscillo.gdshader" id="3_2uatq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2u0q5"]
 resource_local_to_scene = true

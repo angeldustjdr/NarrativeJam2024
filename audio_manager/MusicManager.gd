@@ -1,7 +1,5 @@
 extends Node
 
-enum {NONE, WEAK, STRONG}
-
 var musics_names = {"placehold":"res://assets/musics/1-05. Negative Mass.mp3",
 					"navigation":"res://assets/musics/Music - Explo.wav"}
 var musics_base_volumes = {"placehold":0.0,
@@ -25,11 +23,11 @@ func _ready():
 
 func set_intemperie(intemperie_level : int):
 	match intemperie_level:
-		STRONG:
+		GameState.STRONG:
 			self.set_bus("intemperie_strong") 
-		WEAK:
+		GameState.WEAK:
 			self.set_bus("intemperie_weak")
-		NONE:
+		GameState.NONE:
 			self.set_bus("music")
 		_:
 			self.set_bus("music")

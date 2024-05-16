@@ -16,6 +16,7 @@ func clickObject(which):
 			setClickableProcess()
 		"Door" :
 			%TalkToMenu.visible = false
+			GameState.start_current_mission()
 			$scene_transition.transition_to_packed_scene(GameState.openworld_packed_scene)
 		"Employee" : 
 			%TalkToMenu.visible = false
