@@ -168,7 +168,8 @@ text = "ω"
 horizontal_alignment = 1
 
 [node name="crowd_loop" parent="." instance=ExtResource("3_n1h8k")]
+effective_bus = "oscillo_crowd"
 volume_max = -10.0
 
 [node name="white_noise_loop" parent="." instance=ExtResource("3_n1h8k")]
-volume_max = -20.0
+effective_bus = "oscillo_white_noise"
