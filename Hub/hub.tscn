@@ -78,6 +78,7 @@ imageModulate = Color(1, 0.259977, 0.2011, 1)
 which = "Organigram"
 
 [node name="Sprite2D" type="Sprite2D" parent="clickables/Organigram"]
+texture_filter = 1
 position = Vector2(-88, 40)
 scale = Vector2(0.264079, 0.264079)
 texture = ExtResource("8_5a85t")
