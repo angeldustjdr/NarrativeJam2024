@@ -97,4 +97,5 @@ func validate_current_mission_debug():
 		self.mission_states[mission_str]["finished"] = true
 		self.ilot_states[ilot_str]["revealed"] = true
 		self.start_current_mission()
+		self.check_intemperie()
 	return self._debug

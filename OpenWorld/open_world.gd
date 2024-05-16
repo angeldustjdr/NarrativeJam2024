@@ -15,12 +15,11 @@ var ilot_scenes_path = ["res://visual_novel/ilot_1.tscn",
 
 @onready var objectiveArray = [$Objective,$Objective2,$Objective3,$Objective4,$Objective5,$HUB]
 @onready var iObjective = GameState.get_current_objective_idx()
-@onready var _intemperie_level = GameState.check_intemperie()
 
 @export var _music_name : String
 
 func _ready():
-	$intemperie_texture.set_intemperie(self._intemperie_level)
+	self._set_intemperie()
 	MusicManager.playMusicNamed(self._music_name,$scene_transition.get_duration())
 	# Updating objective scene ##########################
 	for i in range(0,len(self.objectiveArray)):
@@ -41,6 +40,10 @@ func _ready():
 	%MissionLabel.text = GameState.get_current_mission()
 	%EtherTimer.wait_time = GameState.mission_timer[GameState.get_current_mission()]
 	%EtherTimer.start()
+
+func _set_intemperie():
+	var intemperie_level = GameState.check_intemperie()
+	$intemperie_texture.set_intemperie(intemperie_level)
 
 func _scene_change(scene_name):
 	MusicManager.stopCurrent($scene_transition.get_duration())
@@ -70,3 +73,4 @@ func _input(event):
 			var dbg = GameState.validate_current_mission_debug()
 			if dbg:
 				self.setObjective()
+				self._set_intemperie()
