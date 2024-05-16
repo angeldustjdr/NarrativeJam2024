@@ -1,0 +1,7 @@
+join Test_character 1
+Test_character: hello voici un choix
+- choix 1
+	Test_character: voici le choix 1
+- choix 2
+	Test_character: voici le choix 2
+[end_timeline]
