@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://brdj1bj3uct6x"]
+[gd_scene load_steps=19 format=3 uid="uid://brdj1bj3uct6x"]
 
 [ext_resource type="Script" path="res://Hub/hub.gd" id="1_fsrsg"]
 [ext_resource type="Texture2D" uid="uid://dpy2kod3iilkf" path="res://Hub/hub_test_image.jpg" id="2_t7rgc"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://d1bnw78iail7c" path="res://OpenWorld/Point_blanc.png" id="8_5j0kt"]
 [ext_resource type="Texture2D" uid="uid://c4v8t88r4mul2" path="res://assets/graphics/characters/character-hub-navigator2-v1.png" id="9_8ieby"]
 [ext_resource type="Script" path="res://Hub/AchivementsPanel.gd" id="10_5jfvp"]
-[ext_resource type="PackedScene" uid="uid://fi00v13mgow6" path="res://scene_transition.tscn" id="10_l8gwk"]
 [ext_resource type="Script" path="res://Hub/TalkToMenu.gd" id="12_obt7f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iklag"]
@@ -411,11 +410,6 @@ text = "Talk to Captain"
 [node name="Leave" type="Button" parent="CanvasLayer/TalkToMenu"]
 layout_mode = 2
 text = "Leave"
-
-[node name="scene_transition" parent="." instance=ExtResource("10_l8gwk")]
-z_index = 2
-offset_right = 1920.0
-offset_bottom = 1080.0
 
 [connection signal="gui_input" from="CanvasLayer/ArmadaOrga/MarginContainer/Panel" to="." method="_on_panel_gui_input"]
 [connection signal="gui_input" from="CanvasLayer/EmployeeMonth/MarginContainer/Panel" to="." method="_on_panel_gui_input"]

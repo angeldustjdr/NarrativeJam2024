@@ -31,5 +31,9 @@ texture_filter = 1
 position = Vector2(-16, 16)
 scale = Vector2(0.131286, 0.131286)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2"]
+
 [node name="scene_transition" parent="CanvasLayer" index="0"]
 z_index = 2
+offset_right = 1920.0
+offset_bottom = 1080.0

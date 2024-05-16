@@ -20,7 +20,7 @@ var ilot_scenes_path = ["res://visual_novel/ilot_1.tscn",
 
 func _ready():
 	self._set_intemperie()
-	MusicManager.playMusicNamed(self._music_name,$scene_transition.get_duration())
+	MusicManager.playMusicNamed(self._music_name,SceneTransitionLayer.get_duration("fade_in"))
 	# Updating objective scene ##########################
 	for i in range(0,len(self.objectiveArray)):
 		objectiveArray[i].set_next_scene(ilot_scenes_path[i])
@@ -40,14 +40,15 @@ func _ready():
 	%MissionLabel.text = GameState.get_current_mission()
 	%EtherTimer.wait_time = GameState.mission_timer[GameState.get_current_mission()]
 	%EtherTimer.start()
+	SceneTransitionLayer.reveal_scene()
 
 func _set_intemperie():
 	var intemperie_level = GameState.check_intemperie()
 	$intemperie_texture.set_intemperie(intemperie_level)
 
 func _scene_change(scene_name):
-	MusicManager.stopCurrent($scene_transition.get_duration())
-	$scene_transition.transition_to_file_scene(scene_name)
+	MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
+	SceneTransitionLayer.transition_to_file_scene(scene_name)
 
 func poserWard():
 	var w = ward.instantiate()
