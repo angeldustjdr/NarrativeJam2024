@@ -1,7 +1,7 @@
 extends Label
 
 func _process(_delta):
-	var time_left = snapped($EtherTimer.time_left,0.1)
+	var time_left = snapped(GameState.get_ether_timer_timeleft(),0.1)
 	text = str(time_left)
 	
 	if time_left <= 0. :

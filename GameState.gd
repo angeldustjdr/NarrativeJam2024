@@ -9,25 +9,27 @@ var _debug = true
 @onready var openworld_packed_scene = preload("res://OpenWorld/open_world.tscn")
 @onready var oscillo_packed_scene = preload("res://oscilloscope/oscilloscope_scene.tscn")
 
+########### STATEMACHINE
 @onready var ilot_states = {"ilot_1":{"revealed":false},
 							"ilot_2":{"revealed":false},
 							"ilot_3":{"revealed":false},
 							"ilot_4":{"revealed":false},
 							"ilot_5":{"revealed":false},
 							"ilot_test":{"revealed":false}}
-@onready var mission_states = {"mission_1":{"started":false,"finished":false},
-							   "mission_2":{"started":false,"finished":false},
-							   "mission_3":{"started":false,"finished":false},
-							   "mission_4":{"started":false,"finished":false},
-							   "mission_5":{"started":false,"finished":false},
-							   "mission_6":{"started":false,"finished":false}}
-@onready var mission_timer = {"mission_1": 60.,
+@onready var mission_states = {"mission_1":{"started":false,"finished":false,"in_time":true},
+							   "mission_2":{"started":false,"finished":false,"in_time":true},
+							   "mission_3":{"started":false,"finished":false,"in_time":true},
+							   "mission_4":{"started":false,"finished":false,"in_time":true},
+							   "mission_5":{"started":false,"finished":false,"in_time":true},
+							   "mission_6":{"started":false,"finished":false,"in_time":true}}
+@onready var mission_timer = {"mission_1": 1.,
 							   "mission_2": 60.,
 							   "mission_3": 60.,
 							   "mission_4": 60.,
 							   "mission_5": 60.,
 							   "mission_6": 60.}
 @onready var player_position = Vector2(838,4603) # initial coordinates of player
+var _ether_timer : Timer
 
 ########### ACHIEVEMENTS
 @onready var nbCoffee = 0
@@ -38,6 +40,29 @@ var _debug = true
 	"Navigator2":0,
 	"Captain":0}
 
+func _ready():
+	self._init_ether_timer()
+
+# Ether timer relatives
+func _init_ether_timer():
+	self._ether_timer = Timer.new()
+	self._ether_timer.one_shot = true
+	self._ether_timer.timeout.connect(self._on_ether_timer_timeout)
+	self.add_child(self._ether_timer)
+
+func update_ether_timer():
+	self._ether_timer.wait_time = GameState.mission_timer[GameState.get_current_mission()]
+	
+func start_ether_timer():
+	self._ether_timer.start()
+
+func get_ether_timer_timeleft():
+	return self._ether_timer.time_left
+	
+func _on_ether_timer_timeout():
+	self.mission_states[GameState.get_current_mission()]["in_time"] = false
+
+# Mission relatives
 func get_current_mission_idx():
 	var keep = true
 	var mission_keys = self.mission_states.keys()
