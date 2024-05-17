@@ -11,8 +11,11 @@ func _ready():
 	%TalkToMenu.coffee_credit_update.connect(self._on_coffee_credit_update)
 	SceneTransitionLayer.reveal_scene()
 	##### achievement
+	GameState.nbRetourHub += 1
 	if GameState.get_ether_timer_timeleft() > 0 :
 		Achievements.genericCheck("Safe return")
+	else :
+		if GameState.nbRetourHub > 0 : Achievements.genericCheck("Better late than sorry")
 
 func clickObject(which):
 	match which:

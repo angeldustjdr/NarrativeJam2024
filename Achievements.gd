@@ -12,6 +12,7 @@ var AchievementDescription = {
 	"Hi everyone !" : ["Talk to all characters once",false,"Be sociable in your workplace."],
 	"True pioneer" : ["Drop 5 wards",false,"Enlighten your way when exploring."],
 	"Safe return" : ["Finish a mission before the Ethertimer ends",false,"Don't risk your life on the Ethersea."],
+	"Better late than sorry" : ["Finish a mission with no time left on the Ethertimer",false,"Take your time... or not."]
 }
 
 signal unlock
