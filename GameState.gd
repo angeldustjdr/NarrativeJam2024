@@ -44,6 +44,7 @@ var _ether_timer : Timer
 
 func _ready():
 	self._init_ether_timer()
+	Dialogic.VAR.variable_changed.connect(self._on_dialogic_var_changed)
 
 # Main title relatives
 func get_main_title_state():
@@ -57,26 +58,39 @@ func _init_ether_timer():
 	self.add_child(self._ether_timer)
 
 func update_ether_timer():
-	if self._ether_timer.is_stopped():
+	# fonction appelee quand on arrive dans l'openworld
+	if self._ether_timer.is_stopped(): # si le timer est stop la mission est soit fail, soit pas demarree
 		var mission = self.get_current_mission()
-		if self.mission_states[mission]["in_time"]:
+		if self.mission_states[mission]["in_time"]:  # donc si elle est pas fail, ça veut dire qu'on sort du HUB et donc qu'on commence une nouvelle mission
 			self._ether_timer.wait_time = GameState.mission_timer[GameState.get_current_mission()]
 			self.start_ether_timer()
 	elif self._ether_timer.paused:
+		# le timer est paused quand on sort d'un ilot
 		self._ether_timer.paused = false
 	else:
 		push_error("unexpected behavior")
-		
+
+func stop_ether_timer():
+	if not self._ether_timer.is_stopped():
+		self._ether_timer.stop()
+	else:
+		push_warning("trying to stop already stopped ether_timer") 
+
 func start_ether_timer():
-	self._ether_timer.start()
+	if self._ether_timer.is_stopped():
+		self._ether_timer.start()
+	else:
+		push_warning("trying to play already playing ether_timer") 
 
 func pause_ether_timer():
-	if self._ether_timer.paused == false:
-		self._ether_timer.paused = true
+	if not self._ether_timer.is_stopped():
+		if self._ether_timer.paused == false:
+			self._ether_timer.paused = true
 	
 func unpause_ether_timer():
-	if self._ether_timer.paused == true:
-		self._ether_timer.paused = false
+	if self._ether_timer.is_stopped():
+		if self._ether_timer.paused == true:
+			self._ether_timer.paused = false
 
 func get_ether_timer_timeleft():
 	return self._ether_timer.time_left
@@ -149,3 +163,7 @@ func validate_current_mission_debug():
 		self.start_current_mission()
 		self.check_intemperie()
 	return self._debug
+
+# Mothefucking dialogic
+func _on_dialogic_var_changed(info_dico):
+	print(info_dico)

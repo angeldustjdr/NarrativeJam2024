@@ -89,7 +89,7 @@ func _play_fade_out(duration):
 	if not effect is AudioEffectAmplify:
 		push_error("effect for fade in should be amplify")
 	if effect.volume_db < 0.0:
-		push_error("unexpected behavior")
+		push_warning("amplify effect volume not zero! value : ",effect.volume_db)
 	var tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(effect,"volume_db",-80.0,duration).set_trans(Tween.TRANS_SINE)
