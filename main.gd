@@ -4,9 +4,21 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$%barre.pivot_offset = 0.5 * $%barre.size
+	match GameState.get_main_title_state():
+		GameState.CORPORATE:
+			$%pirate.visible = false
+			$Ethersea_text_corpo.visible = true
+			$Ethersea_text_pirate.visible = false
+			MusicManager.playMusicNamed("title_corpo",SceneTransitionLayer.get_duration("fade_in"))
+		GameState.PIRATE:
+			$%pirate.visible = true
+			$Ethersea_text_corpo.visible = false
+			$Ethersea_text_pirate.visible = true
+			MusicManager.playMusicNamed("title_pirate",SceneTransitionLayer.get_duration("fade_in"))
+		_:
+			push_error("unexpected behavior")
 	SceneTransitionLayer.reveal_scene()
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

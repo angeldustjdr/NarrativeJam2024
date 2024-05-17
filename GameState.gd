@@ -6,6 +6,8 @@ var _debug = true
 
 enum {NONE, WEAK, STRONG} # level of intemperie
 
+enum {CORPORATE, PIRATE}
+
 @onready var openworld_packed_scene = preload("res://OpenWorld/open_world.tscn")
 @onready var oscillo_packed_scene = preload("res://oscilloscope/oscilloscope_scene.tscn")
 
@@ -29,6 +31,8 @@ enum {NONE, WEAK, STRONG} # level of intemperie
 @onready var player_position = Vector2(838,4603) # initial coordinates of player
 var _ether_timer : Timer
 
+@onready var _title_screen_state : int = PIRATE
+
 ########### ACHIEVEMENTS
 @onready var nbCoffee = 0
 @onready var coffeeCredit = 3
@@ -40,6 +44,10 @@ var _ether_timer : Timer
 
 func _ready():
 	self._init_ether_timer()
+
+# Main title relatives
+func get_main_title_state():
+	return self._title_screen_state
 
 # Ether timer relatives
 func _init_ether_timer():

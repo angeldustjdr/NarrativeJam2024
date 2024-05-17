@@ -112,9 +112,7 @@ variables={
 "mc_name": "f13B59",
 "navigator1_name": "Bernard",
 "navigator2_name": "navi",
-"shipgirl_name": "Shipgirl",
-"armada_name": "armada",
-"confirm_exit": false
+"shipgirl_name": "Shipgirl"
 }
 save/autosave=false
 extensions_folder="res://addons/dialogic_additions"
