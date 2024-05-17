@@ -108,7 +108,7 @@ variables={
 "Var": "coucou",
 "armada_name": "armada",
 "captain_name": "Cap'",
-"confirm_exit": false,
+"confirm_exit": "tamere",
 "mc_name": "f13B59",
 "navigator1_name": "Bernard",
 "navigator2_name": "navi",
