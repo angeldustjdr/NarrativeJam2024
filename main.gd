@@ -47,12 +47,42 @@ func _on_credits_mouse_entered():
 
 
 func _on_play_mouse_exited():
-	focus = -1
+	resetFocus()
 
 
 func _on_achievements_mouse_exited():
-	focus = -1
+	resetFocus()
 
 
 func _on_credits_mouse_exited():
+	resetFocus()
+
+func resetFocus():
 	focus = -1
+	$AnimationPlayer.stop()
+
+
+func _on_play_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			SceneTransitionLayer.transition_to_file_scene("res://Hub/hub.tscn")
+			MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
+
+
+func _on_achievements_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			$AchivementsPanel.visible = true
+			$AchivementsPanel.updatePanel()
+
+
+func _on_credits_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			SceneTransitionLayer.transition_to_file_scene("res://credits.tscn")
+
+
+func _on_achivements_panel_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			$AchivementsPanel.visible = false

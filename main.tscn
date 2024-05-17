@@ -1,13 +1,14 @@
-[gd_scene load_steps=22 format=3 uid="uid://c4p7pnunvoa65"]
+[gd_scene load_steps=23 format=3 uid="uid://c4p7pnunvoa65"]
 
 [ext_resource type="Shader" path="res://assets/shaders/oscillo.gdshader" id="1_2w7sc"]
 [ext_resource type="Shader" path="res://wave2.gdshader" id="1_823va"]
 [ext_resource type="Script" path="res://main.gd" id="1_ggpch"]
-[ext_resource type="Texture2D" uid="uid://ctlaf1f8yuov0" path="res://assets/graphics/main/title2.png" id="4_huycu"]
-[ext_resource type="Texture2D" uid="uid://7eewfskn537v" path="res://assets/graphics/items/logos/logo-vect-v3-roue-seule.png" id="4_vqd7o"]
-[ext_resource type="Texture2D" uid="uid://brkpf46s2ushv" path="res://assets/graphics/main/title1.png" id="5_2a1tm"]
-[ext_resource type="Texture2D" uid="uid://8i4mbkuxw576" path="res://assets/graphics/items/logos/logo-vect-v2-cerveau-seul-cadenas-ouvert.png" id="5_s216o"]
-[ext_resource type="Texture2D" uid="uid://b4vrhrqgydghx" path="res://assets/graphics/items/logos/logo-vect-v3-pirate.png" id="6_sbdvr"]
+[ext_resource type="Texture2D" uid="uid://cxkbc6b057xmd" path="res://assets/graphics/main/title2.png" id="4_huycu"]
+[ext_resource type="Texture2D" uid="uid://b8kqsd1bbfn" path="res://assets/graphics/items/logos/logo-vect-v3-roue-seule.png" id="4_vqd7o"]
+[ext_resource type="Texture2D" uid="uid://c6bd8xrxwlrq5" path="res://assets/graphics/main/title1.png" id="5_2a1tm"]
+[ext_resource type="Texture2D" uid="uid://dpyqofmqrtokd" path="res://assets/graphics/items/logos/logo-vect-v2-cerveau-seul-cadenas-ouvert.png" id="5_s216o"]
+[ext_resource type="Texture2D" uid="uid://8ihy6hobrbs5" path="res://assets/graphics/items/logos/logo-vect-v3-pirate.png" id="6_sbdvr"]
+[ext_resource type="PackedScene" uid="uid://0pyto5ajiupe" path="res://Hub/achivements_panel.tscn" id="9_jcxr7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r54ed"]
 shader = ExtResource("1_823va")
@@ -17,12 +18,12 @@ shader_parameter/speed = 1.0
 shader_parameter/smoothness = 2.0
 shader_parameter/angle = 45.0
 
-[sub_resource type="Gradient" id="Gradient_pjt8f"]
+[sub_resource type="Gradient" id="Gradient_4ctvf"]
 offsets = PackedFloat32Array(0, 0.839286)
 colors = PackedColorArray(9.52989e-06, 0.244745, 0.693848, 1, 1.29351e-05, 0.0139062, 0.121311, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_85ow2"]
-gradient = SubResource("Gradient_pjt8f")
+gradient = SubResource("Gradient_4ctvf")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
@@ -357,9 +358,16 @@ libraries = {
 "": SubResource("AnimationLibrary_f3ept")
 }
 
+[node name="AchivementsPanel" parent="." instance=ExtResource("9_jcxr7")]
+layout_mode = 1
+
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_gui_input"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_mouse_exited"]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/Achievements" to="." method="_on_achievements_gui_input"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Achievements" to="." method="_on_achievements_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Achievements" to="." method="_on_achievements_mouse_exited"]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_gui_input"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_mouse_exited"]
+[connection signal="gui_input" from="AchivementsPanel" to="." method="_on_achivements_panel_gui_input"]

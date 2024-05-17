@@ -1,4 +1,4 @@
-Go in mission?
+Start mission?
 - Yes
 	set {confirm_exit} = true
 - No

@@ -31,7 +31,7 @@ enum {CORPORATE, PIRATE}
 @onready var player_position = Vector2(838,4603) # initial coordinates of player
 var _ether_timer : Timer
 
-@onready var _title_screen_state : int = PIRATE
+@onready var _title_screen_state : int = CORPORATE
 
 ########### ACHIEVEMENTS
 @onready var nbCoffee = 0
