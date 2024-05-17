@@ -1,14 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyybmti7qvtoa"]
+[gd_scene load_steps=7 format=3 uid="uid://cyybmti7qvtoa"]
 
 [ext_resource type="PackedScene" uid="uid://1yyj200c6esy" path="res://visual_novel/ilot_generic.tscn" id="1_41jp0"]
 [ext_resource type="Script" path="res://visual_novel/ilot_3.gd" id="2_rmwcy"]
-[ext_resource type="Texture2D" uid="uid://c8u6pyst7ib3a" path="res://assets/graphics/backgrounds/ilot_outcast.jpg" id="3_4fkph"]
+[ext_resource type="Texture2D" uid="uid://cwh5vg82okvwu" path="res://assets/graphics/backgrounds/ilot3-marginal-sature.png" id="3_5el67"]
 [ext_resource type="Texture2D" uid="uid://dgruva5qi8bda" path="res://assets/graphics/items/oscillo_icon_4.png" id="4_agd6s"]
+[ext_resource type="Texture2D" uid="uid://b0wdaybc7p7ur" path="res://assets/graphics/backgrounds/ilot3-marginal-terne.png" id="4_aoqqj"]
 [ext_resource type="Texture2D" uid="uid://b3bjr1e05jo4q" path="res://assets/graphics/characters/character-ilot3-outcast-v1.png" id="5_xd2kk"]
 
 [node name="ilot_3" instance=ExtResource("1_41jp0")]
 script = ExtResource("2_rmwcy")
-ilot_color = Color(0.651194, 0.521737, 0.50219, 1)
+ilot_color = Color(0.199802, 0.427451, 0.647288, 1)
+ilot_color_corrupted = Color(0.584268, 0.510002, 0.43917, 1)
+ilot_color_normal = Color(0.2, 0.427451, 0.647059, 1)
 difficulty = 1
 target_signal_prop = {
 "ampl": 0.1,
@@ -18,13 +21,20 @@ target_signal_prop = {
 }
 
 [node name="Background" parent="visual_novel_scene" index="0"]
-texture = ExtResource("3_4fkph")
+visible = false
+texture = ExtResource("3_5el67")
+
+[node name="Background_corrupted" parent="visual_novel_scene" index="1"]
+visible = true
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_aoqqj")
 
 [node name="Sprite2D" parent="visual_novel_scene/clickable_oscilloscope" index="1"]
 position = Vector2(584, 672)
 texture = ExtResource("4_agd6s")
 
-[node name="clickable_character" parent="visual_novel_scene" index="3"]
+[node name="clickable_character" parent="visual_novel_scene" index="4"]
 position = Vector2(72, 568)
 
 [node name="Sprite2D" parent="visual_novel_scene/clickable_character" index="1"]

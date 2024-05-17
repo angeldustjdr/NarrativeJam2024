@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdri15o6wp5u6"]
+[gd_scene load_steps=7 format=3 uid="uid://cdri15o6wp5u6"]
 
 [ext_resource type="PackedScene" uid="uid://1yyj200c6esy" path="res://visual_novel/ilot_generic.tscn" id="1_g1dbj"]
 [ext_resource type="Script" path="res://visual_novel/ilot_4.gd" id="2_gr6um"]
-[ext_resource type="Texture2D" uid="uid://0n4l0x6h2672" path="res://assets/graphics/backgrounds/ilot_gamers.jpg" id="3_4idht"]
+[ext_resource type="Texture2D" uid="uid://3cyksm6x5tq3" path="res://assets/graphics/backgrounds/ilot4-gamer-sature.png" id="3_ddl7f"]
+[ext_resource type="Texture2D" uid="uid://ceuugev4s54rl" path="res://assets/graphics/backgrounds/ilot4-gamer-terne.png" id="4_bguj5"]
 [ext_resource type="Texture2D" uid="uid://552btavuo5qh" path="res://assets/graphics/items/oscillo_icon_3.png" id="4_k2hg4"]
+[ext_resource type="Texture2D" uid="uid://c2j74y0ml455b" path="res://assets/graphics/characters/character-ilot4-gamer-v2.png" id="5_kt65b"]
 
 [node name="ilot_4" instance=ExtResource("1_g1dbj")]
 script = ExtResource("2_gr6um")
 ilot_color = Color(0, 0.68246, 0.808011, 1)
+ilot_color_corrupted = Color(0.545174, 0.592081, 0.482155, 1)
+ilot_color_normal = Color(0, 0.682353, 0.807843, 1)
 difficulty = 2
 target_signal_prop = {
 "ampl": 1.2,
@@ -17,15 +21,21 @@ target_signal_prop = {
 }
 
 [node name="Background" parent="visual_novel_scene" index="0"]
-texture = ExtResource("3_4idht")
+texture = ExtResource("3_ddl7f")
+
+[node name="Background_corrupted" parent="visual_novel_scene" index="1"]
+offset_right = 1922.0
+offset_bottom = 1080.0
+texture = ExtResource("4_bguj5")
 
 [node name="Sprite2D" parent="visual_novel_scene/clickable_oscilloscope" index="1"]
 position = Vector2(1024, 864)
 texture = ExtResource("4_k2hg4")
 
-[node name="clickable_character" parent="visual_novel_scene" index="3"]
+[node name="clickable_character" parent="visual_novel_scene" index="4"]
 position = Vector2(224, 560)
 
 [node name="Sprite2D" parent="visual_novel_scene/clickable_character" index="1"]
 position = Vector2(56, 40)
 scale = Vector2(0.116756, 0.116756)
+texture = ExtResource("5_kt65b")

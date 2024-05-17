@@ -4,6 +4,8 @@
 
 [node name="IconGenerator" type="SubViewportContainer"]
 script = ExtResource("1_lasvl")
+num_ilot = 4
+corrupted = true
 
 [node name="IconGeneratorVP" type="SubViewport" parent="."]
 handle_input_locally = false

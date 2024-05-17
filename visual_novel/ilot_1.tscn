@@ -1,15 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8172s8ej6cxs"]
+[gd_scene load_steps=7 format=3 uid="uid://b8172s8ej6cxs"]
 
 [ext_resource type="PackedScene" uid="uid://1yyj200c6esy" path="res://visual_novel/ilot_generic.tscn" id="1_puyjx"]
-[ext_resource type="Texture2D" uid="uid://dd4nu8730bocw" path="res://assets/graphics/backgrounds/ilot_sketch.jpeg" id="2_csdcq"]
 [ext_resource type="Script" path="res://visual_novel/ilot_1.gd" id="2_jr8tx"]
+[ext_resource type="Texture2D" uid="uid://ca6oqevnk181w" path="res://assets/graphics/backgrounds/ilot1-galerien-sature.png" id="3_sav4k"]
+[ext_resource type="Texture2D" uid="uid://cscmucw4xksj0" path="res://assets/graphics/backgrounds/ilot1-galerien-terne.png" id="4_f04ol"]
 [ext_resource type="Texture2D" uid="uid://dxd02amnhquq" path="res://assets/graphics/items/oscillo_icon_1.png" id="4_fbwxv"]
+[ext_resource type="Texture2D" uid="uid://db5vya6jxyh8g" path="res://assets/graphics/characters/character-ilot1-miner-v2.png" id="6_67gr8"]
 
 [node name="ilot_1" instance=ExtResource("1_puyjx")]
 light_mask = 3
 z_as_relative = false
 script = ExtResource("2_jr8tx")
-ilot_color = Color(0.98436, 0.815824, 0.199802, 1)
+ilot_color = Color(0.996078, 0.815824, 0, 1)
+ilot_color_corrupted = Color(0.415717, 0.474342, 0.698085, 1)
+ilot_color_normal = Color(0.996078, 0.815686, 0, 1)
 target_signal_prop = {
 "ampl": 0.5,
 "mean": -0.5,
@@ -18,15 +22,21 @@ target_signal_prop = {
 }
 
 [node name="Background" parent="visual_novel_scene" index="0"]
-texture = ExtResource("2_csdcq")
+texture = ExtResource("3_sav4k")
+
+[node name="Background_corrupted" parent="visual_novel_scene" index="1"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_f04ol")
 
 [node name="Sprite2D" parent="visual_novel_scene/clickable_oscilloscope" index="1"]
 texture = ExtResource("4_fbwxv")
 
-[node name="clickable_character" parent="visual_novel_scene" index="3"]
+[node name="clickable_character" parent="visual_novel_scene" index="4"]
 position = Vector2(1672, 592)
 
 [node name="Sprite2D" parent="visual_novel_scene/clickable_character" index="1"]
-texture_filter = 1
 position = Vector2(-16, 16)
 scale = Vector2(0.131286, 0.131286)
+texture = ExtResource("6_67gr8")
+flip_h = true
