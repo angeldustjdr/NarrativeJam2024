@@ -102,7 +102,7 @@ func _update_similarity():
 		SoundManager.playSoundNamed("casserole_one_hit")
 	else : 
 		$emit_button.disabled = true
-		$emit_button/AnimationPlayer.stop
+		$emit_button/AnimationPlayer.stop()
 
 func _update_after_slider_changed():
 	self._update_similarity()
