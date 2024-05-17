@@ -48,5 +48,5 @@ func checkInteraction(who):
 		genericCheck("Hi everyone !")
 
 func checkWard():
-	if GameState.nbWard >= 2 :
+	if GameState.nbWard >= 5 :
 		genericCheck("True pioneer")

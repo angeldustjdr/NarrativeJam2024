@@ -36,6 +36,7 @@ func _ready():
 		$Ward/Mission1.visible = true
 	if GameState.mission_states["mission_2"]["finished"]:
 		$Ward/Mission2.visible = true
+		$"Terrain/Logo-vect-v3-pirate".visible = false
 	if GameState.mission_states["mission_3"]["finished"]:
 		$AccelerationZones/Acc3.visible = true
 		$AccelerationZones/Acc3.monitoring = true
