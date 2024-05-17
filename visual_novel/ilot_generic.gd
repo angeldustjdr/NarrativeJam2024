@@ -46,7 +46,7 @@ func _ready():
 func _update_oscillo_icon():
 	var texture_name = "res://assets/graphics/items/oscillo_icon_"+str(self._get_ilot_number()+1)+".png"
 	if self._ilot_corrupted:
-		texture_name = "res://assets/graphics/items/oscillo_icon_"+str(self._get_ilot_number()+1)+".png"
+		texture_name = "res://assets/graphics/items/oscillo_icon_"+str(self._get_ilot_number()+1)+"_corrupted.png"
 	$visual_novel_scene/clickable_oscilloscope/Sprite2D.texture = load(texture_name)
 
 func _update_corruption():
