@@ -41,10 +41,8 @@ func clickObject(which):
 			push_warning("clickable not recognized")
 
 func _go_in_mission():
-	print("CONFIRM_FUCKING_EXIT: ", Dialogic.VAR.confirm_exit)
 	Dialogic.timeline_ended.disconnect(self._go_in_mission)
 	if Dialogic.VAR.confirm_exit:
-		#Dialogic.VAR.confirm_exit = false
 		%TalkToMenu.visible = false
 		GameState.start_current_mission()
 		MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))

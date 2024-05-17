@@ -10,7 +10,8 @@ var musics_names = {"placehold":"res://assets/musics/1-05. Negative Mass.mp3",
 					"Hub":"res://assets/musics/hub/hub/elegant ambient science-Coma Media.mp3",
 					"ilot_corrupted":"res://assets/musics/eathersea/ilot/ilot corrompu/glitch abstract trap-QubeSounds.mp3",
 					"title_corpo":"res://assets/musics/reserve/space epic cinematic journey-Rockot.mp3",
-					"title_pirate":"res://assets/musics/reserve/dark cyberpunk mechanical robotic future industrial dubstep-SoundGalleryDT.mp3"}
+					"title_pirate":"res://assets/musics/reserve/dark cyberpunk mechanical robotic future industrial dubstep-SoundGalleryDT.mp3",
+					"motivational":"res://assets/musics/hub/intro discours/starfleet command-geoffharvey.mp3"}
 
 var musics_base_volumes = {"placehold":0.0,
 						   "navigation":0.0,
@@ -22,7 +23,8 @@ var musics_base_volumes = {"placehold":0.0,
 						   "Hub":0.0,
 						   "ilot_corrupted":0.0,
 						   "title_corpo":0.0,
-						   "title_pirate":0.0}
+						   "title_pirate":0.0,
+						   "motivational":0.0}
 
 var musics_base_offset = {"placehold":0.0,
 						  "navigation":0.0,
@@ -34,7 +36,8 @@ var musics_base_offset = {"placehold":0.0,
 						  "Hub":0.0,
 						  "ilot_corrupted":0.0,
 						  "title_corpo":0.0,
-						  "title_pirate":0.0}
+						  "title_pirate":0.0,
+						  "motivational":0.0}
 						
 var musics_loops = {"placehold":true,
 					"navigation":true,
@@ -46,7 +49,8 @@ var musics_loops = {"placehold":true,
 					"Hub":true,
 					"ilot_corrupted":true,
 					"title_corpo":true,
-					"title_pirate":true}
+					"title_pirate":true,
+					"motivational":true}
 					
 var _current_music_name = null
 var _bus_name = "music"
