@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2dy7i3w8ddv0"]
+[gd_scene load_steps=11 format=3 uid="uid://d2dy7i3w8ddv0"]
 
-[ext_resource type="Texture2D" uid="uid://d1bnw78iail7c" path="res://OpenWorld/Point_blanc.png" id="1_a24kw"]
+[ext_resource type="Texture2D" uid="uid://mpbfvmdjuuln" path="res://OpenWorld/Point_blanc.png" id="1_a24kw"]
 [ext_resource type="Script" path="res://OpenWorld/objective.gd" id="1_jq82l"]
+[ext_resource type="Shader" path="res://OpenWorld/objective.gdshader" id="2_js5ep"]
 
 [sub_resource type="Gradient" id="Gradient_upi44"]
 offsets = PackedFloat32Array(0, 0.619048)
@@ -11,6 +12,13 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_upi44")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tnoe8"]
+shader = ExtResource("2_js5ep")
+shader_parameter/circle_width = 0.15
+shader_parameter/wait_time = 0.5
+shader_parameter/speed = 1.0
+shader_parameter/alpha_boost = 2.0
 
 [sub_resource type="Animation" id="Animation_ctgde"]
 length = 0.001
@@ -63,6 +71,7 @@ texture = SubResource("GradientTexture2D_0tigb")
 
 [node name="PointBlanc" type="Sprite2D" parent="."]
 modulate = Color(1, 0, 0, 1)
+material = SubResource("ShaderMaterial_tnoe8")
 texture = ExtResource("1_a24kw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
