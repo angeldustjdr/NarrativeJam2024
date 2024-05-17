@@ -1,6 +1,7 @@
 extends Node2D
 
 var _next_scene = null # scene to which the objective 
+@export var myMission : int
 
 signal scene_need_changing
 
@@ -9,6 +10,9 @@ func set_next_scene(next_scene):
 
 func _ready():
 	Radio.connect("interaction",interaction)
+	if myMission > 0 :
+		if GameState.mission_states["mission_"+str(myMission)]["finished"]:
+			$PointBlanc.modulate = Color("green")
 
 func _on_area_2d_body_entered(body):
 	Radio.emit_signal("bodyEnteredObjective",self,body)

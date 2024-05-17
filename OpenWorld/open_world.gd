@@ -29,6 +29,28 @@ func _ready():
 	#Radio.connect("setObjective",setObjective) # Not needed because objective change only when going back to openworld after ilot or hub.
 	Achievements.connect("unlock",showUnlock)
 	#####################################################
+	# check pour les zones d'acceleration et la révélation de la map
+	if GameState.mission_states["mission_1"]["finished"]:
+		$AccelerationZones/Acc2.visible = true
+		$AccelerationZones/Acc2.monitoring = true
+		$Ward/Mission1.visible = true
+	if GameState.mission_states["mission_2"]["finished"]:
+		$Ward/Mission2.visible = true
+	if GameState.mission_states["mission_3"]["finished"]:
+		$AccelerationZones/Acc3.visible = true
+		$AccelerationZones/Acc3.monitoring = true
+		$DepressionZones/Depression1.visible = false
+		$DepressionZones/Depression1.monitoring = false
+		$Ward/Mission3.visible = true
+	if GameState.mission_states["mission_4"]["finished"]:
+		$AccelerationZones/Acc4.visible = true
+		$AccelerationZones/Acc4.monitoring = true
+		$DepressionZones/Depression2.visible = false
+		$DepressionZones/Depression2.monitoring = false
+		$Ward/Mission4.visible = true
+	if GameState.mission_states["mission_5"]["finished"]:
+		$Ward/Mission5.visible = true
+	#####################################################
 	for i in range(nb_available_wards) : 
 		var w = wardbutton.instantiate()
 		w.setText(i+1)

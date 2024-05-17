@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://1c2poulo2qea"]
+[gd_scene load_steps=31 format=3 uid="uid://1c2poulo2qea"]
 
 [ext_resource type="Script" path="res://OpenWorld/open_world.gd" id="1_dqjoa"]
 [ext_resource type="Shader" path="res://OpenWorld/open_world_background.gdshader" id="1_mopfe"]
@@ -13,7 +13,6 @@
 [ext_resource type="Script" path="res://OpenWorld/VelocityProgressBar.gd" id="7_d3i1c"]
 [ext_resource type="Script" path="res://OpenWorld/RotationProgressBar.gd" id="8_alurk"]
 [ext_resource type="Script" path="res://OpenWorld/Depression1.gd" id="9_42640"]
-[ext_resource type="Texture2D" uid="uid://b42m8p14ct0bs" path="res://OpenWorld/moins_blanc.png" id="9_gv1ta"]
 [ext_resource type="Script" path="res://OpenWorld/Anchor.gd" id="9_il8ov"]
 [ext_resource type="PackedScene" uid="uid://d2dy7i3w8ddv0" path="res://OpenWorld/objective.tscn" id="9_rqvr2"]
 [ext_resource type="PackedScene" uid="uid://bsqs7hvavmdhe" path="res://OpenWorld/acc_1.tscn" id="10_0tbb1"]
@@ -44,8 +43,8 @@ shader_parameter/blur = 1.4
 shader_parameter/blur2 = 0.01
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_ctppc")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2e4h2"]
-size = Vector2(1029, 2213)
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ugxb"]
+radius = 1439.54
 
 [sub_resource type="Animation" id="Animation_6qugl"]
 length = 0.001
@@ -156,10 +155,10 @@ script = ExtResource("1_dqjoa")
 _music_name = "navigation"
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -2854.0
-offset_top = -1863.0
-offset_right = 13338.0
-offset_bottom = 7839.0
+offset_left = -3285.0
+offset_top = -2027.0
+offset_right = 12907.0
+offset_bottom = 7675.0
 color = Color(0, 0, 0, 1)
 
 [node name="Background" type="ColorRect" parent="."]
@@ -228,77 +227,274 @@ centered = false
 
 [node name="Ward" type="Node2D" parent="."]
 
-[node name="Ward" parent="Ward" instance=ExtResource("3_vogn0")]
+[node name="Initial" type="Node2D" parent="Ward"]
+
+[node name="Ward" parent="Ward/Initial" instance=ExtResource("3_vogn0")]
 position = Vector2(2455, 3672)
 withRipples = false
 
-[node name="Ward2" parent="Ward" instance=ExtResource("3_vogn0")]
+[node name="Ward2" parent="Ward/Initial" instance=ExtResource("3_vogn0")]
 position = Vector2(2082, 3248)
 withRipples = false
 
-[node name="Ward3" parent="Ward" instance=ExtResource("3_vogn0")]
+[node name="Ward3" parent="Ward/Initial" instance=ExtResource("3_vogn0")]
 position = Vector2(854, 2943)
 withRipples = false
 
-[node name="Ward4" parent="Ward" instance=ExtResource("3_vogn0")]
+[node name="Ward4" parent="Ward/Initial" instance=ExtResource("3_vogn0")]
 position = Vector2(73, 3435)
 withRipples = false
 
-[node name="Ward5" parent="Ward" instance=ExtResource("3_vogn0")]
+[node name="Ward5" parent="Ward/Initial" instance=ExtResource("3_vogn0")]
 position = Vector2(62, 4623)
 withRipples = false
 
-[node name="Ward6" parent="Ward" instance=ExtResource("3_vogn0")]
+[node name="Ward6" parent="Ward/Initial" instance=ExtResource("3_vogn0")]
 position = Vector2(944, 5047)
 withRipples = false
 
-[node name="Ward7" parent="Ward" instance=ExtResource("3_vogn0")]
+[node name="Ward7" parent="Ward/Initial" instance=ExtResource("3_vogn0")]
 position = Vector2(2058, 4826)
+withRipples = false
+
+[node name="Mission1" type="Node2D" parent="Ward"]
+visible = false
+
+[node name="Ward" parent="Ward/Mission1" instance=ExtResource("3_vogn0")]
+position = Vector2(3864, 2872)
+withRipples = false
+
+[node name="Ward2" parent="Ward/Mission1" instance=ExtResource("3_vogn0")]
+position = Vector2(3352, 3392)
+withRipples = false
+
+[node name="Ward3" parent="Ward/Mission1" instance=ExtResource("3_vogn0")]
+position = Vector2(3624, 2400)
+withRipples = false
+
+[node name="Ward4" parent="Ward/Mission1" instance=ExtResource("3_vogn0")]
+position = Vector2(4232, 3184)
+withRipples = false
+
+[node name="Ward5" parent="Ward/Mission1" instance=ExtResource("3_vogn0")]
+position = Vector2(4224, 2552)
+withRipples = false
+
+[node name="Ward6" parent="Ward/Mission1" instance=ExtResource("3_vogn0")]
+position = Vector2(2883, 2523)
+withRipples = false
+
+[node name="Ward7" parent="Ward/Mission1" instance=ExtResource("3_vogn0")]
+position = Vector2(3359, 1695)
+withRipples = false
+
+[node name="Ward8" parent="Ward/Mission1" instance=ExtResource("3_vogn0")]
+position = Vector2(5119, 2580)
+withRipples = false
+
+[node name="Ward9" parent="Ward/Mission1" instance=ExtResource("3_vogn0")]
+position = Vector2(3216, 4768)
+withRipples = false
+
+[node name="Ward10" parent="Ward/Mission1" instance=ExtResource("3_vogn0")]
+position = Vector2(4420, 4879)
+withRipples = false
+
+[node name="Mission2" type="Node2D" parent="Ward"]
+visible = false
+
+[node name="Ward" parent="Ward/Mission2" instance=ExtResource("3_vogn0")]
+position = Vector2(1683, 2304)
+withRipples = false
+
+[node name="Ward2" parent="Ward/Mission2" instance=ExtResource("3_vogn0")]
+position = Vector2(806, 1970)
+withRipples = false
+
+[node name="Ward3" parent="Ward/Mission2" instance=ExtResource("3_vogn0")]
+position = Vector2(105, 1308)
+withRipples = false
+
+[node name="Ward4" parent="Ward/Mission2" instance=ExtResource("3_vogn0")]
+position = Vector2(365, 375)
+withRipples = false
+
+[node name="Ward5" parent="Ward/Mission2" instance=ExtResource("3_vogn0")]
+position = Vector2(1836, 58)
+withRipples = false
+
+[node name="Ward6" parent="Ward/Mission2" instance=ExtResource("3_vogn0")]
+position = Vector2(3024, 301)
+withRipples = false
+
+[node name="Ward7" parent="Ward/Mission2" instance=ExtResource("3_vogn0")]
+position = Vector2(1836, 963)
+withRipples = false
+
+[node name="Mission3" type="Node2D" parent="Ward"]
+visible = false
+
+[node name="Ward" parent="Ward/Mission3" instance=ExtResource("3_vogn0")]
+position = Vector2(7032, 2792)
+withRipples = false
+
+[node name="Ward2" parent="Ward/Mission3" instance=ExtResource("3_vogn0")]
+position = Vector2(6372, 3649)
+withRipples = false
+
+[node name="Ward3" parent="Ward/Mission3" instance=ExtResource("3_vogn0")]
+position = Vector2(5863, 4920)
+withRipples = false
+
+[node name="Ward4" parent="Ward/Mission3" instance=ExtResource("3_vogn0")]
+position = Vector2(7655, 3901)
+withRipples = false
+
+[node name="Ward5" parent="Ward/Mission3" instance=ExtResource("3_vogn0")]
+position = Vector2(6912, 4818)
+withRipples = false
+
+[node name="Ward6" parent="Ward/Mission3" instance=ExtResource("3_vogn0")]
+position = Vector2(7398, 2423)
+withRipples = false
+
+[node name="Ward7" parent="Ward/Mission3" instance=ExtResource("3_vogn0")]
+position = Vector2(5071, 3771)
+withRipples = false
+
+[node name="Ward8" parent="Ward/Mission3" instance=ExtResource("3_vogn0")]
+position = Vector2(5071, 3771)
+withRipples = false
+
+[node name="Mission4" type="Node2D" parent="Ward"]
+visible = false
+
+[node name="Ward" parent="Ward/Mission4" instance=ExtResource("3_vogn0")]
+position = Vector2(5105, 776)
+withRipples = false
+
+[node name="Ward2" parent="Ward/Mission4" instance=ExtResource("3_vogn0")]
+position = Vector2(4657, 1487)
+withRipples = false
+
+[node name="Ward3" parent="Ward/Mission4" instance=ExtResource("3_vogn0")]
+position = Vector2(6340, 76)
+withRipples = false
+
+[node name="Ward4" parent="Ward/Mission4" instance=ExtResource("3_vogn0")]
+position = Vector2(6169, 1396)
+withRipples = false
+
+[node name="Ward5" parent="Ward/Mission4" instance=ExtResource("3_vogn0")]
+position = Vector2(6945, 1411)
+withRipples = false
+
+[node name="Mission5" type="Node2D" parent="Ward"]
+visible = false
+
+[node name="Ward" parent="Ward/Mission5" instance=ExtResource("3_vogn0")]
+position = Vector2(8243, 4238)
+withRipples = false
+
+[node name="Ward2" parent="Ward/Mission5" instance=ExtResource("3_vogn0")]
+position = Vector2(8927, 5004)
+withRipples = false
+
+[node name="Ward3" parent="Ward/Mission5" instance=ExtResource("3_vogn0")]
+position = Vector2(9554, 4010)
+withRipples = false
+
+[node name="Ward4" parent="Ward/Mission5" instance=ExtResource("3_vogn0")]
+position = Vector2(9490, 3055)
+withRipples = false
+
+[node name="Ward5" parent="Ward/Mission5" instance=ExtResource("3_vogn0")]
+position = Vector2(8446, 2788)
+withRipples = false
+
+[node name="Ward6" parent="Ward/Mission5" instance=ExtResource("3_vogn0")]
+position = Vector2(8731, 1719)
+withRipples = false
+
+[node name="Ward7" parent="Ward/Mission5" instance=ExtResource("3_vogn0")]
+position = Vector2(8179, 685)
+withRipples = false
+
+[node name="Ward8" parent="Ward/Mission5" instance=ExtResource("3_vogn0")]
+position = Vector2(9348, 364)
+withRipples = false
+
+[node name="Ward9" parent="Ward/Mission5" instance=ExtResource("3_vogn0")]
+position = Vector2(9511, 1875)
 withRipples = false
 
 [node name="DepressionZones" type="Node2D" parent="."]
 
 [node name="Depression1" type="Area2D" parent="DepressionZones"]
+position = Vector2(-43, -5)
 script = ExtResource("9_42640")
 
-[node name="TextureRect" type="TextureRect" parent="DepressionZones/Depression1"]
-offset_left = 5060.0
-offset_top = 2731.0
-offset_right = 6096.0
-offset_bottom = 4960.0
-texture = ExtResource("9_gv1ta")
-stretch_mode = 1
-
-[node name="Label" type="Label" parent="DepressionZones/Depression1"]
-offset_left = 4726.0
-offset_top = 3659.0
-offset_right = 5050.0
-offset_bottom = 3710.0
-theme_override_font_sizes/font_size = 48
-text = "Depression Zone"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DepressionZones/Depression1"]
-position = Vector2(5583.5, 3853.5)
-shape = SubResource("RectangleShape2D_2e4h2")
+position = Vector2(6520, 3474)
+shape = SubResource("CircleShape2D_2ugxb")
+
+[node name="Depression2" type="Area2D" parent="DepressionZones"]
+position = Vector2(-528, -2658)
+script = ExtResource("9_42640")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DepressionZones/Depression2"]
+position = Vector2(6520, 3474)
+shape = SubResource("CircleShape2D_2ugxb")
 
 [node name="AccelerationZones" type="Node2D" parent="."]
 
 [node name="Acc1" parent="AccelerationZones" instance=ExtResource("10_0tbb1")]
 
+[node name="TextureRect" parent="AccelerationZones/Acc1" index="0"]
+offset_top = 1228.0
+offset_bottom = 2552.0
+
+[node name="Label" parent="AccelerationZones/Acc1" index="2"]
+offset_top = 2380.0
+offset_bottom = 2437.0
+
+[node name="Acc2" parent="AccelerationZones" instance=ExtResource("10_0tbb1")]
+visible = false
+position = Vector2(5559, 1851)
+rotation = 1.85703
+monitoring = false
+
+[node name="Acc3" parent="AccelerationZones" instance=ExtResource("10_0tbb1")]
+visible = false
+position = Vector2(5937, 294)
+rotation = 1.23395
+monitoring = false
+
+[node name="Acc4" parent="AccelerationZones" instance=ExtResource("10_0tbb1")]
+visible = false
+position = Vector2(3128, 2297)
+rotation = -0.673697
+monitoring = false
+
 [node name="Objective" parent="." instance=ExtResource("9_rqvr2")]
 position = Vector2(3960, 3558)
+myMission = 1
 
 [node name="Objective2" parent="." instance=ExtResource("9_rqvr2")]
 position = Vector2(2350, 769)
+myMission = 2
 
 [node name="Objective3" parent="." instance=ExtResource("9_rqvr2")]
 position = Vector2(7028, 2727)
+myMission = 3
 
 [node name="Objective4" parent="." instance=ExtResource("9_rqvr2")]
 position = Vector2(5096, 769)
+myMission = 4
 
 [node name="Objective5" parent="." instance=ExtResource("9_rqvr2")]
 position = Vector2(8241, 4236)
+myMission = 5
 
 [node name="HUB" parent="." instance=ExtResource("9_rqvr2")]
 position = Vector2(872, 4776)
@@ -309,7 +505,6 @@ position = Vector2(-3248, 8448)
 floor_block_on_wall = false
 
 [node name="Ambient" type="DirectionalLight2D" parent="."]
-visible = false
 blend_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -552,5 +747,9 @@ autoplay = "flicker"
 
 [connection signal="body_entered" from="DepressionZones/Depression1" to="DepressionZones/Depression1" method="_on_body_entered"]
 [connection signal="body_exited" from="DepressionZones/Depression1" to="DepressionZones/Depression1" method="_on_body_exited"]
+[connection signal="body_entered" from="DepressionZones/Depression2" to="DepressionZones/Depression2" method="_on_body_entered"]
+[connection signal="body_exited" from="DepressionZones/Depression2" to="DepressionZones/Depression2" method="_on_body_exited"]
 [connection signal="pressed" from="CanvasLayer/UI/Right/CenterContainer/MarginContainer/VBoxContainer/EngineZone/VBoxContainer/Anchor" to="CanvasLayer/UI/Right/CenterContainer/MarginContainer/VBoxContainer/EngineZone/VBoxContainer/Anchor" method="_on_pressed"]
 [connection signal="timeout" from="CanvasLayer/Alert Message/Timer" to="CanvasLayer/Alert Message" method="_on_timer_timeout"]
+
+[editable path="AccelerationZones/Acc1"]
