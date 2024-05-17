@@ -63,6 +63,7 @@ directories/dtl_directory={
 "tl_03hub_navigator3_coffee_influenced": "res://Dialogue/timelines/03hub/tl_03hub_navigator3_coffee_influenced.dtl",
 "tl_03hub_shipgirl3_coffee": "res://Dialogue/timelines/03hub/tl_03hub_shipgirl3_coffee.dtl",
 "tl_03hub_shipgirl3_coffee_influenced1": "res://Dialogue/timelines/03hub/tl_03hub_shipgirl3_coffee_influenced1.dtl",
+"tl_confirm_exit": "res://Dialogue/timelines/tl_confirm_exit.dtl",
 "tl_galerien_influenced": "res://Dialogue/timelines/tl_galerien_influenced.dtl",
 "tl_galerien_normal": "res://Dialogue/timelines/tl_galerien_normal.dtl",
 "tl_gamer_influenced": "res://Dialogue/timelines/tl_gamer_influenced.dtl",
@@ -111,7 +112,11 @@ variables={
 "navigator1_name": "Bernard",
 "navigator2_name": "navi",
 "shipgirl_name": "Shipgirl"
-}
+"armada_name": "armada",
+"confirm_exit": false
+save/autosave=false
+extensions_folder="res://addons/dialogic_additions"
+layout/end_behaviour=0
 
 [display]
 

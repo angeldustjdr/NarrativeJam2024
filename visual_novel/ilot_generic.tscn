@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://1yyj200c6esy"]
+[gd_scene load_steps=8 format=3 uid="uid://1yyj200c6esy"]
 
 [ext_resource type="PackedScene" uid="uid://b47cy6nmnfgyq" path="res://visual_novel/visual_novel_generic.tscn" id="1_lw4cy"]
 [ext_resource type="Script" path="res://visual_novel/ilot_generic.gd" id="2_kqrqd"]
 [ext_resource type="PackedScene" uid="uid://ealq7p4fp0k2" path="res://visual_novel/clickable_object_generic.tscn" id="3_50bvs"]
 [ext_resource type="Texture2D" uid="uid://dkmgnicleqvia" path="res://assets/graphics/items/placehold_oscillo.png" id="4_rbeap"]
+[ext_resource type="PackedScene" uid="uid://gi3xfrjn7c22" path="res://ether_timer_layout.tscn" id="5_y1wvj"]
 
 [sub_resource type="Gradient" id="Gradient_34ik3"]
 offsets = PackedFloat32Array(0, 0.610526)
@@ -55,4 +56,7 @@ texture_scale = 6.0
 [node name="CanvasModulate" type="CanvasModulate" parent="visual_novel_scene" index="5"]
 color = Color(0, 0, 0, 1)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="2"]
+[node name="ether_timer_layout" parent="." index="2" instance=ExtResource("5_y1wvj")]
+
+[node name="OscilloLayer" type="CanvasLayer" parent="." index="3"]
+layer = 2

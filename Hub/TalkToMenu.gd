@@ -1,5 +1,6 @@
 extends VBoxContainer
 
+signal coffee_credit_update
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,6 +25,7 @@ func display():
 
 func _on_leave_pressed():
 	self.visible = false
+	coffee_credit_update.emit(false)
 
 func _on_talk_to_shipgirl_pressed():
 	self.visible = false
@@ -31,6 +33,7 @@ func _on_talk_to_shipgirl_pressed():
 		GameState.nbInteractions["Shipgirl"] += 1
 		Achievements.checkInteraction("Shipgirl")
 		Dialogic.start("Test_timeline")
+		self._decrease_coffee_credit()
 
 
 func _on_talk_to_navigator_1_pressed():
@@ -39,6 +42,7 @@ func _on_talk_to_navigator_1_pressed():
 		GameState.nbInteractions["Navigator1"] += 1
 		Achievements.checkInteraction("Navigator1")
 		#Dialogic.start("Test_timeline")
+		self._decrease_coffee_credit()
 
 
 func _on_talk_to_navigator_2_pressed():
@@ -47,6 +51,7 @@ func _on_talk_to_navigator_2_pressed():
 		GameState.nbInteractions["Navigator2"] += 1
 		Achievements.checkInteraction("Navigator2")
 		#Dialogic.start("Test_timeline")
+		self._decrease_coffee_credit()
 
 
 func _on_talk_to_captain_pressed():
@@ -55,3 +60,12 @@ func _on_talk_to_captain_pressed():
 		GameState.nbInteractions["Captain"] += 1
 		Achievements.checkInteraction("Captain")
 		#Dialogic.start("Test_timeline")
+		self._decrease_coffee_credit()
+
+
+func _decrease_coffee_credit():
+	if GameState.coffeeCredit > 0 :
+		GameState.nbCoffee += 1
+		GameState.coffeeCredit = max(0,GameState.coffeeCredit-1)
+		Achievements.checkCoffee(GameState.nbCoffee)
+	coffee_credit_update.emit(true)

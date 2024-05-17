@@ -22,41 +22,46 @@ func _ready():
 	self._set_intemperie()
 	MusicManager.playMusicNamed(self._music_name,SceneTransitionLayer.get_duration("fade_in"))
 	# Updating objective scene ##########################
+	self.setObjective()
 	self._init_objectives()
 	#####################################################
 	Radio.connect("poserWard",poserWard)
-	Radio.connect("setObjective",setObjective)
+	#Radio.connect("setObjective",setObjective) # Not needed because objective change only when going back to openworld after ilot or hub.
 	Achievements.connect("unlock",showUnlock)
 	#####################################################
 	for i in range(nb_available_wards) : 
 		var w = wardbutton.instantiate()
 		w.setText(i+1)
 		%VBoxContainer_Ward.add_child(w)
-	setObjective()
+	# WTF? 
 	$player.player_connect()
 	
 	%MissionLabel.text = GameState.get_current_mission()
 	GameState.update_ether_timer()
-	GameState.start_ether_timer()
 	SceneTransitionLayer.reveal_scene()
 
 func _init_objectives():
-	var i_obj : int = GameState.get_current_objective_idx()
-	for i in range(0,i_obj+1): 
+	var i_mission : int = GameState.get_current_mission_idx()
+	if self.iObjective == GameState.HUB: 
+		# Si l'objectif est le HUB alors on l'active
+		objectiveArray[GameState.HUB].process_mode = PROCESS_MODE_ALWAYS
+		objectiveArray[GameState.HUB].visible = true
+		objectiveArray[GameState.HUB].set_next_scene(ilot_scenes_path[GameState.HUB])
+		objectiveArray[GameState.HUB].scene_need_changing.connect(self._scene_change)
+	else:
+		# Sinon 
+		objectiveArray[GameState.HUB].process_mode = PROCESS_MODE_DISABLED
+		objectiveArray[GameState.HUB].visible = false
+	for i in range(0,i_mission+1): 
 	# Activation of ilots until current objective
 		objectiveArray[i].process_mode = PROCESS_MODE_ALWAYS
 		objectiveArray[i].visible = true
 		objectiveArray[i].set_next_scene(ilot_scenes_path[i])
 		objectiveArray[i].scene_need_changing.connect(self._scene_change)
-	for i in range(i_obj+1,len(self.objectiveArray)-1): 
+	for i in range(i_mission+1,GameState.get_number_of_mission()): 
 	# Deactivation of upcoming objectives
 		objectiveArray[i].process_mode = PROCESS_MODE_DISABLED
 		objectiveArray[i].visible = false
-	# Activation of HUB
-	objectiveArray[GameState.HUB].process_mode = PROCESS_MODE_ALWAYS
-	objectiveArray[GameState.HUB].visible = true
-	objectiveArray[GameState.HUB].set_next_scene(ilot_scenes_path[GameState.HUB])
-	objectiveArray[GameState.HUB].scene_need_changing.connect(self._scene_change)
 
 func _set_intemperie():
 	var intemperie_level = GameState.check_intemperie()

@@ -9,6 +9,7 @@ var _current_time_line : String
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GameState.pause_ether_timer()
 	$visual_novel_scene/get_out_button.pressed.connect(self._on_button_pressed)
 	# DIALOG ASPECTS
 	self._update_time_line()
@@ -88,13 +89,13 @@ func _on_oscillo_clicked():
 	var o_scale = oscillo_scale[0]*GameState.get_current_window_ratio()
 	oscillo_scene.position = Vector2(0.5*v_port_size[0]-0.5*o_scale*oscillo_size[0],
 									 0.5*v_port_size[1]-0.5*o_scale*oscillo_size[1])
-	$CanvasLayer.add_child(oscillo_scene)
+	$OscilloLayer.add_child(oscillo_scene)
 	oscillo_scene.victory.connect(self._on_oscillo_victory)
 	
 func _on_oscillo_victory(oscillo_scene):
 	MusicManager.playMusicNamed(self.name,1.0)
 	$visual_novel_scene/clickable_oscilloscope.is_clickable = false
-	$CanvasLayer.remove_child(oscillo_scene)
+	$OscilloLayer.remove_child(oscillo_scene)
 	GameState.ilot_states[self.name]["revealed"] = true
 	$visual_novel_scene/clickable_character.is_clickable = true
 	$visual_novel_scene/get_out_button.disabled = false
