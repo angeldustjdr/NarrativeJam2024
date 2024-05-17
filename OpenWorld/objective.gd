@@ -18,7 +18,7 @@ func _on_area_2d_body_exited(body):
 
 func interaction(interactable):
 	if interactable == self :
-		Radio.emit_signal("setObjective")
+		#Radio.emit_signal("setObjective") # Not needed because objective change only when going back to openworld after ilot or hub.
 		if self._next_scene == null:
 			push_error("next_scene not defined")
 		else:

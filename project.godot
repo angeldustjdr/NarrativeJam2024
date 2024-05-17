@@ -55,6 +55,7 @@ directories/dtl_directory={
 "tl_02mission2_jcd_normal": "res://Dialogue/timelines/02mission/tl_02mission2_jcd_normal.dtl",
 "tl_02mission2_objectif": "res://Dialogue/timelines/02mission/tl_02mission2_objectif.dtl",
 "tl_02mission2_return": "res://Dialogue/timelines/02mission/tl_02mission2_return.dtl",
+"tl_confirm_exit": "res://Dialogue/timelines/tl_confirm_exit.dtl",
 "tl_galerien_influenced": "res://Dialogue/timelines/tl_galerien_influenced.dtl",
 "tl_galerien_normal": "res://Dialogue/timelines/tl_galerien_normal.dtl",
 "tl_gamer_influenced": "res://Dialogue/timelines/tl_gamer_influenced.dtl",
@@ -96,9 +97,12 @@ glossary/default_case_sensitive=true
 layout/style_list=[]
 layout/default_style="Default"
 variables={
-"Var": "coucou",
-"armada_name": "armada"
+"armada_name": "armada",
+"confirm_exit": false
 }
+save/autosave=false
+extensions_folder="res://addons/dialogic_additions"
+layout/end_behaviour=0
 
 [display]
 

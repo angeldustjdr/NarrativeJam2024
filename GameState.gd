@@ -2,9 +2,9 @@ extends Node
 
 enum {HUB = -1} # HUB position in list
 
-enum {NONE, WEAK, STRONG} # level of intemperie
-
 var _debug = true
+
+enum {NONE, WEAK, STRONG} # level of intemperie
 
 @onready var openworld_packed_scene = preload("res://OpenWorld/open_world.tscn")
 @onready var oscillo_packed_scene = preload("res://oscilloscope/oscilloscope_scene.tscn")
@@ -20,14 +20,12 @@ var _debug = true
 							   "mission_2":{"started":false,"finished":false,"in_time":true},
 							   "mission_3":{"started":false,"finished":false,"in_time":true},
 							   "mission_4":{"started":false,"finished":false,"in_time":true},
-							   "mission_5":{"started":false,"finished":false,"in_time":true},
-							   "mission_6":{"started":false,"finished":false,"in_time":true}}
-@onready var mission_timer = {"mission_1": 1.,
+							   "mission_5":{"started":false,"finished":false,"in_time":true}}
+@onready var mission_timer = {"mission_1": 600.,
 							   "mission_2": 60.,
 							   "mission_3": 60.,
 							   "mission_4": 60.,
-							   "mission_5": 60.,
-							   "mission_6": 60.}
+							   "mission_5": 60.}
 @onready var player_position = Vector2(838,4603) # initial coordinates of player
 var _ether_timer : Timer
 
@@ -51,10 +49,26 @@ func _init_ether_timer():
 	self.add_child(self._ether_timer)
 
 func update_ether_timer():
-	self._ether_timer.wait_time = GameState.mission_timer[GameState.get_current_mission()]
-	
+	if self._ether_timer.is_stopped():
+		var mission = self.get_current_mission()
+		if self.mission_states[mission]["in_time"]:
+			self._ether_timer.wait_time = GameState.mission_timer[GameState.get_current_mission()]
+			self.start_ether_timer()
+	elif self._ether_timer.paused:
+		self._ether_timer.paused = false
+	else:
+		push_error("unexpected behavior")
+		
 func start_ether_timer():
 	self._ether_timer.start()
+
+func pause_ether_timer():
+	if self._ether_timer.paused == false:
+		self._ether_timer.paused = true
+	
+func unpause_ether_timer():
+	if self._ether_timer.paused == true:
+		self._ether_timer.paused = false
 
 func get_ether_timer_timeleft():
 	return self._ether_timer.time_left
@@ -63,6 +77,9 @@ func _on_ether_timer_timeout():
 	self.mission_states[GameState.get_current_mission()]["in_time"] = false
 
 # Mission relatives
+func get_number_of_mission():
+	return len(self.mission_states.keys())
+
 func get_current_mission_idx():
 	var keep = true
 	var mission_keys = self.mission_states.keys()

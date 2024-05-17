@@ -1,0 +1,6 @@
+Go in mission?
+- Yes
+	set {confirm_exit} = true
+- No
+	set {confirm_exit} = false
+[end_timeline]
