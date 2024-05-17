@@ -56,9 +56,8 @@ func _deactivation_of_sliders():
 			var p_range = $OscilloScreen.get_uniform_property_range(property_name)
 			var p_val = 0.5 *(p_range[0]+p_range[1])
 			self.target_signal_properties[property_name] = p_val
-			self.get_node(property_name+"_slider").process_mode = Node.PROCESS_MODE_DISABLED
+			self.get_node(property_name+"_slider").editable = false
 			self.get_node(property_name+"_slider").set_block_signals(true)
-			self.get_node(property_name+"_slider").visible = false
 
 func _init_sliders():
 	for property_name in $OscilloScreen.properties:
