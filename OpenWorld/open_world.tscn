@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://1c2poulo2qea"]
+[gd_scene load_steps=37 format=3 uid="uid://1c2poulo2qea"]
 
 [ext_resource type="Script" path="res://OpenWorld/open_world.gd" id="1_dqjoa"]
 [ext_resource type="Shader" path="res://OpenWorld/open_world_background.gdshader" id="1_mopfe"]
@@ -11,9 +11,11 @@
 [ext_resource type="Script" path="res://OpenWorld/TimerLabel.gd" id="6_5e3rx"]
 [ext_resource type="Shader" path="res://OpenWorld/signals.gdshader" id="6_oc55w"]
 [ext_resource type="Script" path="res://OpenWorld/VelocityProgressBar.gd" id="7_d3i1c"]
+[ext_resource type="Shader" path="res://OpenWorld/vortex.gdshader" id="8_10ki7"]
 [ext_resource type="Script" path="res://OpenWorld/RotationProgressBar.gd" id="8_alurk"]
 [ext_resource type="Script" path="res://OpenWorld/Depression1.gd" id="9_42640"]
-[ext_resource type="Script" path="res://OpenWorld/Anchor.gd" id="9_il8ov"]
+[ext_resource type="Texture2D" uid="uid://mpbfvmdjuuln" path="res://OpenWorld/Point_blanc.png" id="9_hlq2x"]
+[ext_resource type="Script" path="res://OpenWorld/Vortex.gd" id="9_kbdo6"]
 [ext_resource type="PackedScene" uid="uid://d2dy7i3w8ddv0" path="res://OpenWorld/objective.tscn" id="9_rqvr2"]
 [ext_resource type="PackedScene" uid="uid://bsqs7hvavmdhe" path="res://OpenWorld/acc_1.tscn" id="10_0tbb1"]
 [ext_resource type="Script" path="res://OpenWorld/Alert Message.gd" id="11_ti07w"]
@@ -42,6 +44,27 @@ shader_parameter/movement = 1.0
 shader_parameter/blur = 1.4
 shader_parameter/blur2 = 0.01
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_ctppc")
+
+[sub_resource type="Gradient" id="Gradient_rqg67"]
+offsets = PackedFloat32Array(0.360294, 0.676471, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_an00t"]
+gradient = SubResource("Gradient_rqg67")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t1hf6"]
+shader = ExtResource("8_10ki7")
+shader_parameter/max_blend = 0.3
+shader_parameter/rotation_offset = 0.0
+shader_parameter/intensity = 5.0
+shader_parameter/invert = false
+shader_parameter/rel_rect_size = Vector2(1024, 600)
+shader_parameter/gradient = SubResource("GradientTexture2D_an00t")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8fao"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ugxb"]
 radius = 1439.54
@@ -225,6 +248,24 @@ polygon = PackedVector2Array(2492, 3603.2, 2492, 3605, 2510, 3619, 2510, 3621.4,
 texture = ExtResource("3_rja6r")
 centered = false
 
+[node name="Vortex" type="Node2D" parent="Terrain"]
+
+[node name="Vortex" type="Sprite2D" parent="Terrain/Vortex"]
+material = SubResource("ShaderMaterial_t1hf6")
+position = Vector2(872, 4776)
+scale = Vector2(7, 7)
+texture = ExtResource("9_hlq2x")
+script = ExtResource("9_kbdo6")
+
+[node name="Label" type="Label" parent="Terrain/Vortex"]
+offset_left = 696.0
+offset_top = 4819.0
+offset_right = 1039.0
+offset_bottom = 4874.0
+theme_override_font_sizes/font_size = 52
+theme_override_styles/normal = SubResource("StyleBoxFlat_m8fao")
+text = "Reality vortex"
+
 [node name="Ward" type="Node2D" parent="."]
 
 [node name="Initial" type="Node2D" parent="Ward"]
@@ -233,12 +274,8 @@ centered = false
 position = Vector2(2455, 3672)
 withRipples = false
 
-[node name="Ward2" parent="Ward/Initial" instance=ExtResource("3_vogn0")]
-position = Vector2(2082, 3248)
-withRipples = false
-
 [node name="Ward3" parent="Ward/Initial" instance=ExtResource("3_vogn0")]
-position = Vector2(854, 2943)
+position = Vector2(1164, 3222)
 withRipples = false
 
 [node name="Ward4" parent="Ward/Initial" instance=ExtResource("3_vogn0")]
@@ -511,6 +548,7 @@ blend_mode = 1
 layer = 2
 
 [node name="UI" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -653,15 +691,6 @@ value = 100.0
 rounded = true
 script = ExtResource("8_alurk")
 
-[node name="Anchor" type="CheckButton" parent="CanvasLayer/UI/Right/CenterContainer/MarginContainer/VBoxContainer/EngineZone/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-focus_mode = 0
-theme_override_font_sizes/font_size = 18
-button_pressed = true
-text = "Anchor (Q)"
-script = ExtResource("9_il8ov")
-
 [node name="HSeparator2" type="HSeparator" parent="CanvasLayer/UI/Right/CenterContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -749,7 +778,7 @@ autoplay = "flicker"
 [connection signal="body_exited" from="DepressionZones/Depression1" to="DepressionZones/Depression1" method="_on_body_exited"]
 [connection signal="body_entered" from="DepressionZones/Depression2" to="DepressionZones/Depression2" method="_on_body_entered"]
 [connection signal="body_exited" from="DepressionZones/Depression2" to="DepressionZones/Depression2" method="_on_body_exited"]
-[connection signal="pressed" from="CanvasLayer/UI/Right/CenterContainer/MarginContainer/VBoxContainer/EngineZone/VBoxContainer/Anchor" to="CanvasLayer/UI/Right/CenterContainer/MarginContainer/VBoxContainer/EngineZone/VBoxContainer/Anchor" method="_on_pressed"]
 [connection signal="timeout" from="CanvasLayer/Alert Message/Timer" to="CanvasLayer/Alert Message" method="_on_timer_timeout"]
 
 [editable path="AccelerationZones/Acc1"]
+[editable path="HUB"]

@@ -109,7 +109,8 @@ func _process(_delta):
 func showUnlock(message):
 	var u = unlock.instantiate()
 	u.text = "Achivement unlocked : " + message
-	$player.add_child(u)
+	u.position = Vector2(1920/2,1080/2)
+	%UI.add_child(u)
 
 func _input(event):
 	if event is InputEventKey:

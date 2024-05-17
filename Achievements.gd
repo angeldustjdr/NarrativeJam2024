@@ -3,7 +3,7 @@ extends Node
 var AchievementsList = []
 var AchievementDescription = {
 	"Morning routine" : ["Drink 5 coffees",false],
-	"Heavy lifting" : ["Lift the anchor for the first time",false],
+	#"Heavy lifting" : ["Lift the anchor for the first time",false],
 	"Fun slide" : ["Take the accelerator for the first time",false],
 	"Idol of youth" : ["Talk to the shipgirl 6 times",false],
 	"Good soldier" : ["Talk to the captain 6 times",false],
