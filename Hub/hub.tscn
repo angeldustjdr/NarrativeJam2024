@@ -358,6 +358,7 @@ text = "Leave"
 
 [connection signal="gui_input" from="CanvasLayer/ArmadaOrga/MarginContainer/Panel" to="." method="_on_panel_gui_input"]
 [connection signal="gui_input" from="CanvasLayer/EmployeeMonth/MarginContainer/Panel" to="." method="_on_panel_gui_input"]
+[connection signal="gui_input" from="CanvasLayer/AchivementsPanel" to="." method="_on_achivements_panel_gui_input"]
 [connection signal="pressed" from="CanvasLayer/TalkToMenu/TalkToShipgirl" to="CanvasLayer/TalkToMenu" method="_on_talk_to_shipgirl_pressed"]
 [connection signal="pressed" from="CanvasLayer/TalkToMenu/TalkToNavigator1" to="CanvasLayer/TalkToMenu" method="_on_talk_to_navigator_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/TalkToMenu/TalkToNavigator2" to="CanvasLayer/TalkToMenu" method="_on_talk_to_navigator_2_pressed"]

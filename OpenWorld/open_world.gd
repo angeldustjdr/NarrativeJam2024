@@ -94,6 +94,8 @@ func _scene_change(scene_name):
 	SceneTransitionLayer.transition_to_file_scene(scene_name)
 
 func poserWard():
+	GameState.nbWard += 1
+	Achievements.checkWard()
 	var w = ward.instantiate()
 	w.global_position = $player.global_position
 	$Ward.add_child(w)

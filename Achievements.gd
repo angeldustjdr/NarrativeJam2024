@@ -2,14 +2,16 @@ extends Node
 
 var AchievementsList = []
 var AchievementDescription = {
-	"Morning routine" : ["Drink 5 coffees",false],
+	"Morning routine" : ["Drink 5 coffees",false,"Need more cafein?"],
 	#"Heavy lifting" : ["Lift the anchor for the first time",false],
-	"Fun slide" : ["Take the accelerator for the first time",false],
-	"Idol of youth" : ["Talk to the shipgirl 6 times",false],
-	"Good soldier" : ["Talk to the captain 6 times",false],
-	"Old friend" : ["Talk to your navigator 4 times",false],
-	"New friend" : ["Talk to your new navigator 3 times",false],
-	"Hi everyone !" : ["Talk to all characters once",false],
+	"Fun slide" : ["Take the accelerator for the first time",false,"What's the limit speed again?"],
+	"Idol of youth" : ["Talk to the shipgirl 6 times",false,"Create bonds with a younger person."],
+	"Good soldier" : ["Talk to the captain 6 times",false,"Create bonds with an officier."],
+	"Old friend" : ["Talk to your navigator 4 times",false,"Create bonds with someone you know for a long time."],
+	"New friend" : ["Talk to your new navigator 3 times",false,"Create bonds with someone new."],
+	"Hi everyone !" : ["Talk to all characters once",false,"Be sociable in your workplace."],
+	"True pioneer" : ["Drop 5 wards",false,"Enlighten your way when exploring."],
+	"Safe return" : ["Finish a mission before the Ethertimer ends",false,"Don't risk your life on the Ethersea."],
 }
 
 signal unlock
@@ -44,3 +46,7 @@ func checkInteraction(who):
 	
 	if GameState.nbInteractions["Shipgirl"]>=1 and GameState.nbInteractions["Navigator1"]>=1 and GameState.nbInteractions["Navigator2"]>=1 and GameState.nbInteractions["Captain"]>=1:
 		genericCheck("Hi everyone !")
+
+func checkWard():
+	if GameState.nbWard >= 2 :
+		genericCheck("True pioneer")

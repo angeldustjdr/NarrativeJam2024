@@ -9,6 +9,9 @@ func _ready():
 	Achievements.connect("unlock",showUnlock)
 	%TalkToMenu.coffee_credit_update.connect(self._on_coffee_credit_update)
 	SceneTransitionLayer.reveal_scene()
+	##### achievement
+	if GameState.get_ether_timer_timeleft() > 0 :
+		Achievements.genericCheck("Safe return")
 
 func clickObject(which):
 	match which:
@@ -17,7 +20,7 @@ func clickObject(which):
 			%ArmadaOrga.visible = true
 			setClickableProcess(PROCESS_MODE_DISABLED)
 		"Door" :
-			if Dialogic.current_timeline == null:
+			if Dialogic.current_timeline == null and GameState.coffeeCredit>0:
 				Dialogic.start("res://Dialogue/timelines/tl_confirm_exit.dtl")
 				Dialogic.timeline_ended.connect(self._go_in_mission)
 		"Employee" : 
@@ -51,10 +54,7 @@ func clear(exclude):
 func _on_panel_gui_input(event):
 	if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-				for elem in $CanvasLayer.get_children() : 
-					elem.visible = false
-				for clickable in $clickables.get_children():
-					clickable.process_mode = PROCESS_MODE_ALWAYS
+				closePanels()
 
 func setClickableProcess(p_mode):
 	for clickable in $clickables.get_children(): clickable.process_mode = p_mode
@@ -69,3 +69,15 @@ func _on_coffee_credit_update(coffee_credit_descrease):
 	setClickableProcess(PROCESS_MODE_ALWAYS)
 	if coffee_credit_descrease:
 		$clickables/CoffeeMachine/CoffeeCredits.updateCoffe()
+
+
+func _on_achivements_panel_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			closePanels()
+
+func closePanels():
+	for elem in $CanvasLayer.get_children() : 
+		elem.visible = false
+	for clickable in $clickables.get_children():
+		clickable.process_mode = PROCESS_MODE_ALWAYS

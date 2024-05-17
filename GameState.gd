@@ -41,6 +41,7 @@ var _ether_timer : Timer
 	"Navigator1":0,
 	"Navigator2":0,
 	"Captain":0}
+@onready var nbWard = 0
 
 func _ready():
 	self._init_ether_timer()

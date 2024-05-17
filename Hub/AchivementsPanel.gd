@@ -13,9 +13,11 @@ func updatePanel():
 		var c = CheckBox.new()
 		c.text = item
 		if Achievements.AchievementDescription[item][1] == true : 
-			c.text += " - " + Achievements.AchievementDescription[item][0]
+			c.text += " --- " + Achievements.AchievementDescription[item][0]
 			c.button_pressed = true
 			nb_ach += 1
+		else :
+			c.text += " --- " + Achievements.AchievementDescription[item][2]
 		c.disabled = true
 		%AchivementsItems.add_child(c)
 	

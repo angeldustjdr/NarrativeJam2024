@@ -101,8 +101,8 @@ func _on_friction_zone_body_exited(body):
 		speed *= 2
 
 func _on_accelaration_zone_body_entered(body):
-	Achievements.genericCheck("Fun slide")
 	if body==self : 
+		Achievements.genericCheck("Fun slide")
 		speed *= 4
 
 func _on_accelaration_zone_body_exited(body):
