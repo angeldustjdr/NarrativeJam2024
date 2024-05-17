@@ -1,6 +1,11 @@
-Start mission?
+Start mission? {confirm_exit}
 - Yes
+	This is a YES but it is not working!
 	set {confirm_exit} = true
+	{confirm_exit}
+	[end_timeline]
 - No
+	This is a NO but it is not working!
 	set {confirm_exit} = false
-[end_timeline]
+	{confirm_exit}
+	[end_timeline]

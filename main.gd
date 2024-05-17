@@ -21,7 +21,7 @@ func _ready():
 	SceneTransitionLayer.reveal_scene()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	match focus:
 		0:
 			$AnimationPlayer.play("Play")
