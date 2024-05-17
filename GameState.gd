@@ -45,7 +45,6 @@ var _ether_timer : Timer
 
 func _ready():
 	self._init_ether_timer()
-	Dialogic.VAR.variable_changed.connect(self._on_dialogic_var_changed)
 
 # Main title relatives
 func get_main_title_state():
@@ -164,7 +163,3 @@ func validate_current_mission_debug():
 		self.start_current_mission()
 		self.check_intemperie()
 	return self._debug
-
-# Mothefucking dialogic
-func _on_dialogic_var_changed(info_dico):
-	print(info_dico)
