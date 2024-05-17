@@ -47,6 +47,10 @@ var _ether_timer : Timer
 func _ready():
 	self._init_ether_timer()
 
+# Related to dialogs
+func get_smth():
+	pass 
+
 # Main title relatives
 func get_main_title_state():
 	return self._title_screen_state
