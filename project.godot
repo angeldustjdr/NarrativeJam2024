@@ -108,12 +108,12 @@ variables={
 "Var": "coucou",
 "armada_name": "armada",
 "captain_name": "Cap'",
+"confirm_exit": false,
 "mc_name": "f13B59",
 "navigator1_name": "Bernard",
 "navigator2_name": "navi",
 "shipgirl_name": "Shipgirl"
-"armada_name": "armada",
-"confirm_exit": false
+}
 save/autosave=false
 extensions_folder="res://addons/dialogic_additions"
 layout/end_behaviour=0
