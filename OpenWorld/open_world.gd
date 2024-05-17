@@ -98,6 +98,7 @@ func poserWard():
 	GameState.nbWard += 1
 	Achievements.checkWard()
 	var w = ward.instantiate()
+	w.setPortable()
 	w.global_position = $player.global_position
 	$Ward.add_child(w)
 
