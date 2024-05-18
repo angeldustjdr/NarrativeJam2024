@@ -22,11 +22,11 @@ enum {NO_ONE=-9999}
 							"ilot_4":{"revealed":false},
 							"ilot_5":{"revealed":false},
 							"ilot_test":{"revealed":false}}
-@onready var mission_states = {"mission_1":{"started":false,"finished":false,"in_time":true},
-							   "mission_2":{"started":false,"finished":false,"in_time":true},
-							   "mission_3":{"started":false,"finished":false,"in_time":true},
-							   "mission_4":{"started":false,"finished":false,"in_time":true},
-							   "mission_5":{"started":false,"finished":false,"in_time":true}}
+@onready var mission_states = {"mission_1":{"started":false,"finished":false,"in_time":true,"debriefed":false},
+							   "mission_2":{"started":false,"finished":false,"in_time":true,"debriefed":false},
+							   "mission_3":{"started":false,"finished":false,"in_time":true,"debriefed":false},
+							   "mission_4":{"started":false,"finished":false,"in_time":true,"debriefed":false},
+							   "mission_5":{"started":false,"finished":false,"in_time":true,"debriefed":false}}
 @onready var mission_timer = {"mission_1": 600.,
 							   "mission_2": 60.,
 							   "mission_3": 60.,
@@ -123,19 +123,24 @@ func start_briefing_dialog():
 				push_error("unexpected behavior, not a recognized mission name")
 		return true
 	elif self.coming_from == ILOT:
-		if ilot_states["ilot_1"]["revealed"] and mission_states["mission_1"]["started"] and !mission_states["mission_1"]["finished"]:
-			self.start_time_line("tl_mission1_navigator1_retour")
-			return true
-		elif ilot_states["ilot_2"]["revealed"] and mission_states["mission_2"]["started"] and !mission_states["mission_2"]["finished"]:
-			self.start_time_line("tl_02mission2_return")
-			return true
-		elif ilot_states["ilot_3"]["revealed"] and mission_states["mission_3"]["started"] and !mission_states["mission_3"]["finished"]:
-			self.start_time_line("tl_03mission3_return")
-			return true
-		elif ilot_states["ilot_4"]["revealed"] and mission_states["mission_4"]["started"] and !mission_states["mission_4"]["finished"]:
-			self.start_time_line("tl_04mission4_return")
-			return true
-		else :
+		var mission = self.get_current_mission()
+		if not self.mission_states[mission]["debriefed"]:
+			self.mission_states[mission]["debriefed"] = true
+			if ilot_states["ilot_1"]["revealed"] and mission_states["mission_1"]["started"] and !mission_states["mission_1"]["finished"]:
+				self.start_time_line("tl_mission1_navigator1_retour")
+				return true
+			elif ilot_states["ilot_2"]["revealed"] and mission_states["mission_2"]["started"] and !mission_states["mission_2"]["finished"]:
+				self.start_time_line("tl_02mission2_return")
+				return true
+			elif ilot_states["ilot_3"]["revealed"] and mission_states["mission_3"]["started"] and !mission_states["mission_3"]["finished"]:
+				self.start_time_line("tl_03mission3_return")
+				return true
+			elif ilot_states["ilot_4"]["revealed"] and mission_states["mission_4"]["started"] and !mission_states["mission_4"]["finished"]:
+				self.start_time_line("tl_04mission4_return")
+				return true
+			else :
+				return false
+		else:
 			return false
 	else:
 		return false
