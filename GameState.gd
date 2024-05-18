@@ -22,28 +22,28 @@ enum {NO_ONE=-9999}
 							"ilot_4":{"revealed":false},
 							"ilot_5":{"revealed":false},
 							"ilot_test":{"revealed":false}}
-@onready var mission_states = {"mission_1":{"started":false,"finished":false,"in_time":true},
-							   "mission_2":{"started":false,"finished":false,"in_time":true},
-							   "mission_3":{"started":false,"finished":false,"in_time":true},
-							   "mission_4":{"started":false,"finished":false,"in_time":true},
-							   "mission_5":{"started":false,"finished":false,"in_time":true}}
-@onready var mission_timer = {"mission_1": 600.,
+@onready var mission_states = {"mission_1":{"started":false,"finished":false,"in_time":true,"debriefed":false},
+							   "mission_2":{"started":false,"finished":false,"in_time":true,"debriefed":false},
+							   "mission_3":{"started":false,"finished":false,"in_time":true,"debriefed":false},
+							   "mission_4":{"started":false,"finished":false,"in_time":true,"debriefed":false},
+							   "mission_5":{"started":false,"finished":false,"in_time":true,"debriefed":false}}
+@onready var mission_timer = {"mission_1": 60.,
 							   "mission_2": 60.,
 							   "mission_3": 60.,
 							   "mission_4": 60.,
 							   "mission_5": 60.}
-@onready var mission_corrupted = {"mission_1": false, #set in each corrupted dialog timeline !
-							   "mission_2": false,
-							   "mission_3": false,
-							   "mission_4": false,
-							   "mission_5": false}
+@onready var mission_corrupted = {"mission_1": 0, #set in each corrupted dialog timeline !
+							   "mission_2": 0,
+							   "mission_3": 0,
+							   "mission_4": 0,
+							   "mission_5": 0}
 @onready var player_position = Vector2(838,4603) # initial coordinates of player
-var _ether_timer : Timer
 
 @onready var _title_screen_state : int = CORPORATE
 
-var PV = 100
-signal damageTaken
+########### ETHER TIMER
+var _ether_timer : Timer
+var ether_timer_decrement : int = 15
 
 ########### ACHIEVEMENTS
 @onready var nbCoffee = 0
@@ -71,20 +71,26 @@ signal damageTaken
 
 var coming_from : int # hold previous scene for some reason
 
+######## PV
+var PV = 100
+signal damageTaken
+
+func takeDamage():
+	PV = max(PV-10,0)
+	emit_signal("damageTaken")
+	if PV==0 : Achievements.genericCheck("Sabotage")
+
+func resetPV():
+	PV = 100.0
+	emit_signal("damageTaken")
+##########
+
 func _ready():
 	self.set_process_mode(PROCESS_MODE_ALWAYS)
 	self._init_ether_timer()
 
 func setMission_corrupted(which):
-	mission_corrupted[which] = true
-
-func takeDamage():
-	PV = max(PV-10,0)
-	emit_signal("damageTaken")
-
-func resetPV():
-	PV = 100.0
-	emit_signal("damageTaken")
+	mission_corrupted[which] += 1
 
 # Related to dialogs
 func start_time_line(timeline_name):
@@ -110,12 +116,32 @@ func start_briefing_dialog():
 			2: #MISSION 3
 				self.start_time_line("tl_03mission3_objectif")
 			3: #MISSION 4
-				self.start_time_line("Test_timeline")
+				self.start_time_line("tl_04mission4_objectif")
 			4: #MISSION 5
 				self.start_time_line("Test_timeline")
 			_: 
 				push_error("unexpected behavior, not a recognized mission name")
 		return true
+	elif self.coming_from == ILOT:
+		var mission = self.get_current_mission()
+		if not self.mission_states[mission]["debriefed"]:
+			self.mission_states[mission]["debriefed"] = true
+			if ilot_states["ilot_1"]["revealed"] and mission_states["mission_1"]["started"] and !mission_states["mission_1"]["finished"]:
+				self.start_time_line("tl_mission1_navigator1_retour")
+				return true
+			elif ilot_states["ilot_2"]["revealed"] and mission_states["mission_2"]["started"] and !mission_states["mission_2"]["finished"]:
+				self.start_time_line("tl_02mission2_return")
+				return true
+			elif ilot_states["ilot_3"]["revealed"] and mission_states["mission_3"]["started"] and !mission_states["mission_3"]["finished"]:
+				self.start_time_line("tl_03mission3_return")
+				return true
+			elif ilot_states["ilot_4"]["revealed"] and mission_states["mission_4"]["started"] and !mission_states["mission_4"]["finished"]:
+				self.start_time_line("tl_04mission4_return")
+				return true
+			else :
+				return false
+		else:
+			return false
 	else:
 		return false
 
@@ -126,9 +152,9 @@ func start_ilot_dialog_navigator(numero_ilot):
 		1: #MISSION 2
 			if ilot_states["ilot_2"]["revealed"] == false and numero_ilot==2 : self.start_time_line("tl_02mission2_arrival")
 		2: #MISSION 3
-			if ilot_states["ilot_3"]["revealed"] == false and numero_ilot==3 : self.start_time_line("tl_02mission3_arrival")
+			if ilot_states["ilot_3"]["revealed"] == false and numero_ilot==3 : self.start_time_line("tl_03mission3_arrival")
 		3: #MISSION 4
-			self.start_time_line("Test_timeline")
+			if ilot_states["ilot_4"]["revealed"] == false and numero_ilot==4 : self.start_time_line("tl_04mission4_arrival")
 		4: #MISSION 5
 			self.start_time_line("Test_timeline")
 		_: 
@@ -148,21 +174,27 @@ func _update_current_timelines():
 			self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
 			self._current_timelines[GameState.CAPTAIN] = "tl_02hub_captain_coffee"
 		2: #MISSION 3
-			if mission_corrupted["mission_1"]:
-				self._current_timelines[GameState.SHIPGIRL] = "tl_03hub_shipgirl3_coffee_influenced1"
-				self._current_timelines[GameState.NAVIGATOR1] = "tl_03hub_navigator3_coffee_influenced"
+			if mission_corrupted["mission_1"] > 0:
+				self._current_timelines[GameState.SHIPGIRL] = "influenced1/tl_03hub_shipgirl3_coffee_influenced1"
+				self._current_timelines[GameState.NAVIGATOR1] = "influenced1/tl_03hub_navigator3_coffee_influenced"
 				self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
-				self._current_timelines[GameState.CAPTAIN] = "tl_03hub_captain3_coffee_influenced1"
+				self._current_timelines[GameState.CAPTAIN] = "influenced1/tl_03hub_captain3_coffee_influenced1"
 			else :
 				self._current_timelines[GameState.SHIPGIRL] = "tl_03hub_shipgirl3_coffee"
-				self._current_timelines[GameState.NAVIGATOR1] = "tl_03hub_navigator3_coffee"
+				self._current_timelines[GameState.NAVIGATOR1] = "tl_03hub_navigator1_coffee"
 				self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
 				self._current_timelines[GameState.CAPTAIN] = "tl_03hub_captain3_coffee"
 		3: #MISSION 4
-			self._current_timelines[GameState.SHIPGIRL] = "Test_timeline"
-			self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
-			self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
-			self._current_timelines[GameState.CAPTAIN] = "Test_timeline"
+			if mission_corrupted["mission_2"] > 0:
+				self._current_timelines[GameState.SHIPGIRL] = "influenced2/tl_04hub_shipgirl4_coffee_influenced2"
+				self._current_timelines[GameState.NAVIGATOR1] = "influenced2/tl_04hub_navigator4_coffee_influenced2"
+				self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
+				self._current_timelines[GameState.CAPTAIN] = "influenced2/tl_04hub_captain4_coffee_influenced2"
+			else :
+				self._current_timelines[GameState.SHIPGIRL] = "tl_04hub_shipgirl4_coffee"
+				self._current_timelines[GameState.NAVIGATOR1] = "tl_04hub_navigator4_coffee"
+				self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
+				self._current_timelines[GameState.CAPTAIN] = "tl_04hub_captain4_coffee"
 		4: #MISSION 5
 			self._current_timelines[GameState.SHIPGIRL] = "Test_timeline"
 			self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
@@ -172,7 +204,40 @@ func _update_current_timelines():
 			push_error("unexpected behavior, not a recognized mission name")
 
 func _update_characters_availability():
-	pass #NEED SMTH
+	# check availability at coffee machine
+	match self.get_current_mission_idx():
+		0: #MISSION 1
+			self._characters_available = {
+				SHIPGIRL:true,
+				NAVIGATOR1:true,
+				NAVIGATOR2:false,
+				CAPTAIN:true}
+		1: #MISSION 2
+			self._characters_available = {
+				SHIPGIRL:true,
+				NAVIGATOR1:true,
+				NAVIGATOR2:false,
+				CAPTAIN:true}
+		2: #MISSION 3
+			self._characters_available = {
+				SHIPGIRL:true,
+				NAVIGATOR1:true,
+				NAVIGATOR2:false,
+				CAPTAIN:true}
+		3: #MISSION 4
+			self._characters_available = {
+				SHIPGIRL:true,
+				NAVIGATOR1:true,
+				NAVIGATOR2:false,
+				CAPTAIN:true}
+		4: #MISSION 5
+			self._characters_available = {
+				SHIPGIRL:true,
+				NAVIGATOR1:false,
+				NAVIGATOR2:true,
+				CAPTAIN:true}
+		_: 
+			push_error("unexpected behavior, not a recognized mission name")
 
 func is_character_available(character):
 	return self._characters_available[character]
@@ -193,9 +258,9 @@ func _play_dialog_return_to_hub():
 				GameState.start_time_line("tl_03hub_captain_missionlate")
 		2: #MISSION 3
 			if self.mission_states[mission]["in_time"]:
-				GameState.start_time_line("Test_timeline")
+				GameState.start_time_line("tl_04hub_captain_missiontimly")
 			else:
-				GameState.start_time_line("Test_timeline")
+				GameState.start_time_line("tl_04hub_captain_missionlate")
 		3: #MISSION 4
 			if self.mission_states[mission]["in_time"]:
 				GameState.start_time_line("Test_timeline")
@@ -232,7 +297,23 @@ func update_ether_timer():
 		# le timer est paused quand on sort d'un ilot
 		self._ether_timer.paused = false
 	else:
-		push_error("unexpected behavior")
+		if GameState._debug:
+			var mission = self.get_current_mission()
+			if self.mission_states[mission]["in_time"]:  # donc si elle est pas fail, ça veut dire qu'on sort du HUB et donc qu'on commence une nouvelle mission
+				self._ether_timer.wait_time = GameState.mission_timer[GameState.get_current_mission()]
+				self.start_ether_timer()
+		else:
+			push_error("unexpected behavior")
+
+func decrement_ether_timer():
+	if self._ether_timer.time_left - self.ether_timer_decrement < 0. :
+		_ether_timer.start(0.1)
+		pause_ether_timer()
+	if not self._ether_timer.is_stopped():
+		var p = self._ether_timer.paused
+		self._ether_timer.start(self._ether_timer.time_left - self.ether_timer_decrement)
+		if p:
+			self.pause_ether_timer()
 
 func stop_ether_timer():
 	if not self._ether_timer.is_stopped():
@@ -317,12 +398,14 @@ func check_intemperie():
 		MusicManager.set_intemperie(NONE)
 		return NONE
 
-func validate_current_mission_debug():
+func validate_current_mission_debug(in_time):
 	if self._debug:
 		var i_mission = self.get_current_mission_idx()
 		var mission_str = self.mission_states.keys()[i_mission]
 		var ilot_str = self.ilot_states.keys()[i_mission]
 		self.mission_states[mission_str]["finished"] = true
+		self.mission_states[mission_str]["debriefed"] = true
+		self.mission_states[mission_str]["in_time"] = in_time
 		self.ilot_states[ilot_str]["revealed"] = true
 		self.start_current_mission()
 		self.check_intemperie()

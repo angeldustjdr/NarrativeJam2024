@@ -86,6 +86,7 @@ directories/dtl_directory={
 "tl_04mission4_objectif": "res://Dialogue/timelines/04mission4/tl_04mission4_objectif.dtl",
 "tl_04mission4_return": "res://Dialogue/timelines/04mission4/tl_04mission4_return.dtl",
 "tl_04mission4_scold": "res://Dialogue/timelines/04mission4/tl_04mission4_scold.dtl",
+<<<<<<< HEAD
 "tl_05hub_captain5_coffee_influenced3": "res://Dialogue/timelines/05hub/Influenced3/tl_05hub_captain5_coffee_influenced3.dtl",
 "tl_05hub_captain_coffee": "res://Dialogue/timelines/05hub/tl_05hub_captain5_coffee.dtl",
 "tl_05hub_captain_missionlate": "res://Dialogue/timelines/05hub/tl_05hub_captain_missionlate.dtl",
@@ -107,6 +108,9 @@ directories/dtl_directory={
 "tl_05mission5_pirate_porposition": "res://Dialogue/timelines/05mission5/tl_05mission5_pirate_porposition.dtl",
 "tl_05mission5_return": "res://Dialogue/timelines/05mission5/tl_05mission5_return.dtl",
 "tl_05mission5_scold": "res://Dialogue/timelines/05mission5/tl_05mission5_scold.dtl",
+=======
+"tl_ask_to_talk_ilot": "res://Dialogue/timelines/tl_ask_to_talk_ilot.dtl",
+>>>>>>> 276da57a79455ef0c247511f120ba0d27676aa84
 "tl_confirm_exit": "res://Dialogue/timelines/tl_confirm_exit.dtl",
 "tl_galerien_influenced": "res://Dialogue/timelines/tl_galerien_influenced.dtl",
 "tl_galerien_normal": "res://Dialogue/timelines/tl_galerien_normal.dtl",
@@ -155,11 +159,13 @@ variables={
 "captain_name": "Cap'",
 "character_choice": 0,
 "confirm_exit": "tamere",
+"galerien_superinfluence": "no",
 "mc_name": "f13B59",
 "navigator1_name": "Bernard",
 "navigator2_name": "navi",
 "shipgirl_name": "Shipgirl",
 "xxx_name": "Anonymous signal"
+"talk_to_ilot": "tamere"
 }
 save/autosave=false
 extensions_folder="res://addons/dialogic_additions"

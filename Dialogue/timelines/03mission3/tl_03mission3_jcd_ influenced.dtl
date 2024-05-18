@@ -2,4 +2,5 @@ join jcd 1
 jcd (idle_portrait): I'm at upper management in the {armada_name} now !
 jcd (idle_portrait): I'm so happy ! I don't know why I waited that long to accept the offer.
 jcd (idle_portrait): Life is gonna be so great.
+do GameState.setMission_corrupted("mission_2")
 [end_timeline]

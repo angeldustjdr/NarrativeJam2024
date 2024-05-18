@@ -3,4 +3,6 @@ join "navigator 1" 1
 "navigator 1": Today objective is a litle further than last time, so you might encouter obstacles.
 "navigator 1": If you sail carefully, averything is going to be allright.
 "navigator 1": Follow the ping to the location.
+[wait time="1.0"]
+jump tl_02mission2_interuption/
 [end_timeline]

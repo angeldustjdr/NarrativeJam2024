@@ -10,6 +10,7 @@ var objective = null
 var interactable = null
 
 var invulnerable = false
+var movable = true
 
 @onready var _rocket_volume = 0.0
 @onready var _rocket_volume_incr = 0.01
@@ -43,20 +44,21 @@ func _physics_process(delta):
 	var direction = Vector2.ZERO
 	var rotation_diretion = 0.0
 	#if !%Anchor.button_pressed :
-	if Input.is_action_pressed('ui_right'):
-		rotation_diretion = 1
-	if Input.is_action_pressed('ui_left'):
-		rotation_diretion = -1
-	if Input.is_action_pressed('ui_down'):
-		direction -= ahead_vector
-		self._rocket_volume = min(1.0,self._rocket_volume + self._rocket_volume_incr)
-	if Input.is_action_pressed('ui_up'):
-		direction += ahead_vector
-	#Rocket volume management
-	if Input.is_action_pressed('ui_up') or Input.is_action_pressed('ui_down'):
-		self._rocket_volume = min(1.0,self._rocket_volume + self._rocket_volume_incr)
-	else:
-		self._rocket_volume = max(0.0,self._rocket_volume - self._rocket_volume_incr)
+	if movable:
+		if Input.is_action_pressed('ui_right'):
+			rotation_diretion = 1
+		if Input.is_action_pressed('ui_left'):
+			rotation_diretion = -1
+		if Input.is_action_pressed('ui_down'):
+			direction -= ahead_vector
+			self._rocket_volume = min(1.0,self._rocket_volume + self._rocket_volume_incr)
+		if Input.is_action_pressed('ui_up'):
+			direction += ahead_vector
+		#Rocket volume management
+		if Input.is_action_pressed('ui_up') or Input.is_action_pressed('ui_down'):
+			self._rocket_volume = min(1.0,self._rocket_volume + self._rocket_volume_incr)
+		else:
+			self._rocket_volume = max(0.0,self._rocket_volume - self._rocket_volume_incr)
 	
 	#if %Anchor.button_pressed and (Input.is_action_pressed('ui_right') or Input.is_action_pressed('ui_left') or Input.is_action_pressed('ui_down') or Input.is_action_pressed('ui_up')):
 	#	Radio.emit_signal("showAlertMessage","Can't move, Anchor down !")
@@ -82,7 +84,6 @@ func _physics_process(delta):
 		if collision != null:
 			velocity = temp_velocity.bounce(collision.get_normal())
 			if invulnerable == false :
-				GameState.takeDamage()
 				invulnerable = true
 				$InvulnerableTimer.start(1.0)
 			
@@ -133,7 +134,7 @@ func bodyExitedObjective(_interactableObjective,whoEntered):
 		$Message.visible = false
 
 func _unhandled_input(event):
-	if event.is_action_pressed("Interact") :
+	if event.is_action_pressed("Interact") and self.movable:
 		if interactable !=null :
 			Radio.emit_signal("interaction",interactable)
 

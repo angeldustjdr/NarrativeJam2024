@@ -11,12 +11,15 @@ func get_duration(anim_name):
 
 func _on_fade_in_finished():
 	fade_in_finished.emit()
+	Radio.click_enabled = true
 
 func reveal_scene():
 	$scene_transition.reveal_scene()
 
 func transition_to_packed_scene(next_packed_scene):
+	Radio.click_enabled = false
 	$scene_transition.transition_to_packed_scene(next_packed_scene)
 	
 func transition_to_file_scene(next_packed_scene):
+	Radio.click_enabled = false
 	$scene_transition.transition_to_file_scene(next_packed_scene)

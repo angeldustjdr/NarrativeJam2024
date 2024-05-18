@@ -30,6 +30,31 @@ func _ready():
 	Achievements.connect("unlock",showUnlock)
 	#####################################################
 	# check pour les zones d'acceleration et la révélation de la map
+	self._check_map()
+	#####################################################
+	for i in range(nb_available_wards) : 
+		var w = wardbutton.instantiate()
+		w.setText(i+1)
+		%VBoxContainer_Ward.add_child(w)
+	# WTF? 
+	$player.player_connect()
+	
+	%MissionLabel.text = GameState.get_current_mission()
+	GameState.update_ether_timer()
+	SceneTransitionLayer.reveal_scene()
+	await(SceneTransitionLayer.fade_in_finished)
+	var brief = GameState.start_briefing_dialog()
+	if brief:
+		GameState.pause_ether_timer()
+		Dialogic.timeline_ended.connect(self._on_briefing_dialog_ended)
+		#$player.set_process_mode(PROCESS_MODE_DISABLED)
+		$player.movable = false
+	else :
+		if GameState.mission_corrupted["mission_1"] and GameState.mission_corrupted["mission_2"] and GameState.mission_corrupted["mission_3"]:
+			showIntermediateDialog("tl_04mission4_scold")
+
+func _check_map():
+	# check pour les zones d'acceleration et la révélation de la map
 	if GameState.mission_states["mission_1"]["finished"]:
 		$AccelerationZones/Acc2.visible = true
 		$AccelerationZones/Acc2.monitoring = true
@@ -51,33 +76,22 @@ func _ready():
 		$Ward/Mission4.visible = true
 	if GameState.mission_states["mission_5"]["finished"]:
 		$Ward/Mission5.visible = true
-	#####################################################
-	for i in range(nb_available_wards) : 
-		var w = wardbutton.instantiate()
-		w.setText(i+1)
-		%VBoxContainer_Ward.add_child(w)
-	# WTF? 
-	$player.player_connect()
-	
-	%MissionLabel.text = GameState.get_current_mission()
-	GameState.update_ether_timer()
-	SceneTransitionLayer.reveal_scene()
-	await(SceneTransitionLayer.fade_in_finished)
-	var brief = GameState.start_briefing_dialog()
-	if brief:
-		GameState.pause_ether_timer()
-		Dialogic.timeline_ended.connect(self._on_briefing_dialog_ended)
-		$player.set_process_mode(PROCESS_MODE_DISABLED)
 
 func _on_briefing_dialog_ended():
 	GameState.unpause_ether_timer()
-	$player.set_process_mode(PROCESS_MODE_PAUSABLE)
+	#$player.set_process_mode(PROCESS_MODE_PAUSABLE)
+	$player.movable = true
+
+func _disconnect_objective():
+	for objective in objectiveArray:
+		if objective.scene_need_changing.is_connected(self._scene_change):
+			objective.scene_need_changing.disconnect(self._scene_change)
 	
 func _init_objectives():
 	var i_mission : int = GameState.get_current_mission_idx()
 	if self.iObjective == GameState.HUB: 
 		# Si l'objectif est le HUB alors on l'active
-		objectiveArray[GameState.HUB].process_mode = PROCESS_MODE_PAUSABLE
+		objectiveArray[GameState.HUB].set_process_mode(PROCESS_MODE_PAUSABLE)
 		objectiveArray[GameState.HUB].visible = true
 		objectiveArray[GameState.HUB].set_next_scene(ilot_scenes_path[GameState.HUB])
 		objectiveArray[GameState.HUB].scene_need_changing.connect(self._scene_change)
@@ -128,8 +142,24 @@ func showUnlock(message):
 
 func _input(event):
 	if event is InputEventKey:
+		var dbg = false
 		if event.keycode == KEY_V and event.pressed:
-			var dbg = GameState.validate_current_mission_debug()
-			if dbg:
-				self.setObjective()
-				self._set_intemperie()
+			# validate mission in time
+			dbg = GameState.validate_current_mission_debug(true)
+		elif event.keycode == KEY_B and event.pressed:
+			#validate mission but not in_time
+			dbg = GameState.validate_current_mission_debug(false)
+		if dbg:
+			self._disconnect_objective()
+			GameState.update_ether_timer()
+			self.setObjective()
+			self._init_objectives()
+			self._set_intemperie()
+			self._check_map()
+
+func showIntermediateDialog(what):
+	GameState.start_time_line(what)
+	GameState.pause_ether_timer()
+	Dialogic.timeline_ended.connect(self._on_briefing_dialog_ended)
+	#$player.set_process_mode(PROCESS_MODE_DISABLED)
+	$player.movable = false

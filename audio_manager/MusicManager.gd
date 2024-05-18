@@ -62,6 +62,7 @@ func _ready():
 	p.volume_db = 0.0
 	p.bus = self._bus_name
 	p.stream = null
+	p.finished.connect(self.musicIsFinished)
 	self.add_child(p)
 
 func set_intemperie(intemperie_level : int):
@@ -81,7 +82,6 @@ func playMusicNamed(music_name,fade_in=-1.0):
 	ap.stream = load(self.musics_names[music_name])
 	ap.volume_db = musics_base_volumes[music_name]
 	self._current_music_name = music_name
-	ap.finished.connect(self.musicIsFinished)
 	# play with fade_in
 	if (fade_in > 0.0):
 		self._play_fade_in(fade_in)
@@ -120,7 +120,6 @@ func stopCurrent(fade_out=-1.0):
 func _stop():
 	var ap = self.get_node("music_player")
 	ap.stop()
-	ap.finished.disconnect(self.musicIsFinished)
 	ap.stream = null
 	self._current_music_name = null
 

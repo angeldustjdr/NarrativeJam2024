@@ -1,7 +1,11 @@
 extends Node
 
+var click_enabled = false
+
 signal poserWard
 signal showAlertMessage
+func showAlertFromDialogic(what):
+	emit_signal("showAlertMessage",what)
 
 signal interaction
 
@@ -18,3 +22,9 @@ signal clickObject
 
 ########### ACHIEVEMENTS
 signal coffeeMade
+
+func _input(event):
+	if click_enabled:
+		if event is InputEventMouseButton:
+			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+				SoundManager.playSoundNamed("confirm")
