@@ -30,6 +30,7 @@ target_signal_prop = {
 "period": 0.0,
 "phase": 0.0
 }
+numero_ilot = 0
 
 [node name="wave_timer" type="Timer" parent="." index="0"]
 wait_time = 3.5

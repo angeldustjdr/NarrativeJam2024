@@ -82,7 +82,6 @@ func _physics_process(delta):
 		if collision != null:
 			velocity = temp_velocity.bounce(collision.get_normal())
 			if invulnerable == false :
-				GameState.takeDamage()
 				invulnerable = true
 				$InvulnerableTimer.start(1.0)
 			

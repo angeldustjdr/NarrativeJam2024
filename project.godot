@@ -85,6 +85,7 @@ directories/dtl_directory={
 "tl_04mission4_objectif": "res://Dialogue/timelines/04mission4/tl_04mission4_objectif.dtl",
 "tl_04mission4_return": "res://Dialogue/timelines/04mission4/tl_04mission4_return.dtl",
 "tl_04mission4_scold": "res://Dialogue/timelines/04mission4/tl_04mission4_scold.dtl",
+"tl_ask_to_talk_ilot": "res://Dialogue/timelines/tl_ask_to_talk_ilot.dtl",
 "tl_confirm_exit": "res://Dialogue/timelines/tl_confirm_exit.dtl",
 "tl_galerien_influenced": "res://Dialogue/timelines/tl_galerien_influenced.dtl",
 "tl_galerien_normal": "res://Dialogue/timelines/tl_galerien_normal.dtl",
@@ -136,7 +137,8 @@ variables={
 "mc_name": "f13B59",
 "navigator1_name": "Bernard",
 "navigator2_name": "navi",
-"shipgirl_name": "Shipgirl"
+"shipgirl_name": "Shipgirl",
+"talk_to_ilot": "tamere"
 }
 save/autosave=false
 extensions_folder="res://addons/dialogic_additions"

@@ -95,7 +95,17 @@ func clickObject(which):
 			push_warning("clickable not recognized")
 
 func _on_character_clicked():
-	GameState.start_time_line(self._current_time_line)
+	GameState.start_time_line("tl_ask_to_talk_ilot")
+	Dialogic.timeline_ended.connect(self._on_ask_to_talk_ilot_ended)
+
+func _on_ask_to_talk_ilot_ended():
+	Dialogic.timeline_ended.disconnect(self._on_ask_to_talk_ilot_ended)
+	if Dialogic.VAR.talk_to_ilot:
+		GameState.decrement_ether_timer()
+		await get_tree().create_timer(0.1).timeout #FUCKING DIALOGIC : my guess : si t'as pas attendu suffisamment y a des trucs qui sont pas decharges ça fout la merde.
+		# MAIS CURRENT_TIMELINE est quand même NULL haha!
+		GameState.start_time_line(self._current_time_line)
+		await(Dialogic.timeline_ended)
 
 func _on_button_pressed():
 	if GameState.ilot_states[self.name]["revealed"]:
