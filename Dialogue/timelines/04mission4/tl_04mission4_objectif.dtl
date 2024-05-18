@@ -1,0 +1,8 @@
+join "navigator 2" 1
+"navigator 2": Good morning sailor {mc_name} ! ready for your asignment ?
+"navigator 2": {navigator1_name} ? Who's that ? Do you have his matricul ? let me check.
+"navigator 2": Hmm no, I don't see anything remotly resembling this name or matricul.
+"navigator 2": Are you sure you had your morning coffee ? Anyway let's not loose time with thoses details
+"navigator 2": Anyway let's not loose time with thoses details, start the engine and go to the objective.\
+I'm sending the coordonate, right about now.
+[end_timeline]

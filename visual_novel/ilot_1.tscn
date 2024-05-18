@@ -20,6 +20,7 @@ target_signal_prop = {
 "period": 0.0,
 "phase": 0.0
 }
+numero_ilot = 1
 
 [node name="Background" parent="visual_novel_scene" index="0"]
 texture = ExtResource("3_sav4k")

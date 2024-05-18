@@ -6,6 +6,7 @@ class_name IlotGeneric
 @export var ilot_color_normal : Color
 @export var difficulty : int
 @export var target_signal_prop : Dictionary = {"ampl":0.0,"mean":0.0,"period":0.0,"phase":0.0}
+@export var numero_ilot = 0
 
 var _current_time_line : String
 var _ilot_corrupted : bool = false
@@ -45,7 +46,7 @@ func _ready():
 		$visual_novel_scene/clickable_oscilloscope.is_clickable = false
 	$visual_novel_scene/oscillo_light.position = $visual_novel_scene/clickable_oscilloscope.position
 	SceneTransitionLayer.reveal_scene()
-	GameState.start_ilot_dialog_navigator()
+	GameState.start_ilot_dialog_navigator(numero_ilot)
 
 func _update_oscillo_icon():
 	var texture_name = "res://assets/graphics/items/oscillo_icon_"+str(self._get_ilot_number()+1)+".png"

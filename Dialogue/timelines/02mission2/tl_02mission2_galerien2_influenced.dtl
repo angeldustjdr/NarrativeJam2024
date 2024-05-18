@@ -1,3 +1,4 @@
 join galerien 1
 galerien (idle_portrait): Life is hard but maybe if I work hard enough, the {armada_name} will reward me.
+do GameState.setMission_corrupted("mission_1")
 [end_timeline]

@@ -32,6 +32,11 @@ enum {NO_ONE=-9999}
 							   "mission_3": 60.,
 							   "mission_4": 60.,
 							   "mission_5": 60.}
+@onready var mission_corrupted = {"mission_1": false, #set in each corrupted dialog timeline !
+							   "mission_2": false,
+							   "mission_3": false,
+							   "mission_4": false,
+							   "mission_5": false}
 @onready var player_position = Vector2(838,4603) # initial coordinates of player
 var _ether_timer : Timer
 
@@ -70,6 +75,9 @@ func _ready():
 	self.set_process_mode(PROCESS_MODE_ALWAYS)
 	self._init_ether_timer()
 
+func setMission_corrupted(which):
+	mission_corrupted[which] = true
+
 func takeDamage():
 	PV = max(PV-10,0)
 	emit_signal("damageTaken")
@@ -80,6 +88,7 @@ func resetPV():
 
 # Related to dialogs
 func start_time_line(timeline_name):
+	print(timeline_name)
 	if Dialogic.current_timeline == null:
 		Dialogic.start(timeline_name).layer = 50
 
@@ -110,14 +119,14 @@ func start_briefing_dialog():
 	else:
 		return false
 
-func start_ilot_dialog_navigator():
+func start_ilot_dialog_navigator(numero_ilot):
 	match self.get_current_mission_idx():
 		0: #MISSION 1
-			if ilot_states["ilot_1"]["revealed"] == false : self.start_time_line("tl_mission1_navigator1_arrival")
+			if ilot_states["ilot_1"]["revealed"] == false and numero_ilot==1: self.start_time_line("tl_mission1_navigator1_arrival")
 		1: #MISSION 2
-			if ilot_states["ilot_2"]["revealed"] == false : self.start_time_line("tl_02mission2_arrival")
+			if ilot_states["ilot_2"]["revealed"] == false and numero_ilot==2 : self.start_time_line("tl_02mission2_arrival")
 		2: #MISSION 3
-			self.start_time_line("Test_timeline")
+			if ilot_states["ilot_3"]["revealed"] == false and numero_ilot==3 : self.start_time_line("tl_02mission3_arrival")
 		3: #MISSION 4
 			self.start_time_line("Test_timeline")
 		4: #MISSION 5
@@ -139,10 +148,16 @@ func _update_current_timelines():
 			self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
 			self._current_timelines[GameState.CAPTAIN] = "tl_02hub_captain_coffee"
 		2: #MISSION 3
-			self._current_timelines[GameState.SHIPGIRL] = "Test_timeline"
-			self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
-			self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
-			self._current_timelines[GameState.CAPTAIN] = "Test_timeline"
+			if mission_corrupted["mission_1"]:
+				self._current_timelines[GameState.SHIPGIRL] = "tl_03hub_shipgirl3_coffee_influenced1"
+				self._current_timelines[GameState.NAVIGATOR1] = "tl_03hub_navigator3_coffee_influenced"
+				self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
+				self._current_timelines[GameState.CAPTAIN] = "tl_03hub_captain3_coffee_influenced1"
+			else :
+				self._current_timelines[GameState.SHIPGIRL] = "tl_03hub_shipgirl3_coffee"
+				self._current_timelines[GameState.NAVIGATOR1] = "tl_03hub_navigator3_coffee"
+				self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
+				self._current_timelines[GameState.CAPTAIN] = "tl_03hub_captain3_coffee"
 		3: #MISSION 4
 			self._current_timelines[GameState.SHIPGIRL] = "Test_timeline"
 			self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
