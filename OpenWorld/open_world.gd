@@ -65,10 +65,12 @@ func _ready():
 	await(SceneTransitionLayer.fade_in_finished)
 	var brief = GameState.start_briefing_dialog()
 	if brief:
+		GameState.pause_ether_timer()
 		Dialogic.timeline_ended.connect(self._on_briefing_dialog_ended)
 		$player.set_process_mode(PROCESS_MODE_DISABLED)
 
 func _on_briefing_dialog_ended():
+	GameState.unpause_ether_timer()
 	$player.set_process_mode(PROCESS_MODE_PAUSABLE)
 	
 func _init_objectives():

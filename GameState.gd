@@ -27,7 +27,7 @@ enum {NO_ONE=-9999}
 							   "mission_3":{"started":false,"finished":false,"in_time":true},
 							   "mission_4":{"started":false,"finished":false,"in_time":true},
 							   "mission_5":{"started":false,"finished":false,"in_time":true}}
-@onready var mission_timer = {"mission_1": 1.,
+@onready var mission_timer = {"mission_1": 600.,
 							   "mission_2": 60.,
 							   "mission_3": 60.,
 							   "mission_4": 60.,
@@ -84,7 +84,7 @@ func start_briefing_dialog():
 			0: #MISSION 1
 				self.start_time_line("tl_mission1_navigator1_objectif")
 			1: #MISSION 2
-				self.start_time_line("tl_02mission2_navigator1_objectif")
+				self.start_time_line("tl_02mission2_objectif")
 			2: #MISSION 3
 				self.start_time_line("Test_timeline")
 			3: #MISSION 4
@@ -209,9 +209,8 @@ func pause_ether_timer():
 			self._ether_timer.paused = true
 	
 func unpause_ether_timer():
-	if self._ether_timer.is_stopped():
-		if self._ether_timer.paused == true:
-			self._ether_timer.paused = false
+	if self._ether_timer.paused == true:
+		self._ether_timer.paused = false
 
 func get_ether_timer_timeleft():
 	return self._ether_timer.time_left
