@@ -84,7 +84,7 @@ func _on_briefing_dialog_ended():
 
 func _disconnect_objective():
 	for objective in objectiveArray:
-		if objective.scene_nesed_changing.is_connected(self._scene_change):
+		if objective.scene_need_changing.is_connected(self._scene_change):
 			objective.scene_need_changing.disconnect(self._scene_change)
 	
 func _init_objectives():
