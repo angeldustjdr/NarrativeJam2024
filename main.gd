@@ -33,16 +33,19 @@ func _process(_delta):
 
 func _on_play_mouse_entered():
 	focus = 0
+	SoundManager.playSoundNamed("glitch")
 	
 
 
 func _on_achievements_mouse_entered():
 	focus = 1
+	SoundManager.playSoundNamed("glitch")
 	
 
 
 func _on_credits_mouse_entered():
 	focus = 2
+	SoundManager.playSoundNamed("glitch")
 	
 
 
