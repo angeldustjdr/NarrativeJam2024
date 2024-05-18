@@ -1,8 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcso2iywa5mbr"]
+[gd_scene load_steps=7 format=3 uid="uid://bcso2iywa5mbr"]
 
 [ext_resource type="Script" path="res://oscilloscope/oscilloscope_scene.gd" id="1_7v8s3"]
 [ext_resource type="PackedScene" uid="uid://xwjc4o5q6885" path="res://oscilloscope/oscillo_screen.tscn" id="1_ulers"]
 [ext_resource type="PackedScene" uid="uid://cysuqq7mfjitr" path="res://audio_manager/smooth_loop.tscn" id="3_n1h8k"]
+
+[sub_resource type="Animation" id="Animation_6udea"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../emit_button:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_12kr5"]
+resource_name = "flicker"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../emit_button:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uodwl"]
+_data = {
+"RESET": SubResource("Animation_6udea"),
+"flicker": SubResource("Animation_12kr5")
+}
 
 [node name="oscilloscope_scene" type="ReferenceRect"]
 texture_filter = 1
@@ -31,7 +68,14 @@ offset_left = -3.05176e-05
 offset_top = -0.0500183
 offset_right = -0.160034
 offset_bottom = 0.039978
+disabled = true
 text = "EMIT"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="emit_button"]
+root_node = NodePath("../../ProgressBar")
+libraries = {
+"": SubResource("AnimationLibrary_uodwl")
+}
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 layout_mode = 1

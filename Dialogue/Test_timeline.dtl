@@ -1,4 +1,5 @@
 join Test_character 1
 Test_character (Default): Hello there ! This is a test message.\
 No worries !
+leave Test_character 1
 [end_timeline]

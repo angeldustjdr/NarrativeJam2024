@@ -1,11 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://bst1xbumpsfra"]
+[gd_scene load_steps=21 format=3 uid="uid://bst1xbumpsfra"]
 
 [ext_resource type="Script" path="res://OpenWorld/player.gd" id="1_dhf2n"]
-[ext_resource type="Texture2D" uid="uid://b7bdcgjrpxrp5" path="res://OpenWorld/WaterTrailGradient_alpha.png" id="2_q7j1v"]
+[ext_resource type="Texture2D" uid="uid://dft684dgc0o5j" path="res://OpenWorld/WaterTrailGradient_alpha.png" id="2_q7j1v"]
 [ext_resource type="Shader" path="res://OpenWorld/wave.gdshader" id="2_q8raa"]
 [ext_resource type="Script" path="res://OpenWorld/Trail.gd" id="3_3ebvi"]
-[ext_resource type="Texture2D" uid="uid://rqxdhbj2hbs5" path="res://OpenWorld/fleche.png" id="5_w7suv"]
+[ext_resource type="Texture2D" uid="uid://b6wltimqoo2yt" path="res://OpenWorld/fleche.png" id="5_w7suv"]
 [ext_resource type="PackedScene" uid="uid://cysuqq7mfjitr" path="res://audio_manager/smooth_loop.tscn" id="6_n3ck4"]
+[ext_resource type="Shader" path="res://OpenWorld/open_world.gdshader" id="7_f8ws5"]
 
 [sub_resource type="Gradient" id="Gradient_04xli"]
 offsets = PackedFloat32Array(0, 0.647059)
@@ -45,6 +46,73 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_jcr24")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_stwy8"]
+shader = ExtResource("7_f8ws5")
+shader_parameter/rain_amount = 500.0
+shader_parameter/near_rain_length = 0.2
+shader_parameter/far_rain_length = 0.1
+shader_parameter/near_rain_width = 0.2
+shader_parameter/far_rain_width = 0.5
+shader_parameter/near_rain_transparency = 1.0
+shader_parameter/far_rain_transparency = 0.5
+shader_parameter/rain_color = Color(0.8, 0.8, 0.8, 0)
+shader_parameter/base_rain_speed = 0.25
+shader_parameter/additional_rain_speed = 0.5
+shader_parameter/slant = 0.2
+shader_parameter/alpha = 1.0
+
+[sub_resource type="Animation" id="Animation_hxjcy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/rain_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.8, 0.8, 0.8, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uty7r"]
+resource_name = "rainAppear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/rain_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.8, 0.8, 0.8, 0), Color(0.8, 0.8, 0.8, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1nboq"]
+resource_name = "rainDisappear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/rain_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.8, 0.8, 0.8, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_53guw"]
+_data = {
+"RESET": SubResource("Animation_hxjcy"),
+"rainAppear": SubResource("Animation_uty7r"),
+"rainDisappear": SubResource("Animation_1nboq")
+}
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -100,3 +168,16 @@ sound_name = "rocket"
 overlap = 0.1
 effective_bus = "rocket"
 volume_max = 0.0
+
+[node name="RainEffect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_stwy8")
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+color = Color(1, 1, 1, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RainEffect"]
+libraries = {
+"": SubResource("AnimationLibrary_53guw")
+}

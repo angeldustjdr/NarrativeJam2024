@@ -22,25 +22,77 @@ func _ready():
 	self._set_intemperie()
 	MusicManager.playMusicNamed(self._music_name,SceneTransitionLayer.get_duration("fade_in"))
 	# Updating objective scene ##########################
-	for i in range(0,len(self.objectiveArray)):
-		objectiveArray[i].set_next_scene(ilot_scenes_path[i])
-		objectiveArray[i].scene_need_changing.connect(self._scene_change)
+	self.setObjective()
+	self._init_objectives()
 	#####################################################
 	Radio.connect("poserWard",poserWard)
-	Radio.connect("setObjective",setObjective)
+	#Radio.connect("setObjective",setObjective) # Not needed because objective change only when going back to openworld after ilot or hub.
 	Achievements.connect("unlock",showUnlock)
+	#####################################################
+	# check pour les zones d'acceleration et la révélation de la map
+	if GameState.mission_states["mission_1"]["finished"]:
+		$AccelerationZones/Acc2.visible = true
+		$AccelerationZones/Acc2.monitoring = true
+		$Ward/Mission1.visible = true
+	if GameState.mission_states["mission_2"]["finished"]:
+		$Ward/Mission2.visible = true
+		$"Terrain/Logo-vect-v3-pirate".visible = false
+	if GameState.mission_states["mission_3"]["finished"]:
+		$AccelerationZones/Acc3.visible = true
+		$AccelerationZones/Acc3.monitoring = true
+		$DepressionZones/Depression1.visible = false
+		$DepressionZones/Depression1.monitoring = false
+		$Ward/Mission3.visible = true
+	if GameState.mission_states["mission_4"]["finished"]:
+		$AccelerationZones/Acc4.visible = true
+		$AccelerationZones/Acc4.monitoring = true
+		$DepressionZones/Depression2.visible = false
+		$DepressionZones/Depression2.monitoring = false
+		$Ward/Mission4.visible = true
+	if GameState.mission_states["mission_5"]["finished"]:
+		$Ward/Mission5.visible = true
 	#####################################################
 	for i in range(nb_available_wards) : 
 		var w = wardbutton.instantiate()
 		w.setText(i+1)
 		%VBoxContainer_Ward.add_child(w)
-	setObjective()
+	# WTF? 
 	$player.player_connect()
 	
 	%MissionLabel.text = GameState.get_current_mission()
-	%EtherTimer.wait_time = GameState.mission_timer[GameState.get_current_mission()]
-	%EtherTimer.start()
+	GameState.update_ether_timer()
 	SceneTransitionLayer.reveal_scene()
+	await(SceneTransitionLayer.fade_in_finished)
+	var brief = GameState.start_briefing_dialog()
+	if brief:
+		Dialogic.timeline_ended.connect(self._on_briefing_dialog_ended)
+		$player.set_process_mode(PROCESS_MODE_DISABLED)
+
+func _on_briefing_dialog_ended():
+	$player.set_process_mode(PROCESS_MODE_PAUSABLE)
+	
+func _init_objectives():
+	var i_mission : int = GameState.get_current_mission_idx()
+	if self.iObjective == GameState.HUB: 
+		# Si l'objectif est le HUB alors on l'active
+		objectiveArray[GameState.HUB].process_mode = PROCESS_MODE_PAUSABLE
+		objectiveArray[GameState.HUB].visible = true
+		objectiveArray[GameState.HUB].set_next_scene(ilot_scenes_path[GameState.HUB])
+		objectiveArray[GameState.HUB].scene_need_changing.connect(self._scene_change)
+	else:
+		# Sinon 
+		objectiveArray[GameState.HUB].process_mode = PROCESS_MODE_DISABLED
+		objectiveArray[GameState.HUB].visible = false
+	for i in range(0,i_mission+1): 
+	# Activation of ilots until current objective
+		objectiveArray[i].process_mode = PROCESS_MODE_PAUSABLE
+		objectiveArray[i].visible = true
+		objectiveArray[i].set_next_scene(ilot_scenes_path[i])
+		objectiveArray[i].scene_need_changing.connect(self._scene_change)
+	for i in range(i_mission+1,GameState.get_number_of_mission()): 
+	# Deactivation of upcoming objectives
+		objectiveArray[i].process_mode = PROCESS_MODE_DISABLED
+		objectiveArray[i].visible = false
 
 func _set_intemperie():
 	var intemperie_level = GameState.check_intemperie()
@@ -51,7 +103,10 @@ func _scene_change(scene_name):
 	SceneTransitionLayer.transition_to_file_scene(scene_name)
 
 func poserWard():
+	GameState.nbWard += 1
+	Achievements.checkWard()
 	var w = ward.instantiate()
+	w.setPortable()
 	w.global_position = $player.global_position
 	$Ward.add_child(w)
 
@@ -66,7 +121,8 @@ func _process(_delta):
 func showUnlock(message):
 	var u = unlock.instantiate()
 	u.text = "Achivement unlocked : " + message
-	$player.add_child(u)
+	u.position = Vector2(1920/2,1080/2)
+	%UI.add_child(u)
 
 func _input(event):
 	if event is InputEventKey:

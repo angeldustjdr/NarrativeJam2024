@@ -1,9 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://c4p7pnunvoa65"]
+[gd_scene load_steps=23 format=3 uid="uid://c4p7pnunvoa65"]
 
 [ext_resource type="Shader" path="res://assets/shaders/oscillo.gdshader" id="1_2w7sc"]
 [ext_resource type="Shader" path="res://wave2.gdshader" id="1_823va"]
 [ext_resource type="Script" path="res://main.gd" id="1_ggpch"]
-[ext_resource type="Texture2D" uid="uid://cs8f3uev0aflk" path="res://assets/graphics/items/logos/logo-vect-v3.png" id="3_3uufn"]
+[ext_resource type="Texture2D" uid="uid://ctlaf1f8yuov0" path="res://assets/graphics/main/title2.png" id="4_huycu"]
+[ext_resource type="Texture2D" uid="uid://7eewfskn537v" path="res://assets/graphics/items/logos/logo-vect-v3-roue-seule.png" id="4_vqd7o"]
+[ext_resource type="Texture2D" uid="uid://brkpf46s2ushv" path="res://assets/graphics/main/title1.png" id="5_2a1tm"]
+[ext_resource type="Texture2D" uid="uid://8i4mbkuxw576" path="res://assets/graphics/items/logos/logo-vect-v2-cerveau-seul-cadenas-ouvert.png" id="5_s216o"]
+[ext_resource type="Texture2D" uid="uid://b4vrhrqgydghx" path="res://assets/graphics/items/logos/logo-vect-v3-pirate.png" id="6_sbdvr"]
+[ext_resource type="PackedScene" uid="uid://0pyto5ajiupe" path="res://Hub/achivements_panel.tscn" id="9_jcxr7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r54ed"]
 shader = ExtResource("1_823va")
@@ -13,12 +18,12 @@ shader_parameter/speed = 1.0
 shader_parameter/smoothness = 2.0
 shader_parameter/angle = 45.0
 
-[sub_resource type="Gradient" id="Gradient_pjt8f"]
+[sub_resource type="Gradient" id="Gradient_4ctvf"]
 offsets = PackedFloat32Array(0, 0.839286)
 colors = PackedColorArray(9.52989e-06, 0.244745, 0.693848, 1, 1.29351e-05, 0.0139062, 0.121311, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_85ow2"]
-gradient = SubResource("Gradient_pjt8f")
+gradient = SubResource("Gradient_4ctvf")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
@@ -54,8 +59,27 @@ shader_parameter/vel = 2.0
 shader_parameter/tightness = 10.0
 shader_parameter/modulate = Color(0.749881, 0, 0.406101, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yy1ut"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="Animation" id="Animation_5syeu"]
+resource_name = "rotate"
+length = 30.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jsk26"]
+_data = {
+"rotate": SubResource("Animation_5syeu")
+}
 
 [sub_resource type="Animation" id="Animation_jyn1h"]
 resource_name = "Achievements"
@@ -205,10 +229,87 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Logo-vect-v3-pirate" type="Sprite2D" parent="."]
-position = Vector2(954, 447)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("3_3uufn")
+[node name="logo" type="ReferenceRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="barre" type="TextureRect" parent="logo"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -511.5
+offset_top = -510.5
+offset_right = 511.5
+offset_bottom = 510.5
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.230383
+texture = ExtResource("4_vqd7o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="logo/barre"]
+libraries = {
+"": SubResource("AnimationLibrary_jsk26")
+}
+autoplay = "rotate"
+
+[node name="corpo_brain" type="TextureRect" parent="logo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -511.5
+offset_top = -510.5
+offset_right = 511.5
+offset_bottom = 510.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_s216o")
+
+[node name="pirate" type="TextureRect" parent="logo"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -511.5
+offset_top = -510.5
+offset_right = 511.5
+offset_bottom = 510.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_sbdvr")
+
+[node name="Ethersea_text_pirate" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 238.0
+offset_top = 93.0
+offset_right = 1680.0
+offset_bottom = 312.0
+texture = ExtResource("4_huycu")
+
+[node name="Ethersea_text_corpo" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -722.5
+offset_top = 93.0
+offset_right = 722.5
+offset_bottom = 283.0
+grow_horizontal = 2
+texture = ExtResource("5_2a1tm")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -217,9 +318,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -374.5
-offset_top = -508.0
-offset_right = 374.5
+offset_left = -374.0
+offset_top = -352.0
+offset_right = 375.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_left = 64
@@ -229,13 +330,6 @@ theme_override_constants/margin_bottom = 64
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-
-[node name="Ethersea" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 160
-theme_override_styles/normal = SubResource("StyleBoxFlat_yy1ut")
-text = "EtherSea"
-horizontal_alignment = 1
 
 [node name="Play" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -264,9 +358,16 @@ libraries = {
 "": SubResource("AnimationLibrary_f3ept")
 }
 
+[node name="AchivementsPanel" parent="." instance=ExtResource("9_jcxr7")]
+layout_mode = 1
+
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_gui_input"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_mouse_exited"]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/Achievements" to="." method="_on_achievements_gui_input"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Achievements" to="." method="_on_achievements_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Achievements" to="." method="_on_achievements_mouse_exited"]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_gui_input"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_mouse_exited"]
+[connection signal="gui_input" from="AchivementsPanel" to="." method="_on_achivements_panel_gui_input"]

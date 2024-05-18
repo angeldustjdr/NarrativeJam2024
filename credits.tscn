@@ -1,0 +1,152 @@
+[gd_scene load_steps=12 format=3 uid="uid://bcjpe3i1yrqby"]
+
+[ext_resource type="Shader" path="res://wave2.gdshader" id="1_lj0ko"]
+[ext_resource type="Script" path="res://credits.gd" id="1_rnftj"]
+[ext_resource type="Shader" path="res://assets/shaders/oscillo.gdshader" id="2_32ho8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohxwc"]
+size = Vector2(1941, 20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nv6w7"]
+shader = ExtResource("1_lj0ko")
+shader_parameter/color = null
+shader_parameter/num_cells = 20.0
+shader_parameter/speed = 1.0
+shader_parameter/smoothness = 2.0
+shader_parameter/angle = 45.0
+
+[sub_resource type="Gradient" id="Gradient_pjt8f"]
+offsets = PackedFloat32Array(0, 0.839286)
+colors = PackedColorArray(9.52989e-06, 0.244745, 0.693848, 1, 1.29351e-05, 0.0139062, 0.121311, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y5c8w"]
+gradient = SubResource("Gradient_pjt8f")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rn3go"]
+resource_local_to_scene = true
+shader = ExtResource("2_32ho8")
+shader_parameter/freq = 10.0
+shader_parameter/ampl = 1.0
+shader_parameter/phase = 5.0
+shader_parameter/mean = 0.0
+shader_parameter/vel = 2.0
+shader_parameter/tightness = 10.0
+shader_parameter/modulate = Color(0, 1, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ktxyn"]
+resource_local_to_scene = true
+shader = ExtResource("2_32ho8")
+shader_parameter/freq = 10.0
+shader_parameter/ampl = 1.0
+shader_parameter/phase = 4.0
+shader_parameter/mean = 0.0
+shader_parameter/vel = 2.0
+shader_parameter/tightness = 10.0
+shader_parameter/modulate = Color(0, 0.501961, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ijpbq"]
+shader = ExtResource("2_32ho8")
+shader_parameter/freq = 10.0
+shader_parameter/ampl = 1.0
+shader_parameter/phase = 3.0
+shader_parameter/mean = 0.0
+shader_parameter/vel = 2.0
+shader_parameter/tightness = 10.0
+shader_parameter/modulate = Color(0.749881, 0, 0.406101, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fklvl"]
+size = Vector2(1144, 20)
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rnftj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(960.5, 0)
+shape = SubResource("RectangleShape2D_ohxwc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Grid" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_nv6w7")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_y5c8w")
+
+[node name="Wave1" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_rn3go")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Wave2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ktxyn")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Wave3" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ijpbq")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 384.0
+offset_top = 1080.0
+offset_right = 1536.0
+offset_bottom = 2224.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce egestas feugiat lacinia. Duis dapibus diam mi, a placerat enim maximus id. Mauris felis quam, mattis vitae rhoncus sed, gravida commodo elit. Phasellus rhoncus magna nisi, nec auctor eros maximus id. Mauris et tortor vel velit euismod imperdiet in id massa. Pellentesque a velit nec tortor eleifend blandit ut pharetra magna. Suspendisse quis nibh vestibulum, dignissim nulla ac, varius nisl. Duis ac ipsum nisl. Praesent tempus dictum felis in posuere. Vestibulum sit amet lobortis erat. Nunc ex augue, fringilla et eleifend a, semper ut nibh. Nunc faucibus risus eu fermentum tincidunt. Vestibulum faucibus ac massa quis accumsan. Integer justo libero, tempor ut dui facilisis, mollis mollis ligula. Vestibulum quis scelerisque justo, nec sodales lectus.
+
+Donec vel pharetra urna. Mauris venenatis massa dignissim leo ornare, vitae iaculis metus consectetur. Sed luctus leo nibh, ut finibus ante aliquam vel. Praesent eu accumsan diam, vitae suscipit augue. Donec pellentesque maximus risus, et lacinia felis. Nullam eros eros, convallis sit amet leo quis, vehicula blandit magna. Curabitur blandit ex sit amet nisi aliquam, non lacinia mauris elementum. Suspendisse mattis, ipsum vitae vehicula vestibulum, sem ante malesuada leo, in rutrum lorem nibh ac lectus.
+
+Nullam gravida dui vitae rutrum tristique. Vivamus non leo ac massa ultricies laoreet. Nunc rhoncus, urna lobortis viverra pharetra, velit quam pharetra diam, a vulputate mi lorem nec augue. Donec laoreet vel mauris eu tempor. Integer luctus dui eget libero porttitor egestas et facilisis diam. Nullam ante urna, pharetra et est sodales, imperdiet pulvinar justo. Etiam vestibulum pulvinar auctor. Ut a erat sed felis laoreet hendrerit. Etiam accumsan hendrerit congue. Maecenas vestibulum aliquam ligula a lacinia. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam ultrices sed mauris at scelerisque. Pellentesque mattis enim sed leo tincidunt, ut elementum ipsum faucibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam consectetur bibendum efficitur. "
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Area2D" type="Area2D" parent="Label"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Label/Area2D"]
+position = Vector2(578, 1172)
+shape = SubResource("RectangleShape2D_fklvl")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-var speed = 300
+var speed = 500
 var friction = 0.01
-var acceleration = 0.02
-var rotation_speed = 0.5
-var rotation_acc = 0.1
+var acceleration = 0.05
+var rotation_speed = 1.0
+var rotation_acc = 0.2
 
 var objective = null
 var interactable = null
@@ -40,24 +40,24 @@ func _physics_process(delta):
 	var ahead_vector = Vector2(0.0,-1.0).rotated(rotation)
 	var direction = Vector2.ZERO
 	var rotation_diretion = 0.0
-	if !%Anchor.button_pressed :
-		if Input.is_action_pressed('ui_right'):
-			rotation_diretion = 1
-		if Input.is_action_pressed('ui_left'):
-			rotation_diretion = -1
-		if Input.is_action_pressed('ui_down'):
-			direction -= ahead_vector
-			self._rocket_volume = min(1.0,self._rocket_volume + self._rocket_volume_incr)
-		if Input.is_action_pressed('ui_up'):
-			direction += ahead_vector
-		#Rocket volume management
-		if Input.is_action_pressed('ui_up') or Input.is_action_pressed('ui_down'):
-			self._rocket_volume = min(1.0,self._rocket_volume + self._rocket_volume_incr)
-		else:
-			self._rocket_volume = max(0.0,self._rocket_volume - self._rocket_volume_incr)
+	#if !%Anchor.button_pressed :
+	if Input.is_action_pressed('ui_right'):
+		rotation_diretion = 1
+	if Input.is_action_pressed('ui_left'):
+		rotation_diretion = -1
+	if Input.is_action_pressed('ui_down'):
+		direction -= ahead_vector
+		self._rocket_volume = min(1.0,self._rocket_volume + self._rocket_volume_incr)
+	if Input.is_action_pressed('ui_up'):
+		direction += ahead_vector
+	#Rocket volume management
+	if Input.is_action_pressed('ui_up') or Input.is_action_pressed('ui_down'):
+		self._rocket_volume = min(1.0,self._rocket_volume + self._rocket_volume_incr)
+	else:
+		self._rocket_volume = max(0.0,self._rocket_volume - self._rocket_volume_incr)
 	
-	if %Anchor.button_pressed and (Input.is_action_pressed('ui_right') or Input.is_action_pressed('ui_left') or Input.is_action_pressed('ui_down') or Input.is_action_pressed('ui_up')):
-		Radio.emit_signal("showAlertMessage","Can't move, Anchor down !")
+	#if %Anchor.button_pressed and (Input.is_action_pressed('ui_right') or Input.is_action_pressed('ui_left') or Input.is_action_pressed('ui_down') or Input.is_action_pressed('ui_up')):
+	#	Radio.emit_signal("showAlertMessage","Can't move, Anchor down !")
 	
 	if direction.length() > 0:
 		velocity = velocity.lerp(direction.normalized() * speed, acceleration)
@@ -91,15 +91,18 @@ func _physics_process(delta):
 
 func _on_friction_zone_body_entered(body):
 	if body==self : 
-		speed /= 4
+		$RainEffect/AnimationPlayer.play("rainAppear")
+		Radio.emit_signal("showAlertMessage","Entering Depression zone")
+		speed /= 2
 
 func _on_friction_zone_body_exited(body):
 	if body==self : 
-		speed *= 4
+		$RainEffect/AnimationPlayer.play("rainDisappear")
+		speed *= 2
 
 func _on_accelaration_zone_body_entered(body):
-	Achievements.genericCheck("Fun slide")
 	if body==self : 
+		Achievements.genericCheck("Fun slide")
 		speed *= 4
 
 func _on_accelaration_zone_body_exited(body):

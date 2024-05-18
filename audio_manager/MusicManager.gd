@@ -8,7 +8,10 @@ var musics_names = {"placehold":"res://assets/musics/1-05. Negative Mass.mp3",
 					"ilot_4":"res://assets/musics/eathersea/ilot/gamers/techno driver-TazDev_music.mp3",
 					"ilot_5":"res://assets/musics/eathersea/ilot/activistes/trailer sport stylish-Anton_Vlasov.mp3",
 					"Hub":"res://assets/musics/hub/hub/elegant ambient science-Coma Media.mp3",
-					"ilot_corrupted":"res://assets/musics/eathersea/ilot/ilot corrompu/glitch abstract trap-QubeSounds.mp3"}
+					"ilot_corrupted":"res://assets/musics/eathersea/ilot/ilot corrompu/glitch abstract trap-QubeSounds.mp3",
+					"title_corpo":"res://assets/musics/reserve/space epic cinematic journey-Rockot.mp3",
+					"title_pirate":"res://assets/musics/reserve/dark cyberpunk mechanical robotic future industrial dubstep-SoundGalleryDT.mp3",
+					"motivational":"res://assets/musics/hub/intro discours/starfleet command-geoffharvey.mp3"}
 
 var musics_base_volumes = {"placehold":0.0,
 						   "navigation":0.0,
@@ -18,7 +21,23 @@ var musics_base_volumes = {"placehold":0.0,
 						   "ilot_4":0.0,
 						   "ilot_5":0.0,
 						   "Hub":0.0,
-						   "ilot_corrupted":0.0}
+						   "ilot_corrupted":0.0,
+						   "title_corpo":0.0,
+						   "title_pirate":0.0,
+						   "motivational":0.0}
+
+var musics_base_offset = {"placehold":0.0,
+						  "navigation":0.0,
+						  "ilot_1":0.0,
+						  "ilot_2":0.0,
+						  "ilot_3":0.0,
+						  "ilot_4":0.0,
+						  "ilot_5":0.0,
+						  "Hub":0.0,
+						  "ilot_corrupted":0.0,
+						  "title_corpo":0.0,
+						  "title_pirate":0.0,
+						  "motivational":0.0}
 						
 var musics_loops = {"placehold":true,
 					"navigation":true,
@@ -28,7 +47,10 @@ var musics_loops = {"placehold":true,
 					"ilot_4":true,
 					"ilot_5":true,
 					"Hub":true,
-					"ilot_corrupted":true}
+					"ilot_corrupted":true,
+					"title_corpo":true,
+					"title_pirate":true,
+					"motivational":true}
 					
 var _current_music_name = null
 var _bus_name = "music"
@@ -63,7 +85,7 @@ func playMusicNamed(music_name,fade_in=-1.0):
 	# play with fade_in
 	if (fade_in > 0.0):
 		self._play_fade_in(fade_in)
-	ap.play()
+	ap.play(self.musics_base_offset[music_name])
 
 func _play_fade_out(duration):
 	var idx_bus = AudioServer.get_bus_index("music")
@@ -71,8 +93,9 @@ func _play_fade_out(duration):
 	if not effect is AudioEffectAmplify:
 		push_error("effect for fade in should be amplify")
 	if effect.volume_db < 0.0:
-		push_error("unexpected behavior")
+		push_warning("amplify effect volume not zero! value : ",effect.volume_db)
 	var tween = get_tree().create_tween()
+	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(effect,"volume_db",-80.0,duration).set_trans(Tween.TRANS_SINE)
 	tween.tween_callback(self._stop)
 
@@ -83,6 +106,7 @@ func _play_fade_in(duration):
 		push_error("effect for fade in should be amplify")
 	effect.volume_db = -80.0
 	var tween = get_tree().create_tween()
+	tween.set_ease(Tween.EASE_IN)
 	tween.tween_property(effect,"volume_db",0.0,duration).set_trans(Tween.TRANS_SINE)
 
 func stopCurrent(fade_out=-1.0):
@@ -103,7 +127,7 @@ func _stop():
 func musicIsFinished():
 	var ap = self.get_node("music_player")
 	if musics_loops[self._current_music_name]:
-		ap.play()
+		ap.play(self.musics_base_offset[self._current_music_name])
 	else:
 		ap.stop()
 		ap.stream = null

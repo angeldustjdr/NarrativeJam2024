@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1xx7q4nuatrw"]
+[gd_scene load_steps=7 format=3 uid="uid://b1xx7q4nuatrw"]
 
 [ext_resource type="PackedScene" uid="uid://1yyj200c6esy" path="res://visual_novel/ilot_generic.tscn" id="1_oembw"]
 [ext_resource type="Script" path="res://visual_novel/ilot_5.gd" id="2_ejrpw"]
 [ext_resource type="Texture2D" uid="uid://ceyxpx2mih7if" path="res://assets/graphics/backgrounds/ilot_hacktivist.jpg" id="3_1xomd"]
+[ext_resource type="Texture2D" uid="uid://5xvv5l32wnw" path="res://assets/graphics/backgrounds/ilot5-activist-sature.png" id="3_8ij7h"]
 [ext_resource type="Texture2D" uid="uid://dq8ukfuj2ayev" path="res://assets/graphics/items/oscillo_icon_5.png" id="4_tue12"]
+[ext_resource type="Texture2D" uid="uid://dw2eds2pau0eo" path="res://assets/graphics/characters/character-ilot5-activist-v2.png" id="6_ye33o"]
 
 [node name="ilot_5" instance=ExtResource("1_oembw")]
 script = ExtResource("2_ejrpw")
-ilot_color = Color(0.6038, 0.313619, 0.41181, 1)
+ilot_color = Color(0.753292, 0.242786, 0.41181, 1)
+ilot_color_corrupted = Color(0.611612, 0.305806, 0.407904, 1)
+ilot_color_normal = Color(0.752941, 0.243137, 0.411765, 1)
 difficulty = 2
 target_signal_prop = {
 "ampl": 2.0,
@@ -17,15 +21,21 @@ target_signal_prop = {
 }
 
 [node name="Background" parent="visual_novel_scene" index="0"]
+texture = ExtResource("3_8ij7h")
+
+[node name="Background_corrupted" parent="visual_novel_scene" index="1"]
+offset_right = 1920.0
+offset_bottom = 1080.0
 texture = ExtResource("3_1xomd")
 
 [node name="Sprite2D" parent="visual_novel_scene/clickable_oscilloscope" index="1"]
 position = Vector2(160, 928)
 texture = ExtResource("4_tue12")
 
-[node name="clickable_character" parent="visual_novel_scene" index="3"]
+[node name="clickable_character" parent="visual_novel_scene" index="4"]
 position = Vector2(1232, 88)
 
 [node name="Sprite2D" parent="visual_novel_scene/clickable_character" index="1"]
 position = Vector2(-232, 520)
 scale = Vector2(0.203834, 0.203834)
+texture = ExtResource("6_ye33o")

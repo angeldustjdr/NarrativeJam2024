@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://cohvmhjds856j"]
+[gd_scene load_steps=7 format=3 uid="uid://cohvmhjds856j"]
 
 [ext_resource type="PackedScene" uid="uid://1yyj200c6esy" path="res://visual_novel/ilot_generic.tscn" id="1_yjlni"]
 [ext_resource type="Script" path="res://visual_novel/ilot_2.gd" id="2_yxq2s"]
 [ext_resource type="Texture2D" uid="uid://diwnfxnl2m11f" path="res://assets/graphics/backgrounds/ilot_jcd.jpg" id="3_mynfc"]
+[ext_resource type="Texture2D" uid="uid://bwiwaixi5ndpx" path="res://assets/graphics/backgrounds/ilot2-jcd-terne.png" id="4_1rvlp"]
 [ext_resource type="Texture2D" uid="uid://b0vg5l83hfntc" path="res://assets/graphics/items/oscillo_icon_2.png" id="4_004n3"]
+[ext_resource type="Texture2D" uid="uid://bn1u1urqny37a" path="res://assets/graphics/characters/character-ilot2-JCD-v2.png" id="6_wjp84"]
 
 [node name="ilot_2" instance=ExtResource("1_yjlni")]
 script = ExtResource("2_yxq2s")
-ilot_color = Color(0.953094, 0.996078, 0.68246, 1)
+ilot_color = Color(0.50219, 0.733257, 0.63946, 1)
+ilot_color_corrupted = Color(0.623346, 0.497795, 0.541268, 1)
+ilot_color_normal = Color(0.501961, 0.733333, 0.639216, 1)
 difficulty = 1
 target_signal_prop = {
 "ampl": 1.5,
@@ -19,13 +23,19 @@ target_signal_prop = {
 [node name="Background" parent="visual_novel_scene" index="0"]
 texture = ExtResource("3_mynfc")
 
+[node name="Background_corrupted" parent="visual_novel_scene" index="1"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_1rvlp")
+
 [node name="Sprite2D" parent="visual_novel_scene/clickable_oscilloscope" index="1"]
 position = Vector2(1088, 840)
 texture = ExtResource("4_004n3")
 
-[node name="clickable_character" parent="visual_novel_scene" index="3"]
+[node name="clickable_character" parent="visual_novel_scene" index="4"]
 position = Vector2(488, 536)
 
 [node name="Sprite2D" parent="visual_novel_scene/clickable_character" index="1"]
 position = Vector2(96, 152)
 scale = Vector2(0.139169, 0.139169)
+texture = ExtResource("6_wjp84")

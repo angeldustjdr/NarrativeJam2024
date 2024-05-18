@@ -2,15 +2,22 @@ extends VisualNovelGeneric
 class_name IlotGeneric
 
 @export var ilot_color : Color
+@export var ilot_color_corrupted : Color
+@export var ilot_color_normal : Color
 @export var difficulty : int
 @export var target_signal_prop : Dictionary = {"ampl":0.0,"mean":0.0,"period":0.0,"phase":0.0}
 
 var _current_time_line : String
+var _ilot_corrupted : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GameState.pause_ether_timer()
 	$visual_novel_scene/get_out_button.pressed.connect(self._on_button_pressed)
 	# DIALOG ASPECTS
+	self._update_corruption()
+	self._update_background()
+	self._update_oscillo_icon()
 	self._update_time_line()
 	# VISUAL_NOVEL
 	Radio.connect("clickObject",clickObject)
@@ -36,6 +43,26 @@ func _ready():
 	$visual_novel_scene/oscillo_light.position = $visual_novel_scene/clickable_oscilloscope.position
 	SceneTransitionLayer.reveal_scene()
 
+func _update_oscillo_icon():
+	var texture_name = "res://assets/graphics/items/oscillo_icon_"+str(self._get_ilot_number()+1)+".png"
+	if self._ilot_corrupted:
+		texture_name = "res://assets/graphics/items/oscillo_icon_"+str(self._get_ilot_number()+1)+"_corrupted.png"
+	$visual_novel_scene/clickable_oscilloscope/Sprite2D.texture = load(texture_name)
+
+func _update_corruption():
+	if GameState.get_current_mission_idx() > self._get_ilot_number():
+		self._ilot_corrupted = true
+	else:
+		self._ilot_corrupted = false # a complexifier au besoin
+
+func _update_background():
+	if self._ilot_corrupted:
+		$visual_novel_scene/Background.visible = false
+		$visual_novel_scene/Background_corrupted.visible = true
+	else:
+		$visual_novel_scene/Background.visible = true
+		$visual_novel_scene/Background_corrupted.visible = false
+		
 func _on_wave_timer_timeout():
 	SoundManager.playSoundNamed("wave_8bit")
 
@@ -63,13 +90,13 @@ func clickObject(which):
 			push_warning("clickable not recognized")
 
 func _on_character_clicked():
-	if Dialogic.current_timeline == null:
-		Dialogic.start(self._current_time_line)
+	GameState.start_time_line(self._current_time_line)
 
 func _on_button_pressed():
 	if GameState.ilot_states[self.name]["revealed"]:
 		GameState.coffeeCredit = 3
 		MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
+		GameState.coming_from = GameState.ILOT
 		SceneTransitionLayer.transition_to_packed_scene(GameState.openworld_packed_scene)
 
 func _on_oscillo_clicked():
@@ -88,13 +115,13 @@ func _on_oscillo_clicked():
 	var o_scale = oscillo_scale[0]*GameState.get_current_window_ratio()
 	oscillo_scene.position = Vector2(0.5*v_port_size[0]-0.5*o_scale*oscillo_size[0],
 									 0.5*v_port_size[1]-0.5*o_scale*oscillo_size[1])
-	$CanvasLayer.add_child(oscillo_scene)
+	$OscilloLayer.add_child(oscillo_scene)
 	oscillo_scene.victory.connect(self._on_oscillo_victory)
 	
 func _on_oscillo_victory(oscillo_scene):
 	MusicManager.playMusicNamed(self.name,1.0)
 	$visual_novel_scene/clickable_oscilloscope.is_clickable = false
-	$CanvasLayer.remove_child(oscillo_scene)
+	$OscilloLayer.remove_child(oscillo_scene)
 	GameState.ilot_states[self.name]["revealed"] = true
 	$visual_novel_scene/clickable_character.is_clickable = true
 	$visual_novel_scene/get_out_button.disabled = false

@@ -9,6 +9,6 @@ func _on_timer_timeout():
 
 func showAlertMessage(myMessage):
 	visible = true
-	$Timer.wait_time = 1.0
+	$Timer.wait_time = 5.0
 	$Timer.start()
 	text = myMessage

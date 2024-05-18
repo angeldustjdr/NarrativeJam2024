@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2dy7i3w8ddv0"]
+[gd_scene load_steps=7 format=3 uid="uid://d2dy7i3w8ddv0"]
 
-[ext_resource type="Texture2D" uid="uid://d1bnw78iail7c" path="res://OpenWorld/Point_blanc.png" id="1_a24kw"]
 [ext_resource type="Script" path="res://OpenWorld/objective.gd" id="1_jq82l"]
+[ext_resource type="Shader" path="res://OpenWorld/objective.gdshader" id="2_js5ep"]
 
 [sub_resource type="Gradient" id="Gradient_upi44"]
 offsets = PackedFloat32Array(0, 0.619048)
@@ -12,43 +12,12 @@ gradient = SubResource("Gradient_upi44")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[sub_resource type="Animation" id="Animation_ctgde"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_m5uiq"]
-resource_name = "light_anim"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.2, 0.2), Vector2(0.5, 0.5), Vector2(0.2, 0.2)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ovlu1"]
-_data = {
-"RESET": SubResource("Animation_ctgde"),
-"light_anim": SubResource("Animation_m5uiq")
-}
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tnoe8"]
+shader = ExtResource("2_js5ep")
+shader_parameter/circle_width = 0.05
+shader_parameter/wait_time = 0.5
+shader_parameter/speed = 1.0
+shader_parameter/alpha_boost = 2.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mvbp7"]
 radius = 199.161
@@ -61,16 +30,13 @@ scale = Vector2(10, 10)
 energy = 2.0
 texture = SubResource("GradientTexture2D_0tigb")
 
-[node name="PointBlanc" type="Sprite2D" parent="."]
+[node name="PointBlanc" type="ColorRect" parent="."]
 modulate = Color(1, 0, 0, 1)
-texture = ExtResource("1_a24kw")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../PointBlanc")
-libraries = {
-"": SubResource("AnimationLibrary_ovlu1")
-}
-autoplay = "light_anim"
+material = SubResource("ShaderMaterial_tnoe8")
+offset_left = -130.0
+offset_top = -130.0
+offset_right = 130.0
+offset_bottom = 130.0
 
 [node name="Area2D" type="Area2D" parent="."]
 
