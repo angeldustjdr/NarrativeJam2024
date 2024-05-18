@@ -67,14 +67,16 @@ func _ready():
 	if brief:
 		GameState.pause_ether_timer()
 		Dialogic.timeline_ended.connect(self._on_briefing_dialog_ended)
-		$player.set_process_mode(PROCESS_MODE_DISABLED)
+		#$player.set_process_mode(PROCESS_MODE_DISABLED)
+		$player.movable = false
 	else :
 		if GameState.mission_corrupted["mission_1"] and GameState.mission_corrupted["mission_2"] and GameState.mission_corrupted["mission_3"]:
 			showIntermediateDialog("tl_04mission4_scold")
 
 func _on_briefing_dialog_ended():
 	GameState.unpause_ether_timer()
-	$player.set_process_mode(PROCESS_MODE_PAUSABLE)
+	#$player.set_process_mode(PROCESS_MODE_PAUSABLE)
+	$player.movable = true
 	
 func _init_objectives():
 	var i_mission : int = GameState.get_current_mission_idx()
@@ -141,4 +143,5 @@ func showIntermediateDialog(what):
 	GameState.start_time_line(what)
 	GameState.pause_ether_timer()
 	Dialogic.timeline_ended.connect(self._on_briefing_dialog_ended)
-	$player.set_process_mode(PROCESS_MODE_DISABLED)
+	#$player.set_process_mode(PROCESS_MODE_DISABLED)
+	$player.movable = false
