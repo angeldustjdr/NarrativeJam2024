@@ -30,27 +30,7 @@ func _ready():
 	Achievements.connect("unlock",showUnlock)
 	#####################################################
 	# check pour les zones d'acceleration et la révélation de la map
-	if GameState.mission_states["mission_1"]["finished"]:
-		$AccelerationZones/Acc2.visible = true
-		$AccelerationZones/Acc2.monitoring = true
-		$Ward/Mission1.visible = true
-	if GameState.mission_states["mission_2"]["finished"]:
-		$Ward/Mission2.visible = true
-		$"Terrain/Logo-vect-v3-pirate".visible = false
-	if GameState.mission_states["mission_3"]["finished"]:
-		$AccelerationZones/Acc3.visible = true
-		$AccelerationZones/Acc3.monitoring = true
-		$DepressionZones/Depression1.visible = false
-		$DepressionZones/Depression1.monitoring = false
-		$Ward/Mission3.visible = true
-	if GameState.mission_states["mission_4"]["finished"]:
-		$AccelerationZones/Acc4.visible = true
-		$AccelerationZones/Acc4.monitoring = true
-		$DepressionZones/Depression2.visible = false
-		$DepressionZones/Depression2.monitoring = false
-		$Ward/Mission4.visible = true
-	if GameState.mission_states["mission_5"]["finished"]:
-		$Ward/Mission5.visible = true
+	self._check_map()
 	#####################################################
 	for i in range(nb_available_wards) : 
 		var w = wardbutton.instantiate()
@@ -73,10 +53,37 @@ func _ready():
 		if GameState.mission_corrupted["mission_1"] and GameState.mission_corrupted["mission_2"] and GameState.mission_corrupted["mission_3"]:
 			showIntermediateDialog("tl_04mission4_scold")
 
+func _check_map():
+	# check pour les zones d'acceleration et la révélation de la map
+	if GameState.mission_states["mission_1"]["finished"]:
+		$AccelerationZones/Acc2.visible = true
+		$AccelerationZones/Acc2.monitoring = true
+		$Ward/Mission1.visible = true
+	if GameState.mission_states["mission_2"]["finished"]:
+		$Ward/Mission2.visible = true
+		$"Terrain/Logo-vect-v3-pirate".visible = false
+	if GameState.mission_states["mission_3"]["finished"]:
+		$AccelerationZones/Acc3.visible = true
+		$AccelerationZones/Acc3.monitoring = true
+		$DepressionZones/Depression1.visible = false
+		$DepressionZones/Depression1.monitoring = false
+		$Ward/Mission3.visible = true
+	if GameState.mission_states["mission_4"]["finished"]:
+		$AccelerationZones/Acc4.visible = true
+		$AccelerationZones/Acc4.monitoring = true
+		$DepressionZones/Depression2.visible = false
+		$DepressionZones/Depression2.monitoring = false
+		$Ward/Mission4.visible = true
+	if GameState.mission_states["mission_5"]["finished"]:
+		$Ward/Mission5.visible = true
+
 func _on_briefing_dialog_ended():
 	GameState.unpause_ether_timer()
 	#$player.set_process_mode(PROCESS_MODE_PAUSABLE)
 	$player.movable = true
+
+func _disconnect_objective():
+	objectiveArray[self.iObjective].scene_need_changing.disconnect(self._scene_change)
 	
 func _init_objectives():
 	var i_mission : int = GameState.get_current_mission_idx()
@@ -133,11 +140,20 @@ func showUnlock(message):
 
 func _input(event):
 	if event is InputEventKey:
+		var dbg = false
 		if event.keycode == KEY_V and event.pressed:
-			var dbg = GameState.validate_current_mission_debug()
-			if dbg:
-				self.setObjective()
-				self._set_intemperie()
+			# validate mission in time
+			dbg = GameState.validate_current_mission_debug(true)
+		elif event.keycode == KEY_B and event.pressed:
+			#validate mission but not in_time
+			dbg = GameState.validate_current_mission_debug(false)
+		if dbg:
+			self._disconnect_objective()
+			GameState.update_ether_timer()
+			self.setObjective()
+			self._init_objectives()
+			self._set_intemperie()
+			self._check_map()
 
 func showIntermediateDialog(what):
 	GameState.start_time_line(what)

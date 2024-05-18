@@ -204,7 +204,40 @@ func _update_current_timelines():
 			push_error("unexpected behavior, not a recognized mission name")
 
 func _update_characters_availability():
-	pass #NEED SMTH
+	# check availability at coffee machine
+	match self.get_current_mission_idx():
+		0: #MISSION 1
+			self._characters_available = {
+				SHIPGIRL:true,
+				NAVIGATOR1:true,
+				NAVIGATOR2:false,
+				CAPTAIN:true}
+		1: #MISSION 2
+			self._characters_available = {
+				SHIPGIRL:true,
+				NAVIGATOR1:true,
+				NAVIGATOR2:false,
+				CAPTAIN:true}
+		2: #MISSION 3
+			self._characters_available = {
+				SHIPGIRL:true,
+				NAVIGATOR1:true,
+				NAVIGATOR2:false,
+				CAPTAIN:true}
+		3: #MISSION 4
+			self._characters_available = {
+				SHIPGIRL:true,
+				NAVIGATOR1:false,
+				NAVIGATOR2:true,
+				CAPTAIN:true}
+		4: #MISSION 5
+			self._characters_available = {
+				SHIPGIRL:true,
+				NAVIGATOR1:false,
+				NAVIGATOR2:true,
+				CAPTAIN:true}
+		_: 
+			push_error("unexpected behavior, not a recognized mission name")
 
 func is_character_available(character):
 	return self._characters_available[character]
@@ -264,7 +297,13 @@ func update_ether_timer():
 		# le timer est paused quand on sort d'un ilot
 		self._ether_timer.paused = false
 	else:
-		push_error("unexpected behavior")
+		if GameState._debug:
+			var mission = self.get_current_mission()
+			if self.mission_states[mission]["in_time"]:  # donc si elle est pas fail, ça veut dire qu'on sort du HUB et donc qu'on commence une nouvelle mission
+				self._ether_timer.wait_time = GameState.mission_timer[GameState.get_current_mission()]
+				self.start_ether_timer()
+		else:
+			push_error("unexpected behavior")
 
 func decrement_ether_timer():
 	if self._ether_timer.time_left - self.ether_timer_decrement < 0. :
@@ -359,12 +398,14 @@ func check_intemperie():
 		MusicManager.set_intemperie(NONE)
 		return NONE
 
-func validate_current_mission_debug():
+func validate_current_mission_debug(in_time):
 	if self._debug:
 		var i_mission = self.get_current_mission_idx()
 		var mission_str = self.mission_states.keys()[i_mission]
 		var ilot_str = self.ilot_states.keys()[i_mission]
 		self.mission_states[mission_str]["finished"] = true
+		self.mission_states[mission_str]["debriefed"] = true
+		self.mission_states[mission_str]["in_time"] = in_time
 		self.ilot_states[ilot_str]["revealed"] = true
 		self.start_current_mission()
 		self.check_intemperie()

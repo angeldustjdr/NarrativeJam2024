@@ -18,7 +18,8 @@ var sound_paths = {	"white_noise":"res://assets/sounds/white-noise-8117_cut.wav"
 					"oscillo_bleep":"res://assets/sounds/sfx/bleep bip click/Bleep_05 BLEOOP.wav",
 					"achievement":"res://assets/sounds/sfx/complete/Complete_02 BLEOOP.wav",
 					"confirm":"res://assets/sounds/sfx/switch/switch10 kenney_ui.ogg",
-					"glitch":"res://assets/sounds/sfx/glitch/Static Glitch Short Shpaeforms.wav"}
+					"glitch":"res://assets/sounds/sfx/glitch/Static Glitch Short Shpaeforms.wav",
+					"hoover":"res://assets/sounds/sfx/bleep bip click/Menu - hover Zorg & Shlak.wav"}
 
 var sound_loops = {"white_noise":true,
 				   "crowd":true,
@@ -29,7 +30,8 @@ var sound_loops = {"white_noise":true,
 					"oscillo_bleep":false,
 					"achievement":false,
 					"confirm":false,
-					"glitch":false}
+					"glitch":false,
+					"hoover":false}
 
 var base_volumes = {"white_noise":-20.0,
 					"crowd":0.0,
@@ -40,7 +42,8 @@ var base_volumes = {"white_noise":-20.0,
 					"oscillo_bleep":0.0,
 					"achievement":0.0,
 					"confirm":-5.0,
-					"glitch":0.0}
+					"glitch":0.0,
+					"hoover":0.0}
 
 var base_pitches = {"white_noise":1.0,
 					"crowd":1.0,
@@ -51,7 +54,8 @@ var base_pitches = {"white_noise":1.0,
 					"oscillo_bleep":1.0,
 					"achievement":1.0,
 					"confirm":1.0,
-					"glitch":1.0}
+					"glitch":1.0,
+					"hoover":0.9}
 
 func _ready():
 	# Create the pool of AudioStreamPlayer nodes.
