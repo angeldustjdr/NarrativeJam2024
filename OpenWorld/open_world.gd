@@ -133,3 +133,9 @@ func _input(event):
 			if dbg:
 				self.setObjective()
 				self._set_intemperie()
+
+func showIntermediateDialog(what):
+	GameState.start_time_line(what)
+	GameState.pause_ether_timer()
+	Dialogic.timeline_ended.connect(self._on_briefing_dialog_ended)
+	$player.set_process_mode(PROCESS_MODE_DISABLED)
