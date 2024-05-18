@@ -11,7 +11,7 @@ var AchievementDescription = {
 	"New friend" : ["Talk to your new navigator 3 times",false,"Create bonds with someone new."],
 	"Hi everyone !" : ["Talk to all characters once",false,"Be sociable in your workplace."],
 	"True pioneer" : ["Drop 5 wards",false,"Enlighten your way when exploring."],
-	"Safe return" : ["Finish a mission before the Ethertimer ends",false,"Don't risk your life on the Ethersea."],
+	"Safe return" : ["Finish a mission before the Ether timer ends",false,"Don't risk your life on the Ethersea."],
 	"Better late than sorry" : ["Finish a mission with no time left on the Ether timer",false,"Take your time... or not."],
 	#"True pilot" : ["Finish a mission without damaging the ship",false,"Take care of your ship. Repairs are expensive!"],
 	#"Sabotage" : ["Finish a mission with fully damaged ship",false,"Take care of your ship. Repairs are expensive (bis)!"],

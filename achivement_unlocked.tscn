@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjr2m5bggwenu"]
+[gd_scene load_steps=6 format=3 uid="uid://cjr2m5bggwenu"]
+
+[ext_resource type="Script" path="res://achivement_unlocked.gd" id="1_wgfq1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nigux"]
 bg_color = Color(0, 0, 0, 1)
@@ -60,6 +62,7 @@ offset_bottom = 26.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_nigux")
 text = "toto"
 horizontal_alignment = 1
+script = ExtResource("1_wgfq1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -40,7 +40,7 @@ var base_volumes = {"white_noise":-20.0,
 					"rocket":-15.0,
 					"casserole_one_hit":0.0,
 					"oscillo_bleep":0.0,
-					"achievement":0.0,
+					"achievement":5.0,
 					"confirm":-5.0,
 					"glitch":0.0,
 					"hoover":0.0}
