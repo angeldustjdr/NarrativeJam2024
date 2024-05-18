@@ -81,6 +81,7 @@ func setMission_corrupted(which):
 func takeDamage():
 	PV = max(PV-10,0)
 	emit_signal("damageTaken")
+	if PV==0 : Achievements.genericCheck("Sabotage")
 
 func resetPV():
 	PV = 100.0
@@ -110,7 +111,7 @@ func start_briefing_dialog():
 			2: #MISSION 3
 				self.start_time_line("tl_03mission3_objectif")
 			3: #MISSION 4
-				self.start_time_line("Test_timeline")
+				self.start_time_line("tl_04mission4_objectif")
 			4: #MISSION 5
 				self.start_time_line("Test_timeline")
 			_: 
@@ -126,9 +127,9 @@ func start_ilot_dialog_navigator(numero_ilot):
 		1: #MISSION 2
 			if ilot_states["ilot_2"]["revealed"] == false and numero_ilot==2 : self.start_time_line("tl_02mission2_arrival")
 		2: #MISSION 3
-			if ilot_states["ilot_3"]["revealed"] == false and numero_ilot==3 : self.start_time_line("tl_02mission3_arrival")
+			if ilot_states["ilot_3"]["revealed"] == false and numero_ilot==3 : self.start_time_line("tl_03mission3_arrival")
 		3: #MISSION 4
-			self.start_time_line("Test_timeline")
+			if ilot_states["ilot_4"]["revealed"] == false and numero_ilot==4 : self.start_time_line("tl_04mission4_arrival")
 		4: #MISSION 5
 			self.start_time_line("Test_timeline")
 		_: 
@@ -149,20 +150,26 @@ func _update_current_timelines():
 			self._current_timelines[GameState.CAPTAIN] = "tl_02hub_captain_coffee"
 		2: #MISSION 3
 			if mission_corrupted["mission_1"]:
-				self._current_timelines[GameState.SHIPGIRL] = "tl_03hub_shipgirl3_coffee_influenced1"
-				self._current_timelines[GameState.NAVIGATOR1] = "tl_03hub_navigator3_coffee_influenced"
+				self._current_timelines[GameState.SHIPGIRL] = "influenced1/tl_03hub_shipgirl3_coffee_influenced1"
+				self._current_timelines[GameState.NAVIGATOR1] = "influenced1/tl_03hub_navigator3_coffee_influenced"
 				self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
-				self._current_timelines[GameState.CAPTAIN] = "tl_03hub_captain3_coffee_influenced1"
+				self._current_timelines[GameState.CAPTAIN] = "influenced1/tl_03hub_captain3_coffee_influenced1"
 			else :
 				self._current_timelines[GameState.SHIPGIRL] = "tl_03hub_shipgirl3_coffee"
-				self._current_timelines[GameState.NAVIGATOR1] = "tl_03hub_navigator3_coffee"
+				self._current_timelines[GameState.NAVIGATOR1] = "tl_03hub_navigator1_coffee"
 				self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
 				self._current_timelines[GameState.CAPTAIN] = "tl_03hub_captain3_coffee"
 		3: #MISSION 4
-			self._current_timelines[GameState.SHIPGIRL] = "Test_timeline"
-			self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
-			self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
-			self._current_timelines[GameState.CAPTAIN] = "Test_timeline"
+			if mission_corrupted["mission_2"]:
+				self._current_timelines[GameState.SHIPGIRL] = "influenced2/tl_04hub_shipgirl4_coffee_influenced2"
+				self._current_timelines[GameState.NAVIGATOR1] = "influenced2/tl_04hub_navigator4_coffee_influenced2"
+				self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
+				self._current_timelines[GameState.CAPTAIN] = "influenced2/tl_04hub_captain4_coffee_influenced2"
+			else :
+				self._current_timelines[GameState.SHIPGIRL] = "tl_04hub_shipgirl4_coffee"
+				self._current_timelines[GameState.NAVIGATOR1] = "tl_04hub_navigator4_coffee"
+				self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
+				self._current_timelines[GameState.CAPTAIN] = "tl_04hub_captain4_coffee"
 		4: #MISSION 5
 			self._current_timelines[GameState.SHIPGIRL] = "Test_timeline"
 			self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
@@ -193,9 +200,9 @@ func _play_dialog_return_to_hub():
 				GameState.start_time_line("tl_03hub_captain_missionlate")
 		2: #MISSION 3
 			if self.mission_states[mission]["in_time"]:
-				GameState.start_time_line("Test_timeline")
+				GameState.start_time_line("tl_04hub_captain_missiontimly")
 			else:
-				GameState.start_time_line("Test_timeline")
+				GameState.start_time_line("tl_04hub_captain_missionlate")
 		3: #MISSION 4
 			if self.mission_states[mission]["in_time"]:
 				GameState.start_time_line("Test_timeline")

@@ -14,6 +14,7 @@ var AchievementDescription = {
 	"Safe return" : ["Finish a mission before the Ethertimer ends",false,"Don't risk your life on the Ethersea."],
 	"Better late than sorry" : ["Finish a mission with no time left on the Ethertimer",false,"Take your time... or not."],
 	"True pilot" : ["Finish a mission without damaging the ship",false,"Take care of your ship. Repairs are expensive!"],
+	"Sabotage" : ["Finish a mission with fully damaged ship",false,"Take care of your ship. Repairs are expensive (bis)!"],
 	"Instrumentation master" : ["Get over 99% beacon compatibility",false,"Sometimes 90% isn't enough."]
 }
 
