@@ -68,6 +68,9 @@ func _ready():
 		GameState.pause_ether_timer()
 		Dialogic.timeline_ended.connect(self._on_briefing_dialog_ended)
 		$player.set_process_mode(PROCESS_MODE_DISABLED)
+	else :
+		if GameState.mission_corrupted["mission_1"] and GameState.mission_corrupted["mission_2"] and GameState.mission_corrupted["mission_3"]:
+			showIntermediateDialog("tl_04mission4_scold")
 
 func _on_briefing_dialog_ended():
 	GameState.unpause_ether_timer()
