@@ -83,7 +83,9 @@ func _on_briefing_dialog_ended():
 	$player.movable = true
 
 func _disconnect_objective():
-	objectiveArray[self.iObjective].scene_need_changing.disconnect(self._scene_change)
+	for objective in objectiveArray:
+		if objective.scene_nesed_changing.is_connected(self._scene_change):
+			objective.scene_need_changing.disconnect(self._scene_change)
 	
 func _init_objectives():
 	var i_mission : int = GameState.get_current_mission_idx()
