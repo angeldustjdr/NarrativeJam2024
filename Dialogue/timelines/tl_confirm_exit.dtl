@@ -1,7 +1,6 @@
 Start mission?
 - Yes
 	set {confirm_exit} = "true"
-	[end_timeline]
 - No
 	set {confirm_exit} = "false"
-	[end_timeline]
+[end_timeline]

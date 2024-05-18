@@ -6,6 +6,7 @@ func _ready():
 	GameState.stop_ether_timer()
 	MusicManager.playMusicNamed(self.name,SceneTransitionLayer.get_duration("fade_in"))
 	GameState.check_mission_status()
+	GameState.update_dialogs()
 	Radio.connect("clickObject",clickObject)
 	Achievements.connect("unlock",showUnlock)
 	%TalkToMenu.coffee_credit_update.connect(self._on_coffee_credit_update)
@@ -21,16 +22,17 @@ func clickObject(which):
 			%ArmadaOrga.visible = true
 			setClickableProcess(PROCESS_MODE_DISABLED)
 		"Door" :
-			if Dialogic.current_timeline == null and GameState.coffeeCredit>0:
-				Dialogic.start("res://Dialogue/timelines/tl_confirm_exit.dtl")
-				Dialogic.timeline_ended.connect(self._go_in_mission)
+			GameState.start_time_line("res://Dialogue/timelines/tl_confirm_exit.dtl")
+			Dialogic.timeline_ended.connect(self._go_in_mission)
 		"Employee" : 
 			%TalkToMenu.visible = false
 			%EmployeeMonth.visible = true
 			setClickableProcess(PROCESS_MODE_DISABLED)
 		"Coffee":
-			%TalkToMenu.visible = false
-			%TalkToMenu.display()
+			Dialogic.timeline_ended.connect(self._on_coffe_machine_started)
+			GameState.start_time_line("tl_take_coffee")
+			#%TalkToMenu.visible = false
+			#%TalkToMenu.display()
 			setClickableProcess(PROCESS_MODE_DISABLED)
 		"Achivement" :
 			%TalkToMenu.visible = false
@@ -40,12 +42,30 @@ func clickObject(which):
 		_ : 
 			push_warning("clickable not recognized")
 
+func _on_coffe_machine_started(): 
+	await get_tree().create_timer(0.1).timeout #FUCKING DIALOGIC : my guess : si t'as pas attendu suffisamment y a des trucs qui sont pas decharges ça fout la merde.
+	# MAIS CURRENT_TIMELINE est quand même NULL haha!
+	Dialogic.timeline_ended.disconnect(self._on_coffe_machine_started)
+	var character =  Dialogic.VAR.character_choice
+	match character:
+		GameState.NO_ONE:
+			%TalkToMenu._on_leave_pressed()
+		_:
+			%TalkToMenu.talk_to_character(character)
+	setClickableProcess(PROCESS_MODE_ALWAYS)
+
 func _go_in_mission():
 	Dialogic.timeline_ended.disconnect(self._go_in_mission)
 	if Dialogic.VAR.confirm_exit:
+		if GameState.get_current_mission_idx() == 0: # si on est a la mission 1 c'est le tuto
+			# C'EST TRES LE TUTO
+			await get_tree().create_timer(0.1).timeout 
+			GameState.start_time_line("tl_hub01_exitoption")
+			await(Dialogic.timeline_ended)
 		%TalkToMenu.visible = false
 		GameState.start_current_mission()
 		MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
+		GameState.coming_from = GameState.HUB
 		SceneTransitionLayer.transition_to_packed_scene(GameState.openworld_packed_scene)
 
 func clear(exclude):

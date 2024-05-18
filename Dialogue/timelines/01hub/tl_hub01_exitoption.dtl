@@ -1,9 +1,9 @@
 join "navigator 1" 1
 "navigator 1": Ready for you asignment ? Hop in your ship, I'll guide you remotly from mission control.
 "navigator 1": Wait, you'r have to do navigation simulation before. It's supposed to be mandatory but if you want to skip it, I'll keep it between us.
-- Do the Tutorial [if {1} == ""]
+- Do the Tutorial
 	"navigator 1": You'r a by-the-book- person I see ! Ok, let me fire up the sim.
 	jump tl_hub01_simulation/
-- Skip the Tutorial [if {"2"} == ""]
+- Skip the Tutorial
 	"navigator 1": I knew you were the practical kind, Let's go. 
 	[end_timeline]
