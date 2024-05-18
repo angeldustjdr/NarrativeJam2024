@@ -1,0 +1,6 @@
+join "navigator 2" 1
+"navigator 2": Good morning sailor {mc_name} ! I'm going to need you to be exta focused today.
+"navigator 2": There has been a terrorist attack against {armada_name}. The ethersea is going to be impredictible.
+"navigator 2": Mission-command asigned you a difficult mission, you will have to go way further than you ever did. So please, don't waste any time.
+"navigator 2": Ping has been send.
+[end_timeline]

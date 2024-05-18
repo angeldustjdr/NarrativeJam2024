@@ -1,0 +1,21 @@
+join "navigator 1" 1
+"navigator 1": Hello again friend ! I'm glad you came.
+"navigator 1": Surprised to see me I suppose. I owe you an explaination.
+"navigator 1": I began to have doubt about what we were doing with those beacon, so I investigated.\
+The company were listening every word I said to you. That's why I could not directly tell you what was happening.
+"navigator 1": The beacon are not just gathering data, and there are actually real life consequences for the projections if you interact with them.
+"navigator 1": {armada_name} is using the beacons to influence groups of people for the benefit of the company.
+"navigator 1": When they became suspicious of my action, I got fired.\
+They severed me from the subconscient. And probably covered up any trace of me being in {armada_name}.
+"navigator 1": Fortunatly, I got contacted by a group a people who wanted to do something againt this manipulation.
+"navigator 1": They have one of the scientist who discovered the ethersea among them, so help me reconect to the subconscient.
+"navigator 1": That's why i'm here.
+"navigator 1": What do you think ? Do you want to help us. Free thoses who are influenced ?
+- Join and destroy the beacon
+	"navigator 1": I'm glad, you made the right choice.
+- Join but return to convince your co-workers
+	"navigator 1": You are very naive. I'am afraid you underestimate the influence made by {armada_name}
+- Refuse
+	"navigator 1": I'm saddened by your choice, but I'll respect it. \
+Goodbye friend.
+[end_timeline]
