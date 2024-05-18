@@ -22,21 +22,12 @@ enum {NO_ONE=-9999}
 							"ilot_4":{"revealed":false},
 							"ilot_5":{"revealed":false},
 							"ilot_test":{"revealed":false}}
-<<<<<<< HEAD
-@onready var mission_states = {"mission_1":{"started":false,"finished":false,"in_time":true},
-							   "mission_2":{"started":false,"finished":false,"in_time":true},
-							   "mission_3":{"started":false,"finished":false,"in_time":true},
-							   "mission_4":{"started":false,"finished":false,"in_time":true},
-							   "mission_5":{"started":false,"finished":false,"in_time":true}}
-@onready var mission_timer = {"mission_1": 60.,
-=======
 @onready var mission_states = {"mission_1":{"started":false,"finished":false,"in_time":true,"debriefed":false},
 							   "mission_2":{"started":false,"finished":false,"in_time":true,"debriefed":false},
 							   "mission_3":{"started":false,"finished":false,"in_time":true,"debriefed":false},
 							   "mission_4":{"started":false,"finished":false,"in_time":true,"debriefed":false},
 							   "mission_5":{"started":false,"finished":false,"in_time":true,"debriefed":false}}
-@onready var mission_timer = {"mission_1": 600.,
->>>>>>> 777e67b0a670aebd7fc8d056076527ede6aad810
+@onready var mission_timer = {"mission_1": 60.,
 							   "mission_2": 60.,
 							   "mission_3": 60.,
 							   "mission_4": 60.,
