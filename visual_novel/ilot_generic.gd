@@ -10,8 +10,11 @@ class_name IlotGeneric
 var _current_time_line : String
 var _ilot_corrupted : bool = false
 
+@onready var unlock = preload("res://achivement_unlocked.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Achievements.connect("unlock",showUnlock)
 	GameState.pause_ether_timer()
 	$visual_novel_scene/get_out_button.pressed.connect(self._on_button_pressed)
 	# DIALOG ASPECTS
@@ -141,3 +144,9 @@ func _reveal_ilot():
 func _hide_lightening_effect():
 	$visual_novel_scene/CanvasModulate.visible = false
 	$visual_novel_scene/oscillo_light.visible = false
+
+func showUnlock(message):
+	var u = unlock.instantiate()
+	u.text = "Achivement unlocked : " + message
+	u.position = Vector2(64,1020-u.size.y)
+	add_child(u)

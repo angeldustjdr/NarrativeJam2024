@@ -37,6 +37,9 @@ var _ether_timer : Timer
 
 @onready var _title_screen_state : int = CORPORATE
 
+var PV = 100
+signal damageTaken
+
 ########### ACHIEVEMENTS
 @onready var nbCoffee = 0
 @onready var coffeeCredit = 3
@@ -67,6 +70,10 @@ func _ready():
 	self.set_process_mode(PROCESS_MODE_ALWAYS)
 	self._init_ether_timer()
 
+func takeDamage():
+	PV = max(PV-10,0)
+	emit_signal("damageTaken")
+
 # Related to dialogs
 func start_time_line(timeline_name):
 	if Dialogic.current_timeline == null:
@@ -81,6 +88,8 @@ func get_current_timeline(character):
 
 func start_briefing_dialog():
 	if self.coming_from == HUB: # Si on sort du HUB on joue une timeline briefing, sinon non.
+		PV = 100.0
+		emit_signal("damageTaken")
 		match self.get_current_mission_idx():
 			0: #MISSION 1
 				self.start_time_line("tl_mission1_navigator1_objectif")

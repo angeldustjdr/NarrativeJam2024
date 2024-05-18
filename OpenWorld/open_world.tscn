@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://1c2poulo2qea"]
+[gd_scene load_steps=39 format=3 uid="uid://1c2poulo2qea"]
 
 [ext_resource type="Script" path="res://OpenWorld/open_world.gd" id="1_dqjoa"]
 [ext_resource type="Shader" path="res://OpenWorld/open_world_background.gdshader" id="1_mopfe"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://d2dy7i3w8ddv0" path="res://OpenWorld/objective.tscn" id="9_rqvr2"]
 [ext_resource type="PackedScene" uid="uid://bsqs7hvavmdhe" path="res://OpenWorld/acc_1.tscn" id="10_0tbb1"]
 [ext_resource type="Script" path="res://OpenWorld/Alert Message.gd" id="11_ti07w"]
+[ext_resource type="Script" path="res://OpenWorld/PV.gd" id="18_yde88"]
 [ext_resource type="PackedScene" uid="uid://pqgd1whitxiw" path="res://intemperie_texture.tscn" id="23_y48wl"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_j6egv"]
@@ -697,6 +698,15 @@ max_value = 180.0
 value = 100.0
 rounded = true
 script = ExtResource("8_alurk")
+
+[node name="ShipIntegrity" type="Label" parent="CanvasLayer/UI/Right/CenterContainer/MarginContainer/VBoxContainer/EngineZone/VBoxContainer"]
+layout_mode = 2
+text = "Ship Integrity"
+horizontal_alignment = 1
+
+[node name="PV" type="ProgressBar" parent="CanvasLayer/UI/Right/CenterContainer/MarginContainer/VBoxContainer/EngineZone/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("18_yde88")
 
 [node name="HSeparator2" type="HSeparator" parent="CanvasLayer/UI/Right/CenterContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var speed = 500
+var speed_min = speed/2
 var friction = 0.01
 var acceleration = 0.05
 var rotation_speed = 1.0
@@ -8,6 +9,8 @@ var rotation_acc = 0.2
 
 var objective = null
 var interactable = null
+
+var invulnerable = false
 
 @onready var _rocket_volume = 0.0
 @onready var _rocket_volume_incr = 0.01
@@ -35,6 +38,7 @@ func _set_rocket_volume():
 	
 
 func _physics_process(delta):
+	speed = speed_min + speed_min* GameState.PV / 100
 	self._set_rocket_volume()
 	# Movement manager
 	var ahead_vector = Vector2(0.0,-1.0).rotated(rotation)
@@ -79,6 +83,10 @@ func _physics_process(delta):
 		var collision = get_slide_collision(0)
 		if collision != null:
 			velocity = temp_velocity.bounce(collision.get_normal())
+			if invulnerable == false :
+				GameState.takeDamage()
+				invulnerable = true
+				$InvulnerableTimer.start(1.0)
 			
 	# reticule objectif
 	if objective != null :
@@ -130,3 +138,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed("Interact") :
 		if interactable !=null :
 			Radio.emit_signal("interaction",interactable)
+
+
+func _on_invulnerable_timer_timeout():
+	invulnerable = false

@@ -154,6 +154,8 @@ texture = SubResource("GradientTexture2D_v8oie")
 visible = false
 texture = ExtResource("5_w7suv")
 
+[node name="InvulnerableTimer" type="Timer" parent="."]
+
 [node name="Message" type="Label" parent="."]
 visible = false
 z_index = 1
@@ -181,3 +183,5 @@ color = Color(1, 1, 1, 0)
 libraries = {
 "": SubResource("AnimationLibrary_53guw")
 }
+
+[connection signal="timeout" from="InvulnerableTimer" to="." method="_on_invulnerable_timer_timeout"]
