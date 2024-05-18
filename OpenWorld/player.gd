@@ -9,6 +9,8 @@ var rotation_acc = 0.2
 var objective = null
 var interactable = null
 
+var invulnerable = false
+
 @onready var _rocket_volume = 0.0
 @onready var _rocket_volume_incr = 0.01
 
@@ -79,6 +81,10 @@ func _physics_process(delta):
 		var collision = get_slide_collision(0)
 		if collision != null:
 			velocity = temp_velocity.bounce(collision.get_normal())
+			if invulnerable == false :
+				GameState.takeDamage()
+				invulnerable = true
+				$InvulnerableTimer.start(1.0)
 			
 	# reticule objectif
 	if objective != null :
@@ -130,3 +136,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed("Interact") :
 		if interactable !=null :
 			Radio.emit_signal("interaction",interactable)
+
+
+func _on_invulnerable_timer_timeout():
+	invulnerable = false

@@ -6,12 +6,16 @@ class_name IlotGeneric
 @export var ilot_color_normal : Color
 @export var difficulty : int
 @export var target_signal_prop : Dictionary = {"ampl":0.0,"mean":0.0,"period":0.0,"phase":0.0}
+@export var numero_ilot = 0
 
 var _current_time_line : String
 var _ilot_corrupted : bool = false
 
+@onready var unlock = preload("res://achivement_unlocked.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Achievements.connect("unlock",showUnlock)
 	GameState.pause_ether_timer()
 	$visual_novel_scene/get_out_button.pressed.connect(self._on_button_pressed)
 	# DIALOG ASPECTS
@@ -42,6 +46,7 @@ func _ready():
 		$visual_novel_scene/clickable_oscilloscope.is_clickable = false
 	$visual_novel_scene/oscillo_light.position = $visual_novel_scene/clickable_oscilloscope.position
 	SceneTransitionLayer.reveal_scene()
+	GameState.start_ilot_dialog_navigator(numero_ilot)
 
 func _update_oscillo_icon():
 	var texture_name = "res://assets/graphics/items/oscillo_icon_"+str(self._get_ilot_number()+1)+".png"
@@ -141,3 +146,9 @@ func _reveal_ilot():
 func _hide_lightening_effect():
 	$visual_novel_scene/CanvasModulate.visible = false
 	$visual_novel_scene/oscillo_light.visible = false
+
+func showUnlock(message):
+	var u = unlock.instantiate()
+	u.text = "Achivement unlocked : " + message
+	u.position = Vector2(64,1020-u.size.y)
+	add_child(u)

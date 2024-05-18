@@ -43,11 +43,11 @@ func _on_talk_to_captain_pressed():
 
 func talk_to_character(character):
 	self.visible = false
-	if Dialogic.current_timeline == null :
-		GameState.nbInteractions[character] += 1
-		Achievements.checkInteraction(character)
-		Dialogic.start(GameState.get_current_timeline(character))
-		self._decrease_coffee_credit()
+	#if Dialogic.current_timeline == null :
+	GameState.nbInteractions[character] += 1
+	Achievements.checkInteraction(character)
+	GameState.start_time_line(GameState.get_current_timeline(character))
+	self._decrease_coffee_credit()
 
 func _decrease_coffee_credit():
 	if GameState.coffeeCredit > 0 :

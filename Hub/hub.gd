@@ -3,17 +3,22 @@ extends Node2D
 @onready var unlock = preload("res://achivement_unlocked.tscn")
 
 func _ready():
+	##### achievement
+	Achievements.connect("unlock",showUnlock)
+	GameState.nbRetourHub += 1
+	if GameState.nbRetourHub>0 : Achievements.genericCheck("True pilot")
+	if GameState.get_ether_timer_timeleft() > 0 :
+		Achievements.genericCheck("Safe return")
+	else :
+		if GameState.nbRetourHub > 0 : Achievements.genericCheck("Better late than sorry")
+	
 	GameState.stop_ether_timer()
 	MusicManager.playMusicNamed(self.name,SceneTransitionLayer.get_duration("fade_in"))
 	GameState.check_mission_status()
 	GameState.update_dialogs()
 	Radio.connect("clickObject",clickObject)
-	Achievements.connect("unlock",showUnlock)
 	%TalkToMenu.coffee_credit_update.connect(self._on_coffee_credit_update)
 	SceneTransitionLayer.reveal_scene()
-	##### achievement
-	if GameState.get_ether_timer_timeleft() > 0 :
-		Achievements.genericCheck("Safe return")
 
 func clickObject(which):
 	match which:

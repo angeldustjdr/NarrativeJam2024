@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://1yyj200c6esy" path="res://visual_novel/ilot_generic.tscn" id="1_g1dbj"]
 [ext_resource type="Script" path="res://visual_novel/ilot_4.gd" id="2_gr6um"]
-[ext_resource type="Texture2D" uid="uid://3cyksm6x5tq3" path="res://assets/graphics/backgrounds/ilot4-gamer-sature.png" id="3_ddl7f"]
-[ext_resource type="Texture2D" uid="uid://ceuugev4s54rl" path="res://assets/graphics/backgrounds/ilot4-gamer-terne.png" id="4_bguj5"]
-[ext_resource type="Texture2D" uid="uid://552btavuo5qh" path="res://assets/graphics/items/oscillo_icon_3.png" id="4_k2hg4"]
-[ext_resource type="Texture2D" uid="uid://c2j74y0ml455b" path="res://assets/graphics/characters/character-ilot4-gamer-v2.png" id="5_kt65b"]
+[ext_resource type="Texture2D" uid="uid://cil6xkyklqkr5" path="res://assets/graphics/backgrounds/ilot4-gamer-sature.png" id="3_ddl7f"]
+[ext_resource type="Texture2D" uid="uid://bs64qhibs1t3y" path="res://assets/graphics/backgrounds/ilot4-gamer-terne.png" id="4_bguj5"]
+[ext_resource type="Texture2D" uid="uid://v5w3434eajcr" path="res://assets/graphics/items/oscillo_icon_3.png" id="4_k2hg4"]
+[ext_resource type="Texture2D" uid="uid://c3u2oxils58wh" path="res://assets/graphics/characters/character-ilot4-gamer-v2.png" id="5_kt65b"]
 
 [node name="ilot_4" instance=ExtResource("1_g1dbj")]
 script = ExtResource("2_gr6um")
@@ -19,6 +19,7 @@ target_signal_prop = {
 "period": 25.133,
 "phase": 0.0
 }
+numero_ilot = 4
 
 [node name="Background" parent="visual_novel_scene" index="0"]
 texture = ExtResource("3_ddl7f")
