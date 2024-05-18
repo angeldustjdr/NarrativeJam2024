@@ -27,7 +27,7 @@ enum {NO_ONE=-9999}
 							   "mission_3":{"started":false,"finished":false,"in_time":true},
 							   "mission_4":{"started":false,"finished":false,"in_time":true},
 							   "mission_5":{"started":false,"finished":false,"in_time":true}}
-@onready var mission_timer = {"mission_1": 600.,
+@onready var mission_timer = {"mission_1": 60.,
 							   "mission_2": 60.,
 							   "mission_3": 60.,
 							   "mission_4": 60.,
@@ -262,6 +262,9 @@ func update_ether_timer():
 		push_error("unexpected behavior")
 
 func decrement_ether_timer():
+	if self._ether_timer.time_left - self.ether_timer_decrement < 0. :
+		_ether_timer.start(0.1)
+		pause_ether_timer()
 	if not self._ether_timer.is_stopped():
 		var p = self._ether_timer.paused
 		self._ether_timer.start(self._ether_timer.time_left - self.ether_timer_decrement)
