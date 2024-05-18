@@ -6,7 +6,7 @@ func _ready():
 	##### achievement
 	Achievements.connect("unlock",showUnlock)
 	GameState.nbRetourHub += 1
-	if GameState.nbRetourHub>0 : Achievements.genericCheck("True pilot")
+	#if GameState.nbRetourHub>0 : Achievements.genericCheck("True pilot")
 	if GameState.get_ether_timer_timeleft() > 0 :
 		Achievements.genericCheck("Safe return")
 	else :
