@@ -57,6 +57,7 @@ func _deactivation_of_sliders():
 			var p_val = 0.5 *(p_range[0]+p_range[1])
 			self.target_signal_properties[property_name] = p_val
 			self.get_node(property_name+"_slider").editable = false
+			self.get_node(property_name+"_slider").modulate.a = 0.5
 			self.get_node(property_name+"_slider").set_block_signals(true)
 
 func _init_sliders():
@@ -97,10 +98,12 @@ func _update_similarity():
 	$ProgressBar.value=sim
 	if sim > _victory_ceil : 
 		$emit_button.disabled = false
+		$emit_button.modulate.a = 1.0
 		$emit_button/AnimationPlayer.play("flicker")
 		SoundManager.playSoundNamed("casserole_one_hit")
 	else : 
 		$emit_button.disabled = true
+		$emit_button.modulate.a = 0.5
 		$emit_button/AnimationPlayer.stop()
 
 func _update_after_slider_changed():

@@ -85,7 +85,7 @@ func start_briefing_dialog():
 			0: #MISSION 1
 				self.start_time_line("tl_mission1_navigator1_objectif")
 			1: #MISSION 2
-				self.start_time_line("tl_02mission2_navigator1_objectif")
+				self.start_time_line("tl_02mission2_objectif")
 			2: #MISSION 3
 				self.start_time_line("Test_timeline")
 			3: #MISSION 4

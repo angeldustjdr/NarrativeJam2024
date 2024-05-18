@@ -86,7 +86,7 @@ directories/dtl_directory={
 "tl_outcast_normal": "res://Dialogue/timelines/tl_outcast_normal.dtl",
 "tl_take_coffee": "res://Dialogue/timelines/tl_take_coffee.dtl"
 }
-text/letter_speed=0.01
+text/letter_speed=0.03
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1
 text/autoadvance_per_character_delay=0.1
@@ -103,8 +103,8 @@ save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
 glossary/default_case_sensitive=true
-layout/style_list=[]
-layout/default_style="Default"
+layout/style_list=["res://dialogic_theme.tres"]
+layout/default_style="res://dialogic_theme.tres"
 variables={
 "Var": "coucou",
 "armada_name": "armada",

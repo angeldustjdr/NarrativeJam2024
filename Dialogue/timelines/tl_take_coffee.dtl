@@ -11,6 +11,6 @@ if {GameState.coffeeCredit} > 0:
 	- No one
 		set {character_choice} = {GameState.NO_ONE}
 else:
-	Damn, no coffee credit left... I guess they limit the amount only to make our break shorter...
+	Damn, no coffee credit left... I guess they limit the amount only to make our breaks are shorter...
 	set {character_choice} = {GameState.NO_ONE}
 [end_timeline]
