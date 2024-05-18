@@ -227,8 +227,8 @@ func _update_characters_availability():
 		3: #MISSION 4
 			self._characters_available = {
 				SHIPGIRL:true,
-				NAVIGATOR1:false,
-				NAVIGATOR2:true,
+				NAVIGATOR1:true,
+				NAVIGATOR2:false,
 				CAPTAIN:true}
 		4: #MISSION 5
 			self._characters_available = {
