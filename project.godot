@@ -134,6 +134,7 @@ variables={
 "captain_name": "Cap'",
 "character_choice": 0,
 "confirm_exit": "tamere",
+"galerien_superinfluence": "no",
 "mc_name": "f13B59",
 "navigator1_name": "Bernard",
 "navigator2_name": "navi",

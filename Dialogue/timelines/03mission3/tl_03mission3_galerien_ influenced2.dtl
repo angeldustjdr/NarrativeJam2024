@@ -1,3 +1,4 @@
 join galerien 1
 galerien (idle_portrait): I work very hard and my health is not so great. But i need to keep it up for the {armada_name}.
+set {galerien_superinfluence} = "yes"
 [end_timeline]
