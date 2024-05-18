@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 var speed = 500
-var speed_min = speed/2
 var friction = 0.01
 var acceleration = 0.05
 var rotation_speed = 1.0
@@ -38,7 +37,6 @@ func _set_rocket_volume():
 	
 
 func _physics_process(delta):
-	speed = speed_min + speed_min* GameState.PV / 100
 	self._set_rocket_volume()
 	# Movement manager
 	var ahead_vector = Vector2(0.0,-1.0).rotated(rotation)

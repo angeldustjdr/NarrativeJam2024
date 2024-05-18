@@ -45,6 +45,7 @@ func _ready():
 		$visual_novel_scene/clickable_oscilloscope.is_clickable = false
 	$visual_novel_scene/oscillo_light.position = $visual_novel_scene/clickable_oscilloscope.position
 	SceneTransitionLayer.reveal_scene()
+	GameState.start_ilot_dialog_navigator()
 
 func _update_oscillo_icon():
 	var texture_name = "res://assets/graphics/items/oscillo_icon_"+str(self._get_ilot_number()+1)+".png"

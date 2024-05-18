@@ -27,7 +27,7 @@ enum {NO_ONE=-9999}
 							   "mission_3":{"started":false,"finished":false,"in_time":true},
 							   "mission_4":{"started":false,"finished":false,"in_time":true},
 							   "mission_5":{"started":false,"finished":false,"in_time":true}}
-@onready var mission_timer = {"mission_1": 1.,
+@onready var mission_timer = {"mission_1": 600.,
 							   "mission_2": 60.,
 							   "mission_3": 60.,
 							   "mission_4": 60.,
@@ -74,6 +74,10 @@ func takeDamage():
 	PV = max(PV-10,0)
 	emit_signal("damageTaken")
 
+func resetPV():
+	PV = 100.0
+	emit_signal("damageTaken")
+
 # Related to dialogs
 func start_time_line(timeline_name):
 	if Dialogic.current_timeline == null:
@@ -88,15 +92,14 @@ func get_current_timeline(character):
 
 func start_briefing_dialog():
 	if self.coming_from == HUB: # Si on sort du HUB on joue une timeline briefing, sinon non.
-		PV = 100.0
-		emit_signal("damageTaken")
+		resetPV()
 		match self.get_current_mission_idx():
 			0: #MISSION 1
 				self.start_time_line("tl_mission1_navigator1_objectif")
 			1: #MISSION 2
 				self.start_time_line("tl_02mission2_objectif")
 			2: #MISSION 3
-				self.start_time_line("Test_timeline")
+				self.start_time_line("tl_03mission3_objectif")
 			3: #MISSION 4
 				self.start_time_line("Test_timeline")
 			4: #MISSION 5
@@ -106,6 +109,21 @@ func start_briefing_dialog():
 		return true
 	else:
 		return false
+
+func start_ilot_dialog_navigator():
+	match self.get_current_mission_idx():
+		0: #MISSION 1
+			if ilot_states["ilot_1"]["revealed"] == false : self.start_time_line("tl_mission1_navigator1_arrival")
+		1: #MISSION 2
+			if ilot_states["ilot_2"]["revealed"] == false : self.start_time_line("tl_02mission2_arrival")
+		2: #MISSION 3
+			self.start_time_line("Test_timeline")
+		3: #MISSION 4
+			self.start_time_line("Test_timeline")
+		4: #MISSION 5
+			self.start_time_line("Test_timeline")
+		_: 
+			push_error("unexpected behavior, not a recognized mission name")
 
 func _update_current_timelines():
 	#HERE WE FUCKING GO
@@ -155,9 +173,9 @@ func _play_dialog_return_to_hub():
 				GameState.start_time_line("tl_02hub_captain_missionlate")
 		1: #MISSION 2
 			if self.mission_states[mission]["in_time"]:
-				GameState.start_time_line("Test_timeline")
+				GameState.start_time_line("tl_03hub_captain_missiontimely")
 			else:
-				GameState.start_time_line("Test_timeline")
+				GameState.start_time_line("tl_03hub_captain_missionlate")
 		2: #MISSION 3
 			if self.mission_states[mission]["in_time"]:
 				GameState.start_time_line("Test_timeline")
