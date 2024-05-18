@@ -17,6 +17,7 @@ var _victory_ceil = 90.0 # ceil at which the victory in earned in %
 signal victory
 
 var signal_color : Color = Color.BLUE
+var previous_s = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -101,11 +102,13 @@ func _update_similarity():
 		$emit_button.disabled = false
 		$emit_button.modulate.a = 1.0
 		$emit_button/AnimationPlayer.play("flicker")
-		SoundManager.playSoundNamed("casserole_one_hit")
+		if previous_s < _victory_ceil : 
+			SoundManager.playSoundNamed("oscillo_bleep")
 	else : 
 		$emit_button.disabled = true
 		$emit_button.modulate.a = 0.5
 		$emit_button/AnimationPlayer.stop()
+	previous_s = sim
 
 func _update_after_slider_changed():
 	self._update_similarity()
