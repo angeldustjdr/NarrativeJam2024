@@ -38,12 +38,12 @@ enum {NO_ONE=-9999}
 							   "mission_4": false,
 							   "mission_5": false}
 @onready var player_position = Vector2(838,4603) # initial coordinates of player
-var _ether_timer : Timer
 
 @onready var _title_screen_state : int = CORPORATE
 
-var PV = 100
-signal damageTaken
+########### ETHER TIMER
+var _ether_timer : Timer
+var ether_timer_decrement : int = 15
 
 ########### ACHIEVEMENTS
 @onready var nbCoffee = 0
@@ -71,12 +71,9 @@ signal damageTaken
 
 var coming_from : int # hold previous scene for some reason
 
-func _ready():
-	self.set_process_mode(PROCESS_MODE_ALWAYS)
-	self._init_ether_timer()
-
-func setMission_corrupted(which):
-	mission_corrupted[which] = true
+######## PV
+var PV = 100
+signal damageTaken
 
 func takeDamage():
 	PV = max(PV-10,0)
@@ -86,6 +83,14 @@ func takeDamage():
 func resetPV():
 	PV = 100.0
 	emit_signal("damageTaken")
+##########
+
+func _ready():
+	self.set_process_mode(PROCESS_MODE_ALWAYS)
+	self._init_ether_timer()
+
+func setMission_corrupted(which):
+	mission_corrupted[which] = true
 
 # Related to dialogs
 func start_time_line(timeline_name):
@@ -240,6 +245,13 @@ func update_ether_timer():
 		self._ether_timer.paused = false
 	else:
 		push_error("unexpected behavior")
+
+func decrement_ether_timer():
+	if not self._ether_timer.is_stopped():
+		var p = self._ether_timer.paused
+		self._ether_timer.start(self._ether_timer.time_left - self.ether_timer_decrement)
+		if p:
+			self.pause_ether_timer()
 
 func stop_ether_timer():
 	if not self._ether_timer.is_stopped():

@@ -1,0 +1,6 @@
+Should I talk to this emanation of the unconscious?
+- Yes, I have {GameState.ether_timer_decrement} seconds to spare!
+	set {talk_to_ilot} = "true"
+- No, I'm alreay late!
+	set {talk_to_ilot} = "false"
+[end_timeline]
