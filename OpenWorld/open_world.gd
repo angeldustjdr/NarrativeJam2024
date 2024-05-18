@@ -62,12 +62,20 @@ func _ready():
 	%MissionLabel.text = GameState.get_current_mission()
 	GameState.update_ether_timer()
 	SceneTransitionLayer.reveal_scene()
+	await(SceneTransitionLayer.fade_in_finished)
+	var brief = GameState.start_briefing_dialog()
+	if brief:
+		Dialogic.timeline_ended.connect(self._on_briefing_dialog_ended)
+		$player.set_process_mode(PROCESS_MODE_DISABLED)
 
+func _on_briefing_dialog_ended():
+	$player.set_process_mode(PROCESS_MODE_PAUSABLE)
+	
 func _init_objectives():
 	var i_mission : int = GameState.get_current_mission_idx()
 	if self.iObjective == GameState.HUB: 
 		# Si l'objectif est le HUB alors on l'active
-		objectiveArray[GameState.HUB].process_mode = PROCESS_MODE_ALWAYS
+		objectiveArray[GameState.HUB].process_mode = PROCESS_MODE_PAUSABLE
 		objectiveArray[GameState.HUB].visible = true
 		objectiveArray[GameState.HUB].set_next_scene(ilot_scenes_path[GameState.HUB])
 		objectiveArray[GameState.HUB].scene_need_changing.connect(self._scene_change)
@@ -77,7 +85,7 @@ func _init_objectives():
 		objectiveArray[GameState.HUB].visible = false
 	for i in range(0,i_mission+1): 
 	# Activation of ilots until current objective
-		objectiveArray[i].process_mode = PROCESS_MODE_ALWAYS
+		objectiveArray[i].process_mode = PROCESS_MODE_PAUSABLE
 		objectiveArray[i].visible = true
 		objectiveArray[i].set_next_scene(ilot_scenes_path[i])
 		objectiveArray[i].scene_need_changing.connect(self._scene_change)

@@ -65,7 +65,7 @@ func resetFocus():
 func _on_play_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			SceneTransitionLayer.transition_to_file_scene("res://Hub/hub.tscn")
+			SceneTransitionLayer.transition_to_file_scene("res://Hub/motivational_speech.tscn")
 			MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
 
 

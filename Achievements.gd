@@ -31,21 +31,24 @@ func genericCheck(title):
 
 func checkInteraction(who):
 	var nbInteractionNeeded = {
-		"Shipgirl":6,
-		"Navigator1":4,
-		"Navigator2":3,
-		"Captain":6
+		GameState.SHIPGIRL:6,
+		GameState.NAVIGATOR1:4,
+		GameState.NAVIGATOR2:3,
+		GameState.CAPTAIN:6
 	}
 	var interactionAchievementTitles = {
-		"Shipgirl":"Idol of youth",
-		"Navigator1":"Old friend",
-		"Navigator2":"New friend",
-		"Captain":"Good soldier"
+		GameState.SHIPGIRL:"Idol of youth",
+		GameState.NAVIGATOR1:"Old friend",
+		GameState.NAVIGATOR2:"New friend",
+		GameState.CAPTAIN:"Good soldier"
 	}
 	if GameState.nbInteractions[who]>=nbInteractionNeeded[who]:
 		genericCheck(interactionAchievementTitles[who])
 	
-	if GameState.nbInteractions["Shipgirl"]>=1 and GameState.nbInteractions["Navigator1"]>=1 and GameState.nbInteractions["Navigator2"]>=1 and GameState.nbInteractions["Captain"]>=1:
+	if (GameState.nbInteractions[GameState.SHIPGIRL]>=1 
+	and GameState.nbInteractions[GameState.NAVIGATOR1]>=1 
+	and GameState.nbInteractions[GameState.NAVIGATOR2]>=1 
+	and GameState.nbInteractions[GameState.CAPTAIN]>=1):
 		genericCheck("Hi everyone !")
 
 func checkWard():

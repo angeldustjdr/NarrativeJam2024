@@ -90,13 +90,13 @@ func clickObject(which):
 			push_warning("clickable not recognized")
 
 func _on_character_clicked():
-	if Dialogic.current_timeline == null:
-		Dialogic.start(self._current_time_line)
+	GameState.start_time_line(self._current_time_line)
 
 func _on_button_pressed():
 	if GameState.ilot_states[self.name]["revealed"]:
 		GameState.coffeeCredit = 3
 		MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
+		GameState.coming_from = GameState.ILOT
 		SceneTransitionLayer.transition_to_packed_scene(GameState.openworld_packed_scene)
 
 func _on_oscillo_clicked():

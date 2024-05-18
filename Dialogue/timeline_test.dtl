@@ -1,4 +1,4 @@
-join Test_character 1
+join Test_character 0
 Test_character: hello voici un choix
 - choix 1
 	Test_character: voici le choix 1

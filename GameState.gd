@@ -1,12 +1,16 @@
 extends Node
 
-enum {HUB = -1} # HUB position in list
+enum {HUB = -1, ILOT = 5555} # HUB position in list
 
 var _debug = true
 
 enum {NONE, WEAK, STRONG} # level of intemperie
 
 enum {CORPORATE, PIRATE}
+
+enum {CAPTAIN, SHIPGIRL, NAVIGATOR1, NAVIGATOR2}
+
+enum {NO_ONE=-9999}
 
 @onready var openworld_packed_scene = preload("res://OpenWorld/open_world.tscn")
 @onready var oscillo_packed_scene = preload("res://oscilloscope/oscilloscope_scene.tscn")
@@ -23,7 +27,7 @@ enum {CORPORATE, PIRATE}
 							   "mission_3":{"started":false,"finished":false,"in_time":true},
 							   "mission_4":{"started":false,"finished":false,"in_time":true},
 							   "mission_5":{"started":false,"finished":false,"in_time":true}}
-@onready var mission_timer = {"mission_1": 600.,
+@onready var mission_timer = {"mission_1": 1.,
 							   "mission_2": 60.,
 							   "mission_3": 60.,
 							   "mission_4": 60.,
@@ -37,19 +41,132 @@ var _ether_timer : Timer
 @onready var nbCoffee = 0
 @onready var coffeeCredit = 3
 @onready var nbInteractions = {
-	"Shipgirl":0,
-	"Navigator1":0,
-	"Navigator2":0,
-	"Captain":0}
+	SHIPGIRL:0,
+	NAVIGATOR1:0,
+	NAVIGATOR2:0,
+	CAPTAIN:0}
 @onready var nbWard = 0
 @onready var nbRetourHub = -1
 
+########### DIALOGS
+@onready var _characters_available = {
+	SHIPGIRL:true,
+	NAVIGATOR1:true,
+	NAVIGATOR2:false,
+	CAPTAIN:true}
+
+@onready var _current_timelines= {
+	SHIPGIRL:"Test_timeline",
+	NAVIGATOR1:"Test_timeline",
+	NAVIGATOR2:"Test_timeline",
+	CAPTAIN:"Test_timeline"}
+
+var coming_from : int # hold previous scene for some reason
+
 func _ready():
+	self.set_process_mode(PROCESS_MODE_ALWAYS)
 	self._init_ether_timer()
 
 # Related to dialogs
-func get_smth():
-	pass 
+func start_time_line(timeline_name):
+	if Dialogic.current_timeline == null:
+		Dialogic.start(timeline_name).layer = 50
+
+func update_dialogs():
+	self._update_characters_availability()
+	self._update_current_timelines()
+
+func get_current_timeline(character):
+	return self._current_timelines[character]
+
+func start_briefing_dialog():
+	if self.coming_from == HUB: # Si on sort du HUB on joue une timeline briefing, sinon non.
+		match self.get_current_mission_idx():
+			0: #MISSION 1
+				self.start_time_line("tl_mission1_navigator1_objectif")
+			1: #MISSION 2
+				self.start_time_line("tl_02mission2_navigator1_objectif")
+			2: #MISSION 3
+				self.start_time_line("Test_timeline")
+			3: #MISSION 4
+				self.start_time_line("Test_timeline")
+			4: #MISSION 5
+				self.start_time_line("Test_timeline")
+			_: 
+				push_error("unexpected behavior, not a recognized mission name")
+		return true
+	else:
+		return false
+
+func _update_current_timelines():
+	#HERE WE FUCKING GO
+	match self.get_current_mission_idx():
+		0: #MISSION 1
+			self._current_timelines[GameState.SHIPGIRL] = "tl_hub01_shipgirl"
+			self._current_timelines[GameState.NAVIGATOR1] = "tl_hub01_navigator1"
+			self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
+			self._current_timelines[GameState.CAPTAIN] = "tl_hub01_captain"
+		1: #MISSION 2
+			self._current_timelines[GameState.SHIPGIRL] = "tl_02hub_shipgirl_coffee"
+			self._current_timelines[GameState.NAVIGATOR1] = "tl_02hub_navigator1_coffee"
+			self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
+			self._current_timelines[GameState.CAPTAIN] = "tl_02hub_captain_coffee"
+		2: #MISSION 3
+			self._current_timelines[GameState.SHIPGIRL] = "Test_timeline"
+			self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
+			self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
+			self._current_timelines[GameState.CAPTAIN] = "Test_timeline"
+		3: #MISSION 4
+			self._current_timelines[GameState.SHIPGIRL] = "Test_timeline"
+			self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
+			self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
+			self._current_timelines[GameState.CAPTAIN] = "Test_timeline"
+		4: #MISSION 5
+			self._current_timelines[GameState.SHIPGIRL] = "Test_timeline"
+			self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
+			self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
+			self._current_timelines[GameState.CAPTAIN] = "Test_timeline"
+		_: 
+			push_error("unexpected behavior, not a recognized mission name")
+
+func _update_characters_availability():
+	pass #NEED SMTH
+
+func is_character_available(character):
+	return self._characters_available[character]
+
+func _play_dialog_return_to_hub():
+	var mission_idx = self.get_current_mission_idx()
+	var mission = self.mission_states.keys()[mission_idx]
+	match mission_idx:
+		0: #MISSION 1
+			if self.mission_states[mission]["in_time"]:
+				GameState.start_time_line("tl_02hub_captain_missiontimly")
+			else:
+				GameState.start_time_line("tl_02hub_captain_missionlate")
+		1: #MISSION 2
+			if self.mission_states[mission]["in_time"]:
+				GameState.start_time_line("Test_timeline")
+			else:
+				GameState.start_time_line("Test_timeline")
+		2: #MISSION 3
+			if self.mission_states[mission]["in_time"]:
+				GameState.start_time_line("Test_timeline")
+			else:
+				GameState.start_time_line("Test_timeline")
+		3: #MISSION 4
+			if self.mission_states[mission]["in_time"]:
+				GameState.start_time_line("Test_timeline")
+			else:
+				GameState.start_time_line("Test_timeline")
+		4: #MISSION 5
+			if self.mission_states[mission]["in_time"]:
+				GameState.start_time_line("Test_timeline")
+			else:
+				GameState.start_time_line("Test_timeline")
+		_:
+			push_error("unexpected_behavior")
+	await(Dialogic.timeline_ended)
 
 # Main title relatives
 func get_main_title_state():
@@ -125,6 +242,7 @@ func check_mission_status():
 	var mission = self.mission_states.keys()[mission_idx]
 	var ilot = self.ilot_states.keys()[mission_idx]
 	if self.ilot_states[ilot]["revealed"]:
+		self._play_dialog_return_to_hub()
 		self.mission_states[mission]["finished"] = true
 	self.check_intemperie()
 

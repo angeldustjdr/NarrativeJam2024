@@ -1,5 +1,7 @@
 extends ColorRect
 
+signal fade_in_finished
+
 @onready var _anim_player = $AnimationPlayer
 @onready var _next_packed_scene = null
 
@@ -34,7 +36,11 @@ func transition_to_file_scene(next_packed_scene):
 func _on_animation_finished_packed_scene(anime_name):
 	if anime_name == "fade_out":
 		get_tree().change_scene_to_packed(self._next_packed_scene)
+	else:
+		fade_in_finished.emit() 
 
 func _on_animation_finished_file_scene(anime_name):
 	if anime_name == "fade_out":
 		get_tree().change_scene_to_file(self._next_packed_scene)
+	else:
+		fade_in_finished.emit() 
