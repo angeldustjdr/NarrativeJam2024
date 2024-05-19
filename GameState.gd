@@ -20,6 +20,7 @@ enum {PIRATE_ENDING, DENIAL_ENDING, TRY_NEXT_MONTH_ENDING, EMPLOYEE_OF_THE_MONTH
 @onready var oscillo_packed_scene = preload("res://oscilloscope/oscilloscope_scene.tscn")
 
 ########### STATEMACHINE
+signal save_finished
 @onready var ilot_states = {"ilot_1":{"revealed":false,"beacon_destroyed":false},
 							"ilot_2":{"revealed":false,"beacon_destroyed":false},
 							"ilot_3":{"revealed":false,"beacon_destroyed":false},
@@ -113,8 +114,8 @@ func print_data():
 	print(self.PV)
 
 func save_game(file_name):
-	print("SAVED DATA:")
-	self.print_data()
+	#print("SAVED DATA:")
+	#self.print_data()
 	var savefile = FileAccess.open(file_name, FileAccess.WRITE)
 	savefile.store_var(self.mission_states)
 	savefile.store_var(self.ilot_states)
@@ -130,6 +131,8 @@ func save_game(file_name):
 	savefile.store_var(self.player_position)
 	savefile.store_var(self.PV)
 	savefile.store_var(get_tree().current_scene.scene_file_path)
+	#print("SAVE_FINISHED")
+	#self.save_finished.emit()
 	
 func load_game(file_name):
 	if not FileAccess.file_exists(file_name):
@@ -155,9 +158,9 @@ func load_game(file_name):
 	self.PV = savefile.get_var()
 	var file_scene_name = savefile.get_var()
 	self.coming_from = NO_WHERE
-	print("LOADED DATA")
-	self.print_data()
-	print("TRANSITIONING_TO: "+file_scene_name)
+	#print("LOADED DATA")
+	#self.print_data()
+	#print("TRANSITIONING_TO: "+file_scene_name)
 	MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
 	SceneTransitionLayer.transition_to_file_scene(file_scene_name)
 
@@ -634,3 +637,32 @@ func validate_current_mission_debug(in_time):
 			self.start_current_mission()
 		self.check_intemperie()
 	return self._debug
+
+# menu pause
+
+func is_pausable():
+	match get_tree().current_scene.scene_file_path:
+		"res://main.tscn": #on peut pas poser l'ecran titre
+			return false
+		"res://logo.tscn": #ni le logo du studio
+			return false
+		"res://motivational_speech.tscn": #ni le motivational speech
+			return false
+		_:
+			if not Dialogic.current_timeline == null: #on peut pas pauser pendant les dialogues
+				return false
+			else:
+				return true
+				
+
+func _input(event):
+	if event is InputEventKey:
+		if event.keycode == KEY_TAB and event.pressed:
+			if self.is_pausable():
+				if get_tree().paused:
+					get_tree().paused = false
+					PauseMenu.visible = false
+				else:
+					get_tree().paused = true
+					PauseMenu.visible = true
+			
