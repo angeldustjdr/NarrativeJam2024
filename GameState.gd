@@ -135,8 +135,6 @@ func save_game(file_name):
 	savefile.store_var(self.PV)
 	savefile.store_var(self._title_screen_state)
 	savefile.store_var(get_tree().current_scene.scene_file_path)
-	#print("SAVE_FINISHED")
-	#self.save_finished.emit()
 	
 func load_game(file_name):
 	if not FileAccess.file_exists(file_name):
@@ -163,9 +161,6 @@ func load_game(file_name):
 	self._title_screen_state = savefile.get_var()
 	var file_scene_name = savefile.get_var()
 	self.coming_from = NO_WHERE
-	#print("LOADED DATA")
-	#self.print_data()
-	#print("TRANSITIONING_TO: "+file_scene_name)
 	MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
 	SceneTransitionLayer.transition_to_file_scene(file_scene_name)
 
