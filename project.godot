@@ -25,6 +25,7 @@ Achievements="*res://Achievements.gd"
 SceneTransitionLayer="*res://scene_transition_layer.tscn"
 PauseMenu="*res://pause_menu.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+PauseMenu="*res://pause_menu.tscn"
 
 [dialogic]
 

@@ -135,6 +135,8 @@ func save_game(file_name):
 	savefile.store_var(self.PV)
 	savefile.store_var(self._title_screen_state)
 	savefile.store_var(get_tree().current_scene.scene_file_path)
+	#print("SAVE_FINISHED")
+	#self.save_finished.emit()
 	
 func load_game(file_name):
 	if not FileAccess.file_exists(file_name):
