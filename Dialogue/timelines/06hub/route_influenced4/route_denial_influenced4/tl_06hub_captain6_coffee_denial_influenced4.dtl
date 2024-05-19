@@ -1,0 +1,14 @@
+join captain 1
+captain: {mc_name} How was the mission ?
+captain: Is there anything you would like to report ?
+captain: Again with those projections theories ?
+captain: Look, you are a good employee but you are not focused enough.\
+I warned you ! You will have to pass a psych evaluation before getting back in you ship. It's for your own good.
+captain: What ? Someone Intruded the ethersea ? It must be the same terrorist that bombed our building.
+captain: I need to bring that up to the admiral. stay put.\
+Thank you this is crucial information.\
+Good work sailor, you'r still getting that psych eval tho, but good work !
+captain: I've scheduled a general meeting later today. I'll speak about the monthly results.\
+I expect you to be there.
+
+[end_timeline]

@@ -1,0 +1,9 @@
+join captain 1
+captain: {mc_name} How was the mission ?
+captain: Is there anything you would like to report ?
+captain: You think {armada_name} is trying to control people using the beacons ...\
+I'm really sorry to hear that.
+captain: You came to that conclusion by yourself ? Did you had any help ?
+captain: I've scheduled a meeting for later today.
+captain: I expect you to be there.
+[end_timeline]

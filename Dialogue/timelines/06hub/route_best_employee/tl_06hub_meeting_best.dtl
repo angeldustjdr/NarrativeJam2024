@@ -1,13 +1,8 @@
-join captain 1
-captain: Hello, everyone. I would like to annonce the result for the assignment you all got this month.
-captain: {mc_name} I'm very proud of your effort. You integrated yourself perfecting in this crew.\
-Therefore, I'm naming you ... Employee of the month, to encourage you for the future.
-join "navigator 2" 3 [ mirrored="true"]
-"navigator 2": What ?! But ...
-leave "navigator 2"
-join shipgirl 3 [ mirrored="true"]
-shipgirl: Yeay ! I knew it !
-leave shipgirl
-captain: {mc_name} Here is you certificate. I expect great things from you.\
-Good work.
+join "navigator 2" 1
+"navigator 2": I suspect you contacted the rogue signal. right ?
+"navigator 2": That's nonesene. You disobey a direct order ! It will have consequences
+"navigator 2": What did the intruder said to you ?
+"navigator 2": You must do a report to the captain right away if it is not already done.
+"navigator 2": He is holding a meeting later, for the monthly update.\
+I bet I'll get praised again, and I gess you are probably going to be demoted.
 [end_timeline]

@@ -1,0 +1,19 @@
+join captain 1
+captain: Hello, everyone. I would like to annonce the result for the assignment you all got this month.
+captain: {mc_name} I'm very proud of your effort. You have succeded to blend with the crew and you did your job apropriatly... most of the time.
+Because you recoverd capital information. I'm going to write a recommendation to encourage you for the future.
+join "navigator 2" 3 [ mirrored="true"]
+"navigator 2": What ?! But ...
+leave "navigator 2"
+join shipgirl 3 [ mirrored="true"]
+shipgirl: *whisper to herself* Was it the right thing to do ?
+leave shipgirl
+captain: Next, as expected our employee of the month will be {navigator2_name}.\
+Really proud of you.
+captain: I'm counting on you to keep training {mc_name}, we need him to be as good as you are.
+join "navigator 2" 3 [ mirrored="true"]
+"navigator 2": Hehe, knew it.
+leave "navigator 2"
+captain: Great, this conclude our meeting.\
+Continue your effort for the company.
+[end_timeline]
