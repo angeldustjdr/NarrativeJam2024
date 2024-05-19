@@ -48,6 +48,7 @@ signal save_finished
 @onready var _title_screen_state : int = CORPORATE
 
 ########### ENDINGS
+
 @onready var revolutionStep = 0
 @onready var denialStep = 0
 signal revolutionAdvanced
@@ -437,7 +438,6 @@ func _update_current_timelines():
 					self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
 					self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
 					self._current_timelines[GameState.CAPTAIN] = "Test_timeline"
-					
 		_: 
 			push_error("unexpected behavior, not a recognized mission name")
 
