@@ -1,6 +1,6 @@
 extends Node
 
-enum {HUB = -1, ILOT = 5555} # HUB position in list
+enum {HUB = -1, ILOT = 5555, NO_WHERE = 7777} # HUB position in list
 
 var _debug = true
 
@@ -94,6 +94,76 @@ func resetPV():
 	PV = 100.0
 	emit_signal("damageTaken")
 ##########
+
+################################################################################
+#LOAD AND SAVE MOTHEFUCKERS ####################################################
+################################################################################
+
+func print_data():
+	print(self.mission_states)
+	print(self.ilot_states)
+	print(self.mission_corrupted)
+	print(self.revolutionStep)
+	print(self.denialStep)
+	print(self._ether_timer.is_stopped())
+	print(self._ether_timer.wait_time)
+	print(self._ether_timer.time_left)
+	print(self._ether_timer.paused)
+	print(self.player_position)
+	print(self.PV)
+
+func save_game(file_name):
+	print("SAVED DATA:")
+	self.print_data()
+	var savefile = FileAccess.open(file_name, FileAccess.WRITE)
+	savefile.store_var(self.mission_states)
+	savefile.store_var(self.ilot_states)
+	savefile.store_var(self.mission_corrupted)
+	savefile.store_var(self.revolutionStep)
+	savefile.store_var(self.denialStep)
+	#ether_timer######################
+	savefile.store_var(self._ether_timer.is_stopped())
+	savefile.store_var(self._ether_timer.wait_time)
+	savefile.store_var(self._ether_timer.time_left)
+	savefile.store_var(self._ether_timer.paused)
+	##################################
+	savefile.store_var(self.player_position)
+	savefile.store_var(self.PV)
+	savefile.store_var(get_tree().current_scene.scene_file_path)
+	
+func load_game(file_name):
+	if not FileAccess.file_exists(file_name):
+		push_error("save file named : "+file_name+" not found")
+	var savefile = FileAccess.open(file_name, FileAccess.READ)
+	self.mission_states = savefile.get_var()
+	self.ilot_states = savefile.get_var()
+	self.mission_corrupted = savefile.get_var()
+	self.revolutionStep = savefile.get_var()
+	self.denialStep = savefile.get_var()
+	#ether_timer######################
+	var stopped_timer = savefile.get_var()
+	var wait_time_timer = savefile.get_var()
+	var time_left_timer = savefile.get_var()
+	var timer_paused = savefile.get_var()
+	self._init_ether_timer()
+	if not stopped_timer:
+		self._ether_timer.wait_time = wait_time_timer
+		self._ether_timer.start(wait_time_timer - time_left_timer)
+		self._ether_timer.paused = timer_paused
+	##################################
+	self.player_position = savefile.get_var()
+	self.PV = savefile.get_var()
+	var file_scene_name = savefile.get_var()
+	self.coming_from = NO_WHERE
+	print("LOADED DATA")
+	self.print_data()
+	print("TRANSITIONING_TO: "+file_scene_name)
+	MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
+	SceneTransitionLayer.transition_to_file_scene(file_scene_name)
+
+################################################################################
+################################################################################
+################################################################################
 
 func _ready():
 	self.set_process_mode(PROCESS_MODE_ALWAYS)

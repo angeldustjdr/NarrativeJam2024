@@ -20,6 +20,8 @@ func _ready():
 			MusicManager.playMusicNamed("title_pirate",SceneTransitionLayer.get_duration("fade_in"))
 		_:
 			push_error("unexpected behavior")
+	if not FileAccess.file_exists("res://saves/slot_1.save"):
+		%load.visible = false
 	SceneTransitionLayer.reveal_scene()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -31,6 +33,8 @@ func _process(_delta):
 			$AnimationPlayer.play("Achievements")
 		2:
 			$AnimationPlayer.play("Credits")
+		3:
+			$AnimationPlayer.play("load")
 
 
 func _on_play_mouse_entered():
@@ -93,3 +97,17 @@ func _on_achivements_panel_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			$AchivementsPanel.visible = false
+
+
+func _on_load_mouse_entered():
+	focus = 3
+	self._play_hoover_sound()
+
+
+func _on_load_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			GameState.load_game("res://test_save.save")
+
+func _on_load_mouse_exited():
+	resetFocus()
