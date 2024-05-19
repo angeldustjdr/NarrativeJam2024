@@ -23,8 +23,8 @@ SoundManager="*res://audio_manager/SoundManager.gd"
 GameState="*res://GameState.gd"
 Achievements="*res://Achievements.gd"
 SceneTransitionLayer="*res://scene_transition_layer.tscn"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 PauseMenu="*res://pause_menu.tscn"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
@@ -108,18 +108,19 @@ directories/dtl_directory={
 "tl_05mission5_pirate_porposition": "res://Dialogue/timelines/05mission5/tl_05mission5_pirate_porposition.dtl",
 "tl_05mission5_return": "res://Dialogue/timelines/05mission5/tl_05mission5_return.dtl",
 "tl_05mission5_scold": "res://Dialogue/timelines/05mission5/tl_05mission5_scold.dtl",
-"tl_06hub_captain6_coffee": "res://Dialogue/timelines/06hub/route_best_employee/tl_06hub_captain6_coffee_best.dtl",
+"tl_06hub_captain6_coffee_best": "res://Dialogue/timelines/06hub/route_best_employee/tl_06hub_captain6_coffee_best.dtl",
 "tl_06hub_captain6_coffee_denial": "res://Dialogue/timelines/06hub/route_denial/tl_06hub_captain6_coffee_denial.dtl",
 "tl_06hub_captain_missionlate": "res://Dialogue/timelines/06hub/tl_06hub_captain_missionlate.dtl",
 "tl_06hub_captain_missiontimely": "res://Dialogue/timelines/06hub/tl_06hub_captain_missiontimely.dtl",
-"tl_06hub_meeting": "res://Dialogue/timelines/06hub/route_best_employee/tl_06hub_meeting_best.dtl",
+"tl_06hub_meeting_best": "res://Dialogue/timelines/06hub/route_best_employee/tl_06hub_meeting_best.dtl",
 "tl_06hub_meeting_denial": "res://Dialogue/timelines/06hub/route_denial/tl_06hub_meeting_denial.dtl",
-"tl_06hub_navigator6_coffee": "res://Dialogue/timelines/06hub/route_best_employee/tl_06hub_navigator6_coffee_best.dtl",
-"tl_06hub_navigator_coffee_denial": "res://Dialogue/timelines/06hub/route_denial/tl_06hub_navigator6_coffee_denial.dtl",
-"tl_06hub_shipgirl6_coffee": "res://Dialogue/timelines/06hub/route_best_employee/tl_06hub_shipgirl6_coffee_best.dtl",
+"tl_06hub_navigator6_coffee_best": "res://Dialogue/timelines/06hub/route_best_employee/tl_06hub_navigator6_coffee_best.dtl",
+"tl_06hub_navigator6_coffee_denial": "res://Dialogue/timelines/06hub/route_denial/tl_06hub_navigator6_coffee_denial.dtl",
+"tl_06hub_shipgirl6_coffee_best": "res://Dialogue/timelines/06hub/route_best_employee/tl_06hub_shipgirl6_coffee_best.dtl",
 "tl_06hub_shipgirl6_coffee_denial": "res://Dialogue/timelines/06hub/route_denial/tl_06hub_shipgirl6_coffee_denial.dtl",
 "tl_ask_to_talk_ilot": "res://Dialogue/timelines/tl_ask_to_talk_ilot.dtl",
 "tl_beacon_destroyed": "res://Dialogue/timelines/tl_beacon_destroyed.dtl",
+"tl_confirm_end_meeting": "res://Dialogue/timelines/tl_confirm_end_meeting.dtl",
 "tl_confirm_exit": "res://Dialogue/timelines/tl_confirm_exit.dtl",
 "tl_galerien_influenced": "res://Dialogue/timelines/tl_galerien_influenced.dtl",
 "tl_galerien_normal": "res://Dialogue/timelines/tl_galerien_normal.dtl",

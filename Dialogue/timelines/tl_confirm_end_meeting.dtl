@@ -1,12 +1,12 @@
 set {confirm_exit} = "false"
 if {GameState.coffeeCredit} > 1:
-	Should I really go in mission? I still have {GameState.coffeeCredit} coffee credits left.
+	Should I really go to the meeting? I still have {GameState.coffeeCredit} coffee credits left.
 	- Yes 
 		set {confirm_exit} = "true"
 	- No 
 		set {confirm_exit} = "false"
 if {GameState.coffeeCredit} == 1:
-	Should I really go in mission? I still have 1 coffee credit left.
+	Should I really go to the meeting? I still have 1 coffee credit left.
 	- Yes 
 		set {confirm_exit} = "true"
 	- No 

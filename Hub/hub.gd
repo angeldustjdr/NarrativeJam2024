@@ -28,7 +28,10 @@ func clickObject(which):
 			%ArmadaOrga.visible = true
 			setClickableProcess(PROCESS_MODE_DISABLED)
 		"Door" :
-			GameState.start_time_line("res://Dialogue/timelines/tl_confirm_exit.dtl")
+			if GameState.get_current_mission_idx() != GameState.HUB_ENDING:
+				GameState.start_time_line("res://Dialogue/timelines/tl_confirm_exit.dtl")
+			else:
+				GameState.start_time_line("res://Dialogue/timelines/tl_confirm_end_meeting.dtl")
 			Dialogic.timeline_ended.connect(self._go_in_mission)
 		"Employee" : 
 			%TalkToMenu.visible = false

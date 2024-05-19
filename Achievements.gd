@@ -37,7 +37,6 @@ func _ready():
 func save_achievements():
 	var achievement_file = FileAccess.open("res://achievements.save",FileAccess.WRITE)
 	achievement_file.store_var(GameState.nbCoffee)
-	achievement_file.store_var(GameState.coffeeCredit)
 	achievement_file.store_var(GameState.nbInteractions)
 	achievement_file.store_var(GameState.nbWard)
 	achievement_file.store_var(GameState.nbRetourHub)
@@ -48,7 +47,6 @@ func load_achievements():
 	if FileAccess.file_exists(file_name):
 		var achievement_file = FileAccess.open(file_name, FileAccess.READ)
 		GameState.nbCoffee = achievement_file.get_var()
-		GameState.coffeeCredit = achievement_file.get_var()
 		GameState.nbInteractions = achievement_file.get_var()
 		GameState.nbWard = achievement_file.get_var()
 		GameState.nbRetourHub = achievement_file.get_var()
