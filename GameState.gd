@@ -45,7 +45,7 @@ signal save_finished
 							   "mission_5": 0}
 @onready var player_position = Vector2(838,4603) # initial coordinates of player
 
-@onready var _title_screen_state : int = CORPORATE
+var _title_screen_state : int = CORPORATE
 
 ########### ENDINGS
 

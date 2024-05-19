@@ -25,7 +25,6 @@ Achievements="*res://Achievements.gd"
 SceneTransitionLayer="*res://scene_transition_layer.tscn"
 PauseMenu="*res://pause_menu.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-PauseMenu="*res://pause_menu.tscn"
 
 [dialogic]
 
@@ -123,10 +122,11 @@ directories/dtl_directory={
 "tl_06hub_meeting_denial_influenced4": "res://Dialogue/timelines/06hub/route_influenced4/route_denial_influenced4/tl_06hub_meeting_denial_influenced4.dtl",
 "tl_06hub_meeting_employee_influence4": "res://Dialogue/timelines/06hub/route_influenced4/route_employee_influenced4/tl_06hub_meeting_employee_influence4.dtl",
 "tl_06hub_meeting_fired": "res://Dialogue/timelines/06hub/route_fired/tl_06hub_meeting_fired.dtl",
-"tl_06hub_navigator6_coffee_denial_influenced4": "res://Dialogue/timelines/06hub/route_influenced4/route_denial_influenced4/tl_06hub_navigator6_coffee_denial_influenced4.dtl",
-"tl_06hub_navigator6_coffee_employee_influence4": "res://Dialogue/timelines/06hub/route_influenced4/route_employee_influenced4/tl_06hub_navigator6_coffee_employee_influence4.dtl",
 "tl_06hub_navigator6_coffee_best": "res://Dialogue/timelines/06hub/route_best_employee/tl_06hub_navigator6_coffee_best.dtl",
 "tl_06hub_navigator6_coffee_denial": "res://Dialogue/timelines/06hub/route_denial/tl_06hub_navigator6_coffee_denial.dtl",
+"tl_06hub_navigator6_coffee_denial_influenced4": "res://Dialogue/timelines/06hub/route_influenced4/route_denial_influenced4/tl_06hub_navigator6_coffee_denial_influenced4.dtl",
+"tl_06hub_navigator6_coffee_employee_influence4": "res://Dialogue/timelines/06hub/route_influenced4/route_employee_influenced4/tl_06hub_navigator6_coffee_employee_influence4.dtl",
+"tl_06hub_navigator6_coffee_fired": "res://Dialogue/timelines/06hub/route_fired/tl_06hub_navigator6_coffee_fired.dtl",
 "tl_06hub_shipgirl6_coffee_best": "res://Dialogue/timelines/06hub/route_best_employee/tl_06hub_shipgirl6_coffee_best.dtl",
 "tl_06hub_shipgirl6_coffee_denial": "res://Dialogue/timelines/06hub/route_denial/tl_06hub_shipgirl6_coffee_denial.dtl",
 "tl_06hub_shipgirl6_coffee_denial_influenced4": "res://Dialogue/timelines/06hub/route_influenced4/route_denial_influenced4/tl_06hub_shipgirl6_coffee_denial_influenced4.dtl",
