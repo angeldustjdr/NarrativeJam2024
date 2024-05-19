@@ -118,7 +118,7 @@ func start_briefing_dialog():
 			3: #MISSION 4
 				self.start_time_line("tl_04mission4_objectif")
 			4: #MISSION 5
-				self.start_time_line("Test_timeline")
+				self.start_time_line("tl_05mission5_objectif")
 			_: 
 				push_error("unexpected behavior, not a recognized mission name")
 		return true
@@ -138,6 +138,9 @@ func start_briefing_dialog():
 			elif ilot_states["ilot_4"]["revealed"] and mission_states["mission_4"]["started"] and !mission_states["mission_4"]["finished"]:
 				self.start_time_line("tl_04mission4_return")
 				return true
+			elif ilot_states["ilot_5"]["revealed"] and mission_states["mission_5"]["started"] and !mission_states["mission_5"]["finished"]:
+				self.start_time_line("tl_05mission5_return")
+				return true
 			else :
 				return false
 		else:
@@ -156,7 +159,7 @@ func start_ilot_dialog_navigator(numero_ilot):
 		3: #MISSION 4
 			if ilot_states["ilot_4"]["revealed"] == false and numero_ilot==4 : self.start_time_line("tl_04mission4_arrival")
 		4: #MISSION 5
-			self.start_time_line("Test_timeline")
+			if ilot_states["ilot_5"]["revealed"] == false and numero_ilot==5 : self.start_time_line("tl_05mission5_arrival")
 		_: 
 			push_error("unexpected behavior, not a recognized mission name")
 
@@ -196,10 +199,16 @@ func _update_current_timelines():
 				self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
 				self._current_timelines[GameState.CAPTAIN] = "tl_04hub_captain4_coffee"
 		4: #MISSION 5
-			self._current_timelines[GameState.SHIPGIRL] = "Test_timeline"
-			self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
-			self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
-			self._current_timelines[GameState.CAPTAIN] = "Test_timeline"
+			if mission_corrupted["mission_3"] > 0:
+				self._current_timelines[GameState.SHIPGIRL] = "tl_05hub_shipgirl5_coffee_influenced3"
+				self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
+				self._current_timelines[GameState.NAVIGATOR2] = "tl_05hub_navigator5_coffee_influenced3"
+				self._current_timelines[GameState.CAPTAIN] = "tl_05hub_captain5_coffee_influenced3"
+			else :
+				self._current_timelines[GameState.SHIPGIRL] = "tl_05hub_shipgirl5_coffee"
+				self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
+				self._current_timelines[GameState.NAVIGATOR2] = "tl_05hub_navigator5_coffee"
+				self._current_timelines[GameState.CAPTAIN] = "tl_05hub_captain5_coffee"
 		_: 
 			push_error("unexpected behavior, not a recognized mission name")
 
@@ -263,9 +272,9 @@ func _play_dialog_return_to_hub():
 				GameState.start_time_line("tl_04hub_captain_missionlate")
 		3: #MISSION 4
 			if self.mission_states[mission]["in_time"]:
-				GameState.start_time_line("Test_timeline")
+				GameState.start_time_line("tl_05hub_captain_missiontimely")
 			else:
-				GameState.start_time_line("Test_timeline")
+				GameState.start_time_line("tl_05hub_captain_missionlate")
 		4: #MISSION 5
 			if self.mission_states[mission]["in_time"]:
 				GameState.start_time_line("Test_timeline")

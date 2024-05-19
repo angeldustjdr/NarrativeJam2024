@@ -1,5 +1,5 @@
 join captain 1
-captain: {mc_matricule} I'm very disapointed in you.
+captain: {mc_name} I'm very disapointed in you.
 captain: Keep your attitude that way and you will never level up in the hierarchy.
 captain: Take thoses credits and grab a coffee, I don't want to see your face anymore.
 [end_timeline]

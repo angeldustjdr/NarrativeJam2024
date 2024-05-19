@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://1c2poulo2qea"]
+[gd_scene load_steps=40 format=3 uid="uid://1c2poulo2qea"]
 
 [ext_resource type="Script" path="res://OpenWorld/open_world.gd" id="1_dqjoa"]
 [ext_resource type="Shader" path="res://OpenWorld/open_world_background.gdshader" id="1_mopfe"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://d2dy7i3w8ddv0" path="res://OpenWorld/objective.tscn" id="9_rqvr2"]
 [ext_resource type="PackedScene" uid="uid://bsqs7hvavmdhe" path="res://OpenWorld/acc_1.tscn" id="10_0tbb1"]
 [ext_resource type="Script" path="res://OpenWorld/Alert Message.gd" id="11_ti07w"]
+[ext_resource type="Script" path="res://OpenWorld/Revolution.gd" id="12_li33e"]
 [ext_resource type="PackedScene" uid="uid://pqgd1whitxiw" path="res://intemperie_texture.tscn" id="23_y48wl"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_j6egv"]
@@ -69,6 +70,9 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ugxb"]
 radius = 1439.54
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxyec"]
+size = Vector2(799, 2202)
 
 [sub_resource type="Animation" id="Animation_6qugl"]
 length = 0.001
@@ -510,13 +514,13 @@ monitoring = false
 
 [node name="Acc3" parent="AccelerationZones" instance=ExtResource("10_0tbb1")]
 visible = false
-position = Vector2(5937, 294)
-rotation = 1.23395
+position = Vector2(4661, 433)
+rotation = 0.785398
 monitoring = false
 
 [node name="Acc4" parent="AccelerationZones" instance=ExtResource("10_0tbb1")]
 visible = false
-position = Vector2(3128, 2297)
+position = Vector2(2538, 1985)
 rotation = -0.673697
 monitoring = false
 
@@ -533,15 +537,24 @@ position = Vector2(7028, 2727)
 myMission = 3
 
 [node name="Objective4" parent="." instance=ExtResource("9_rqvr2")]
-position = Vector2(5096, 769)
+position = Vector2(5373, 441)
 myMission = 4
 
 [node name="Objective5" parent="." instance=ExtResource("9_rqvr2")]
-position = Vector2(8241, 4236)
+position = Vector2(8201, 4300)
 myMission = 5
 
 [node name="HUB" parent="." instance=ExtResource("9_rqvr2")]
 position = Vector2(872, 4776)
+
+[node name="Revolution" type="Node2D" parent="."]
+script = ExtResource("12_li33e")
+
+[node name="BernardCall" type="Area2D" parent="Revolution"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Revolution/BernardCall"]
+position = Vector2(9152.5, 1175)
+shape = SubResource("RectangleShape2D_bxyec")
 
 [node name="player" parent="." instance=ExtResource("2_334qi")]
 unique_name_in_owner = true
@@ -549,6 +562,7 @@ position = Vector2(-3248, 8448)
 floor_block_on_wall = false
 
 [node name="Ambient" type="DirectionalLight2D" parent="."]
+visible = false
 blend_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -785,6 +799,7 @@ autoplay = "flicker"
 [connection signal="body_exited" from="DepressionZones/Depression1" to="DepressionZones/Depression1" method="_on_body_exited"]
 [connection signal="body_entered" from="DepressionZones/Depression2" to="DepressionZones/Depression2" method="_on_body_entered"]
 [connection signal="body_exited" from="DepressionZones/Depression2" to="DepressionZones/Depression2" method="_on_body_exited"]
+[connection signal="body_entered" from="Revolution/BernardCall" to="Revolution" method="_on_bernard_call_body_entered"]
 [connection signal="timeout" from="CanvasLayer/Alert Message/Timer" to="CanvasLayer/Alert Message" method="_on_timer_timeout"]
 
 [editable path="AccelerationZones/Acc1"]

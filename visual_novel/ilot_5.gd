@@ -7,4 +7,4 @@ func _update_time_line(): # determine what dialog is available in clickable char
 			1 : self._current_time_line = "tl_hacktivist_influenced"
 			_ : self._current_time_line = "tl_hacktivist_influenced"
 	else:
-		self._current_time_line = "tl_hacktivist_normal" # a complexifier au besoin
+		self._current_time_line = "tl_05mission5_hacktivist_normal" # a complexifier au besoin
