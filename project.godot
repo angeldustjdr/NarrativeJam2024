@@ -118,6 +118,7 @@ directories/dtl_directory={
 "tl_06hub_shipgirl6_coffee": "res://Dialogue/timelines/06hub/route_best_employee/tl_06hub_shipgirl6_coffee_best.dtl",
 "tl_06hub_shipgirl6_coffee_denial": "res://Dialogue/timelines/06hub/route_denial/tl_06hub_shipgirl6_coffee_denial.dtl",
 "tl_ask_to_talk_ilot": "res://Dialogue/timelines/tl_ask_to_talk_ilot.dtl",
+"tl_beacon_destroyed": "res://Dialogue/timelines/tl_beacon_destroyed.dtl",
 "tl_confirm_exit": "res://Dialogue/timelines/tl_confirm_exit.dtl",
 "tl_galerien_influenced": "res://Dialogue/timelines/tl_galerien_influenced.dtl",
 "tl_galerien_normal": "res://Dialogue/timelines/tl_galerien_normal.dtl",

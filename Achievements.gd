@@ -15,7 +15,13 @@ var AchievementDescription = {
 	"Better late than sorry" : ["Finish a mission with no time left on the Ether timer",false,"Take your time... or not."],
 	#"True pilot" : ["Finish a mission without damaging the ship",false,"Take care of your ship. Repairs are expensive!"],
 	#"Sabotage" : ["Finish a mission with fully damaged ship",false,"Take care of your ship. Repairs are expensive (bis)!"],
-	"Instrumentation master" : ["Get over 99% beacon compatibility",false,"Sometimes 90% isn't enough."]
+	"Instrumentation master" : ["Get over 99% beacon compatibility",false,"Sometimes 90% isn't enough."],
+	#ENDING ACHIEVEMENTS
+	"Maybe next month" : ["Don't meet the rebellion and complete less than 3 mission in time",false,"???"],
+	"Employee of the month" : ["Don't meet the rebellion and complete at least 3 missions in time",false,"???"],
+	"Cosmic denial" : ["Refuse to join the rebellion",false,"???"],
+	"You're fired!" : ["Get fired after joining the rebellion",false,"???"],
+	"Rage against the machine" : ["Join the rebellion",false,"???"]
 }
 
 signal unlock
