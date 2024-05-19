@@ -39,6 +39,15 @@ func _on_animation_finished_packed_scene(anime_name):
 	else:
 		fade_in_finished.emit() 
 
+func quit_game():
+	if self._anim_player.animation_finished.is_connected(self._on_animation_finished_packed_scene):
+		self._anim_player.animation_finished.disconnect(self._on_animation_finished_packed_scene)
+	if self._anim_player.animation_finished.is_connected(self._on_animation_finished_file_scene):
+		self._anim_player.animation_finished.disconnect(self._on_animation_finished_file_scene)
+	self._anim_player.play("fade_out")
+	await(self._anim_player.animation_finished)
+	get_tree().quit()
+
 func _on_animation_finished_file_scene(anime_name):
 	if anime_name == "fade_out":
 		get_tree().change_scene_to_file(self._next_packed_scene)

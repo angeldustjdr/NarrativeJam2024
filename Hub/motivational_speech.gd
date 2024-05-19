@@ -11,5 +11,6 @@ func _ready():
 		Dialogic.timeline_ended.connect(self._change_scene)
 		
 func _change_scene():
+	GameState.coming_from = GameState.NO_WHERE
 	MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
 	SceneTransitionLayer.transition_to_packed_scene(hubscene)
