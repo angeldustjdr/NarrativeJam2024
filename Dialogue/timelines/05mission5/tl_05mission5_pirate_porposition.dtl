@@ -14,9 +14,9 @@ They severed me from the subconscient. And probably covered up any trace of me b
 - Join and destroy the beacon
 	"navigator 1": I'm glad, you made the right choice.
 	do GameState.advanceRevolution()
+	jump tl_05mission5_destruction/
 - Join but return to convince your co-workers
-	"navigator 1": You are very naive. I'am afraid you underestimate the influence made by {armada_name}
-	do GameState.advanceRevolution()
+	"navigator 1": You are very naive. I am afraid you underestimate the influence made by {armada_name}
 - Refuse
 	"navigator 1": I'm saddened by your choice, but I'll respect it.
 	do GameState.advanceDenial()

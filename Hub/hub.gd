@@ -11,7 +11,6 @@ func _ready():
 		Achievements.genericCheck("Safe return")
 	else :
 		if GameState.nbRetourHub > 0 : Achievements.genericCheck("Better late than sorry")
-	
 	GameState.stop_ether_timer()
 	MusicManager.playMusicNamed(self.name,SceneTransitionLayer.get_duration("fade_in"))
 	GameState.check_mission_status()
@@ -62,16 +61,19 @@ func _on_coffe_machine_started():
 func _go_in_mission():
 	Dialogic.timeline_ended.disconnect(self._go_in_mission)
 	if Dialogic.VAR.confirm_exit:
-		if GameState.get_current_mission_idx() == 0: # si on est a la mission 1 c'est le tuto
-			# C'EST TRES LE TUTO
-			await get_tree().create_timer(0.1).timeout 
-			GameState.start_time_line("tl_hub01_exitoption")
-			await(Dialogic.timeline_ended)
-		%TalkToMenu.visible = false
-		GameState.start_current_mission()
-		MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
-		GameState.coming_from = GameState.HUB
-		SceneTransitionLayer.transition_to_packed_scene(GameState.openworld_packed_scene)
+		if not GameState.get_current_mission_idx() == GameState.HUB_ENDING:
+			if GameState.get_current_mission_idx() == 0: # si on est a la mission 1 c'est le tuto
+				# C'EST TRES LE TUTO
+				await get_tree().create_timer(0.1).timeout 
+				GameState.start_time_line("tl_hub01_exitoption")
+				await(Dialogic.timeline_ended)
+			%TalkToMenu.visible = false
+			GameState.start_current_mission()
+			MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
+			GameState.coming_from = GameState.HUB
+			SceneTransitionLayer.transition_to_packed_scene(GameState.openworld_packed_scene)
+		else:
+			GameState.check_and_launch_corpo_ending()
 
 func clear(exclude):
 	for elem in $CanvasLayer/Control.get_children() : 

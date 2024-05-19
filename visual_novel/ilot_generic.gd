@@ -43,7 +43,12 @@ func _ready():
 		$visual_novel_scene/oscillo_light.visible = false
 		$visual_novel_scene/clickable_character.is_clickable = true
 		$visual_novel_scene/get_out_button.disabled = false
-		$visual_novel_scene/clickable_oscilloscope.is_clickable = false
+		# si la destruction a commence mais que le beacon de cet ilot n'est pas 
+		if (GameState.is_destruction_launched() and 
+			not GameState.ilot_states[self.name]["beacon_destroyed"]):
+			$visual_novel_scene/clickable_oscilloscope.is_clickable = true
+		else:
+			$visual_novel_scene/clickable_oscilloscope.is_clickable = false
 	$visual_novel_scene/oscillo_light.position = $visual_novel_scene/clickable_oscilloscope.position
 	SceneTransitionLayer.reveal_scene()
 	GameState.start_ilot_dialog_navigator(numero_ilot)
@@ -88,9 +93,17 @@ func _input(event):
 func clickObject(which):
 	match which:
 		"oscilloscope":
-			self._on_oscillo_clicked()
+			if not GameState.is_destruction_launched():
+				self._on_oscillo_clicked()
+			else:
+				$visual_novel_scene/clickable_oscilloscope.is_clickable = false
+				GameState.ilot_states[self.name]["beacon_destroyed"] = true
+				GameState.start_time_line("tl_beacon_destroyed")
+				await(Dialogic.timeline_ended)
+				GameState.check_pirate_ending()
 		"character":
 			self._on_character_clicked()
+			
 		_ : 
 			push_warning("clickable not recognized")
 
@@ -135,8 +148,8 @@ func _on_oscillo_clicked():
 	
 func _on_oscillo_victory(oscillo_scene):
 	MusicManager.playMusicNamed(self.name,1.0)
-	$visual_novel_scene/clickable_oscilloscope.is_clickable = false
 	$OscilloLayer.remove_child(oscillo_scene)
+	$visual_novel_scene/clickable_oscilloscope.is_clickable = false
 	GameState.ilot_states[self.name]["revealed"] = true
 	$visual_novel_scene/clickable_character.is_clickable = true
 	$visual_novel_scene/get_out_button.disabled = false
