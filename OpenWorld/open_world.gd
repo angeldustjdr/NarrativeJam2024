@@ -50,8 +50,10 @@ func _ready():
 		#$player.set_process_mode(PROCESS_MODE_DISABLED)
 		$player.movable = false
 	else :
-		if GameState.mission_corrupted["mission_1"] and GameState.mission_corrupted["mission_2"] and GameState.mission_corrupted["mission_3"]:
+		if GameState.mission_corrupted["mission_1"]>0 and GameState.mission_corrupted["mission_2"]>0 and GameState.mission_corrupted["mission_3"]>0:
 			showIntermediateDialog("tl_04mission4_scold")
+		if GameState.mission_corrupted["mission_1"]>0 and GameState.mission_corrupted["mission_2"]>0 and GameState.mission_corrupted["mission_3"]>0 and GameState.mission_corrupted["mission_4"]>0:
+			showIntermediateDialog("tl_05mission5_scold")
 
 func _check_map():
 	# check pour les zones d'acceleration et la révélation de la map
@@ -160,6 +162,5 @@ func _input(event):
 func showIntermediateDialog(what):
 	GameState.start_time_line(what)
 	GameState.pause_ether_timer()
-	Dialogic.timeline_ended.connect(self._on_briefing_dialog_ended)
 	#$player.set_process_mode(PROCESS_MODE_DISABLED)
 	$player.movable = false

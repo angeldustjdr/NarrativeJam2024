@@ -2,4 +2,5 @@ join jcd 1
 jcd (idle_portrait): Do you know who you are talking to ?
 jcd (idle_portrait): I'm at upper management in the {armada_name} !
 jcd (idle_portrait): Yeah you heard that right. So watch your tone !
+do GameState.setMission_corrupted("mission_2")
 [end_timeline]

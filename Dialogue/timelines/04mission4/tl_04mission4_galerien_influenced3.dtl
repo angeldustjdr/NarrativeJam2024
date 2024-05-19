@@ -1,4 +1,5 @@
 join galerien 1
 galerien (idle_portrait): I work very hard and my health is not so great. My family says I'm obsessed with {armada_name}.
 galerien (idle_portrait): I don't understand why they are not seeing things the way I see it.
+do GameState.setMission_corrupted("mission_1")
 [end_timeline]

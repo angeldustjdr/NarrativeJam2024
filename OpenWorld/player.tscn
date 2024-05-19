@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bst1xbumpsfra"]
+[gd_scene load_steps=22 format=3 uid="uid://bst1xbumpsfra"]
 
 [ext_resource type="Script" path="res://OpenWorld/player.gd" id="1_dhf2n"]
 [ext_resource type="Texture2D" uid="uid://dft684dgc0o5j" path="res://OpenWorld/WaterTrailGradient_alpha.png" id="2_q7j1v"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://OpenWorld/Trail.gd" id="3_3ebvi"]
 [ext_resource type="Texture2D" uid="uid://b6wltimqoo2yt" path="res://OpenWorld/fleche.png" id="5_w7suv"]
 [ext_resource type="PackedScene" uid="uid://cysuqq7mfjitr" path="res://audio_manager/smooth_loop.tscn" id="6_n3ck4"]
+[ext_resource type="Texture2D" uid="uid://cqa54dodr6aed" path="res://OpenWorld/fleche_mini_blanc.png" id="6_yhjig"]
 [ext_resource type="Shader" path="res://OpenWorld/open_world.gdshader" id="7_f8ws5"]
 
 [sub_resource type="Gradient" id="Gradient_04xli"]
@@ -153,6 +154,10 @@ texture = SubResource("GradientTexture2D_v8oie")
 [node name="Fleche" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("5_w7suv")
+
+[node name="RevolutionFleche" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("6_yhjig")
 
 [node name="InvulnerableTimer" type="Timer" parent="."]
 

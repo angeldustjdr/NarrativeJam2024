@@ -1,4 +1,5 @@
 extends Node2D
+class_name Objective
 
 var _next_scene = null # scene to which the objective 
 @export var myMission : int

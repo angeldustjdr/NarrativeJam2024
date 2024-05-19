@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://1c2poulo2qea"]
+[gd_scene load_steps=42 format=3 uid="uid://1c2poulo2qea"]
 
 [ext_resource type="Script" path="res://OpenWorld/open_world.gd" id="1_dqjoa"]
 [ext_resource type="Shader" path="res://OpenWorld/open_world_background.gdshader" id="1_mopfe"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://bsqs7hvavmdhe" path="res://OpenWorld/acc_1.tscn" id="10_0tbb1"]
 [ext_resource type="Script" path="res://OpenWorld/Alert Message.gd" id="11_ti07w"]
 [ext_resource type="Script" path="res://OpenWorld/Revolution.gd" id="12_li33e"]
+[ext_resource type="PackedScene" uid="uid://df7xxuu8nd3bf" path="res://OpenWorld/revolution_objective.tscn" id="13_85j8s"]
 [ext_resource type="PackedScene" uid="uid://pqgd1whitxiw" path="res://intemperie_texture.tscn" id="23_y48wl"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_j6egv"]
@@ -73,6 +74,9 @@ radius = 1439.54
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bxyec"]
 size = Vector2(799, 2202)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gw3a3"]
+radius = 732.673
 
 [sub_resource type="Animation" id="Animation_6qugl"]
 length = 0.001
@@ -556,13 +560,22 @@ script = ExtResource("12_li33e")
 position = Vector2(9152.5, 1175)
 shape = SubResource("RectangleShape2D_bxyec")
 
+[node name="RevolutionObjective1" parent="Revolution" instance=ExtResource("13_85j8s")]
+visible = false
+position = Vector2(163, 1369)
+
+[node name="MissionOffPath" type="Area2D" parent="Revolution"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Revolution/MissionOffPath"]
+position = Vector2(721, 1356)
+shape = SubResource("CircleShape2D_gw3a3")
+
 [node name="player" parent="." instance=ExtResource("2_334qi")]
 unique_name_in_owner = true
 position = Vector2(-3248, 8448)
 floor_block_on_wall = false
 
 [node name="Ambient" type="DirectionalLight2D" parent="."]
-visible = false
 blend_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -800,6 +813,7 @@ autoplay = "flicker"
 [connection signal="body_entered" from="DepressionZones/Depression2" to="DepressionZones/Depression2" method="_on_body_entered"]
 [connection signal="body_exited" from="DepressionZones/Depression2" to="DepressionZones/Depression2" method="_on_body_exited"]
 [connection signal="body_entered" from="Revolution/BernardCall" to="Revolution" method="_on_bernard_call_body_entered"]
+[connection signal="body_entered" from="Revolution/MissionOffPath" to="Revolution" method="_on_mission_off_path_body_entered"]
 [connection signal="timeout" from="CanvasLayer/Alert Message/Timer" to="CanvasLayer/Alert Message" method="_on_timer_timeout"]
 
 [editable path="AccelerationZones/Acc1"]

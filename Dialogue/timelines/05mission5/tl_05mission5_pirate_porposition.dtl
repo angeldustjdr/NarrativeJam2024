@@ -13,9 +13,12 @@ They severed me from the subconscient. And probably covered up any trace of me b
 "navigator 1": What do you think ? Do you want to help us. Free thoses who are influenced ?
 - Join and destroy the beacon
 	"navigator 1": I'm glad, you made the right choice.
+	do GameState.advanceRevolution()
 - Join but return to convince your co-workers
 	"navigator 1": You are very naive. I'am afraid you underestimate the influence made by {armada_name}
+	do GameState.advanceRevolution()
 - Refuse
-	"navigator 1": I'm saddened by your choice, but I'll respect it. \
+	"navigator 1": I'm saddened by your choice, but I'll respect it.
+	do GameState.advanceDenial()
 Goodbye friend.
 [end_timeline]

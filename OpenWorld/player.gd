@@ -7,6 +7,7 @@ var rotation_speed = 1.0
 var rotation_acc = 0.2
 
 var objective = null
+var revolutionObjective = null
 var interactable = null
 
 var invulnerable = false
@@ -94,6 +95,13 @@ func _physics_process(delta):
 		$Fleche.rotation = ahead_vector.angle_to(direction_to_obj)
 	else :
 		$Fleche.visible = false
+	
+	if revolutionObjective != null :
+		$RevolutionFleche.visible = true
+		var direction_to_obj = revolutionObjective.position - position
+		$RevolutionFleche.rotation = ahead_vector.angle_to(direction_to_obj)
+	else :
+		$RevolutionFleche.visible = false
 
 
 func _on_friction_zone_body_entered(body):

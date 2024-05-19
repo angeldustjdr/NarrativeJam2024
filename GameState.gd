@@ -41,6 +41,17 @@ enum {NO_ONE=-9999}
 
 @onready var _title_screen_state : int = CORPORATE
 
+@onready var revolutionStep = 0
+@onready var denialStep = 0
+signal revolutionAdvanced
+signal denialAdvanced
+func advanceRevolution(): 
+	revolutionStep+=1
+	emit_signal("revolutionAdvanced")
+func advanceDenial(): 
+	denialStep+=1
+	emit_signal("denialAdvanced")
+
 ########### ETHER TIMER
 var _ether_timer : Timer
 var ether_timer_decrement : int = 15
