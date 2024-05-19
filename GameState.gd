@@ -12,16 +12,19 @@ enum {CAPTAIN, SHIPGIRL, NAVIGATOR1, NAVIGATOR2}
 
 enum {NO_ONE=-9999}
 
+enum {HUB_ENDING = 4444}
+
+enum {PIRATE_ENDING, DENIAL_ENDING, TRY_NEXT_MONTH_ENDING, EMPLOYEE_OF_THE_MONTH_ENDING, FIRED_ENDING}
+
 @onready var openworld_packed_scene = preload("res://OpenWorld/open_world.tscn")
 @onready var oscillo_packed_scene = preload("res://oscilloscope/oscilloscope_scene.tscn")
 
 ########### STATEMACHINE
-@onready var ilot_states = {"ilot_1":{"revealed":false},
-							"ilot_2":{"revealed":false},
-							"ilot_3":{"revealed":false},
-							"ilot_4":{"revealed":false},
-							"ilot_5":{"revealed":false},
-							"ilot_test":{"revealed":false}}
+@onready var ilot_states = {"ilot_1":{"revealed":false,"beacon_destroyed":false},
+							"ilot_2":{"revealed":false,"beacon_destroyed":false},
+							"ilot_3":{"revealed":false,"beacon_destroyed":false},
+							"ilot_4":{"revealed":false,"beacon_destroyed":false},
+							"ilot_5":{"revealed":false,"beacon_destroyed":false}}
 @onready var mission_states = {"mission_1":{"started":false,"finished":false,"in_time":true,"debriefed":false},
 							   "mission_2":{"started":false,"finished":false,"in_time":true,"debriefed":false},
 							   "mission_3":{"started":false,"finished":false,"in_time":true,"debriefed":false},
@@ -41,16 +44,12 @@ enum {NO_ONE=-9999}
 
 @onready var _title_screen_state : int = CORPORATE
 
+########### ENDINGS
+
 @onready var revolutionStep = 0
 @onready var denialStep = 0
 signal revolutionAdvanced
 signal denialAdvanced
-func advanceRevolution(): 
-	revolutionStep+=1
-	emit_signal("revolutionAdvanced")
-func advanceDenial(): 
-	denialStep+=1
-	emit_signal("denialAdvanced")
 
 ########### ETHER TIMER
 var _ether_timer : Timer
@@ -100,12 +99,128 @@ func _ready():
 	self.set_process_mode(PROCESS_MODE_ALWAYS)
 	self._init_ether_timer()
 
+# Related to endings
+func is_bernard_calling():
+	if self.get_current_mission_idx() == 4: # MISSION 5
+		return true # pour l'instant Bernard appelle dans tous les cas, a modifier en fonction de ce qu'on veut
+	else:
+		return false
+		
+# Proposition de fonctionnement #####
+# revolutionStep == 0 and denialStep == 0 et retour au HUB : 
+#	fin employe modele si ... (mission in_time / niveau de corruption?)
+#	fin employe try next month si ... (mission in_time / niveau de corruption?)
+# des qu'on a choisit l'option avec bernard : fin pirate
+# revolutionStep > 0 and denialStep == 0 et retour au HUB : fin HUB vire
+# denialStep == 1 a la fin : fin deni
+# sinon : unexpected.
+func advanceRevolution(): 
+	revolutionStep+=1
+	emit_signal("revolutionAdvanced")
+
+func advanceDenial(): 
+	denialStep+=1
+	emit_signal("denialAdvanced")
+
+# appele dans ilot_generic
+func check_beacon_destruction():
+	if self.get_nb_beacon_destroyed() == self.get_nb_ilot():
+		return true
+
+func check_and_launch_corpo_ending():
+	if self.revolutionStep > 0 and self.denialStep == 0:
+		self.launch_ending(FIRED_ENDING)
+	elif self.denialStep == 1:
+		self.launch_ending(DENIAL_ENDING)
+	elif self.revolutionStep == 0 and self.denialStep == 0:
+		if self.employee_of_the_month():
+			self.launch_ending(EMPLOYEE_OF_THE_MONTH_ENDING)
+		else:
+			self.launch_ending(TRY_NEXT_MONTH_ENDING)
+	else:
+		push_error("ENDING : unexpected...")
+
+func launch_ending(i_ending):
+	match i_ending:
+		PIRATE_ENDING:
+			self._title_screen_state = PIRATE
+			Achievements.genericCheck("Rage against the machine")
+			print("ENDING : PIRATE")
+		DENIAL_ENDING:
+			Achievements.genericCheck("Cosmic denial")
+			print("ENDING : DENIAL")
+		TRY_NEXT_MONTH_ENDING:
+			Achievements.genericCheck("Maybe next month")
+			print("ENDING : TRY NEXT MONTH")
+		EMPLOYEE_OF_THE_MONTH_ENDING:
+			Achievements.genericCheck("Employee of the month")
+			print("ENDING : EMPLOYE MODEL")
+		FIRED_ENDING:
+			Achievements.genericCheck("You're fired!")
+			print("ENDING : YOU'RE FIRED")
+		_:
+			push_error("ENDING : unexpected...")
+	MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
+	SceneTransitionLayer.transition_to_file_scene("res://main.tscn")
+
+func employee_of_the_month():
+	return self.get_nb_mission_in_time() > 3 # si le joueur a fait plus de trois missions dans les temps
+
+func get_nb_mission_in_time():
+	var c = 0
+	for mission in self.mission_states.keys():
+		if self.mission_states[mission]["in_time"]:
+			c += 1
+	return c
+
+func get_nb_beacon_destroyed():
+	var c = 0
+	for ilot in self.ilot_states.keys():
+		if self.ilot_states[ilot]["beacon_destroyed"]:
+			c += 1
+	return c
+	
+func get_nb_ilot():
+	return len(self.ilot_states.keys())
+	
+func get_nb_mission():
+	return len(self.mission_states.keys())
+
+func is_destruction_launched():
+	return (self.revolutionStep > 1 and self.denialStep == 0) # Si destruction des balises
+
 func setMission_corrupted(which):
 	mission_corrupted[which] += 1
 
+func need_scolding():
+	match self.get_current_mission_idx():
+		3: #MISSION4
+			return (GameState.mission_corrupted["mission_1"]>0 and 
+					GameState.mission_corrupted["mission_2"]>0 and 
+					GameState.mission_corrupted["mission_3"]>0)
+			# le scolding ne se declenche que quand on a revisité au moins une fois tous les ilots predents.
+		4: #MISSION5
+			return (GameState.mission_corrupted["mission_1"]>0 and 
+					GameState.mission_corrupted["mission_2"]>0 and 
+					GameState.mission_corrupted["mission_3"]>0 and 
+					GameState.mission_corrupted["mission_4"]>0)
+			# le scolding ne se declenche que quand on a revisité au moins une fois tous les ilots predents.
+		_: #AUTRE MISSION
+			return false
+			# pas de scolding dans les autres missions
+		
+func get_scolding_dialog():
+	match self.get_current_mission_idx():
+		3: # MISSION 4
+			return "tl_04mission4_scold"
+		4: # MISSION 5
+			return "tl_05mission5_scold"
+		_:
+			push_error("unexpected behavior")
+			
+
 # Related to dialogs
 func start_time_line(timeline_name):
-	print(timeline_name)
 	if Dialogic.current_timeline == null:
 		Dialogic.start(timeline_name).layer = 50
 
@@ -220,6 +335,11 @@ func _update_current_timelines():
 				self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
 				self._current_timelines[GameState.NAVIGATOR2] = "tl_05hub_navigator5_coffee"
 				self._current_timelines[GameState.CAPTAIN] = "tl_05hub_captain5_coffee"
+		HUB_ENDING:
+				self._current_timelines[GameState.SHIPGIRL] = "Test_timeline"
+				self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
+				self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
+				self._current_timelines[GameState.CAPTAIN] = "Test_timeline"
 		_: 
 			push_error("unexpected behavior, not a recognized mission name")
 
@@ -251,6 +371,12 @@ func _update_characters_availability():
 				NAVIGATOR2:false,
 				CAPTAIN:true}
 		4: #MISSION 5
+			self._characters_available = {
+				SHIPGIRL:true,
+				NAVIGATOR1:false,
+				NAVIGATOR2:true,
+				CAPTAIN:true}
+		HUB_ENDING:
 			self._characters_available = {
 				SHIPGIRL:true,
 				NAVIGATOR1:false,
@@ -371,8 +497,11 @@ func get_current_mission_idx():
 	var mission_keys = self.mission_states.keys()
 	var c = 0
 	while keep == true:
-		keep = self.mission_states[mission_keys[c]]["finished"]
-		c += 1
+		if c == self.get_nb_mission():
+			return HUB_ENDING
+		else:
+			keep = self.mission_states[mission_keys[c]]["finished"]
+			c += 1
 	return c-1
 
 func start_current_mission():
@@ -389,8 +518,11 @@ func check_mission_status():
 	self.check_intemperie()
 
 func get_current_mission():
-	var mission_keys = self.mission_states.keys()
-	return mission_keys[self.get_current_mission_idx()]
+	if self.get_current_mission_idx() != HUB_ENDING:
+		var mission_keys = self.mission_states.keys()
+		return mission_keys[self.get_current_mission_idx()]
+	else:
+		return "ending"
 	
 func get_current_objective_idx():
 	var i = get_current_mission_idx() # number of the mission
@@ -423,10 +555,12 @@ func validate_current_mission_debug(in_time):
 		var i_mission = self.get_current_mission_idx()
 		var mission_str = self.mission_states.keys()[i_mission]
 		var ilot_str = self.ilot_states.keys()[i_mission]
-		self.mission_states[mission_str]["finished"] = true
+		if i_mission != self.get_nb_mission()-1: # not last mission
+			self.mission_states[mission_str]["finished"] = true
 		self.mission_states[mission_str]["debriefed"] = true
 		self.mission_states[mission_str]["in_time"] = in_time
 		self.ilot_states[ilot_str]["revealed"] = true
-		self.start_current_mission()
+		if i_mission != self.get_nb_mission()-1: # not last mission
+			self.start_current_mission()
 		self.check_intemperie()
 	return self._debug

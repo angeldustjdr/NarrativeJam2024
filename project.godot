@@ -108,6 +108,7 @@ directories/dtl_directory={
 "tl_05mission5_return": "res://Dialogue/timelines/05mission5/tl_05mission5_return.dtl",
 "tl_05mission5_scold": "res://Dialogue/timelines/05mission5/tl_05mission5_scold.dtl",
 "tl_ask_to_talk_ilot": "res://Dialogue/timelines/tl_ask_to_talk_ilot.dtl",
+"tl_beacon_destroyed": "res://Dialogue/timelines/tl_beacon_destroyed.dtl",
 "tl_confirm_exit": "res://Dialogue/timelines/tl_confirm_exit.dtl",
 "tl_galerien_influenced": "res://Dialogue/timelines/tl_galerien_influenced.dtl",
 "tl_galerien_normal": "res://Dialogue/timelines/tl_galerien_normal.dtl",

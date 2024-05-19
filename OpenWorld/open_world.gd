@@ -50,10 +50,8 @@ func _ready():
 		#$player.set_process_mode(PROCESS_MODE_DISABLED)
 		$player.movable = false
 	else :
-		if GameState.mission_corrupted["mission_1"]>0 and GameState.mission_corrupted["mission_2"]>0 and GameState.mission_corrupted["mission_3"]>0:
-			showIntermediateDialog("tl_04mission4_scold")
-		if GameState.mission_corrupted["mission_1"]>0 and GameState.mission_corrupted["mission_2"]>0 and GameState.mission_corrupted["mission_3"]>0 and GameState.mission_corrupted["mission_4"]>0:
-			showIntermediateDialog("tl_05mission5_scold")
+		if GameState.need_scolding():
+			showIntermediateDialog(GameState.get_scolding_dialog())
 
 func _check_map():
 	# check pour les zones d'acceleration et la révélation de la map
@@ -151,6 +149,12 @@ func _input(event):
 		elif event.keycode == KEY_B and event.pressed:
 			#validate mission but not in_time
 			dbg = GameState.validate_current_mission_debug(false)
+		elif event.keycode == KEY_N and event.pressed:
+			var terr = $Terrain/StaticBody2D
+			if len(terr.get_collision_exceptions()) > 0:
+				terr.remove_collision_exception_with($player)
+			else:
+				terr.add_collision_exception_with($player)
 		if dbg:
 			self._disconnect_objective()
 			GameState.update_ether_timer()
