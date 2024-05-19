@@ -14,6 +14,8 @@ enum {NO_ONE=-9999}
 
 enum {HUB_ENDING = 4444}
 
+enum {INTRO = 3333}
+
 enum {PIRATE_ENDING, DENIAL_ENDING, TRY_NEXT_MONTH_ENDING, EMPLOYEE_OF_THE_MONTH_ENDING, FIRED_ENDING}
 
 @onready var openworld_packed_scene = preload("res://OpenWorld/open_world.tscn")
@@ -46,11 +48,11 @@ signal save_finished
 @onready var _title_screen_state : int = CORPORATE
 
 ########### ENDINGS
-
 @onready var revolutionStep = 0
 @onready var denialStep = 0
 signal revolutionAdvanced
 signal denialAdvanced
+@onready var ending_speech : int # speech of the capitain for the intro
 
 ########### ETHER TIMER
 var _ether_timer : Timer
@@ -130,6 +132,7 @@ func save_game(file_name):
 	##################################
 	savefile.store_var(self.player_position)
 	savefile.store_var(self.PV)
+	savefile.store_var(self._title_screen_state)
 	savefile.store_var(get_tree().current_scene.scene_file_path)
 	#print("SAVE_FINISHED")
 	#self.save_finished.emit()
@@ -156,6 +159,7 @@ func load_game(file_name):
 	##################################
 	self.player_position = savefile.get_var()
 	self.PV = savefile.get_var()
+	self._title_screen_state = savefile.get_var()
 	var file_scene_name = savefile.get_var()
 	self.coming_from = NO_WHERE
 	#print("LOADED DATA")
@@ -200,41 +204,49 @@ func check_beacon_destruction():
 	if self.get_nb_beacon_destroyed() == self.get_nb_ilot():
 		return true
 
-func check_and_launch_corpo_ending():
+func check_corpo_ending():
 	if self.revolutionStep > 0 and self.denialStep == 0:
-		self.launch_ending(FIRED_ENDING)
+		return FIRED_ENDING
 	elif self.denialStep == 1:
-		self.launch_ending(DENIAL_ENDING)
+		return DENIAL_ENDING
 	elif self.revolutionStep == 0 and self.denialStep == 0:
 		if self.employee_of_the_month():
-			self.launch_ending(EMPLOYEE_OF_THE_MONTH_ENDING)
+			return EMPLOYEE_OF_THE_MONTH_ENDING
 		else:
-			self.launch_ending(TRY_NEXT_MONTH_ENDING)
+			return TRY_NEXT_MONTH_ENDING
 	else:
 		push_error("ENDING : unexpected...")
+		return -1
+
+func check_and_launch_corpo_ending():
+	self.launch_ending(check_corpo_ending())
 
 func launch_ending(i_ending):
+	ending_speech = i_ending
+	var next_scene : String
 	match i_ending:
 		PIRATE_ENDING:
 			self._title_screen_state = PIRATE
 			Achievements.genericCheck("Rage against the machine")
 			print("ENDING : PIRATE")
+			next_scene = "res://main.tscn"
 		DENIAL_ENDING:
 			Achievements.genericCheck("Cosmic denial")
-			print("ENDING : DENIAL")
+			next_scene = "res://Hub/motivational_speech.tscn"
 		TRY_NEXT_MONTH_ENDING:
 			Achievements.genericCheck("Maybe next month")
-			print("ENDING : TRY NEXT MONTH")
+			next_scene = "res://Hub/motivational_speech.tscn"
 		EMPLOYEE_OF_THE_MONTH_ENDING:
 			Achievements.genericCheck("Employee of the month")
-			print("ENDING : EMPLOYE MODEL")
+			next_scene = "res://Hub/motivational_speech.tscn"
 		FIRED_ENDING:
 			Achievements.genericCheck("You're fired!")
 			print("ENDING : YOU'RE FIRED")
+			next_scene = "res://main.tscn"
 		_:
 			push_error("ENDING : unexpected...")
 	MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
-	SceneTransitionLayer.transition_to_file_scene("res://main.tscn")
+	SceneTransitionLayer.transition_to_file_scene(next_scene)
 
 func employee_of_the_month():
 	return self.get_nb_mission_in_time() > 3 # si le joueur a fait plus de trois missions dans les temps
@@ -409,10 +421,23 @@ func _update_current_timelines():
 				self._current_timelines[GameState.NAVIGATOR2] = "tl_05hub_navigator5_coffee"
 				self._current_timelines[GameState.CAPTAIN] = "tl_05hub_captain5_coffee"
 		HUB_ENDING:
-				self._current_timelines[GameState.SHIPGIRL] = "Test_timeline"
-				self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
-				self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
-				self._current_timelines[GameState.CAPTAIN] = "Test_timeline"
+				var ending = self.check_corpo_ending() # en fonction des endings
+				if ending == EMPLOYEE_OF_THE_MONTH_ENDING:
+					self._current_timelines[GameState.SHIPGIRL] = "tl_06hub_shipgirl6_coffee_best"
+					self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
+					self._current_timelines[GameState.NAVIGATOR2] = "tl_06hub_navigator6_coffee_best"
+					self._current_timelines[GameState.CAPTAIN] = "tl_06hub_captain6_coffee_best"
+				elif ending == DENIAL_ENDING:
+					self._current_timelines[GameState.SHIPGIRL] = "tl_06hub_shipgirl6_coffee_denial"
+					self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
+					self._current_timelines[GameState.NAVIGATOR2] = "tl_06hub_navigator6_coffee_denial"
+					self._current_timelines[GameState.CAPTAIN] = "tl_06hub_captain6_coffee_denial"
+				else:
+					self._current_timelines[GameState.SHIPGIRL] = "Test_timeline"
+					self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
+					self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
+					self._current_timelines[GameState.CAPTAIN] = "Test_timeline"
+					
 		_: 
 			push_error("unexpected behavior, not a recognized mission name")
 
@@ -487,9 +512,9 @@ func _play_dialog_return_to_hub():
 				GameState.start_time_line("tl_05hub_captain_missionlate")
 		4: #MISSION 5
 			if self.mission_states[mission]["in_time"]:
-				GameState.start_time_line("Test_timeline")
+				GameState.start_time_line("tl_06hub_captain_missiontimely")
 			else:
-				GameState.start_time_line("Test_timeline")
+				GameState.start_time_line("tl_06hub_captain_missionlate")
 		_:
 			push_error("unexpected_behavior")
 	await(Dialogic.timeline_ended)
@@ -646,7 +671,7 @@ func is_pausable():
 			return false
 		"res://logo.tscn": #ni le logo du studio
 			return false
-		"res://motivational_speech.tscn": #ni le motivational speech
+		"res://Hub/motivational_speech.tscn": #ni le motivational speech
 			return false
 		_:
 			if not Dialogic.current_timeline == null: #on peut pas pauser pendant les dialogues
