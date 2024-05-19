@@ -1,5 +1,7 @@
 extends ReferenceRect
 
+@export var debug = true
+
 var target_signal_properties = {"ampl":0.0,
 								"mean":0.0,
 								"period":0.0,
@@ -46,11 +48,14 @@ func set_signal_color(s_color : Color):
 	$OscilloScreen.set_target_signal_color(s_color)
 
 func _on_emit_button_pressed():
-	if $ProgressBar.value > self._victory_ceil:
+	if debug : 
 		victory.emit(self)
-	else:
-		print("NOT THIS TIME SUCKA")
-	if $ProgressBar.value >= 99.0 : Achievements.genericCheck("Instrumentation master")
+	else : 
+		if $ProgressBar.value > self._victory_ceil:
+			victory.emit(self)
+		else:
+			print("NOT THIS TIME SUCKA")
+		if $ProgressBar.value >= 99.0 : Achievements.genericCheck("Instrumentation master")
 
 func _deactivation_of_sliders():
 	for property_name in $OscilloScreen.properties:
@@ -109,6 +114,8 @@ func _update_similarity():
 		$emit_button.modulate.a = 0.5
 		$emit_button/AnimationPlayer.stop()
 	previous_s = sim
+	if debug : 
+		$emit_button.disabled = false
 
 func _update_after_slider_changed():
 	self._update_similarity()
