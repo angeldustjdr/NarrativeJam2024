@@ -358,6 +358,7 @@ texture = ExtResource("5_mo56p")
 script = ExtResource("6_cqm64")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="logo/corpo_brain"]
+layout_mode = 0
 offset_left = 376.0
 offset_top = 427.0
 offset_right = 609.0

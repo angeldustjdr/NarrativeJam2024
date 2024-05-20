@@ -5,8 +5,8 @@ var AchievementDescription = {
 	"Morning routine" : ["Drink 5 coffees",false,"Need more cafein?"],
 	#"Heavy lifting" : ["Lift the anchor for the first time",false],
 	"Fun slide" : ["Take the accelerator for the first time",false,"What's the limit speed again?"],
-	"Idol of youth" : ["Talk to the shipgirl 6 times",false,"Create bonds with a younger person."],
-	"Good soldier" : ["Talk to the captain 6 times",false,"Create bonds with an officier."],
+	"Idol of youth" : ["Talk to the Shipgirl 6 times",false,"Create bonds with a younger person."],
+	"Good soldier" : ["Talk to the Captain 6 times",false,"Create bonds with an officier."],
 	"Old friend" : ["Talk to your navigator 4 times",false,"Create bonds with someone you know for a long time."],
 	"New friend" : ["Talk to your new navigator 3 times",false,"Create bonds with someone new."],
 	"Hi everyone !" : ["Talk to all characters once",false,"Be sociable in your workplace."],
@@ -26,9 +26,19 @@ var AchievementDescription = {
 
 signal unlock
 
+var _updated_descr = false
+
 func _ready():
 	AchievementsList = AchievementDescription.keys()
 	self.load_achievements()
+
+func update_character_names():
+	if not self._updated_descr:
+		self._updated_descr = true
+		self.AchievementDescription["Idol of youth"][0] = "Talk to " + Dialogic.VAR.shipgirl_name + " 6 times"
+		self.AchievementDescription["Good soldier"][0] = "Talk to " + Dialogic.VAR.captain_name + " 6 times"
+		self.AchievementDescription["Old friend"][0] = "Talk to " + Dialogic.VAR.navigator1_name + " 4 times"
+		self.AchievementDescription["New friend"][0] = "Talk to " + Dialogic.VAR.navigator2_name + " 3 times"
 
 ################################################################################
 #ACHIEVEMENTS ##################################################################

@@ -7,6 +7,7 @@ var _hoover_sound = "hoover"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameState._ready()
+	Achievements.update_character_names()
 	GameState.ending_speech = GameState.INTRO
 	$%barre.pivot_offset = 0.5 * $%barre.size
 	match GameState.get_main_title_state():

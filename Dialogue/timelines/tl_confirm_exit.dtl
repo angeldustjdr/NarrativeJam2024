@@ -1,4 +1,3 @@
-set {confirm_exit} = "false"
 if {GameState.coffeeCredit} > 1:
 	Should I really go in mission? I still have {GameState.coffeeCredit} coffee credits left.
 	- Yes 
@@ -11,4 +10,6 @@ if {GameState.coffeeCredit} == 1:
 		set {confirm_exit} = "true"
 	- No 
 		set {confirm_exit} = "false"
+if {GameState.coffeeCredit} == 0:
+	set {confirm_exit} = "true"
 [end_timeline]
