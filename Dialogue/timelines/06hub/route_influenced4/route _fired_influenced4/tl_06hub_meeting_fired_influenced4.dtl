@@ -1,0 +1,6 @@
+join captain 1
+captain: {mc_name} I'm very desapointed. You interacted with a member of a terrorist organisation and you have conspired against the company.\
+I have no other choice than to remove you from your afectation.
+captain: You are placed under corporate arrest, and will face the board to respond of your actions.
+captain: Follow me.
+[end_timeline]

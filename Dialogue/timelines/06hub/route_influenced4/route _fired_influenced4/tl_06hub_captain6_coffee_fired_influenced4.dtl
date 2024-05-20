@@ -1,0 +1,13 @@
+join captain 1
+captain: {mc_name} How was the mission ?
+captain: Is there anything you would like to report ?
+captain: Again with those projections theories ?
+captain: Look, you are a good employee but you are not focused enough.\
+I warned you ! You will have to pass a psych evaluation before getting back in you ship. It's for your own good.
+captain: You think {armada_name} is trying to control people using the beacons ...\
+I'm really sorry to hear that. You clearly have a problem. 
+captain: You came to that conclusion by yourself ? Did you had any help ?
+captain: Hmm.
+captain: I've scheduled a general meeting later today. I'll speak about the monthly results.\
+I expect you to be there.
+[end_timeline]
