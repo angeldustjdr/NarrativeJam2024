@@ -39,7 +39,7 @@ signal save_finished
 							   "mission_2": 80.,
 							   "mission_3": 60.,
 							   "mission_4": 120.,
-							   "mission_5": 180.}
+							   "mission_5": 240.}
 @onready var mission_corrupted = {"mission_1": 0, #set in each corrupted dialog timeline !
 							   "mission_2": 0,
 							   "mission_3": 0,
