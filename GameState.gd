@@ -33,11 +33,11 @@ signal save_finished
 							   "mission_3":{"started":false,"finished":false,"in_time":true,"debriefed":false},
 							   "mission_4":{"started":false,"finished":false,"in_time":true,"debriefed":false},
 							   "mission_5":{"started":false,"finished":false,"in_time":true,"debriefed":false}}
-@onready var mission_timer = {"mission_1": 60.,
-							   "mission_2": 60.,
+@onready var mission_timer = {"mission_1": 180.,
+							   "mission_2": 80.,
 							   "mission_3": 60.,
-							   "mission_4": 60.,
-							   "mission_5": 60.}
+							   "mission_4": 120.,
+							   "mission_5": 180.}
 @onready var mission_corrupted = {"mission_1": 0, #set in each corrupted dialog timeline !
 							   "mission_2": 0,
 							   "mission_3": 0,
@@ -69,6 +69,8 @@ var ether_timer_decrement : int = 15
 	CAPTAIN:0}
 @onready var nbWard = 0
 @onready var nbRetourHub = -1
+
+@onready var wardPlacements = []
 
 ########### DIALOGS
 @onready var _characters_available = {

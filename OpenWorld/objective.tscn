@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2dy7i3w8ddv0"]
+[gd_scene load_steps=8 format=3 uid="uid://d2dy7i3w8ddv0"]
 
 [ext_resource type="Script" path="res://OpenWorld/objective.gd" id="1_jq82l"]
+[ext_resource type="Texture2D" uid="uid://mpbfvmdjuuln" path="res://OpenWorld/Point_blanc.png" id="2_fewo3"]
 [ext_resource type="Shader" path="res://OpenWorld/objective.gdshader" id="2_js5ep"]
 
 [sub_resource type="Gradient" id="Gradient_upi44"]
@@ -29,6 +30,11 @@ script = ExtResource("1_jq82l")
 scale = Vector2(10, 10)
 energy = 2.0
 texture = SubResource("GradientTexture2D_0tigb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_fewo3")
 
 [node name="PointBlanc" type="ColorRect" parent="."]
 modulate = Color(1, 0, 0, 1)

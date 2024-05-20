@@ -1,17 +1,10 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bh0bu7qc8ksch"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bh0bu7qc8ksch"]
 
-[ext_resource type="FontFile" uid="uid://bu8t58k0lcajh" path="res://LCD-N___.TTF" id="1_o5nsy"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mivd0"]
-bg_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_skdm6"]
-bg_color = Color(0, 0, 0, 1)
+[ext_resource type="FontFile" uid="uid://cnfpps3vj1vb2" path="res://Reactor-Sans.ttf" id="1_500lm"]
 
 [resource]
-default_font = ExtResource("1_o5nsy")
-default_font_size = 24
+default_font = ExtResource("1_500lm")
+default_font_size = 16
 CheckBox/colors/font_disabled_color = Color(1, 1, 1, 1)
 CheckBox/font_sizes/font_size = 24
-VScrollBar/styles/grabber = SubResource("StyleBoxFlat_mivd0")
-VScrollBar/styles/scroll = SubResource("StyleBoxFlat_skdm6")
+Label/fonts/font = ExtResource("1_500lm")

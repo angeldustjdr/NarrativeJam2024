@@ -38,6 +38,8 @@ func _process(_delta):
 			$AnimationPlayer.play("Credits")
 		3:
 			$AnimationPlayer.play("load")
+		4:
+			$AnimationPlayer.play("Quit")
 
 
 func _on_play_mouse_entered():
@@ -114,3 +116,18 @@ func _on_load_gui_input(event):
 
 func _on_load_mouse_exited():
 	resetFocus()
+
+
+func _on_quit_mouse_entered():
+	focus = 4
+	self._play_hoover_sound()
+
+
+func _on_quit_mouse_exited():
+	resetFocus()
+
+
+func _on_quit_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			SceneTransitionLayer.quit_game()

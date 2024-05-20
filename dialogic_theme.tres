@@ -25,7 +25,16 @@ overrides = {}
 script = ExtResource("2_0poht")
 scene = ExtResource("4_lwowb")
 overrides = {
-"box_size": "Vector2(1000, 300)"
+"box_size": "Vector2(1000, 300)",
+"name_label_box_offset": "Vector2(0, -36)",
+"name_label_custom_font_size": "32.0",
+"name_label_font": "\"res://Reactor-Sans.ttf\"",
+"name_label_use_global_font": "false",
+"name_label_use_global_font_size": "false",
+"normal_font": "\"res://Forum-Regular.ttf\"",
+"text_size": "42.0",
+"text_use_global_font": "false",
+"text_use_global_size": "false"
 }
 
 [sub_resource type="Resource" id="Resource_7wa83"]
@@ -57,7 +66,7 @@ overrides = {}
 script = ExtResource("10_1f48c")
 name = "dialogic_theme"
 base_overrides = {
-"global_font_size": "32.0"
+"global_font": "\"res://Reactor-Sans.ttf\""
 }
 layers = Array[ExtResource("2_0poht")]([SubResource("Resource_0haqm"), SubResource("Resource_2g7rx"), SubResource("Resource_6u3la"), SubResource("Resource_7wa83"), SubResource("Resource_tp5lu"), SubResource("Resource_sy5u5"), SubResource("Resource_ahe62"), SubResource("Resource_n1sx6")])
 metadata/_latest_layer = 2

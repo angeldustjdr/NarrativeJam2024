@@ -1,15 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://brdj1bj3uct6x"]
+[gd_scene load_steps=20 format=3 uid="uid://brdj1bj3uct6x"]
 
 [ext_resource type="Script" path="res://Hub/hub.gd" id="1_fsrsg"]
-[ext_resource type="Texture2D" uid="uid://b3td8voyeb8mv" path="res://assets/graphics/backgrounds/Hub/hub.png" id="2_q2sva"]
+[ext_resource type="Texture2D" uid="uid://bhky7ijndlu86" path="res://assets/graphics/backgrounds/Hub/hub.png" id="2_q2sva"]
 [ext_resource type="PackedScene" uid="uid://ealq7p4fp0k2" path="res://visual_novel/clickable_object_generic.tscn" id="4_gnjvn"]
 [ext_resource type="Script" path="res://Hub/CoffeeCredits.gd" id="6_00twj"]
-[ext_resource type="Texture2D" uid="uid://dkl3uoms0oaf0" path="res://Hub/coffee-cup.svg" id="6_t3nfk"]
+[ext_resource type="Texture2D" uid="uid://c24snx88rf3ic" path="res://Hub/coffee-cup.svg" id="6_t3nfk"]
 [ext_resource type="Texture2D" uid="uid://8gmmwuv683rs" path="res://icon.svg" id="6_v0fu5"]
-[ext_resource type="Texture2D" uid="uid://b6gcrdi4jc01x" path="res://Hub/Armada_orga.png" id="7_c7lv1"]
-[ext_resource type="Texture2D" uid="uid://rvkrtlph8wxi" path="res://assets/graphics/items/logo-vect-v2.png" id="8_5a85t"]
-[ext_resource type="Texture2D" uid="uid://d1bnw78iail7c" path="res://OpenWorld/Point_blanc.png" id="8_5j0kt"]
-[ext_resource type="Texture2D" uid="uid://c4v8t88r4mul2" path="res://assets/graphics/characters/character-hub-navigator2-v1.png" id="9_8ieby"]
+[ext_resource type="Texture2D" uid="uid://dqmk77osr4ail" path="res://Hub/Armada_orga.png" id="7_c7lv1"]
+[ext_resource type="Texture2D" uid="uid://cq51ecbmfw5mk" path="res://assets/graphics/items/logo-vect-v2.png" id="8_5a85t"]
+[ext_resource type="Texture2D" uid="uid://mpbfvmdjuuln" path="res://OpenWorld/Point_blanc.png" id="8_5j0kt"]
+[ext_resource type="Theme" uid="uid://bh0bu7qc8ksch" path="res://theme.tres" id="8_ef4iq"]
+[ext_resource type="Texture2D" uid="uid://b3p1rub14sglc" path="res://assets/graphics/characters/character-hub-navigator2-v1.png" id="9_8ieby"]
 [ext_resource type="PackedScene" uid="uid://0pyto5ajiupe" path="res://Hub/achivements_panel.tscn" id="11_q7yni"]
 [ext_resource type="Script" path="res://Hub/TalkToMenu.gd" id="12_obt7f"]
 
@@ -84,10 +85,10 @@ scale = Vector2(0.264079, 0.264079)
 texture = ExtResource("8_5a85t")
 
 [node name="Label" type="Label" parent="clickables/Organigram"]
-offset_left = -170.0
+offset_left = -209.0
 offset_top = 197.0
-offset_right = 7.0
-offset_bottom = 223.0
+offset_right = 38.0
+offset_bottom = 226.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_iklag")
 text = "Check organigram"
 
@@ -102,10 +103,10 @@ scale = Vector2(0.5, 4.4375)
 texture = ExtResource("6_v0fu5")
 
 [node name="Label" type="Label" parent="clickables/Door"]
-offset_left = -176.0
-offset_top = -92.0
-offset_right = -48.0
-offset_bottom = -66.0
+offset_left = -227.0
+offset_top = -22.0
+offset_right = -56.0
+offset_bottom = 7.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_aqduy")
 text = "Go on mission"
 
@@ -119,10 +120,10 @@ which = "Employee"
 texture = ExtResource("6_v0fu5")
 
 [node name="Label" type="Label" parent="clickables/Employee"]
-offset_left = -224.0
-offset_top = -7.0
-offset_right = -96.0
-offset_bottom = 19.0
+offset_left = -105.0
+offset_top = 80.0
+offset_right = 108.0
+offset_bottom = 109.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_aqduy")
 text = "Check portrait
 "
@@ -175,10 +176,10 @@ which = "Achivement"
 texture = ExtResource("6_v0fu5")
 
 [node name="Label" type="Label" parent="clickables/Achievements"]
-offset_left = -97.0
-offset_top = 69.0
-offset_right = 101.0
-offset_bottom = 95.0
+offset_left = -147.0
+offset_top = 72.0
+offset_right = 134.0
+offset_bottom = 101.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_aqduy")
 text = "Check Achievements"
 
@@ -235,6 +236,7 @@ horizontal_alignment = 1
 [node name="Scrollable" type="ScrollContainer" parent="CanvasLayer/ArmadaOrga/MarginContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("8_ef4iq")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/ArmadaOrga/MarginContainer/Panel/MarginContainer/VBoxContainer/Scrollable"]
 layout_mode = 2

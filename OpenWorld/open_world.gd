@@ -26,6 +26,10 @@ func _ready():
 	self._init_objectives()
 	#####################################################
 	Radio.connect("poserWard",poserWard)
+	for pos in GameState.wardPlacements:
+		var w = ward.instantiate()
+		w.global_position = pos
+		$Ward/Custom.add_child(w)
 	#Radio.connect("setObjective",setObjective) # Not needed because objective change only when going back to openworld after ilot or hub.
 	Achievements.connect("unlock",showUnlock)
 	#####################################################
@@ -124,6 +128,7 @@ func poserWard():
 	var w = ward.instantiate()
 	w.setPortable()
 	w.global_position = $player.global_position
+	GameState.wardPlacements.append(w.global_position)
 	$Ward.add_child(w)
 
 func setObjective():

@@ -14,6 +14,7 @@ func _ready():
 	if myMission > 0 :
 		if GameState.mission_states["mission_"+str(myMission)]["finished"]:
 			$PointBlanc.modulate = Color("green")
+			$Sprite2D.modulate = Color("green")
 
 func _on_area_2d_body_entered(body):
 	Radio.emit_signal("bodyEnteredObjective",self,body)

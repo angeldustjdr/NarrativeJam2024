@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://0pyto5ajiupe"]
+[gd_scene load_steps=3 format=3 uid="uid://0pyto5ajiupe"]
 
 [ext_resource type="Script" path="res://Hub/AchivementsPanel.gd" id="1_gm8h7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37of1"]
+bg_color = Color(0, 0, 0, 0.784314)
 
 [node name="AchivementsPanel" type="Control"]
 visible = false
@@ -28,6 +31,7 @@ theme_override_constants/margin_bottom = 64
 clip_contents = true
 layout_mode = 2
 mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_37of1")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel"]
 layout_mode = 1

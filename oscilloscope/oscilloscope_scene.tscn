@@ -113,6 +113,7 @@ offset_left = -0.160002
 offset_top = -0.0200043
 offset_right = 4.0
 offset_bottom = 0.0599976
+theme_override_font_sizes/font_size = 12
 text = "SIMILARITY"
 
 [node name="ampl_slider" type="VSlider" parent="."]

@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-var speed = 500
+var speed = 350
 var friction = 0.01
 var acceleration = 0.05
-var rotation_speed = 1.0
+var rotation_speed = 0.6
 var rotation_acc = 0.2
 
 var objective = null
@@ -108,22 +108,22 @@ func _on_friction_zone_body_entered(body):
 	if body==self : 
 		$RainEffect/AnimationPlayer.play("rainAppear")
 		Radio.emit_signal("showAlertMessage","Entering Depression zone")
-		speed /= 2
+		speed /= 3
 
 func _on_friction_zone_body_exited(body):
 	if body==self : 
 		$RainEffect/AnimationPlayer.play("rainDisappear")
-		speed *= 2
+		speed *= 3
 
 func _on_accelaration_zone_body_entered(body):
 	if body==self : 
 		Achievements.genericCheck("Fun slide")
-		speed *= 4
+		speed *= 3
 
 func _on_accelaration_zone_body_exited(body):
 	if body==self : 
-		speed /= 4
-		velocity /=4
+		speed /= 3
+		velocity /=3
 
 func bodyEnteredObjective(interactableObjective,whoEntered):
 	if whoEntered == self:

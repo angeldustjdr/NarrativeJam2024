@@ -1,21 +1,22 @@
-[gd_scene load_steps=42 format=3 uid="uid://1c2poulo2qea"]
+[gd_scene load_steps=43 format=3 uid="uid://1c2poulo2qea"]
 
 [ext_resource type="Script" path="res://OpenWorld/open_world.gd" id="1_dqjoa"]
 [ext_resource type="Shader" path="res://OpenWorld/open_world_background.gdshader" id="1_mopfe"]
 [ext_resource type="PackedScene" uid="uid://bst1xbumpsfra" path="res://OpenWorld/player.tscn" id="2_334qi"]
-[ext_resource type="Texture2D" uid="uid://brfsknfdldiud" path="res://assets/graphics/map/fond-moitie-opaque.png" id="3_rja6r"]
+[ext_resource type="Texture2D" uid="uid://dxgki4uv03nco" path="res://assets/graphics/map/fond-moitie-opaque.png" id="3_rja6r"]
 [ext_resource type="PackedScene" uid="uid://bbep1cdm6i073" path="res://OpenWorld/ward.tscn" id="3_vogn0"]
-[ext_resource type="Texture2D" uid="uid://b4vrhrqgydghx" path="res://assets/graphics/items/logos/logo-vect-v3-pirate.png" id="4_6p7h3"]
+[ext_resource type="Texture2D" uid="uid://8ihy6hobrbs5" path="res://assets/graphics/items/logos/logo-vect-v3-pirate.png" id="4_6p7h3"]
 [ext_resource type="Shader" path="res://OpenWorld/electrical.gdshader" id="4_dhhv1"]
 [ext_resource type="Theme" uid="uid://bh0bu7qc8ksch" path="res://theme.tres" id="4_il7g8"]
-[ext_resource type="Texture2D" uid="uid://co0ldwxof82aa" path="res://OpenWorld/stopwatch.svg" id="5_h3hmd"]
+[ext_resource type="Texture2D" uid="uid://b2abjw21y18sn" path="res://OpenWorld/stopwatch.svg" id="5_h3hmd"]
+[ext_resource type="Script" path="res://OpenWorld/Chromatic_openword.gd" id="5_mbd5j"]
 [ext_resource type="Script" path="res://OpenWorld/TimerLabel.gd" id="6_5e3rx"]
 [ext_resource type="Shader" path="res://OpenWorld/signals.gdshader" id="6_oc55w"]
 [ext_resource type="Script" path="res://OpenWorld/VelocityProgressBar.gd" id="7_d3i1c"]
 [ext_resource type="Shader" path="res://OpenWorld/vortex.gdshader" id="8_10ki7"]
 [ext_resource type="Script" path="res://OpenWorld/RotationProgressBar.gd" id="8_alurk"]
 [ext_resource type="Script" path="res://OpenWorld/Depression1.gd" id="9_42640"]
-[ext_resource type="Texture2D" uid="uid://d1bnw78iail7c" path="res://OpenWorld/Point_blanc.png" id="9_hlq2x"]
+[ext_resource type="Texture2D" uid="uid://mpbfvmdjuuln" path="res://OpenWorld/Point_blanc.png" id="9_hlq2x"]
 [ext_resource type="Script" path="res://OpenWorld/Vortex.gd" id="9_kbdo6"]
 [ext_resource type="PackedScene" uid="uid://d2dy7i3w8ddv0" path="res://OpenWorld/objective.tscn" id="9_rqvr2"]
 [ext_resource type="PackedScene" uid="uid://bsqs7hvavmdhe" path="res://OpenWorld/acc_1.tscn" id="10_0tbb1"]
@@ -263,6 +264,9 @@ position = Vector2(2383, 758)
 scale = Vector2(0.619491, 0.619491)
 texture = ExtResource("4_6p7h3")
 
+[node name="Chromatic" type="Node2D" parent="Terrain"]
+script = ExtResource("5_mbd5j")
+
 [node name="Vortex" type="Node2D" parent="Terrain"]
 
 [node name="Vortex" type="Sprite2D" parent="Terrain/Vortex"]
@@ -277,24 +281,26 @@ offset_left = 696.0
 offset_top = 4819.0
 offset_right = 1039.0
 offset_bottom = 4874.0
-theme_override_font_sizes/font_size = 52
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_m8fao")
 text = "Reality vortex"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Ward" type="Node2D" parent="."]
 
 [node name="Initial" type="Node2D" parent="Ward"]
 
 [node name="Ward" parent="Ward/Initial" instance=ExtResource("3_vogn0")]
-position = Vector2(2455, 3672)
+position = Vector2(1574, 3863)
 withRipples = false
 
 [node name="Ward3" parent="Ward/Initial" instance=ExtResource("3_vogn0")]
-position = Vector2(1164, 3222)
+position = Vector2(685, 3302)
 withRipples = false
 
 [node name="Ward4" parent="Ward/Initial" instance=ExtResource("3_vogn0")]
-position = Vector2(73, 3435)
+position = Vector2(154, 3556)
 withRipples = false
 
 [node name="Ward5" parent="Ward/Initial" instance=ExtResource("3_vogn0")]
@@ -320,28 +326,16 @@ withRipples = false
 position = Vector2(3352, 3392)
 withRipples = false
 
-[node name="Ward3" parent="Ward/Mission1" instance=ExtResource("3_vogn0")]
-position = Vector2(3624, 2400)
-withRipples = false
-
 [node name="Ward4" parent="Ward/Mission1" instance=ExtResource("3_vogn0")]
 position = Vector2(4232, 3184)
 withRipples = false
 
 [node name="Ward5" parent="Ward/Mission1" instance=ExtResource("3_vogn0")]
-position = Vector2(4224, 2552)
+position = Vector2(3924, 2342)
 withRipples = false
 
 [node name="Ward6" parent="Ward/Mission1" instance=ExtResource("3_vogn0")]
-position = Vector2(2883, 2523)
-withRipples = false
-
-[node name="Ward7" parent="Ward/Mission1" instance=ExtResource("3_vogn0")]
-position = Vector2(3359, 1695)
-withRipples = false
-
-[node name="Ward8" parent="Ward/Mission1" instance=ExtResource("3_vogn0")]
-position = Vector2(5119, 2580)
+position = Vector2(3380, 2829)
 withRipples = false
 
 [node name="Ward9" parent="Ward/Mission1" instance=ExtResource("3_vogn0")]
@@ -376,11 +370,15 @@ position = Vector2(1836, 58)
 withRipples = false
 
 [node name="Ward6" parent="Ward/Mission2" instance=ExtResource("3_vogn0")]
-position = Vector2(3024, 301)
+position = Vector2(2898, 840)
 withRipples = false
 
 [node name="Ward7" parent="Ward/Mission2" instance=ExtResource("3_vogn0")]
-position = Vector2(1836, 963)
+position = Vector2(1830, 915)
+withRipples = false
+
+[node name="Ward8" parent="Ward/Mission2" instance=ExtResource("3_vogn0")]
+position = Vector2(2803, 2227)
 withRipples = false
 
 [node name="Mission3" type="Node2D" parent="Ward"]
@@ -404,10 +402,6 @@ withRipples = false
 
 [node name="Ward5" parent="Ward/Mission3" instance=ExtResource("3_vogn0")]
 position = Vector2(6912, 4818)
-withRipples = false
-
-[node name="Ward6" parent="Ward/Mission3" instance=ExtResource("3_vogn0")]
-position = Vector2(7398, 2423)
 withRipples = false
 
 [node name="Ward7" parent="Ward/Mission3" instance=ExtResource("3_vogn0")]
@@ -434,7 +428,7 @@ position = Vector2(6340, 76)
 withRipples = false
 
 [node name="Ward4" parent="Ward/Mission4" instance=ExtResource("3_vogn0")]
-position = Vector2(6169, 1396)
+position = Vector2(5895, 2151)
 withRipples = false
 
 [node name="Ward5" parent="Ward/Mission4" instance=ExtResource("3_vogn0")]
@@ -479,6 +473,8 @@ withRipples = false
 [node name="Ward9" parent="Ward/Mission5" instance=ExtResource("3_vogn0")]
 position = Vector2(9511, 1875)
 withRipples = false
+
+[node name="Custom" type="Node2D" parent="Ward"]
 
 [node name="DepressionZones" type="Node2D" parent="."]
 
@@ -596,7 +592,7 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -280.0
+offset_left = -320.0
 grow_horizontal = 0
 grow_vertical = 2
 
@@ -622,7 +618,7 @@ layout_mode = 2
 layout_mode = 2
 theme = ExtResource("4_il7g8")
 theme_override_colors/font_color = Color(0.796078, 0.345098, 0, 1)
-theme_override_font_sizes/font_size = 34
+theme_override_font_sizes/font_size = 20
 text = "Control Panel"
 horizontal_alignment = 1
 
@@ -694,14 +690,14 @@ layout_mode = 2
 [node name="VelocityLabel" type="Label" parent="CanvasLayer/UI/Right/CenterContainer/MarginContainer/VBoxContainer/EngineZone/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 12
 text = "Velocity (w-s)"
 horizontal_alignment = 1
 
 [node name="VelocityProgressBar" type="ProgressBar" parent="CanvasLayer/UI/Right/CenterContainer/MarginContainer/VBoxContainer/EngineZone/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 12
 value = 100.0
 rounded = true
 script = ExtResource("7_d3i1c")
@@ -712,14 +708,14 @@ layout_mode = 2
 [node name="RotationLabel" type="Label" parent="CanvasLayer/UI/Right/CenterContainer/MarginContainer/VBoxContainer/EngineZone/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 12
 text = "Rotation (a-d)"
 horizontal_alignment = 1
 
 [node name="RotationProgressBar" type="ProgressBar" parent="CanvasLayer/UI/Right/CenterContainer/MarginContainer/VBoxContainer/EngineZone/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 12
 max_value = 180.0
 value = 100.0
 rounded = true
