@@ -7,9 +7,13 @@ func _ready():
 	self._launch_speech()
 
 func _launch_speech():
+	var added_corruption = GameState._get_sum_missions_corrupted() - GameState.current_corruption_level
 	match GameState.ending_speech:
 		GameState.DENIAL_ENDING:
-			GameState.start_time_line("tl_06hub_meeting_denial")
+			if added_corruption == 0:
+				GameState.start_time_line("tl_06hub_meeting_denial")
+			else:
+				GameState.start_time_line("tl_06hub_meeting_denial_influenced4")
 			await(Dialogic.timeline_ended)
 			self._change_scene_to_credits()
 		GameState.EMPLOYEE_OF_THE_MONTH_ENDING:
@@ -17,7 +21,15 @@ func _launch_speech():
 			await(Dialogic.timeline_ended)
 			self._change_scene_to_credits()
 		GameState.TRY_NEXT_MONTH_ENDING:
-			print("TRY_NEXT_MONTH_ENDING")
+			GameState.start_time_line("tl_06hub_meeting_employee_influence4")
+			await(Dialogic.timeline_ended)
+			self._change_scene_to_credits()
+		GameState.FIRED_ENDING:
+			if added_corruption == 0:
+				GameState.start_time_line("tl_06hub_meeting_fired")
+			else:
+				GameState.start_time_line("tl_06hub_meeting_fired_influenced4")
+			await(Dialogic.timeline_ended)
 			self._change_scene_to_credits()
 		_:
 			if Dialogic.current_timeline == null:

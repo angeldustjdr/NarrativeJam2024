@@ -44,6 +44,12 @@ signal save_finished
 							   "mission_4": 0,
 							   "mission_5": 0}
 
+@onready var nb_interaction_this_hub = { # nombre d'interactions avec chaque perso durant ce passage au HUB
+	SHIPGIRL:0,
+	NAVIGATOR1:0,
+	NAVIGATOR2:0,
+	CAPTAIN:0}
+
 @onready var current_corruption_level : int = self._get_sum_missions_corrupted()
 
 @onready var player_position = Vector2(838,4603) # initial coordinates of player
@@ -114,6 +120,7 @@ func print_data():
 	print(self.ilot_states)
 	print(self.mission_corrupted)
 	print(self.current_corruption_level)
+	print(self.nb_interaction_this_hub)
 	print(self.revolutionStep)
 	print(self.denialStep)
 	print(self._ether_timer.is_stopped())
@@ -137,6 +144,7 @@ func save_game(file_name):
 	savefile.store_var(self.ilot_states)
 	savefile.store_var(self.mission_corrupted)
 	savefile.store_var(self.current_corruption_level)
+	savefile.store_var(self.nb_interaction_this_hub)
 	savefile.store_var(self.revolutionStep)
 	savefile.store_var(self.denialStep)
 	#ether_timer######################
@@ -160,6 +168,7 @@ func load_game(file_name):
 	self.ilot_states = savefile.get_var()
 	self.mission_corrupted = savefile.get_var()
 	self.current_corruption_level = savefile.get_var()
+	self.nb_interaction_this_hub = savefile.get_var()
 	self.revolutionStep = savefile.get_var()
 	self.denialStep = savefile.get_var()
 	#ether_timer######################
@@ -246,7 +255,8 @@ func check_and_launch_corpo_ending():
 	self.launch_ending(check_corpo_ending())
 
 func launch_ending(i_ending):
-	ending_speech = i_ending
+	self.ending_speech = i_ending
+	var added_corruption = self._get_sum_missions_corrupted() - self.current_corruption_level
 	var next_scene : String
 	match i_ending:
 		PIRATE_ENDING:
@@ -265,15 +275,16 @@ func launch_ending(i_ending):
 			next_scene = "res://Hub/motivational_speech.tscn"
 		FIRED_ENDING:
 			Achievements.genericCheck("You're fired!")
-			print("ENDING : YOU'RE FIRED")
-			next_scene = "res://credits.tscn"
+			next_scene = "res://Hub/motivational_speech.tscn"
 		_:
 			push_error("ENDING : unexpected...")
 	MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
 	SceneTransitionLayer.transition_to_file_scene(next_scene)
 
-func employee_of_the_month():
-	return self.get_nb_mission_in_time() > 3 # si le joueur a fait plus de trois missions dans les temps
+func employee_of_the_month(): # CONDITION for employee of the month
+	var added_corruption = self._get_sum_missions_corrupted() - self.current_corruption_level
+	return added_corruption == 0
+	#return self.get_nb_mission_in_time() > 3 # si le joueur a fait plus de trois missions dans les temps
 
 func get_nb_mission_in_time():
 	var c = 0
@@ -335,8 +346,16 @@ func start_time_line(timeline_name,wait=false):
 			await(Dialogic.timeline_ended)
 
 func update_dialogs():
-	self._update_characters_availability()
+	self.reset_this_hub_interactions()
+	self.update_characters_availability()
 	self._update_current_timelines()
+
+func reset_this_hub_interactions():
+	self.nb_interaction_this_hub = { # nombre d'interactions avec chaque perso durant ce passage au HUB
+	SHIPGIRL:0,
+	NAVIGATOR1:0,
+	NAVIGATOR2:0,
+	CAPTAIN:0}
 
 func get_current_timeline(character):
 	return self._current_timelines[character]
@@ -402,6 +421,8 @@ func start_ilot_dialog_navigator(numero_ilot):
 func _update_current_timelines():
 	#HERE WE FUCKING GO
 	var added_corruption = self._get_sum_missions_corrupted() - self.current_corruption_level
+	if added_corruption < 0 :
+		push_error("Unexpected behavior")
 	match self.get_current_mission_idx():
 		0: #MISSION 1
 			self._current_timelines[GameState.SHIPGIRL] = "tl_hub01_shipgirl"
@@ -454,15 +475,49 @@ func _update_current_timelines():
 		HUB_ENDING:
 				var ending = self.check_corpo_ending() # en fonction des endings
 				if ending == EMPLOYEE_OF_THE_MONTH_ENDING:
-					self._current_timelines[GameState.SHIPGIRL] = "tl_06hub_shipgirl6_coffee_best"
-					self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
-					self._current_timelines[GameState.NAVIGATOR2] = "tl_06hub_navigator6_coffee_best"
-					self._current_timelines[GameState.CAPTAIN] = "tl_06hub_captain6_coffee_best"
+					if added_corruption == 0:
+						self._current_timelines[GameState.SHIPGIRL] = "tl_06hub_shipgirl6_coffee_best"
+						self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
+						self._current_timelines[GameState.NAVIGATOR2] = "tl_06hub_navigator6_coffee_best"
+						self._current_timelines[GameState.CAPTAIN] = "tl_06hub_captain6_coffee_best"
+					elif added_corruption > 0:
+						self._current_timelines[GameState.SHIPGIRL] = "Test_timeline"
+						self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
+						self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
+						self._current_timelines[GameState.CAPTAIN] = "Test_timeline"
 				elif ending == DENIAL_ENDING:
-					self._current_timelines[GameState.SHIPGIRL] = "tl_06hub_shipgirl6_coffee_denial"
-					self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
-					self._current_timelines[GameState.NAVIGATOR2] = "tl_06hub_navigator6_coffee_denial"
-					self._current_timelines[GameState.CAPTAIN] = "tl_06hub_captain6_coffee_denial"
+					if added_corruption == 0:
+						self._current_timelines[GameState.SHIPGIRL] = "tl_06hub_shipgirl6_coffee_denial"
+						self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
+						self._current_timelines[GameState.NAVIGATOR2] = "tl_06hub_navigator6_coffee_denial"
+						self._current_timelines[GameState.CAPTAIN] = "tl_06hub_captain6_coffee_denial"
+					elif added_corruption > 0:
+						self._current_timelines[GameState.SHIPGIRL] = "tl_06hub_shipgirl6_coffee_denial_influenced4"
+						self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
+						self._current_timelines[GameState.NAVIGATOR2] = "tl_06hub_navigator6_coffee_denial_influenced4"
+						self._current_timelines[GameState.CAPTAIN] = "tl_06hub_captain6_coffee_denial_influenced4"
+				elif ending == FIRED_ENDING:
+					if added_corruption == 0:
+						self._current_timelines[GameState.SHIPGIRL] = "tl_06hub_shipgirl6_coffee_fired"
+						self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
+						self._current_timelines[GameState.NAVIGATOR2] = "tl_06hub_navigator6_coffee_fired"
+						self._current_timelines[GameState.CAPTAIN] = "tl_06hub_captain6_coffee_fired"
+					elif added_corruption > 0:
+						self._current_timelines[GameState.SHIPGIRL] = "tl_06hub_shipgirl6_coffee_fired_influenced4"
+						self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
+						self._current_timelines[GameState.NAVIGATOR2] = "tl_06hub_navigator6_coffee_fired_influenced4"
+						self._current_timelines[GameState.CAPTAIN] = "tl_06hub_captain6_coffee_fired_influenced4"
+				elif ending == TRY_NEXT_MONTH_ENDING:
+					if added_corruption == 0:
+						self._current_timelines[GameState.SHIPGIRL] = "Test_timeline"
+						self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
+						self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
+						self._current_timelines[GameState.CAPTAIN] = "Test_timeline"
+					elif added_corruption > 0:
+						self._current_timelines[GameState.SHIPGIRL] = "tl_06hub_shipgirl6_coffee_employee_influenced4"
+						self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
+						self._current_timelines[GameState.NAVIGATOR2] = "tl_06hub_navigator6_coffee_employee_influenced4"
+						self._current_timelines[GameState.CAPTAIN] = "tl_06hub_captain6_coffee_employee_influenced4"
 				else:
 					self._current_timelines[GameState.SHIPGIRL] = "Test_timeline"
 					self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
@@ -471,45 +526,45 @@ func _update_current_timelines():
 		_: 
 			push_error("unexpected behavior, not a recognized mission name")
 
-func _update_characters_availability():
+func update_characters_availability():
 	# check availability at coffee machine
 	match self.get_current_mission_idx():
 		0: #MISSION 1
 			self._characters_available = {
-				SHIPGIRL:true,
-				NAVIGATOR1:true,
+				SHIPGIRL:self.nb_interaction_this_hub[SHIPGIRL]==0,
+				NAVIGATOR1:self.nb_interaction_this_hub[NAVIGATOR1]==0,
 				NAVIGATOR2:false,
-				CAPTAIN:true}
+				CAPTAIN:self.nb_interaction_this_hub[CAPTAIN]==0}
 		1: #MISSION 2
 			self._characters_available = {
-				SHIPGIRL:true,
-				NAVIGATOR1:true,
+				SHIPGIRL:self.nb_interaction_this_hub[SHIPGIRL]==0,
+				NAVIGATOR1:self.nb_interaction_this_hub[NAVIGATOR1]==0,
 				NAVIGATOR2:false,
-				CAPTAIN:true}
+				CAPTAIN:self.nb_interaction_this_hub[CAPTAIN]==0}
 		2: #MISSION 3
 			self._characters_available = {
-				SHIPGIRL:true,
-				NAVIGATOR1:true,
+				SHIPGIRL:self.nb_interaction_this_hub[SHIPGIRL]==0,
+				NAVIGATOR1:self.nb_interaction_this_hub[NAVIGATOR1]==0,
 				NAVIGATOR2:false,
-				CAPTAIN:true}
+				CAPTAIN:self.nb_interaction_this_hub[CAPTAIN]==0}
 		3: #MISSION 4
 			self._characters_available = {
-				SHIPGIRL:true,
-				NAVIGATOR1:true,
+				SHIPGIRL:self.nb_interaction_this_hub[SHIPGIRL]==0,
+				NAVIGATOR1:self.nb_interaction_this_hub[NAVIGATOR1]==0,
 				NAVIGATOR2:false,
-				CAPTAIN:true}
+				CAPTAIN:self.nb_interaction_this_hub[CAPTAIN]==0}
 		4: #MISSION 5
 			self._characters_available = {
-				SHIPGIRL:true,
+				SHIPGIRL:self.nb_interaction_this_hub[SHIPGIRL]==0,
 				NAVIGATOR1:false,
-				NAVIGATOR2:true,
-				CAPTAIN:true}
+				NAVIGATOR2:self.nb_interaction_this_hub[NAVIGATOR2]==0,
+				CAPTAIN:self.nb_interaction_this_hub[CAPTAIN]==0}
 		HUB_ENDING:
 			self._characters_available = {
-				SHIPGIRL:true,
+				SHIPGIRL:self.nb_interaction_this_hub[SHIPGIRL]==0,
 				NAVIGATOR1:false,
-				NAVIGATOR2:true,
-				CAPTAIN:true}
+				NAVIGATOR2:self.nb_interaction_this_hub[NAVIGATOR2]==0,
+				CAPTAIN:self.nb_interaction_this_hub[CAPTAIN]==0}
 		_: 
 			push_error("unexpected behavior, not a recognized mission name")
 

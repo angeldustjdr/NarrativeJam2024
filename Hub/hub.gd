@@ -39,6 +39,7 @@ func clickObject(which):
 			%EmployeeMonth.visible = true
 			setClickableProcess(PROCESS_MODE_DISABLED)
 		"Coffee":
+			GameState.update_characters_availability()
 			Dialogic.timeline_ended.connect(self._on_coffe_machine_started)
 			GameState.start_time_line("tl_take_coffee")
 			#%TalkToMenu.visible = false
