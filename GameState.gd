@@ -530,6 +530,11 @@ func _play_dialog_return_to_hub():
 func get_main_title_state():
 	return self._title_screen_state
 
+func print_time_elapsed(time):
+	var mission = self.get_current_mission()
+	print(mission + " COMPLETED IN " +str(time))
+	print(self.mission_corrupted)
+
 # Ether timer relatives
 func _init_ether_timer():
 	self._ether_timer = Timer.new()
@@ -557,6 +562,7 @@ func update_ether_timer():
 		if GameState._debug:
 			var mission = self.get_current_mission()
 			if self.mission_states[mission]["in_time"]:  # donc si elle est pas fail, ça veut dire qu'on sort du HUB et donc qu'on commence une nouvelle mission
+				self.stop_ether_timer()
 				self._ether_timer.wait_time = GameState.mission_timer[GameState.get_current_mission()]
 				self.start_ether_timer()
 		else:
@@ -667,6 +673,8 @@ func check_intemperie():
 		MusicManager.set_intemperie(NONE)
 		return NONE
 
+# DEBUG
+
 func validate_current_mission_debug(in_time):
 	if self._debug:
 		var i_mission = self.get_current_mission_idx()
@@ -678,6 +686,7 @@ func validate_current_mission_debug(in_time):
 		self.mission_states[mission_str]["in_time"] = in_time
 		self.ilot_states[ilot_str]["revealed"] = true
 		if i_mission != self.get_nb_mission()-1: # not last mission
+			self.print_time_elapsed(self._ether_chrono.stop_and_get_current_time())
 			self.start_current_mission()
 		self.check_intemperie()
 	return self._debug
