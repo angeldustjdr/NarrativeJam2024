@@ -15,6 +15,7 @@ var _ilot_corrupted : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	MusicManager.set_bus("music")
 	Achievements.connect("unlock",showUnlock)
 	GameState.pause_ether_timer()
 	$visual_novel_scene/get_out_button.pressed.connect(self._on_button_pressed)

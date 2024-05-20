@@ -21,10 +21,10 @@ Radio="*res://Radio.gd"
 MusicManager="*res://audio_manager/MusicManager.gd"
 SoundManager="*res://audio_manager/SoundManager.gd"
 GameState="*res://GameState.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Achievements="*res://Achievements.gd"
 SceneTransitionLayer="*res://scene_transition_layer.tscn"
 PauseMenu="*res://pause_menu.tscn"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
