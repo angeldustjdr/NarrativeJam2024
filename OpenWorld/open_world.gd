@@ -19,8 +19,10 @@ var ilot_scenes_path = ["res://visual_novel/ilot_1.tscn",
 @export var _music_name : String
 
 func _ready():
+	if not GameState.coming_from == GameState.NO_WHERE:
+		GameState.update_ether_timer()
+		GameState.pause_ether_timer()
 	self._set_intemperie()
-	MusicManager.playMusicNamed(self._music_name,SceneTransitionLayer.get_duration("fade_in"))
 	# Updating objective scene ##########################
 	self.setObjective()
 	self._init_objectives()
@@ -40,7 +42,7 @@ func _ready():
 	$player.player_connect()
 	
 	%MissionLabel.text = GameState.get_current_mission()
-	GameState.update_ether_timer()
+	MusicManager.playMusicNamed(self._music_name,SceneTransitionLayer.get_duration("fade_in"))
 	SceneTransitionLayer.reveal_scene()
 	await(SceneTransitionLayer.fade_in_finished)
 	var brief = GameState.start_briefing_dialog()
@@ -52,6 +54,8 @@ func _ready():
 	else :
 		if GameState.need_scolding():
 			showIntermediateDialog(GameState.get_scolding_dialog())
+			await(Dialogic.timeline_ended)
+		GameState.unpause_ether_timer()
 
 func _check_map():
 	# check pour les zones d'acceleration et la révélation de la map
@@ -115,6 +119,7 @@ func _set_intemperie():
 	$intemperie_texture.set_intemperie(intemperie_level)
 
 func _scene_change(scene_name):
+	GameState.pause_ether_timer()
 	MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
 	SceneTransitionLayer.transition_to_file_scene(scene_name)
 

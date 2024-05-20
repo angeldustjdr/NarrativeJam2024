@@ -110,7 +110,7 @@ func _on_load_mouse_entered():
 func _on_load_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			GameState.load_game("res://test_save.save")
+			GameState.load_game(GameState._save_dir+"slot_1.save")
 
 func _on_load_mouse_exited():
 	resetFocus()
