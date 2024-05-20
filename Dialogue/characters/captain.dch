@@ -10,7 +10,7 @@
 },
 "default_portrait": "character-hub-captain-v1",
 "description": "",
-"display_name": "captain",
+"display_name": "{captain_name}",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),

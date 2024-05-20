@@ -10,7 +10,7 @@
 },
 "default_portrait": "character-hub-shipgirl-v1",
 "description": "",
-"display_name": "shipgirl",
+"display_name": "{shipgirl_name}",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),

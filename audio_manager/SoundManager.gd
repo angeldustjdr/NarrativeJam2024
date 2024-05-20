@@ -19,7 +19,9 @@ var sound_paths = {	"white_noise":"res://assets/sounds/white-noise-8117_cut.wav"
 					"achievement":"res://assets/sounds/sfx/complete/Complete_02 BLEOOP.wav",
 					"confirm":"res://assets/sounds/sfx/switch/switch10 kenney_ui.ogg",
 					"glitch":"res://assets/sounds/sfx/glitch/Static Glitch Short Shpaeforms.wav",
-					"hoover":"res://assets/sounds/sfx/bleep bip click/Menu - hover Zorg & Shlak.wav"}
+					"hoover":"res://assets/sounds/sfx/bleep bip click/Menu - hover Zorg & Shlak.wav",
+					"lock":"res://assets/sounds/sfx/cassette button/CASSETTE_BUTTON_05 Shapeform.wav",
+					"unlock":"res://assets/sounds/sfx/cassette button/CASSETTE_BUTTON_12 Shapeform.wav"}
 
 var sound_loops = {"white_noise":true,
 				   "crowd":true,
@@ -31,7 +33,9 @@ var sound_loops = {"white_noise":true,
 					"achievement":false,
 					"confirm":false,
 					"glitch":false,
-					"hoover":false}
+					"hoover":false,
+					"lock":false,
+					"unlock":false}
 
 var base_volumes = {"white_noise":-20.0,
 					"crowd":0.0,
@@ -43,7 +47,9 @@ var base_volumes = {"white_noise":-20.0,
 					"achievement":5.0,
 					"confirm":-5.0,
 					"glitch":0.0,
-					"hoover":0.0}
+					"hoover":0.0,
+					"lock":-5.0,
+					"unlock":-5.0}
 
 var base_pitches = {"white_noise":1.0,
 					"crowd":1.0,
@@ -55,7 +61,9 @@ var base_pitches = {"white_noise":1.0,
 					"achievement":1.0,
 					"confirm":1.0,
 					"glitch":1.0,
-					"hoover":0.9}
+					"hoover":0.9,
+					"lock":1.1,
+					"unlock":1.1}
 
 func _ready():
 	# Create the pool of AudioStreamPlayer nodes.

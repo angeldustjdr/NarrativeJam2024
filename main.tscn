@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c4p7pnunvoa65"]
+[gd_scene load_steps=29 format=3 uid="uid://c4p7pnunvoa65"]
 
 [ext_resource type="Shader" path="res://assets/shaders/oscillo.gdshader" id="1_2w7sc"]
 [ext_resource type="Shader" path="res://wave2.gdshader" id="1_823va"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://ctlaf1f8yuov0" path="res://assets/graphics/main/title2.png" id="4_huycu"]
 [ext_resource type="Texture2D" uid="uid://7eewfskn537v" path="res://assets/graphics/items/logos/logo-vect-v3-roue-seule.png" id="4_vqd7o"]
 [ext_resource type="Texture2D" uid="uid://brkpf46s2ushv" path="res://assets/graphics/main/title1.png" id="5_2a1tm"]
-[ext_resource type="Texture2D" uid="uid://8i4mbkuxw576" path="res://assets/graphics/items/logos/logo-vect-v2-cerveau-seul-cadenas-ouvert.png" id="5_s216o"]
+[ext_resource type="Texture2D" uid="uid://ldnl8twoggyf" path="res://assets/graphics/items/logos/logo-vect-v3-cerveau-seul-cadenas-ouvert.png" id="5_mo56p"]
+[ext_resource type="Texture2D" uid="uid://bq65ghfpummmi" path="res://assets/graphics/items/logos/logo-vect-v3-cerveau-seul-cadenas-ferme.png" id="6_6snk4"]
+[ext_resource type="Script" path="res://corpo_brain.gd" id="6_cqm64"]
 [ext_resource type="Texture2D" uid="uid://b4vrhrqgydghx" path="res://assets/graphics/items/logos/logo-vect-v3-pirate.png" id="6_sbdvr"]
 [ext_resource type="PackedScene" uid="uid://0pyto5ajiupe" path="res://Hub/achivements_panel.tscn" id="9_jcxr7"]
 
@@ -79,6 +81,70 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jsk26"]
 _data = {
 "rotate": SubResource("Animation_5syeu")
+}
+
+[sub_resource type="Animation" id="Animation_u4133"]
+resource_name = "lock"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_mo56p"), ExtResource("6_6snk4"), ExtResource("6_6snk4")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_oqiw3"]
+resource_name = "unlock"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [ExtResource("6_6snk4"), ExtResource("5_mo56p"), ExtResource("5_mo56p")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l8nya"]
+_data = {
+"lock": SubResource("Animation_u4133"),
+"unlock": SubResource("Animation_oqiw3")
 }
 
 [sub_resource type="Animation" id="Animation_jyn1h"]
@@ -264,6 +330,7 @@ offset_right = 511.5
 offset_bottom = 510.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("4_vqd7o")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="logo/barre"]
@@ -285,7 +352,21 @@ offset_right = 511.5
 offset_bottom = 510.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_s216o")
+pivot_offset = Vector2(511, 510)
+mouse_filter = 2
+texture = ExtResource("5_mo56p")
+script = ExtResource("6_cqm64")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="logo/corpo_brain"]
+offset_left = 376.0
+offset_top = 427.0
+offset_right = 609.0
+offset_bottom = 627.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="logo/corpo_brain"]
+libraries = {
+"": SubResource("AnimationLibrary_l8nya")
+}
 
 [node name="pirate" type="TextureRect" parent="logo"]
 unique_name_in_owner = true
@@ -302,6 +383,7 @@ offset_right = 511.5
 offset_bottom = 510.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("6_sbdvr")
 
 [node name="Ethersea_text_pirate" type="TextureRect" parent="."]
@@ -311,6 +393,7 @@ offset_left = 238.0
 offset_top = 93.0
 offset_right = 1680.0
 offset_bottom = 312.0
+mouse_filter = 2
 texture = ExtResource("4_huycu")
 
 [node name="Ethersea_text_corpo" type="TextureRect" parent="."]
@@ -324,6 +407,7 @@ offset_top = 93.0
 offset_right = 722.5
 offset_bottom = 283.0
 grow_horizontal = 2
+mouse_filter = 2
 texture = ExtResource("5_2a1tm")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
