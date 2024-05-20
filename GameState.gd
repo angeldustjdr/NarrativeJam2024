@@ -47,6 +47,8 @@ signal save_finished
 
 var _title_screen_state : int = CORPORATE
 
+var _save_dir = "res://saves/"
+
 ########### ENDINGS
 
 @onready var revolutionStep = 0
@@ -117,6 +119,12 @@ func print_data():
 	print(self.player_position)
 	print(self.PV)
 
+func save_game_and_create_save_dir(slot_file_name):
+	var dir = DirAccess.open("res://")
+	if not dir.dir_exists(self._save_dir):
+		dir.make_dir(self._save_dir)
+	self.save_game(self._save_dir + slot_file_name)
+
 func save_game(file_name):
 	#print("SAVED DATA:")
 	#self.print_data()
@@ -152,12 +160,13 @@ func load_game(file_name):
 	var stopped_timer = savefile.get_var()
 	var wait_time_timer = savefile.get_var()
 	var time_left_timer = savefile.get_var()
+	print(time_left_timer)
 	var timer_paused = savefile.get_var()
 	self._init_ether_timer()
 	if not stopped_timer:
-		self._ether_timer.wait_time = wait_time_timer
-		self._ether_timer.start(wait_time_timer - time_left_timer)
-		self._ether_timer.paused = timer_paused
+		self._ether_timer.wait_time = time_left_timer
+		self._ether_timer.start()
+		self._ether_timer.paused = true
 	##################################
 	self.player_position = savefile.get_var()
 	self.PV = savefile.get_var()
@@ -599,7 +608,7 @@ func pause_ether_timer():
 		if self._ether_timer.paused == false:
 			self._ether_timer.paused = true
 			self._ether_chrono.pause()
-	
+
 func unpause_ether_timer():
 	if self._ether_timer.paused == true:
 		self._ether_timer.paused = false

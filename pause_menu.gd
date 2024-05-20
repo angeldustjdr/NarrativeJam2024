@@ -13,13 +13,13 @@ func _ready():
 	%desktop_button.pressed.connect(self._on_desktop_button_pressed)
 
 func _on_save_button_pressed():
-	GameState.save_game("res://saves/slot_1.save")
+	GameState.save_game_and_create_save_dir("slot_1.save")
 	$AnimationPlayer.play("game_saved")
 	
 func _on_load_button_pressed():
 	self.visible = false
 	get_tree().paused = false
-	GameState.load_game("res://saves/slot_1.save")
+	GameState.load_game(GameState._save_dir + "slot_1.save")
 
 func _on_title_button_pressed():
 	self.visible = false
