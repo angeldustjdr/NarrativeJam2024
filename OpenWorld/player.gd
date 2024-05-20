@@ -11,7 +11,7 @@ var revolutionObjective = null
 var interactable = null
 
 var invulnerable = false
-var movable = true
+@onready var movable = false
 
 @onready var _rocket_volume = 0.0
 @onready var _rocket_volume_incr = 0.01
@@ -60,33 +60,33 @@ func _physics_process(delta):
 			self._rocket_volume = min(1.0,self._rocket_volume + self._rocket_volume_incr)
 		else:
 			self._rocket_volume = max(0.0,self._rocket_volume - self._rocket_volume_incr)
-	
-	#if %Anchor.button_pressed and (Input.is_action_pressed('ui_right') or Input.is_action_pressed('ui_left') or Input.is_action_pressed('ui_down') or Input.is_action_pressed('ui_up')):
-	#	Radio.emit_signal("showAlertMessage","Can't move, Anchor down !")
-	
-	if direction.length() > 0:
-		velocity = velocity.lerp(direction.normalized() * speed, acceleration)
-	else:
-		velocity = velocity.lerp(Vector2.ZERO, friction)
 		
-	var norm = (velocity.x**2 + velocity.y**2)**0.5
-	if norm/speed > 0.01 : rotation += rotation_diretion*rotation_speed*delta
+		#if %Anchor.button_pressed and (Input.is_action_pressed('ui_right') or Input.is_action_pressed('ui_left') or Input.is_action_pressed('ui_down') or Input.is_action_pressed('ui_up')):
+		#	Radio.emit_signal("showAlertMessage","Can't move, Anchor down !")
 		
-	var temp_velocity = velocity*0.75
-	var collision_before = self.get_slide_collision_count()
-	move_and_slide()
-	var collision_after = self.get_slide_collision_count()
-	if collision_after > 0  and collision_after - collision_before > 0:
-		SoundManager.playSoundNamed("bounce")
+		if direction.length() > 0:
+			velocity = velocity.lerp(direction.normalized() * speed, acceleration)
+		else:
+			velocity = velocity.lerp(Vector2.ZERO, friction)
+			
+		var norm = (velocity.x**2 + velocity.y**2)**0.5
+		if norm/speed > 0.01 : rotation += rotation_diretion*rotation_speed*delta
+			
+		var temp_velocity = velocity*0.75
+		var collision_before = self.get_slide_collision_count()
+		move_and_slide()
+		var collision_after = self.get_slide_collision_count()
+		if collision_after > 0  and collision_after - collision_before > 0:
+			SoundManager.playSoundNamed("bounce")
 	
-	# Bouncy bounce
-	if get_slide_collision_count() > 0:
-		var collision = get_slide_collision(0)
-		if collision != null:
-			velocity = temp_velocity.bounce(collision.get_normal())
-			if invulnerable == false :
-				invulnerable = true
-				$InvulnerableTimer.start(1.0)
+		# Bouncy bounce
+		if get_slide_collision_count() > 0:
+			var collision = get_slide_collision(0)
+			if collision != null:
+				velocity = temp_velocity.bounce(collision.get_normal())
+				if invulnerable == false :
+					invulnerable = true
+					$InvulnerableTimer.start(1.0)
 			
 	# reticule objectif
 	if objective != null :

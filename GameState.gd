@@ -43,6 +43,9 @@ signal save_finished
 							   "mission_3": 0,
 							   "mission_4": 0,
 							   "mission_5": 0}
+
+@onready var current_corruption_level : int = self._get_sum_missions_corrupted()
+
 @onready var player_position = Vector2(838,4603) # initial coordinates of player
 
 var _title_screen_state : int = CORPORATE
@@ -110,6 +113,7 @@ func print_data():
 	print(self.mission_states)
 	print(self.ilot_states)
 	print(self.mission_corrupted)
+	print(self.current_corruption_level)
 	print(self.revolutionStep)
 	print(self.denialStep)
 	print(self._ether_timer.is_stopped())
@@ -132,6 +136,7 @@ func save_game(file_name):
 	savefile.store_var(self.mission_states)
 	savefile.store_var(self.ilot_states)
 	savefile.store_var(self.mission_corrupted)
+	savefile.store_var(self.current_corruption_level)
 	savefile.store_var(self.revolutionStep)
 	savefile.store_var(self.denialStep)
 	#ether_timer######################
@@ -154,13 +159,13 @@ func load_game(file_name):
 	self.mission_states = savefile.get_var()
 	self.ilot_states = savefile.get_var()
 	self.mission_corrupted = savefile.get_var()
+	self.current_corruption_level = savefile.get_var()
 	self.revolutionStep = savefile.get_var()
 	self.denialStep = savefile.get_var()
 	#ether_timer######################
 	var stopped_timer = savefile.get_var()
 	var wait_time_timer = savefile.get_var()
 	var time_left_timer = savefile.get_var()
-	print(time_left_timer)
 	var timer_paused = savefile.get_var()
 	self._init_ether_timer()
 	if not stopped_timer:
@@ -186,7 +191,9 @@ func _ready():
 
 # Related to endings
 func is_bernard_calling():
-	if self.get_current_mission_idx() == 4: # MISSION 5
+	var mission_idx = self.get_current_mission_idx() 
+	var ilot_name = self.ilot_states.keys()[mission_idx]
+	if mission_idx == 4 and self.ilot_states[ilot_name]["revealed"]: # MISSION 5
 		if self._get_sum_missions_corrupted() > 0: # si on est retourne au moins si un ilot corrompu
 			return true
 		else:
@@ -246,7 +253,7 @@ func launch_ending(i_ending):
 			self._title_screen_state = PIRATE
 			Achievements.genericCheck("Rage against the machine")
 			print("ENDING : PIRATE")
-			next_scene = "res://main.tscn"
+			next_scene = "res://credits.tscn"
 		DENIAL_ENDING:
 			Achievements.genericCheck("Cosmic denial")
 			next_scene = "res://Hub/motivational_speech.tscn"
@@ -259,7 +266,7 @@ func launch_ending(i_ending):
 		FIRED_ENDING:
 			Achievements.genericCheck("You're fired!")
 			print("ENDING : YOU'RE FIRED")
-			next_scene = "res://main.tscn"
+			next_scene = "res://credits.tscn"
 		_:
 			push_error("ENDING : unexpected...")
 	MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
@@ -289,7 +296,7 @@ func get_nb_mission():
 	return len(self.mission_states.keys())
 
 func is_destruction_launched():
-	return (self.revolutionStep > 1 and self.denialStep == 0) # Si destruction des balises
+	return (self.revolutionStep > 2 and self.denialStep == 0) # Si destruction des balises
 
 func setMission_corrupted(which):
 	mission_corrupted[which] += 1
@@ -319,12 +326,13 @@ func get_scolding_dialog():
 			return "tl_05mission5_scold"
 		_:
 			push_error("unexpected behavior")
-			
 
 # Related to dialogs
-func start_time_line(timeline_name):
+func start_time_line(timeline_name,wait=false):
 	if Dialogic.current_timeline == null:
 		Dialogic.start(timeline_name).layer = 50
+		if wait: # morche po :'(
+			await(Dialogic.timeline_ended)
 
 func update_dialogs():
 	self._update_characters_availability()
@@ -393,19 +401,22 @@ func start_ilot_dialog_navigator(numero_ilot):
 
 func _update_current_timelines():
 	#HERE WE FUCKING GO
+	var added_corruption = self._get_sum_missions_corrupted() - self.current_corruption_level
 	match self.get_current_mission_idx():
 		0: #MISSION 1
 			self._current_timelines[GameState.SHIPGIRL] = "tl_hub01_shipgirl"
 			self._current_timelines[GameState.NAVIGATOR1] = "tl_hub01_navigator1"
 			self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
 			self._current_timelines[GameState.CAPTAIN] = "tl_hub01_captain"
+			self.current_corruption_level = self._get_sum_missions_corrupted()
 		1: #MISSION 2
 			self._current_timelines[GameState.SHIPGIRL] = "tl_02hub_shipgirl_coffee"
 			self._current_timelines[GameState.NAVIGATOR1] = "tl_02hub_navigator1_coffee"
 			self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
 			self._current_timelines[GameState.CAPTAIN] = "tl_02hub_captain_coffee"
+			self.current_corruption_level = self._get_sum_missions_corrupted()
 		2: #MISSION 3
-			if mission_corrupted["mission_1"] > 0:
+			if added_corruption > 0:
 				self._current_timelines[GameState.SHIPGIRL] = "influenced1/tl_03hub_shipgirl3_coffee_influenced1"
 				self._current_timelines[GameState.NAVIGATOR1] = "influenced1/tl_03hub_navigator3_coffee_influenced"
 				self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
@@ -415,8 +426,9 @@ func _update_current_timelines():
 				self._current_timelines[GameState.NAVIGATOR1] = "tl_03hub_navigator1_coffee"
 				self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
 				self._current_timelines[GameState.CAPTAIN] = "tl_03hub_captain3_coffee"
+			self.current_corruption_level = self._get_sum_missions_corrupted()
 		3: #MISSION 4
-			if mission_corrupted["mission_2"] > 0:
+			if added_corruption > 0:
 				self._current_timelines[GameState.SHIPGIRL] = "influenced2/tl_04hub_shipgirl4_coffee_influenced2"
 				self._current_timelines[GameState.NAVIGATOR1] = "influenced2/tl_04hub_navigator4_coffee_influenced2"
 				self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
@@ -426,8 +438,9 @@ func _update_current_timelines():
 				self._current_timelines[GameState.NAVIGATOR1] = "tl_04hub_navigator4_coffee"
 				self._current_timelines[GameState.NAVIGATOR2] = "Test_timeline"
 				self._current_timelines[GameState.CAPTAIN] = "tl_04hub_captain4_coffee"
+			self.current_corruption_level = self._get_sum_missions_corrupted()
 		4: #MISSION 5
-			if mission_corrupted["mission_3"] > 0:
+			if added_corruption > 0:
 				self._current_timelines[GameState.SHIPGIRL] = "tl_05hub_shipgirl5_coffee_influenced3"
 				self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
 				self._current_timelines[GameState.NAVIGATOR2] = "tl_05hub_navigator5_coffee_influenced3"
@@ -437,6 +450,7 @@ func _update_current_timelines():
 				self._current_timelines[GameState.NAVIGATOR1] = "Test_timeline"
 				self._current_timelines[GameState.NAVIGATOR2] = "tl_05hub_navigator5_coffee"
 				self._current_timelines[GameState.CAPTAIN] = "tl_05hub_captain5_coffee"
+			self.current_corruption_level = self._get_sum_missions_corrupted()
 		HUB_ENDING:
 				var ending = self.check_corpo_ending() # en fonction des endings
 				if ending == EMPLOYEE_OF_THE_MONTH_ENDING:
@@ -540,9 +554,10 @@ func get_main_title_state():
 	return self._title_screen_state
 
 func print_time_elapsed(time):
-	var mission = self.get_current_mission()
-	print(mission + " COMPLETED IN " +str(time))
-	print(self.mission_corrupted)
+	if self._debug:
+		var mission = self.get_current_mission()
+		print(mission + " COMPLETED IN " +str(time))
+		print(self.mission_corrupted)
 
 # Ether timer relatives
 func _init_ether_timer():
