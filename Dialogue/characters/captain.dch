@@ -8,16 +8,43 @@
 "sound_moods": {},
 "style": ""
 },
-"default_portrait": "character-hub-captain-v1",
+"default_portrait": "Captain-smile-close",
 "description": "",
 "display_name": "{captain_name}",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),
 "portraits": {
-"character-hub-captain-v1": {
+"Captain-smile-close": {
 "export_overrides": {
-"image": "\"res://assets/graphics/characters/character-hub-captain-v1.png\""
+"image": "\"res://assets/graphics/characters/Captain/Captain-smile-close.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Captain-smile-open": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/Captain/Captain-smile-open.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Captain-upset-closed": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/Captain/Captain-upset-closed.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Captain-upset-open": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/Captain/Captain-upset-open.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

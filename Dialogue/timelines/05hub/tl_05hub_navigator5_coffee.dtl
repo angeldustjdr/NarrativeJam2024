@@ -1,6 +1,6 @@
 join "navigator 2" 1
-"navigator 2": Who Am I ? please don't assault me with question. I just want to relax after a day of work, okay ?
-"navigator 2": I don't know about your previous navigator. I'm just doing my job here.
-"navigator 2": You should be focus on your work, not your co-workers.\
-If you are so obcessed by that, go submit a form in order to take an appointment with managment.
+"navigator 2" (navigator2-upset-open): Who Am I ? please don't assault me with question. I just want to relax after a day of work, okay ?
+"navigator 2" (navigator2-upset-close): I don't know about your previous navigator. I'm just doing my job here.
+"navigator 2" (navigator2-upset-open): You should be focus on your work, not your co-workers
+"navigator 2" (navigator2-upset-close): If you are so obcessed by that, go submit a form in order to take an appointment with managment.
 [end_timeline]

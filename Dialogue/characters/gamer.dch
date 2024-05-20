@@ -8,14 +8,14 @@
 "sound_moods": {},
 "style": ""
 },
-"default_portrait": "idle_portrait",
+"default_portrait": "character-ilot4-gamer-v1",
 "description": "",
 "display_name": "gamer",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),
 "portraits": {
-"idle_portrait": {
+"character-ilot4-gamer-v1": {
 "export_overrides": {
 "image": "\"res://assets/graphics/characters/character-ilot4-gamer-v1.png\""
 },

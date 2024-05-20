@@ -1,5 +1,5 @@
 join captain 1
 captain: So, how was the mission ?
-captain: Did you see the things ?
-captain: Just ignore it, it will only make you loose time.
+captain (Captain-upset-closed): Did you see the things ?
+captain (Captain-upset-open): Just ignore it, it will only make you loose time.
 [end_timeline]

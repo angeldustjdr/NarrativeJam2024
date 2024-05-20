@@ -8,16 +8,43 @@
 "sound_moods": {},
 "style": ""
 },
-"default_portrait": "character-hub-navigator2-v1",
+"default_portrait": "navigator2-upset-close",
 "description": "",
 "display_name": "{navigator2_name}",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),
 "portraits": {
-"character-hub-navigator2-v1": {
+"navigator2-smile-close": {
 "export_overrides": {
-"image": "\"res://assets/graphics/characters/character-hub-navigator2-v1.png\""
+"image": "\"res://assets/graphics/characters/Navigator2/navigator2-smile-close.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"navigator2-smile-open": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/Navigator2/navigator2-smile-open.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"navigator2-upset-close": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/Navigator2/navigator2-upset-close.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"navigator2-upset-open": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/Navigator2/navigator2-upset-open.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

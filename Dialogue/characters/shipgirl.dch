@@ -8,16 +8,43 @@
 "sound_moods": {},
 "style": ""
 },
-"default_portrait": "character-hub-shipgirl-v1",
+"default_portrait": "Shipgirl-smile-open",
 "description": "",
 "display_name": "{shipgirl_name}",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),
 "portraits": {
-"character-hub-shipgirl-v1": {
+"Shipgirl-smile-close": {
 "export_overrides": {
-"image": "\"res://assets/graphics/characters/character-hub-shipgirl-v1.png\""
+"image": "\"res://assets/graphics/characters/Shipgirl/Shipgirl-smile-close.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Shipgirl-smile-open": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/Shipgirl/Shipgirl-smile-open.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Shipgirl-upset-close": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/Shipgirl/Shipgirl-upset-close.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Shipgirl-upset-open": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/Shipgirl/Shipgirl-upset-open.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
