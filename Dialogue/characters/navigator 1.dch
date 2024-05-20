@@ -2,22 +2,229 @@
 "@path": "res://addons/dialogic/Resources/character.gd",
 "@subpath": NodePath(""),
 "_translation_id": "",
-"color": Color(1, 1, 1, 1),
+"color": Color(0.843217, 0.526428, 0.898438, 1),
 "custom_info": {
 "sound_mood_default": "",
 "sound_moods": {},
 "style": ""
 },
-"default_portrait": "character-hub-navigator1-v1",
-"description": "",
+"default_portrait": "Bernard-Hub-smile-close",
+"description": "[color=#d786e5][/color]",
 "display_name": "{navigator1_name}",
 "mirror": false,
-"nicknames": [""],
+"nicknames": ["{navigator1_matricule}"],
 "offset": Vector2(0, 0),
 "portraits": {
+"Bernard-Hub-entier": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/Navigator1/Bernard-Hub-entier.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Bernard-Hub-smile-close": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/Navigator1/Bernard-Hub-smile-close.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Bernard-Hub-smile-open": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/Navigator1/Bernard-Hub-smile-open.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Bernard-Hub-upset-close": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/Navigator1/Bernard-Hub-upset-close.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Bernard-Hub-upset-open": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/Navigator1/Bernard-Hub-upset-open.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Bernard-Pirate-entier": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/Navigator1/Bernard-Pirate-entier.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Bernard-Pirate-smile-close": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/Navigator1/Bernard-Pirate-smile-close.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Bernard-Pirate-smile-open": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/Navigator1/Bernard-Pirate-smile-open.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Bernard-Pirate-upset-close": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/Navigator1/Bernard-Pirate-upset-close.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Bernard-Pirate-upset-open": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/Navigator1/Bernard-Pirate-upset-open.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"character-hub-captain-v1": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/character-hub-captain-v1.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"character-hub-navigator1-entier": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/character-hub-navigator1-entier.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
 "character-hub-navigator1-v1": {
 "export_overrides": {
 "image": "\"res://assets/graphics/characters/character-hub-navigator1-v1.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"character-hub-navigator2-v1": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/character-hub-navigator2-v1.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"character-hub-shipgirl-v1": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/character-hub-shipgirl-v1.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"character-ilot1-miner-v1": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/character-ilot1-miner-v1.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"character-ilot1-miner-v2": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/character-ilot1-miner-v2.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"character-ilot2-JCD-v1": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/character-ilot2-JCD-v1.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"character-ilot2-JCD-v2": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/character-ilot2-JCD-v2.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"character-ilot3-outcast-v1": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/character-ilot3-outcast-v1.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"character-ilot4-gamer-v1": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/character-ilot4-gamer-v1.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"character-ilot4-gamer-v2": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/character-ilot4-gamer-v2.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"character-ilot5-activist-v1": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/character-ilot5-activist-v1.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"character-ilot5-activist-v2": {
+"export_overrides": {
+"image": "\"res://assets/graphics/characters/character-ilot5-activist-v2.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

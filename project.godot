@@ -190,8 +190,11 @@ variables={
 "confirm_exit": "tamere",
 "galerien_name": "Jean-Luc Galérien",
 "galerien_superinfluence": "no",
-"mc_name": "f13B59",
+"mc_matricule": "f13B59",
+"mc_name": "Nickname",
+"navigator1_matricule": "f13B07",
 "navigator1_name": "Bernard",
+"navigator2_matricule": "f13B12",
 "navigator2_name": "Navi",
 "shipgirl_name": "Corentine",
 "talk_to_ilot": "tamere"
