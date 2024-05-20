@@ -1,4 +1,26 @@
 join captain 1
-captain: Greetings, friend. I'm Cave Johnson, CEO of Aperture Science - you might know us as a vital participant in the 1968 Senate Hearings on missing astronauts. Oups, wrong speech sorry.\
-Anyway, you'r dissmissed. Take thoses credit and go grab a coffee, on the house. You'll get to know your colleagues that way.
+captain: Good Morning Recruit, Juniors and Stewards.
+captain: I’m Captain {captain_name}. Some might know me, others will soon enough.\
+Today I want to talk about what my expectations of you are, the employees, the pillar of this great company.\
+Those whom without, none of the missions would ever see completion. Those who do the vital job.
+captain: As you know, you are now part of the dozens crew members under my command. Part of the dozens of {hub_name} under the command of Admiral {admiral_name}. Part of the dozens of fleets under the command of Grand Admiral {grandadmiral_name}.
+captain: Some of you will have to sail into uncharted territory to literally breach through a new dimension, the new frontier that is the {sea_name}. A strange place where you can drift among the collective subconscious. Some will need to support those sailors with guidance, equipment and maintenance. Some will need to support, well everyone, with assistance and accommodation. But all of you will work hand in hand to a brighter future.
+- Stay Focused
+	captain: As part of this great family, it is now your duty to respect each other by following the policies implemented by your superiors. To respect each other’s social privacy by only communicating work-related information between yourselves. And most importantly, to respect the chain of command and the hierarchy.
+	captain: I’m sure you heard before that anyone can change the world. But here in our beautiful {hub_name}, right now I know that what we are doing will have an impact, for our company and for our lives. I’ve been a partner of {armada_name} for quite some time, and I’ve even been a sailor for a longer time, so bear my rambling for a bit.
+- Fall asleep
+	maincharacter: ZzZzZz ...
+	captain: ...
+	jump last
+captain: ... *Clear throat* ...
+- Stay focused
+	captain: The lessons you will learn here will be relevant, regardless of your background social, religious or ethnic. Your challenges will be shared, your obstacles will be equivalent and the way you apply what you’ve learned will impact everyone equally. Because you are all in this together.
+	captain: During my training, when I was nothing but an aspiring sailor, my tutor would inspect my shoes every day in the morning. If right, the bootlace would make two perfectly symmetrical loops then zigzag through the shoe, tightly securing the ankle. A simple task asked to be done to perfection. At first it seemed to be stupid, but the insight and diligence gained by performing this mundane task have made me the man I am today. By tying your shoe every morning, you achieve the first and most important task of the day. 
+	captain: It gives you a sense of pride and encouragement that guide you toward making another task, and one more after that. And one more ... By the time the sun is setting, you will have achieved greatness. If you can’t make the small task, you will never be able to manage the more important task. So do not be ashamed by being assigned mundane, stupid task ! Because you are moving toward greatness.
+- Fall asleep
+	maincharacter: ZzZzZz ...
+	captain: ...
+label last
+captain: In shorts, please tie your shoes. \
+That will be all, thank you. You are dismissed.
 [end_timeline]

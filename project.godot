@@ -184,15 +184,19 @@ layout/style_list=["res://dialogic_theme.tres"]
 layout/default_style="res://dialogic_theme.tres"
 variables={
 "Var": "coucou",
+"admiral_name": "Akbard",
 "armada_name": "armada",
 "captain_name": "Cap'",
 "character_choice": 0,
 "confirm_exit": "tamere",
 "galerien_name": "Jean-Luc Galérien",
 "galerien_superinfluence": "no",
+"grandadmiral_name": "Thraun",
+"hub_name": "hub",
 "mc_name": "f13B59",
 "navigator1_name": "Bernard",
 "navigator2_name": "Navi",
+"sea_name": "Cognisea",
 "shipgirl_name": "Corentine",
 "talk_to_ilot": "tamere"
 }
