@@ -12,7 +12,8 @@ func _ready():
 		Achievements.genericCheck("Safe return")
 	if GameState.nbRetourHub > 0 : 
 		Achievements.genericCheck("Better late than sorry")
-	GameState.stop_ether_timer()
+	var time_elapsed = GameState.stop_ether_timer()
+	self.print_time_elapsed(time_elapsed)
 	MusicManager.playMusicNamed(self.name,SceneTransitionLayer.get_duration("fade_in"))
 	GameState.check_mission_status()
 	GameState.update_dialogs()
@@ -20,6 +21,11 @@ func _ready():
 	%TalkToMenu.coffee_credit_update.connect(self._on_coffee_credit_update)
 	GameState.save_game("res://dev_save.save")
 	SceneTransitionLayer.reveal_scene()
+
+func print_time_elapsed(time):
+	var mission = GameState.get_current_mission()
+	print(mission + " COMPLETED IN " +str(time))
+	print(GameState.mission_corrupted)
 
 func clickObject(which):
 	match which:

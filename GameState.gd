@@ -6,9 +6,9 @@ var _debug = true
 
 enum {NONE, WEAK, STRONG} # level of intemperie
 
-enum {CORPORATE, PIRATE}
+enum {CORPORATE, PIRATE} # TITLE
 
-enum {CAPTAIN, SHIPGIRL, NAVIGATOR1, NAVIGATOR2}
+enum {CAPTAIN, SHIPGIRL, NAVIGATOR1, NAVIGATOR2} # Character
 
 enum {NO_ONE=-9999}
 
@@ -58,6 +58,7 @@ signal denialAdvanced
 ########### ETHER TIMER
 var _ether_timer : Timer
 var ether_timer_decrement : int = 15
+var _ether_chrono : Chrono
 
 ########### ACHIEVEMENTS
 @onready var nbCoffee = 0
@@ -526,6 +527,10 @@ func _init_ether_timer():
 	self._ether_timer.one_shot = true
 	self._ether_timer.timeout.connect(self._on_ether_timer_timeout)
 	self.add_child(self._ether_timer)
+	# CHRONO
+	self._ether_chrono = Chrono.new()
+	self.add_child(self._ether_chrono)
+	
 
 func update_ether_timer():
 	# fonction appelee quand on arrive dans l'openworld
@@ -537,6 +542,8 @@ func update_ether_timer():
 	elif self._ether_timer.paused:
 		# le timer est paused quand on sort d'un ilot
 		self._ether_timer.paused = false
+		# chrono
+		self._ether_chrono.unpause()
 	else:
 		if GameState._debug:
 			var mission = self.get_current_mission()
@@ -548,23 +555,27 @@ func update_ether_timer():
 
 func decrement_ether_timer():
 	if self._ether_timer.time_left - self.ether_timer_decrement < 0. :
-		_ether_timer.start(0.1)
-		pause_ether_timer()
-	if not self._ether_timer.is_stopped():
-		var p = self._ether_timer.paused
-		self._ether_timer.start(self._ether_timer.time_left - self.ether_timer_decrement)
-		if p:
-			self.pause_ether_timer()
-
+		self._ether_timer.stop()
+		self._ether_timer.timeout.emit()
+	else:
+		if not self._ether_timer.is_stopped():
+			var p = self._ether_timer.paused
+			self._ether_timer.start(self._ether_timer.time_left - self.ether_timer_decrement)
+			if p:
+				self.pause_ether_timer()
+	self._ether_chrono.increment(self.ether_timer_decrement)
+	
 func stop_ether_timer():
 	if not self._ether_timer.is_stopped():
 		self._ether_timer.stop()
 	else:
-		push_warning("trying to stop already stopped ether_timer") 
+		push_warning("trying to stop already stopped ether_timer")
+	return self._ether_chrono.stop_and_get_current_time()
 
 func start_ether_timer():
 	if self._ether_timer.is_stopped():
 		self._ether_timer.start()
+		self._ether_chrono.start()
 	else:
 		push_warning("trying to play already playing ether_timer") 
 
@@ -572,10 +583,12 @@ func pause_ether_timer():
 	if not self._ether_timer.is_stopped():
 		if self._ether_timer.paused == false:
 			self._ether_timer.paused = true
+			self._ether_chrono.pause()
 	
 func unpause_ether_timer():
 	if self._ether_timer.paused == true:
 		self._ether_timer.paused = false
+		self._ether_chrono.unpause()
 
 func get_ether_timer_timeleft():
 	return self._ether_timer.time_left
