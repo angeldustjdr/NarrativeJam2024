@@ -199,6 +199,7 @@ variables={
 save/autosave=false
 extensions_folder="res://addons/dialogic_additions"
 layout/end_behaviour=0
+text/autocolor_names=false
 
 [display]
 

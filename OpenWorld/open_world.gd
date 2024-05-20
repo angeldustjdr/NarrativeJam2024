@@ -48,14 +48,17 @@ func _ready():
 	var brief = GameState.start_briefing_dialog()
 	if brief:
 		GameState.pause_ether_timer()
-		Dialogic.timeline_ended.connect(self._on_briefing_dialog_ended)
-		#$player.set_process_mode(PROCESS_MODE_DISABLED)
-		$player.movable = false
+		await(Dialogic.timeline_ended)
+		GameState.unpause_ether_timer()
+		$player.movable = true
 	else :
 		if GameState.need_scolding():
 			showIntermediateDialog(GameState.get_scolding_dialog())
-			await(Dialogic.timeline_ended)
-		GameState.unpause_ether_timer()
+		else:
+			if not Dialogic.current_timeline == null:
+				await(Dialogic.timeline_ended)
+			GameState.unpause_ether_timer()
+			$player.movable = true
 
 func _check_map():
 	# check pour les zones d'acceleration et la révélation de la map
@@ -80,11 +83,6 @@ func _check_map():
 		$Ward/Mission4.visible = true
 	if GameState.mission_states["mission_5"]["finished"]:
 		$Ward/Mission5.visible = true
-
-func _on_briefing_dialog_ended():
-	GameState.unpause_ether_timer()
-	#$player.set_process_mode(PROCESS_MODE_PAUSABLE)
-	$player.movable = true
 
 func _disconnect_objective():
 	for objective in objectiveArray:
@@ -169,7 +167,8 @@ func _input(event):
 			self._check_map()
 
 func showIntermediateDialog(what):
-	GameState.start_time_line(what)
 	GameState.pause_ether_timer()
-	#$player.set_process_mode(PROCESS_MODE_DISABLED)
-	$player.movable = false
+	GameState.start_time_line(what)
+	await(Dialogic.timeline_ended)
+	GameState.unpause_ether_timer()
+	$player.movable = true
