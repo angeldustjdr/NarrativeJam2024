@@ -6,6 +6,7 @@ signal poserWard
 signal showAlertMessage
 func showAlertFromDialogic(what):
 	emit_signal("showAlertMessage",what)
+signal sendThoughts
 
 signal interaction
 

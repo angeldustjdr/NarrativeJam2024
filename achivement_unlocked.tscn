@@ -60,7 +60,6 @@ _data = {
 top_level = true
 offset_bottom = 26.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_nigux")
-text = "toto"
 horizontal_alignment = 1
 script = ExtResource("1_wgfq1")
 

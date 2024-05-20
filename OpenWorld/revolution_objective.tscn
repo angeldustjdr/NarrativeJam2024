@@ -6,8 +6,8 @@
 [node name="RevolutionObjective" instance=ExtResource("1_3c0u5")]
 script = ExtResource("2_latrv")
 
-[node name="Sprite2D" parent="." index="2"]
+[node name="Sprite2D" parent="." index="1"]
 modulate = Color(1, 1, 1, 1)
 
-[node name="PointBlanc" parent="." index="3"]
+[node name="PointBlanc" parent="." index="2"]
 modulate = Color(1, 1, 1, 1)

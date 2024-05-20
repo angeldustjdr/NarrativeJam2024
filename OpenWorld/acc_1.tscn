@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bsqs7hvavmdhe"]
 
 [ext_resource type="Script" path="res://OpenWorld/Acc1.gd" id="1_d003d"]
-[ext_resource type="Texture2D" uid="uid://bo4wi0lq3boye" path="res://OpenWorld/fleche_blanche.png" id="2_8m4is"]
+[ext_resource type="Texture2D" uid="uid://dgxs3gl5i383l" path="res://OpenWorld/fleche_blanche.png" id="2_8m4is"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mc31w"]
-size = Vector2(369, 1662)
+size = Vector2(369, 1343)
 
 [node name="Acc1" type="Area2D"]
 script = ExtResource("1_d003d")
@@ -13,19 +13,19 @@ script = ExtResource("1_d003d")
 offset_left = 2257.0
 offset_top = 1064.0
 offset_right = 2622.0
-offset_bottom = 2721.0
+offset_bottom = 2412.0
 texture = ExtResource("2_8m4is")
 stretch_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2437.5, 1885)
+position = Vector2(2437.5, 1742.5)
 shape = SubResource("RectangleShape2D_mc31w")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 2255.0
-offset_top = 2578.0
-offset_right = 2628.0
-offset_bottom = 2635.0
+offset_left = 2053.0
+offset_top = 2295.0
+offset_right = 2845.0
+offset_bottom = 2382.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 48
 text = "Acceleration Zone"

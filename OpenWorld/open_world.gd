@@ -32,6 +32,7 @@ func _ready():
 		$Ward/Custom.add_child(w)
 	#Radio.connect("setObjective",setObjective) # Not needed because objective change only when going back to openworld after ilot or hub.
 	Achievements.connect("unlock",showUnlock)
+	Radio.connect("sendThoughts",showThoughts)
 	#####################################################
 	# check pour les zones d'acceleration et la révélation de la map
 	self._check_map()
@@ -140,9 +141,18 @@ func _process(_delta):
 	GameState.player_position = $player.position
 
 func showUnlock(message):
+	instanciateMessage(true,message,Vector2(1920/2,1080/2),true)
+
+func showThoughts(message):
+	var where = Vector2(randi_range(320,1920-320),randi_range(220,1080-220))
+	instanciateMessage(false,message,where,false)
+
+func instanciateMessage(isAchivement,message,where,sound):
 	var u = unlock.instantiate()
-	u.text = "Achivement unlocked : " + message
-	u.position = Vector2(1920/2,1080/2)
+	if isAchivement : u.text = "Achivement unlocked : " 
+	u.text += message
+	u.position = where
+	u.withSound = sound
 	%UI.add_child(u)
 
 func _input(event):

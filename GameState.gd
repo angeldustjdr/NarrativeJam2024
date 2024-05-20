@@ -18,6 +18,8 @@ enum {INTRO = 3333}
 
 enum {PIRATE_ENDING, DENIAL_ENDING, TRY_NEXT_MONTH_ENDING, EMPLOYEE_OF_THE_MONTH_ENDING, FIRED_ENDING}
 
+enum thoughts {DEPRIME,COLERE,PEUR,RIEN=-1} # thoughts
+
 @onready var openworld_packed_scene = preload("res://OpenWorld/open_world.tscn")
 @onready var oscillo_packed_scene = preload("res://oscilloscope/oscilloscope_scene.tscn")
 

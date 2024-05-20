@@ -104,26 +104,31 @@ func _physics_process(delta):
 		$RevolutionFleche.visible = false
 
 
-func _on_friction_zone_body_entered(body):
+func _on_friction_zone_body_entered(body,myType,myFriction):
 	if body==self : 
-		$RainEffect/AnimationPlayer.play("rainAppear")
-		Radio.emit_signal("showAlertMessage","Entering Depression zone")
-		speed /= 3
+		match myType:
+			GameState.thoughts.DEPRIME : $WeatherEffects/RainEffect/AnimationPlayer.play("rainAppear")
+			GameState.thoughts.PEUR : $WeatherEffects/SnowEffect/AnimationPlayer.play("snowAppear")
+		$Thoughts.activateThoughts(myType)
+		speed /= myFriction
 
-func _on_friction_zone_body_exited(body):
+func _on_friction_zone_body_exited(body,myType,myFriction):
 	if body==self : 
-		$RainEffect/AnimationPlayer.play("rainDisappear")
-		speed *= 3
+		match myType:
+			GameState.thoughts.DEPRIME : $WeatherEffects/RainEffect/AnimationPlayer.play("rainDisappear")
+			GameState.thoughts.PEUR : $WeatherEffects/SnowEffect/AnimationPlayer.play("snowDisappear")
+		$Thoughts.desactivateThoughts()
+		speed *= myFriction
 
 func _on_accelaration_zone_body_entered(body):
 	if body==self : 
 		Achievements.genericCheck("Fun slide")
-		speed *= 3
+		speed *= 4
 
 func _on_accelaration_zone_body_exited(body):
 	if body==self : 
-		speed /= 3
-		velocity /=3
+		speed /= 4
+		velocity /=4
 
 func bodyEnteredObjective(interactableObjective,whoEntered):
 	if whoEntered == self:
