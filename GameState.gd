@@ -178,10 +178,19 @@ func _ready():
 # Related to endings
 func is_bernard_calling():
 	if self.get_current_mission_idx() == 4: # MISSION 5
-		return true # pour l'instant Bernard appelle dans tous les cas, a modifier en fonction de ce qu'on veut
+		if self._get_sum_missions_corrupted() > 0: # si on est retourne au moins si un ilot corrompu
+			return true
+		else:
+			return false
 	else:
 		return false
-		
+
+func _get_sum_missions_corrupted():
+	var sum = 0
+	for mission in self.mission_corrupted.keys():
+		sum += self.mission_corrupted[mission]
+	return sum
+
 # Proposition de fonctionnement #####
 # revolutionStep == 0 and denialStep == 0 et retour au HUB : 
 #	fin employe modele si ... (mission in_time / niveau de corruption?)
