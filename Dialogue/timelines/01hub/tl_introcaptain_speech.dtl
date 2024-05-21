@@ -9,18 +9,36 @@ captain: Some of you will have to sail into uncharted territory to literally bre
 	captain: As part of this great family, it is now your duty to respect each other by following the policies implemented by your superiors. To respect each other’s social privacy by only communicating work-related information between yourselves. And most importantly, to respect the chain of command and the hierarchy.
 	captain: I’m sure you heard before that anyone can change the world. But here in our beautiful {hub_name}, right now I know that what we are doing will have an impact, for our company and for our lives. I’ve been a partner of {armada_name} for quite some time, and I’ve even been a sailor for a longer time, so bear my rambling for a bit.
 - Fall asleep
-	maincharacter: ZzZzZz ...
+	ZzZzZz ...
 	captain: ...
-	jump last
+	jump End nap
 captain: ... *Clear throat* ...
 - Stay focused
 	captain: The lessons you will learn here will be relevant, regardless of your background social, religious or ethnic. Your challenges will be shared, your obstacles will be equivalent and the way you apply what you’ve learned will impact everyone equally. Because you are all in this together.
-	captain: During my training, when I was nothing but an aspiring sailor, my tutor would inspect my shoes every day in the morning. If right, the bootlace would make two perfectly symmetrical loops then zigzag through the shoe, tightly securing the ankle. A simple task asked to be done to perfection. At first it seemed to be stupid, but the insight and diligence gained by performing this mundane task have made me the man I am today. By tying your shoe every morning, you achieve the first and most important task of the day. 
+	captain: During my training, when I was nothing but an aspiring sailor, my tutor would inspect my shoes every day in the morning. If right, the bootlace would make two perfectly symmetrical loops then zigzag through the shoe, tightly securing the ankle. A simple task asked to be done to perfection.
+	captain: At first it seemed to be stupid, but the insight and diligence gained by performing this mundane task have made me the man I am today. By tying your shoe every morning, you achieve the first and most important task of the day.
 	captain: It gives you a sense of pride and encouragement that guide you toward making another task, and one more after that. And one more ... By the time the sun is setting, you will have achieved greatness. If you can’t make the small task, you will never be able to manage the more important task. So do not be ashamed by being assigned mundane, stupid task ! Because you are moving toward greatness.
+	captain: In shorts, please tie your shoes.
+	captain: That will be all, thank you. You are dismissed.
+	captain: Allright. You, come closer.
+	jump Orientation
 - Fall asleep
-	maincharacter: ZzZzZz ...
+	ZzZzZz ...
 	captain: ...
-label last
-captain: In shorts, please tie your shoes. \
+	label End nap
+	captain: In shorts, please tie your shoes. \
 That will be all, thank you. You are dismissed.
+	captain: You, I saw you snooze during the brief. You've got to be more focus if you want to become captain like me.
+	jump Orientation
+label Orientation
+captain: What is your CCID ?
+- My what ?
+	captain: *sigh* Your chain code identification.
+	captain: First letter of your post, fleet number, {hub_name} number, team number, one dash, instructor number.
+label ID
+- {mc_name}
+	captain: So, you are in team 7.\
+Your break-room is at the end of this corridor, on the left.
+	captain: Take thoses credits, you can meet your co-worker by offering them a cup of coffee. \
+I'll join shortly if you have questions.
 [end_timeline]

@@ -1,3 +1,57 @@
 join captain 1
-captain: You, I saw you snooze during the brief. You've got to be more focus if you want to become captain like me.
+captain: Welcome to team 7 !\
+You will be working with {shipgirl_name}, she's your shipgirl, think of her as an assistant. You can order her any deskjob, low or moderatly technical task, she should be able to handle it.
+join shipgirl 3 [animation="Slide In Right" mirrored="true"]
+shipgirl: *wave*
+leave shipgirl [animation="Slide Out Right"]
+captain: {navigator1_name} is your navigator, you are equal in ranking. He will guide you through the {sea_name} and relay order from mission-command.
+join "navigator 1" 3 [animation="Slide In Right" mirrored="true"]
+"navigator 1": *thumbs up*
+leave "navigator 1" [animation="Slide Out Right"]
+"navigator 1": Good ! Now, I have time for about ... Hum ... let's say two questions.\
+Go ahead.
+- Could you tell me more about the {sea_name} ?
+	captain: It's a weird place, created by the thoughts and emotions of everyone. It's not really a physical space, but through our technology we can give it a shape and interact with it.
+	captain: We can sail through the {sea_name} as we would in the ocean, except our boat is more like a spaceship. You trained in the simulation, so you know how the ship is.
+	captain: There are even islets, which are clusters of ideas and thoughts belonging to people who are in the same area as the {hub_name}.
+	captain: That's where we need to chart and collect data.
+	- Could you tell me more about {armada_name} ?
+		captain: Well, you know that {armada_name} is a megacorporation that does, about everything. Here we are specialized in applied research, data collection and analytics.
+		captain: You, you will have data collection assignments. Having access to the {sea_name} during missions is a privilege, so be proud of what you will accomplish.
+		captain: You can check the chain of command and career paths of our branch on the chart here in the break room.
+	- How can we enter people mind ?
+		captain: Do I look like a science guy ?
+		captain: All I know is that a bunch of lab-coats made up some machine that makes us whoosh into the unknown.
+		captain: We don't actually go inside people’s heads , it's some kind of new dimension I think they say.
+		captain: That's all I can tell about that.
+- Could you tell me more about {armada_name} ?
+	captain: Well, you know that {armada_name} is a megacorporation that does, about everything. Here we are specialized in applied research, data collection and analytics.
+	captain: You, you will have data collection assignments. Having access to the {sea_name} during missions is a privilege, so be proud of what you will accomplish.
+	captain: You can check the chain of command and career paths of our branch on the chart here in the break room.
+	- Could you tell me more about the {sea_name} ?
+		captain: It's a weird place, created by the thoughts and emotions of everyone. It's not really a physical space, but through our technology we can give it a shape and interact with it.
+		captain: We can sail through the {sea_name} as we would in the ocean, except our boat is more like a spaceship. You trained in the simulation, so you know how the ship is.
+		captain: There are even islets, which are clusters of ideas and thoughts belonging to people who are in the same area as the {hub_name}.
+		captain: That's where we need to chart and collect data.
+	- How can we enter people mind ?
+		captain: Do I look like a science guy ?
+		captain: All I know is that a bunch of lab-coats made up some machine that makes us whoosh into the unknown.
+		captain: We don't actually go inside people’s heads , it's some kind of new dimension I think they say.
+		captain: That's all I can tell about that.
+- How can we enter people mind ?
+	captain: Do I look like a science guy ?
+	captain: All I know is that a bunch of lab-coats made up some machine that makes us whoosh into the unknown.
+	captain: We don't actually go inside people’s heads , it's some kind of new dimension I think they say.
+	captain: That's all I can tell about that.
+	- Could you tell me more about {armada_name} ?
+		captain: Well, you know that {armada_name} is a megacorporation that does, about everything. Here we are specialized in applied research, data collection and analytics.
+		captain: You, you will have data collection assignments. Having access to the {sea_name} during missions is a privilege, so be proud of what you will accomplish.
+		captain: You can check the chain of command and career paths of our branch on the chart here in the break room.
+	- Could you tell me more about the {sea_name} ?
+		captain: It's a weird place, created by the thoughts and emotions of everyone. It's not really a physical space, but through our technology we can give it a shape and interact with it.
+		captain: We can sail through the {sea_name} as we would in the ocean, except our boat is more like a spaceship. You trained in the simulation, so you know how the ship is.
+		captain: There are even islets, which are clusters of ideas and thoughts belonging to people who are in the same area as the {hub_name}.
+		captain: That's where we need to chart and collect data.
+captain: Good talk ! I have to go now.\\
+Blend with you co-worker for a bit, then head to the hangar bay to find your ship. You will receive your starting asignment afterward.
 [end_timeline]
