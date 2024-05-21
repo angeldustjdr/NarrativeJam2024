@@ -1,0 +1,6 @@
+join "navigator 1" 1
+"navigator 1": Mission is completed ! Well done.
+"navigator 1": The Captain will have a small debrief with you, then the night will be yours.
+"navigator 1": I think we will get along very well, {mc_name}.\
+Have a nice evening, 
+[end_timeline]

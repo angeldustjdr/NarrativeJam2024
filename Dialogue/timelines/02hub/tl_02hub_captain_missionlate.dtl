@@ -1,5 +1,11 @@
 join captain 1
-captain: {mc_name} I'm very disapointed in you.
-captain: Keep your attitude that way and you will never level up in the hierarchy.
-captain: Take thoses credits and grab a coffee, I don't want to see your face anymore.
+captain: {mc_name} You are late.
+captain: I won't hold it against you for today, there is room for improvement. You have managed to complete your assignment, however be mindfull of the risk you take by oversaying in the {sea_name)}. I will not have a promising worker like you fall for the siren's call.
+- I appologize, Captain.
+	captain: Don't worry, I'm glad you are safe. You will do better next time. Here, have 	some credits for tomorrow morning's coffee.\
+	Good night worker.
+- I did my best, Sir.
+	captain: Well, you will have to do better.\
+	Here, have some credits for tomorrow morning's coffee.\
+	Good night worker.
 [end_timeline]
