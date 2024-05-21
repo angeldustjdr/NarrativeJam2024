@@ -1,6 +1,25 @@
 join "navigator 2" 1
-"navigator 2" (navigator2-upset-open): Who Am I ? please don't assault me with question. I just want to relax after a day of work, okay ?
-"navigator 2" (navigator2-upset-close): I don't know about your previous navigator. I'm just doing my job here.
-"navigator 2" (navigator2-upset-open): You should be focus on your work, not your co-workers
-"navigator 2" (navigator2-upset-close): If you are so obcessed by that, go submit a form in order to take an appointment with managment.
+"navigator 2": Hum?
+- Who are you exactly?
+	"navigator 2" (navigator2-upset-open): Who am I? Please don't assault me with questions. It's writen on my badge. For now, I just want to relax after a day of work, you know.
+- Nice job on the mission!
+	"navigator 2" (navigator2-smile-open): Thanks! You did well too.
+"navigator 2" (navigator2-smile-close): Something else?
+- So you're my new navigator?
+	"navigator 2": Yep. That would be me. You got a problem with that?
+	- No, it's just that I like Bernard better
+		"navigator 2" (navigator2-upset-close): I don't know about your previous navigator. I can't even find his matricul in the logs. So don't bother. You know, I'm just doing my job here. So should you.
+		"navigator 2" (navigator2-upset-close): If you are so obcessed by that, go submit a form in order to take an appointment with the management.
+	- No, you're great
+		"navigator 2" (navigator2-smile-close): Thanks! I try to do my best for my sailor to be safe. And the cartographers are doing great also\: the ping I sent you was on point!
+		"navigator 2" (navigator2-smile-open): I like it when people are efficient. It makes succeeding the missions that much more exciting, right?
+	- Yeah, you're arrogant
+		"navigator 2" (navigator2-upset-open): No, I'm just focused on our missions. We have the opportunity to sail the Cognisea. Can't you see that we are true pioneers? Don't let anyone else persuade you otherwise.
+		"navigator 2" (navigator2-upset-close): In other words, don't be childish.
+		"navigator 2" (navigator2-upset-open): If you don't do it for the science, do it for your career. You'll never get the rank of captain if you behave like you care too much.
+"navigator 2" (navigator2-smile-close): Anyway...
+- It was a pleasure to talk with you
+	"navigator 2" (navigator2-smile-close): Hummmm... I can't decide if I like you or not. Don't be too friendly, we are only colleagues after all.
+- Bye
+	"navigator 2" (navigator2-smile-close): Bye
 [end_timeline]
