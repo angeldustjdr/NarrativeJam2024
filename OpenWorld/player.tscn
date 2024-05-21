@@ -192,6 +192,7 @@ texture_mode = 1
 script = ExtResource("3_3ebvi")
 
 [node name="TrianglePlayer" type="Polygon2D" parent="."]
+color = Color(0.894118, 0.211765, 0, 1)
 polygon = PackedVector2Array(16, 16, -16, 16, 0, -16)
 
 [node name="Camera2D" type="Camera2D" parent="."]
