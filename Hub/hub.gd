@@ -1,6 +1,23 @@
 extends Node2D
 
 @onready var unlock = preload("res://achivement_unlocked.tscn")
+@onready var fig = preload("res://Hub/figurant_message.tscn")
+
+var FigurantsSpeech = [
+	"Sorry, I don't have coffee credits anymore...",
+	"Let's get to work!",
+	"The coffee is disgusting anyway.",
+	"Did you know the Captain was a great sailor when he was younger?\nHis codename was Cipher!\nCool nah?",
+	"I wish my pay grade was higher.",
+	"I don't like coffee. \nBut we don't have tea at the office.",
+	"Cipher doesn't want to be called by his codename.\nHe want's to be called by his real name: Bernard.",
+	"MindSail is a great company! You get to build your own career here.",
+	"Hopefully, there are no unions in this company.\nCan you imagine going on strikes? Ewww!",
+	"You'll do great!",
+	"Sometimes work can be hard. \nBut when I think of the career opportunities, \nI feel better!",
+	"Be mindful of the Siren's call. \nSome rumors say the first sailor is somewhere \nin the Cognisea.",
+	"I wish I were a sailor just like you. \nBut I'm only the IT guy."
+]
 
 func _ready():
 	##### achievement
@@ -50,6 +67,12 @@ func clickObject(which):
 			%AchivementsPanel.updatePanel()
 			%AchivementsPanel.visible = true
 			setClickableProcess(PROCESS_MODE_DISABLED)
+		"Figurant" :
+			var l = fig.instantiate()
+			l.withSound = false
+			l.text = FigurantsSpeech.pick_random()
+			l.global_position = get_global_mouse_position()
+			add_child(l)
 		_ : 
 			push_warning("clickable not recognized")
 

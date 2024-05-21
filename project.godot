@@ -220,6 +220,7 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 [gui]
 
 theme/custom="res://theme.tres"
+theme/custom_font="res://Reactor-Sans.ttf"
 timers/tooltip_delay_sec=0.1
 
 [input]

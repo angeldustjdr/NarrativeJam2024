@@ -1,10 +1,7 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bh0bu7qc8ksch"]
-
-[ext_resource type="FontFile" uid="uid://cnfpps3vj1vb2" path="res://Reactor-Sans.ttf" id="1_500lm"]
+[gd_resource type="Theme" format=3 uid="uid://bh0bu7qc8ksch"]
 
 [resource]
-default_font = ExtResource("1_500lm")
 default_font_size = 16
 CheckBox/colors/font_disabled_color = Color(1, 1, 1, 1)
 CheckBox/font_sizes/font_size = 24
-Label/fonts/font = ExtResource("1_500lm")
+Label/fonts/font = null
