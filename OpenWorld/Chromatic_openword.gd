@@ -5,7 +5,6 @@ extends Node2D
 func _ready():
 	pass
 	# faire TOUT PETER ! A mettre au bon moment
-	#await get_tree().root.ready
 	#Radio.emit_signal("showAlertMessage","Beacon destroyed")
 	#var chrom = chromatic.instantiate()
 	#add_child(chrom)

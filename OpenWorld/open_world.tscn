@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://1c2poulo2qea"]
+[gd_scene load_steps=43 format=3 uid="uid://1c2poulo2qea"]
 
 [ext_resource type="Script" path="res://OpenWorld/open_world.gd" id="1_dqjoa"]
 [ext_resource type="Shader" path="res://OpenWorld/open_world_background.gdshader" id="1_mopfe"]
@@ -16,7 +16,6 @@
 [ext_resource type="Shader" path="res://OpenWorld/vortex.gdshader" id="8_10ki7"]
 [ext_resource type="Script" path="res://OpenWorld/RotationProgressBar.gd" id="8_alurk"]
 [ext_resource type="Script" path="res://OpenWorld/Depression1.gd" id="9_42640"]
-[ext_resource type="Texture2D" uid="uid://mpbfvmdjuuln" path="res://OpenWorld/Point_blanc.png" id="9_hlq2x"]
 [ext_resource type="Script" path="res://OpenWorld/Vortex.gd" id="9_kbdo6"]
 [ext_resource type="PackedScene" uid="uid://d2dy7i3w8ddv0" path="res://OpenWorld/objective.tscn" id="9_rqvr2"]
 [ext_resource type="PackedScene" uid="uid://bsqs7hvavmdhe" path="res://OpenWorld/acc_1.tscn" id="10_0tbb1"]
@@ -60,11 +59,11 @@ fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t1hf6"]
 shader = ExtResource("8_10ki7")
-shader_parameter/max_blend = 0.3
+shader_parameter/max_blend = 0.2
 shader_parameter/rotation_offset = 0.0
 shader_parameter/intensity = 5.0
 shader_parameter/invert = false
-shader_parameter/rel_rect_size = Vector2(1024, 600)
+shader_parameter/rel_rect_size = Vector2(128, 128)
 shader_parameter/gradient = SubResource("GradientTexture2D_an00t")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8fao"]
@@ -80,7 +79,7 @@ size = Vector2(1882, 5114)
 size = Vector2(799, 2202)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gw3a3"]
-radius = 732.673
+radius = 526.08
 
 [sub_resource type="Animation" id="Animation_6qugl"]
 length = 0.001
@@ -272,11 +271,13 @@ script = ExtResource("5_mbd5j")
 
 [node name="Vortex" type="Node2D" parent="Terrain"]
 
-[node name="Vortex" type="Sprite2D" parent="Terrain/Vortex"]
+[node name="Vortex" type="ColorRect" parent="Terrain/Vortex"]
 material = SubResource("ShaderMaterial_t1hf6")
-position = Vector2(872, 4776)
+offset_left = 648.0
+offset_top = 4561.0
+offset_right = 712.0
+offset_bottom = 4625.0
 scale = Vector2(7, 7)
-texture = ExtResource("9_hlq2x")
 script = ExtResource("9_kbdo6")
 
 [node name="Label" type="Label" parent="Terrain/Vortex"]
@@ -543,11 +544,11 @@ position = Vector2(7028, 2727)
 myMission = 3
 
 [node name="Objective4" parent="." instance=ExtResource("9_rqvr2")]
-position = Vector2(5373, 441)
+position = Vector2(5373, 404)
 myMission = 4
 
 [node name="Objective5" parent="." instance=ExtResource("9_rqvr2")]
-position = Vector2(8201, 4300)
+position = Vector2(8213, 4243)
 myMission = 5
 
 [node name="HUB" parent="." instance=ExtResource("9_rqvr2")]
@@ -564,12 +565,13 @@ shape = SubResource("RectangleShape2D_bxyec")
 
 [node name="RevolutionObjective1" parent="Revolution" instance=ExtResource("13_85j8s")]
 visible = false
-position = Vector2(163, 1369)
+position = Vector2(4005, 1213)
 
 [node name="MissionOffPath" type="Area2D" parent="Revolution"]
+position = Vector2(3045, 258)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Revolution/MissionOffPath"]
-position = Vector2(721, 1356)
+position = Vector2(937, 1332)
 shape = SubResource("CircleShape2D_gw3a3")
 
 [node name="player" parent="." instance=ExtResource("2_334qi")]

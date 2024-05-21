@@ -1,7 +1,7 @@
-extends Sprite2D
+extends ColorRect
 
 @onready var intensity = 0
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
 	intensity = (intensity + 5*delta)
 	if intensity>360 : intensity = 0.0
