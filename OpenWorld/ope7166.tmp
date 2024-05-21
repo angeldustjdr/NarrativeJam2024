@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://1c2poulo2qea"]
+[gd_scene load_steps=43 format=3 uid="uid://1c2poulo2qea"]
 
 [ext_resource type="Script" path="res://OpenWorld/open_world.gd" id="1_dqjoa"]
 [ext_resource type="Shader" path="res://OpenWorld/open_world_background.gdshader" id="1_mopfe"]
@@ -72,9 +72,6 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ugxb"]
 radius = 1439.54
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dioxn"]
-size = Vector2(1882, 5114)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bxyec"]
 size = Vector2(799, 2202)
@@ -490,27 +487,24 @@ position = Vector2(6520, 3474)
 shape = SubResource("CircleShape2D_2ugxb")
 
 [node name="Depression2" type="Area2D" parent="DepressionZones"]
-position = Vector2(-693, -2855)
+position = Vector2(-528, -2658)
 script = ExtResource("9_42640")
-type = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DepressionZones/Depression2"]
 position = Vector2(6520, 3474)
 shape = SubResource("CircleShape2D_2ugxb")
 
-[node name="Depression3" type="Area2D" parent="DepressionZones"]
-script = ExtResource("9_42640")
-type = 1
-friction = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DepressionZones/Depression3"]
-position = Vector2(8766, 2554)
-shape = SubResource("RectangleShape2D_dioxn")
-
 [node name="AccelerationZones" type="Node2D" parent="."]
 
 [node name="Acc1" parent="AccelerationZones" instance=ExtResource("10_0tbb1")]
-position = Vector2(-5, -98)
+
+[node name="TextureRect" parent="AccelerationZones/Acc1" index="0"]
+offset_top = 1228.0
+offset_bottom = 2552.0
+
+[node name="Label" parent="AccelerationZones/Acc1" index="2"]
+offset_top = 2380.0
+offset_bottom = 2437.0
 
 [node name="Acc2" parent="AccelerationZones" instance=ExtResource("10_0tbb1")]
 visible = false
@@ -520,7 +514,7 @@ monitoring = false
 
 [node name="Acc3" parent="AccelerationZones" instance=ExtResource("10_0tbb1")]
 visible = false
-position = Vector2(4858, 493)
+position = Vector2(4661, 433)
 rotation = 0.785398
 monitoring = false
 
@@ -814,10 +808,9 @@ autoplay = "flicker"
 [connection signal="body_exited" from="DepressionZones/Depression1" to="DepressionZones/Depression1" method="_on_body_exited"]
 [connection signal="body_entered" from="DepressionZones/Depression2" to="DepressionZones/Depression2" method="_on_body_entered"]
 [connection signal="body_exited" from="DepressionZones/Depression2" to="DepressionZones/Depression2" method="_on_body_exited"]
-[connection signal="body_entered" from="DepressionZones/Depression3" to="DepressionZones/Depression3" method="_on_body_entered"]
-[connection signal="body_exited" from="DepressionZones/Depression3" to="DepressionZones/Depression3" method="_on_body_exited"]
 [connection signal="body_entered" from="Revolution/BernardCall" to="Revolution" method="_on_bernard_call_body_entered"]
 [connection signal="body_entered" from="Revolution/MissionOffPath" to="Revolution" method="_on_mission_off_path_body_entered"]
 [connection signal="timeout" from="CanvasLayer/Alert Message/Timer" to="CanvasLayer/Alert Message" method="_on_timer_timeout"]
 
+[editable path="AccelerationZones/Acc1"]
 [editable path="HUB"]

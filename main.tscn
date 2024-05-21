@@ -1,15 +1,15 @@
-[gd_scene load_steps=29 format=3 uid="uid://c4p7pnunvoa65"]
+[gd_scene load_steps=30 format=3 uid="uid://c4p7pnunvoa65"]
 
 [ext_resource type="Shader" path="res://assets/shaders/oscillo.gdshader" id="1_2w7sc"]
 [ext_resource type="Shader" path="res://wave2.gdshader" id="1_823va"]
 [ext_resource type="Script" path="res://main.gd" id="1_ggpch"]
-[ext_resource type="Texture2D" uid="uid://ctlaf1f8yuov0" path="res://assets/graphics/main/title2.png" id="4_huycu"]
-[ext_resource type="Texture2D" uid="uid://7eewfskn537v" path="res://assets/graphics/items/logos/logo-vect-v3-roue-seule.png" id="4_vqd7o"]
-[ext_resource type="Texture2D" uid="uid://brkpf46s2ushv" path="res://assets/graphics/main/title1.png" id="5_2a1tm"]
-[ext_resource type="Texture2D" uid="uid://ldnl8twoggyf" path="res://assets/graphics/items/logos/logo-vect-v3-cerveau-seul-cadenas-ouvert.png" id="5_mo56p"]
-[ext_resource type="Texture2D" uid="uid://bq65ghfpummmi" path="res://assets/graphics/items/logos/logo-vect-v3-cerveau-seul-cadenas-ferme.png" id="6_6snk4"]
+[ext_resource type="Texture2D" uid="uid://cxkbc6b057xmd" path="res://assets/graphics/main/title2.png" id="4_huycu"]
+[ext_resource type="Texture2D" uid="uid://b8kqsd1bbfn" path="res://assets/graphics/items/logos/logo-vect-v3-roue-seule.png" id="4_vqd7o"]
+[ext_resource type="Texture2D" uid="uid://c6bd8xrxwlrq5" path="res://assets/graphics/main/title1.png" id="5_2a1tm"]
+[ext_resource type="Texture2D" uid="uid://cssweo2f27l5p" path="res://assets/graphics/items/logos/logo-vect-v3-cerveau-seul-cadenas-ouvert.png" id="5_mo56p"]
+[ext_resource type="Texture2D" uid="uid://dw0cgbfld0e5s" path="res://assets/graphics/items/logos/logo-vect-v3-cerveau-seul-cadenas-ferme.png" id="6_6snk4"]
 [ext_resource type="Script" path="res://corpo_brain.gd" id="6_cqm64"]
-[ext_resource type="Texture2D" uid="uid://b4vrhrqgydghx" path="res://assets/graphics/items/logos/logo-vect-v3-pirate.png" id="6_sbdvr"]
+[ext_resource type="Texture2D" uid="uid://8ihy6hobrbs5" path="res://assets/graphics/items/logos/logo-vect-v3-pirate.png" id="6_sbdvr"]
 [ext_resource type="PackedScene" uid="uid://0pyto5ajiupe" path="res://Hub/achivements_panel.tscn" id="9_jcxr7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r54ed"]
@@ -193,6 +193,22 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_rt4fj"]
+resource_name = "Quit"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/Quit:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_yyob2"]
 length = 0.001
 tracks/0/type = "value"
@@ -231,6 +247,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/VBoxContainer/Quit:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_2jkha"]
 resource_name = "load"
@@ -252,6 +280,7 @@ _data = {
 "Achievements": SubResource("Animation_jyn1h"),
 "Credits": SubResource("Animation_t5w1r"),
 "Play": SubResource("Animation_258gx"),
+"Quit": SubResource("Animation_rt4fj"),
 "RESET": SubResource("Animation_yyob2"),
 "load": SubResource("Animation_2jkha")
 }
@@ -434,7 +463,9 @@ layout_mode = 2
 [node name="Play" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 0
-theme_override_font_sizes/font_size = 64
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 34
 text = "New game"
 horizontal_alignment = 1
 
@@ -442,22 +473,38 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 0
-theme_override_font_sizes/font_size = 64
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 34
 text = "Load game"
 horizontal_alignment = 1
 
 [node name="Achievements" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 0
-theme_override_font_sizes/font_size = 64
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 34
 text = "Achievements"
 horizontal_alignment = 1
 
 [node name="Credits" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 0
-theme_override_font_sizes/font_size = 64
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 34
 text = "Credits
+"
+horizontal_alignment = 1
+
+[node name="Quit" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 34
+text = "Quit
 "
 horizontal_alignment = 1
 
@@ -481,4 +528,7 @@ layout_mode = 1
 [connection signal="gui_input" from="MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_gui_input"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_mouse_exited"]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_gui_input"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_mouse_exited"]
 [connection signal="gui_input" from="AchivementsPanel" to="." method="_on_achivements_panel_gui_input"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bst1xbumpsfra"]
+[gd_scene load_steps=28 format=3 uid="uid://bst1xbumpsfra"]
 
 [ext_resource type="Script" path="res://OpenWorld/player.gd" id="1_dhf2n"]
 [ext_resource type="Texture2D" uid="uid://dft684dgc0o5j" path="res://OpenWorld/WaterTrailGradient_alpha.png" id="2_q7j1v"]
@@ -7,7 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://b6wltimqoo2yt" path="res://OpenWorld/fleche.png" id="5_w7suv"]
 [ext_resource type="PackedScene" uid="uid://cysuqq7mfjitr" path="res://audio_manager/smooth_loop.tscn" id="6_n3ck4"]
 [ext_resource type="Texture2D" uid="uid://cqa54dodr6aed" path="res://OpenWorld/fleche_mini_blanc.png" id="6_yhjig"]
-[ext_resource type="Shader" path="res://OpenWorld/open_world.gdshader" id="7_f8ws5"]
+[ext_resource type="PackedScene" uid="uid://dt5sdcudsay8b" path="res://OpenWorld/thoughts.tscn" id="8_6qau0"]
+[ext_resource type="Shader" path="res://OpenWorld/open_world_snow.gdshader" id="9_t6qle"]
 
 [sub_resource type="Gradient" id="Gradient_04xli"]
 offsets = PackedFloat32Array(0, 0.647059)
@@ -49,7 +50,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_stwy8"]
-shader = ExtResource("7_f8ws5")
+shader = ExtResource("9_t6qle")
 shader_parameter/rain_amount = 500.0
 shader_parameter/near_rain_length = 0.2
 shader_parameter/far_rain_length = 0.1
@@ -115,6 +116,61 @@ _data = {
 "rainDisappear": SubResource("Animation_1nboq")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gtxcc"]
+shader = ExtResource("9_t6qle")
+shader_parameter/rain_amount = 200.0
+shader_parameter/near_rain_length = 0.01
+shader_parameter/far_rain_length = 0.01
+shader_parameter/near_rain_width = 1.0
+shader_parameter/far_rain_width = 0.5
+shader_parameter/near_rain_transparency = 1.0
+shader_parameter/far_rain_transparency = 0.5
+shader_parameter/rain_color = Color(0.8, 0.8, 0.8, 0)
+shader_parameter/base_rain_speed = 0.2
+shader_parameter/additional_rain_speed = 0.2
+shader_parameter/slant = 0.2
+shader_parameter/alpha = null
+
+[sub_resource type="Animation" id="Animation_q0wgv"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_51jhp"]
+resource_name = "snowAppear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/rain_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.8, 0.8, 0.8, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_44res"]
+resource_name = "snowDisappear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/rain_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.8, 0.8, 0.8, 1), Color(0.8, 0.8, 0.8, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fkixl"]
+_data = {
+"RESET": SubResource("Animation_q0wgv"),
+"snowAppear": SubResource("Animation_51jhp"),
+"snowDisappear": SubResource("Animation_44res")
+}
+
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_dhf2n")
@@ -135,9 +191,9 @@ texture = ExtResource("2_q7j1v")
 texture_mode = 1
 script = ExtResource("3_3ebvi")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.796078, 0.345098, 0, 1)
-polygon = PackedVector2Array(0, -16, 16, 16, -16, 16)
+[node name="TrianglePlayer" type="Polygon2D" parent="."]
+color = Color(0.894118, 0.211765, 0, 1)
+polygon = PackedVector2Array(16, 16, -16, 16, 0, -16)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false
@@ -176,7 +232,11 @@ overlap = 0.1
 effective_bus = "rocket"
 volume_max = 0.0
 
-[node name="RainEffect" type="ColorRect" parent="."]
+[node name="Thoughts" parent="." instance=ExtResource("8_6qau0")]
+
+[node name="WeatherEffects" type="Node2D" parent="."]
+
+[node name="RainEffect" type="ColorRect" parent="WeatherEffects"]
 material = SubResource("ShaderMaterial_stwy8")
 offset_left = -960.0
 offset_top = -540.0
@@ -184,9 +244,22 @@ offset_right = 960.0
 offset_bottom = 540.0
 color = Color(1, 1, 1, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="RainEffect"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WeatherEffects/RainEffect"]
 libraries = {
 "": SubResource("AnimationLibrary_53guw")
+}
+
+[node name="SnowEffect" type="ColorRect" parent="WeatherEffects"]
+material = SubResource("ShaderMaterial_gtxcc")
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+color = Color(1, 1, 1, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WeatherEffects/SnowEffect"]
+libraries = {
+"": SubResource("AnimationLibrary_fkixl")
 }
 
 [connection signal="timeout" from="InvulnerableTimer" to="." method="_on_invulnerable_timer_timeout"]

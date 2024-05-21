@@ -18,6 +18,8 @@ enum {INTRO = 3333}
 
 enum {PIRATE_ENDING, DENIAL_ENDING, TRY_NEXT_MONTH_ENDING, EMPLOYEE_OF_THE_MONTH_ENDING, FIRED_ENDING}
 
+enum thoughts {DEPRIME,COLERE,PEUR,RIEN=-1} # thoughts
+
 @onready var openworld_packed_scene = preload("res://OpenWorld/open_world.tscn")
 @onready var oscillo_packed_scene = preload("res://oscilloscope/oscilloscope_scene.tscn")
 
@@ -33,11 +35,11 @@ signal save_finished
 							   "mission_3":{"started":false,"finished":false,"in_time":true,"debriefed":false},
 							   "mission_4":{"started":false,"finished":false,"in_time":true,"debriefed":false},
 							   "mission_5":{"started":false,"finished":false,"in_time":true,"debriefed":false}}
-@onready var mission_timer = {"mission_1": 60.,
-							   "mission_2": 60.,
+@onready var mission_timer = {"mission_1": 180.,
+							   "mission_2": 80.,
 							   "mission_3": 60.,
-							   "mission_4": 60.,
-							   "mission_5": 60.}
+							   "mission_4": 120.,
+							   "mission_5": 240.}
 @onready var mission_corrupted = {"mission_1": 0, #set in each corrupted dialog timeline !
 							   "mission_2": 0,
 							   "mission_3": 0,
@@ -81,6 +83,8 @@ var _ether_chrono : Chrono
 	CAPTAIN:0}
 @onready var nbWard = 0
 @onready var nbRetourHub = -1
+
+@onready var wardPlacements = []
 
 ########### DIALOGS
 @onready var _characters_available = {

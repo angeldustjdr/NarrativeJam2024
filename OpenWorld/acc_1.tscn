@@ -1,34 +1,122 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsqs7hvavmdhe"]
+[gd_scene load_steps=11 format=3 uid="uid://bsqs7hvavmdhe"]
 
 [ext_resource type="Script" path="res://OpenWorld/Acc1.gd" id="1_d003d"]
-[ext_resource type="Texture2D" uid="uid://bo4wi0lq3boye" path="res://OpenWorld/fleche_blanche.png" id="2_8m4is"]
+[ext_resource type="Texture2D" uid="uid://dgxs3gl5i383l" path="res://OpenWorld/fleche_blanche.png" id="2_8m4is"]
+[ext_resource type="Shader" path="res://OpenWorld/acc_1.gdshader" id="2_e2h4f"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1u0i7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qjbkt"]
+shader = ExtResource("2_e2h4f")
+shader_parameter/screen_height = 1348.0
+shader_parameter/amplitude = 0.075
+shader_parameter/frequency = 10.0
+shader_parameter/speed = 5.0
+shader_parameter/amplitude_vertical = 0.0
+shader_parameter/frequency_vertical = 0.0
+shader_parameter/speed_vertical = 0.0
+shader_parameter/scroll_direction = Vector2(0, 1)
+shader_parameter/scrolling_speed = 1.0
+shader_parameter/enable_palette_cycling = false
+shader_parameter/palette_speed = 0.1
+shader_parameter/palette = SubResource("GradientTexture1D_1u0i7")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mc31w"]
-size = Vector2(369, 1662)
+size = Vector2(369, 1285)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kleg5"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_f3cqe"]
+resource_name = "flicker"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.513753, 1.11904e-06, 1.92523e-07, 1), Color(0.513726, 0, 0, 0), Color(0.513753, 1.11904e-06, 1.92523e-07, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qrgt1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.513753, 1.11904e-06, 1.92523e-07, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ukwrb"]
+_data = {
+"RESET": SubResource("Animation_qrgt1"),
+"flicker": SubResource("Animation_f3cqe")
+}
 
 [node name="Acc1" type="Area2D"]
 script = ExtResource("1_d003d")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_qjbkt")
 offset_left = 2257.0
 offset_top = 1064.0
 offset_right = 2622.0
-offset_bottom = 2721.0
+offset_bottom = 2412.0
 texture = ExtResource("2_8m4is")
 stretch_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2437.5, 1885)
+position = Vector2(2437.5, 1771.5)
 shape = SubResource("RectangleShape2D_mc31w")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 2255.0
-offset_top = 2578.0
-offset_right = 2628.0
-offset_bottom = 2635.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 48
-text = "Acceleration Zone"
+offset_left = 2247.0
+offset_top = 2298.0
+offset_right = 2637.0
+offset_bottom = 2417.0
+theme_override_colors/font_color = Color(0.513753, 1.11904e-06, 1.92523e-07, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_kleg5")
+text = "Acceleration 
+Zone"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
+libraries = {
+"": SubResource("AnimationLibrary_ukwrb")
+}
+autoplay = "flicker"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 2634.0
+offset_top = 1184.0
+offset_right = 3024.0
+offset_bottom = 1303.0
+rotation = 3.14159
+theme_override_colors/font_color = Color(0.513753, 1.11904e-06, 1.92523e-07, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_kleg5")
+text = "Acceleration 
+Zone"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label2"]
+libraries = {
+"": SubResource("AnimationLibrary_ukwrb")
+}
+autoplay = "flicker"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

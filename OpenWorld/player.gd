@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-var speed = 500
+var speed = 325
 var friction = 0.01
 var acceleration = 0.05
-var rotation_speed = 1.0
+var rotation_speed = 0.5
 var rotation_acc = 0.2
 
 var objective = null
@@ -104,16 +104,21 @@ func _physics_process(delta):
 		$RevolutionFleche.visible = false
 
 
-func _on_friction_zone_body_entered(body):
+func _on_friction_zone_body_entered(body,myType,myFriction):
 	if body==self : 
-		$RainEffect/AnimationPlayer.play("rainAppear")
-		Radio.emit_signal("showAlertMessage","Entering Depression zone")
-		speed /= 2
+		match myType:
+			GameState.thoughts.DEPRIME : $WeatherEffects/RainEffect/AnimationPlayer.play("rainAppear")
+			GameState.thoughts.PEUR : $WeatherEffects/SnowEffect/AnimationPlayer.play("snowAppear")
+		$Thoughts.activateThoughts(myType)
+		speed /= myFriction
 
-func _on_friction_zone_body_exited(body):
+func _on_friction_zone_body_exited(body,myType,myFriction):
 	if body==self : 
-		$RainEffect/AnimationPlayer.play("rainDisappear")
-		speed *= 2
+		match myType:
+			GameState.thoughts.DEPRIME : $WeatherEffects/RainEffect/AnimationPlayer.play("rainDisappear")
+			GameState.thoughts.PEUR : $WeatherEffects/SnowEffect/AnimationPlayer.play("snowDisappear")
+		$Thoughts.desactivateThoughts()
+		speed *= myFriction
 
 func _on_accelaration_zone_body_entered(body):
 	if body==self : 

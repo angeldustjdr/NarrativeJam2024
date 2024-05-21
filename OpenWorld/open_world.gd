@@ -28,8 +28,13 @@ func _ready():
 	self._init_objectives()
 	#####################################################
 	Radio.connect("poserWard",poserWard)
+	for pos in GameState.wardPlacements:
+		var w = ward.instantiate()
+		w.global_position = pos
+		$Ward/Custom.add_child(w)
 	#Radio.connect("setObjective",setObjective) # Not needed because objective change only when going back to openworld after ilot or hub.
 	Achievements.connect("unlock",showUnlock)
+	Radio.connect("sendThoughts",showThoughts)
 	#####################################################
 	# check pour les zones d'acceleration et la révélation de la map
 	self._check_map()
@@ -127,6 +132,7 @@ func poserWard():
 	var w = ward.instantiate()
 	w.setPortable()
 	w.global_position = $player.global_position
+	GameState.wardPlacements.append(w.global_position)
 	$Ward.add_child(w)
 
 func setObjective():
@@ -138,9 +144,18 @@ func _process(_delta):
 	GameState.player_position = $player.position
 
 func showUnlock(message):
+	instanciateMessage(true,message,Vector2(1920/2,1080/2),true)
+
+func showThoughts(message):
+	var where = Vector2(randi_range(320,1920-320),randi_range(220,1080-220))
+	instanciateMessage(false,message,where,false)
+
+func instanciateMessage(isAchivement,message,where,sound):
 	var u = unlock.instantiate()
-	u.text = "Achivement unlocked : " + message
-	u.position = Vector2(1920/2,1080/2)
+	if isAchivement : u.text = "Achivement unlocked : " 
+	u.text += message
+	u.position = where
+	u.withSound = sound
 	%UI.add_child(u)
 
 func _input(event):

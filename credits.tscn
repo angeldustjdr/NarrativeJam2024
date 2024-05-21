@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bcjpe3i1yrqby"]
+[gd_scene load_steps=13 format=3 uid="uid://bcjpe3i1yrqby"]
 
 [ext_resource type="Shader" path="res://wave2.gdshader" id="1_lj0ko"]
 [ext_resource type="Script" path="res://credits.gd" id="1_rnftj"]
 [ext_resource type="Shader" path="res://assets/shaders/oscillo.gdshader" id="2_32ho8"]
+[ext_resource type="FontFile" uid="uid://lt3irnr3vmc6" path="res://Forum-Regular.ttf" id="4_hqvyd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohxwc"]
 size = Vector2(1941, 20)
@@ -127,13 +128,14 @@ mouse_filter = 2
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
-offset_left = 384.0
-offset_top = 1080.0
-offset_right = 1536.0
-offset_bottom = 2224.0
+offset_left = 395.0
+offset_top = 1074.0
+offset_right = 1547.0
+offset_bottom = 3816.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("4_hqvyd")
+theme_override_font_sizes/font_size = 52
 text = " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce egestas feugiat lacinia. Duis dapibus diam mi, a placerat enim maximus id. Mauris felis quam, mattis vitae rhoncus sed, gravida commodo elit. Phasellus rhoncus magna nisi, nec auctor eros maximus id. Mauris et tortor vel velit euismod imperdiet in id massa. Pellentesque a velit nec tortor eleifend blandit ut pharetra magna. Suspendisse quis nibh vestibulum, dignissim nulla ac, varius nisl. Duis ac ipsum nisl. Praesent tempus dictum felis in posuere. Vestibulum sit amet lobortis erat. Nunc ex augue, fringilla et eleifend a, semper ut nibh. Nunc faucibus risus eu fermentum tincidunt. Vestibulum faucibus ac massa quis accumsan. Integer justo libero, tempor ut dui facilisis, mollis mollis ligula. Vestibulum quis scelerisque justo, nec sodales lectus.
 
 Donec vel pharetra urna. Mauris venenatis massa dignissim leo ornare, vitae iaculis metus consectetur. Sed luctus leo nibh, ut finibus ante aliquam vel. Praesent eu accumsan diam, vitae suscipit augue. Donec pellentesque maximus risus, et lacinia felis. Nullam eros eros, convallis sit amet leo quis, vehicula blandit magna. Curabitur blandit ex sit amet nisi aliquam, non lacinia mauris elementum. Suspendisse mattis, ipsum vitae vehicula vestibulum, sem ante malesuada leo, in rutrum lorem nibh ac lectus.
