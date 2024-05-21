@@ -1,17 +1,20 @@
-//Shader by: Jordancjb (https://linktr.ee/jordancjb)
-//Licensed under Creative Commons 0, Use as you like c:
 shader_type canvas_item;
-uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
-uniform sampler2D color : source_color;
-//Noise Texture
-uniform sampler2D Noise;
 
-//Settings
-uniform float Transparency = 4.0;
-uniform float Slow = 25.0;
+uniform sampler2D dissolve_texture : source_color;
+uniform float dissolve_value : hint_range(0,1);
+uniform float burn_size: hint_range(0.0, 1.0, 0.01);
+uniform vec4 burn_color: source_color;
 
-//Shader Code
-void fragment() {
-	COLOR = texture(screen_texture, SCREEN_UV) * texture(Noise, texture(Noise, UV).xy + cos(TIME) / Slow) / Transparency;
-	COLOR.r = 0.3;
+void fragment(){
+    vec4 main_texture = texture(TEXTURE, UV);
+    vec4 noise_texture = texture(dissolve_texture, UV);
+	
+	// This is needed to avoid keeping a small burn_color dot with dissolve being 0 or 1
+	// is there another way to do it?
+	float burn_size_step = burn_size * step(0.001, dissolve_value) * step(dissolve_value, 0.999);
+	float threshold = smoothstep(noise_texture.x-burn_size_step, noise_texture.x, dissolve_value);
+	float border = smoothstep(noise_texture.x, noise_texture.x + burn_size_step, dissolve_value);
+	
+	COLOR.a *= threshold;
+	COLOR.rgb = mix(burn_color.rgb, main_texture.rgb, border);
 }
