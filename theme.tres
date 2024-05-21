@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://bh0bu7qc8ksch"]
 
-[ext_resource type="FontFile" uid="uid://cnfpps3vj1vb2" path="res://Reactor-Sans.ttf" id="1_500lm"]
+[ext_resource type="FontFile" uid="uid://dke7yer05hidk" path="res://Reactor-Sans.ttf" id="1_500lm"]
 
 [resource]
 default_font = ExtResource("1_500lm")

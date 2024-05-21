@@ -2,25 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://1yyj200c6esy" path="res://visual_novel/ilot_generic.tscn" id="1_puyjx"]
 [ext_resource type="Script" path="res://visual_novel/ilot_1.gd" id="2_jr8tx"]
-[ext_resource type="Texture2D" uid="uid://ckye8onnk5cdw" path="res://assets/graphics/backgrounds/ilot1-galerien-sature.png" id="3_sav4k"]
-[ext_resource type="Texture2D" uid="uid://gle4d84s24u3" path="res://assets/graphics/backgrounds/ilot1-galerien-terne.png" id="4_f04ol"]
-[ext_resource type="Texture2D" uid="uid://b8fkncllt8yiu" path="res://assets/graphics/items/oscillo_icon_1.png" id="4_fbwxv"]
-[ext_resource type="Texture2D" uid="uid://8lay5gq8nf78" path="res://assets/graphics/characters/character-ilot1-miner-v2.png" id="6_67gr8"]
+[ext_resource type="Texture2D" uid="uid://ca6oqevnk181w" path="res://assets/graphics/backgrounds/ilot1-galerien-sature.png" id="3_sav4k"]
+[ext_resource type="Texture2D" uid="uid://cscmucw4xksj0" path="res://assets/graphics/backgrounds/ilot1-galerien-terne.png" id="4_f04ol"]
+[ext_resource type="Texture2D" uid="uid://dxd02amnhquq" path="res://assets/graphics/items/oscillo_icon_1.png" id="4_fbwxv"]
+[ext_resource type="Texture2D" uid="uid://db5vya6jxyh8g" path="res://assets/graphics/characters/character-ilot1-miner-v2.png" id="6_67gr8"]
 
 [node name="ilot_1" instance=ExtResource("1_puyjx")]
 light_mask = 3
 z_as_relative = false
 script = ExtResource("2_jr8tx")
-ilot_color = Color(0.996078, 0.815824, 0, 1)
-ilot_color_corrupted = Color(0.415717, 0.474342, 0.698085, 1)
-ilot_color_normal = Color(0.996078, 0.815686, 0, 1)
-target_signal_prop = {
-"ampl": 0.5,
-"mean": -0.5,
-"period": 0.0,
-"phase": 0.0
-}
-numero_ilot = 1
 
 [node name="Background" parent="visual_novel_scene" index="0"]
 texture = ExtResource("3_sav4k")

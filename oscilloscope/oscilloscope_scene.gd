@@ -19,8 +19,17 @@ signal victory
 var signal_color : Color = Color.BLUE
 var previous_s = 0
 
+var rng = RandomNumberGenerator.new()
+var intemperie : int = GameState.NONE
+var intemperie_timer : Timer =  Timer.new()
+var min_max_weak_disappear = [5.0,7.0]
+var min_max_strong_disappear = [7.0,9.0]
+var min_max_weak_appear = [3.0,4.0]
+var min_max_strong_appear = [2.0,3.0]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	self._init_intemperie_timer()
 	$emit_button.pressed.connect(self._on_emit_button_pressed)
 	self._deactivation_of_sliders()
 	$OscilloScreen.set_target_signal_properties(self.target_signal_properties)
@@ -28,6 +37,44 @@ func _ready():
 	self._init_sliders()
 	self._update_similarity()
 	self._init_audio()
+
+func _init_intemperie_timer():
+	match GameState.check_intemperie():
+		GameState.WEAK:
+			self.add_child(self.intemperie_timer)
+			self.intemperie_timer.timeout.connect(self._on_intemperie_timer_timeout)
+			self.intemperie_timer.wait_time = randi_range(min_max_weak_appear[0],min_max_weak_appear[1])
+			self.intemperie_timer.start()
+		GameState.STRONG:
+			self.add_child(self.intemperie_timer)
+			self.intemperie_timer.timeout.connect(self._on_intemperie_timer_timeout)
+			self.intemperie_timer.wait_time = randi_range(min_max_strong_appear[0],min_max_strong_appear[1])
+			self.intemperie_timer.start()
+		_:
+			pass
+
+func _on_intemperie_timer_timeout():
+	match GameState.check_intemperie():
+		GameState.WEAK:
+			if $OscilloScreen/target_signal_shader.visible:
+				$OscilloScreen/target_signal_shader.visible = false
+				self.intemperie_timer.wait_time = randi_range(min_max_weak_disappear[0],min_max_weak_disappear[1])
+				self.intemperie_timer.start()
+			else:
+				$OscilloScreen/target_signal_shader.visible = true
+				self.intemperie_timer.wait_time = randi_range(min_max_weak_appear[0],min_max_weak_appear[1])
+				self.intemperie_timer.start()
+		GameState.STRONG:
+			if $OscilloScreen/target_signal_shader.visible:
+				$OscilloScreen/target_signal_shader.visible = false
+				self.intemperie_timer.wait_time = randi_range(min_max_strong_disappear[0],min_max_strong_disappear[1])
+				self.intemperie_timer.start()
+			else:
+				$OscilloScreen/target_signal_shader.visible = true
+				self.intemperie_timer.wait_time = randi_range(min_max_strong_appear[0],min_max_strong_appear[1])
+				self.intemperie_timer.start()
+		_:
+			pass
 
 func set_difficulty(difficulty : int):
 	match difficulty:

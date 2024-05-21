@@ -15,6 +15,7 @@ var _ilot_corrupted : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$intemperie_texture.set_intemperie(GameState.check_intemperie())
 	MusicManager.set_bus("music")
 	Achievements.connect("unlock",showUnlock)
 	GameState.pause_ether_timer()

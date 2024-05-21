@@ -3,7 +3,7 @@
 [ext_resource type="Shader" path="res://wave2.gdshader" id="1_lj0ko"]
 [ext_resource type="Script" path="res://credits.gd" id="1_rnftj"]
 [ext_resource type="Shader" path="res://assets/shaders/oscillo.gdshader" id="2_32ho8"]
-[ext_resource type="FontFile" uid="uid://lt3irnr3vmc6" path="res://Forum-Regular.ttf" id="4_hqvyd"]
+[ext_resource type="FontFile" uid="uid://7rmtnvxqs8kt" path="res://Forum-Regular.ttf" id="4_hqvyd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohxwc"]
 size = Vector2(1941, 20)
@@ -34,6 +34,7 @@ shader_parameter/phase = 5.0
 shader_parameter/mean = 0.0
 shader_parameter/vel = 2.0
 shader_parameter/tightness = 10.0
+shader_parameter/quality_signal = true
 shader_parameter/modulate = Color(0, 1, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ktxyn"]
@@ -45,6 +46,7 @@ shader_parameter/phase = 4.0
 shader_parameter/mean = 0.0
 shader_parameter/vel = 2.0
 shader_parameter/tightness = 10.0
+shader_parameter/quality_signal = true
 shader_parameter/modulate = Color(0, 0.501961, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ijpbq"]
@@ -55,6 +57,7 @@ shader_parameter/phase = 3.0
 shader_parameter/mean = 0.0
 shader_parameter/vel = 2.0
 shader_parameter/tightness = 10.0
+shader_parameter/quality_signal = true
 shader_parameter/modulate = Color(0.749881, 0, 0.406101, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fklvl"]
@@ -136,18 +139,81 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_hqvyd")
 theme_override_font_sizes/font_size = 52
-text = " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce egestas feugiat lacinia. Duis dapibus diam mi, a placerat enim maximus id. Mauris felis quam, mattis vitae rhoncus sed, gravida commodo elit. Phasellus rhoncus magna nisi, nec auctor eros maximus id. Mauris et tortor vel velit euismod imperdiet in id massa. Pellentesque a velit nec tortor eleifend blandit ut pharetra magna. Suspendisse quis nibh vestibulum, dignissim nulla ac, varius nisl. Duis ac ipsum nisl. Praesent tempus dictum felis in posuere. Vestibulum sit amet lobortis erat. Nunc ex augue, fringilla et eleifend a, semper ut nibh. Nunc faucibus risus eu fermentum tincidunt. Vestibulum faucibus ac massa quis accumsan. Integer justo libero, tempor ut dui facilisis, mollis mollis ligula. Vestibulum quis scelerisque justo, nec sodales lectus.
+text = "MINDFARER
+GAME BY THE FRENCH PAN STUDIO
 
-Donec vel pharetra urna. Mauris venenatis massa dignissim leo ornare, vitae iaculis metus consectetur. Sed luctus leo nibh, ut finibus ante aliquam vel. Praesent eu accumsan diam, vitae suscipit augue. Donec pellentesque maximus risus, et lacinia felis. Nullam eros eros, convallis sit amet leo quis, vehicula blandit magna. Curabitur blandit ex sit amet nisi aliquam, non lacinia mauris elementum. Suspendisse mattis, ipsum vitae vehicula vestibulum, sem ante malesuada leo, in rutrum lorem nibh ac lectus.
 
-Nullam gravida dui vitae rutrum tristique. Vivamus non leo ac massa ultricies laoreet. Nunc rhoncus, urna lobortis viverra pharetra, velit quam pharetra diam, a vulputate mi lorem nec augue. Donec laoreet vel mauris eu tempor. Integer luctus dui eget libero porttitor egestas et facilisis diam. Nullam ante urna, pharetra et est sodales, imperdiet pulvinar justo. Etiam vestibulum pulvinar auctor. Ut a erat sed felis laoreet hendrerit. Etiam accumsan hendrerit congue. Maecenas vestibulum aliquam ligula a lacinia. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam ultrices sed mauris at scelerisque. Pellentesque mattis enim sed leo tincidunt, ut elementum ipsum faucibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam consectetur bibendum efficitur. "
+GAME SCENARIO AND DESIGN:
+    - Angeldust
+    - Belillart
+    - Crowleyminal
+    - Vost
+    with inputs from Centsoixante
+
+
+GAME DESIGN AND DEVELOPMENT:
+Frontend: Angeldust
+Backend: Vost
+
+WRITING:
+    - Crowleyminal
+    with inputs from the other studio members
+
+ART/GRAPHICS CREATION:
+Logos, Characters, Navigation map and Miscellaneous items:
+    - Belillart
+    with inputs from Centsoixante
+Hub and Islands' backgrounds:
+    - Centsoixante
+    with inputs from Belillart
+Miscellaneous inputs:
+    - Angeldust
+    - Crowleyminal
+    - Vost
+
+AUDIO
+
+MUSICS:
+Selected by Crowleyminal with inputs from Belillart
+
+Intro and Employee of the Month ending:
+    - \"starfleet command\" by geoffharvey
+Hub:
+    - \"elegant ambient science\" by Coma Media
+µ Navigation:
+    - Zorg and Shlak: Explo - Nebula
+Islands:
+    - \"spring drive manufacturing process\" by AlexGrohl
+    - \"hypnosphere\" by Evgeny Bardyuzha
+    - \"techno driver\" by TazDev music
+    - \"Trailer sports stylish\" by Anton Vlasov
+    - \"glitch abstract trap\" by QubeSounds
+    - \"taj mahal\" by Lesfm
+Bernard's critical choice and Revolution Ending:
+    - Zorg and Shlak: Action - Nebula
+Other Endings:
+    - \"close to the sun\" by SergePavkinMusic
+    - \"Pixel Perfect\" by Nebula Audio
+
+SFX:
+Selected by Crowleyminal
+    - Free Sound Effects by Shapeforms Audio
+
+GAME ENGINE:
+Godot 4.2.2
+Plugin(s) used:
+    - Dialogic by Emilio Coppola
+
+Special thanks to all the game testers/reviewers, and to the game jams’ organizators.
+
+"
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Area2D" type="Area2D" parent="Label"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Label/Area2D"]
-position = Vector2(578, 1172)
+position = Vector2(589, 4240.5)
 shape = SubResource("RectangleShape2D_fklvl")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

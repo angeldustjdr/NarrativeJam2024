@@ -12,6 +12,7 @@ shader_parameter/phase = 5.0
 shader_parameter/mean = 5.0
 shader_parameter/vel = 5.0
 shader_parameter/tightness = 20.0
+shader_parameter/quality_signal = true
 shader_parameter/modulate = Color(0, 1, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_p856g"]
