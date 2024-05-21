@@ -1,12 +1,12 @@
-join captain 1
+join captain (Captain-smile-close) 1
 captain: Welcome to team 7 !\
-You will be working with {shipgirl_name}, she's your shipgirl, think of her as an assistant. You can order her any deskjob, low or moderatly technical task, she should be able to handle it.
-join shipgirl 3 [animation="Slide In Right" mirrored="true"]
+You will be working with {shipgirl_name}, she's your shipgirl, think of her as an assistant and an apprentice. You can order her any deskjob, low or moderatly technical task, she should be able to handle it.
+join shipgirl 3 [animation="Slide In Right"]
 shipgirl: *wave*
 leave shipgirl [animation="Slide Out Right"]
-captain: {navigator1_name} is your navigator, you are equal in ranking. He will guide you through the {sea_name} and relay order from mission-command.
-join "navigator 1" 3 [animation="Slide In Right" mirrored="true"]
-"navigator 1": *thumbs up*
+captain: {navigator1_code} is your navigator, you are equal in ranking. He will guide you through the {sea_name} and relay order from mission-command.
+join "navigator 1" 3 [animation="Slide In Right"]
+"navigator 1" (Bernard-Hub-upset-close): Ugh... Please call me {navigator1_name} instead.
 leave "navigator 1" [animation="Slide Out Right"]
 "navigator 1": Good ! Now, I have time for about ... Hum ... let's say two questions.\
 Go ahead.

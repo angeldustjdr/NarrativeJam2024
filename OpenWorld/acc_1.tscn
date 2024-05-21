@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bsqs7hvavmdhe"]
 
 [ext_resource type="Script" path="res://OpenWorld/Acc1.gd" id="1_d003d"]
-[ext_resource type="Texture2D" uid="uid://dgxs3gl5i383l" path="res://OpenWorld/fleche_blanche.png" id="2_8m4is"]
+[ext_resource type="Texture2D" uid="uid://bo4wi0lq3boye" path="res://OpenWorld/fleche_blanche.png" id="2_8m4is"]
 [ext_resource type="Shader" path="res://OpenWorld/acc_1.gdshader" id="2_e2h4f"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_1u0i7"]
@@ -27,6 +27,21 @@ size = Vector2(369, 1285)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kleg5"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_qrgt1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.513753, 1.11904e-06, 1.92523e-07, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_f3cqe"]
 resource_name = "flicker"
 length = 2.0
@@ -42,21 +57,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0.513753, 1.11904e-06, 1.92523e-07, 1), Color(0.513726, 0, 0, 0), Color(0.513753, 1.11904e-06, 1.92523e-07, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_qrgt1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:theme_override_colors/font_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.513753, 1.11904e-06, 1.92523e-07, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ukwrb"]

@@ -184,21 +184,25 @@ glossary/default_case_sensitive=true
 layout/style_list=["res://dialogic_theme.tres"]
 layout/default_style="res://dialogic_theme.tres"
 variables={
+"Captain_code": "Paragon",
 "Var": "coucou",
 "admiral_name": "Akbard",
-"armada_name": "Mindsail",
-"captain_name": "Brannigan",
+"armada_name": "MindSail",
+"captain_name": "Lee",
 "character_choice": 0,
 "confirm_exit": "tamere",
 "galerien_name": "Jean-Luc Galérien",
 "galerien_superinfluence": "no",
 "grandadmiral_name": "Throne",
-"hub_name": "hub",
-"mc_name": "S-2187-1138",
+"hub_name": "mothership",
+"mc_code": "Tide",
+"mc_name": "MDF-Ω3-2187",
+"navigator1_code": "Cipher",
 "navigator1_name": "Bernard",
-"navigator2_name": "Navi",
+"navigator2_code": "Warden",
+"navigator2_name": "Fah",
 "sea_name": "Cognisea",
-"shipgirl_name": "Corentine",
+"shipgirl_name": "Wendy",
 "talk_to_ilot": "tamere"
 }
 save/autosave=false
