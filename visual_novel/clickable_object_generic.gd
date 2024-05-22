@@ -13,7 +13,10 @@ var _clickable_true : bool # actually at this frame
 func _ready():
 	SceneTransitionLayer.fade_in_finished.connect(self._on_transition_fade_in_finished)
 	SceneTransitionLayer.transition_out.connect(self._on_transition_fade_out_started)
-	self._clickable_true = false
+	if not GameState._debug: 
+		self._clickable_true = false
+	else:
+		self._clickable_true = true
 	$area.input_event.connect(self._on_input)
 	self._udpate_sprite_2d_name()
 	var myRect = RectangleShape2D.new()

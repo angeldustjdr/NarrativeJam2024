@@ -45,11 +45,11 @@ func _ready():
 		%VBoxContainer_Ward.add_child(w)
 	# WTF? 
 	$player.player_connect()
-	
+
 	%MissionLabel.text = GameState.get_current_mission()
 	MusicManager.playMusicNamed(self._music_name,SceneTransitionLayer.get_duration("fade_in"))
 	SceneTransitionLayer.reveal_scene()
-	await(SceneTransitionLayer.fade_in_finished)
+	if not GameState._debug : await(SceneTransitionLayer.fade_in_finished)
 	var brief = GameState.start_briefing_dialog()
 	if brief:
 		GameState.pause_ether_timer()

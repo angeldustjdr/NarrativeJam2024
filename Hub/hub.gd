@@ -36,7 +36,6 @@ func _ready():
 	GameState.update_dialogs()
 	Radio.connect("clickObject",clickObject)
 	%TalkToMenu.coffee_credit_update.connect(self._on_coffee_credit_update)
-	GameState.save_game("res://dev_save.save")
 	SceneTransitionLayer.reveal_scene()
 
 func clickObject(which):

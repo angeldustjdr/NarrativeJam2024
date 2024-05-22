@@ -7,7 +7,10 @@ var _clickable_true : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self._clickable_true = false
+	if not GameState._debug: 
+		self._clickable_true = false
+	else:
+		self._clickable_true = true
 	SceneTransitionLayer.fade_in_finished.connect(self._on_transition_fade_in_finished)
 	SceneTransitionLayer.transition_out.connect(self._on_transition_fade_out_started)
 	$area.input_event.connect(self._on_input)
