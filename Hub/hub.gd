@@ -68,11 +68,12 @@ func clickObject(which):
 			%AchivementsPanel.visible = true
 			setClickableProcess(PROCESS_MODE_DISABLED)
 		"Figurant" :
+			for elem in $FigurantsDialogue.get_children() : elem.queue_free()
 			var l = fig.instantiate()
 			l.withSound = false
 			l.text = FigurantsSpeech.pick_random()
 			l.global_position = get_global_mouse_position()
-			add_child(l)
+			$FigurantsDialogue.add_child(l)
 		_ : 
 			push_warning("clickable not recognized")
 
