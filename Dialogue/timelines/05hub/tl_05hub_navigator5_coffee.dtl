@@ -17,9 +17,7 @@ join "navigator 2" 1
 		"navigator 2" (navigator2-upset-open): No, I'm just focused on our missions. We have the opportunity to sail the Cognisea. Can't you see that we are true pioneers? Don't let anyone else persuade you otherwise.
 		"navigator 2" (navigator2-upset-close): In other words, don't be childish.
 		"navigator 2" (navigator2-upset-open): If you don't do it for the science, do it for your career. You'll never get the rank of captain if you behave like you care too much.
-"navigator 2" (navigator2-smile-close): Anyway...
-- It was a pleasure to talk with you
-	"navigator 2" (navigator2-smile-close): Hummmm... I can't decide if I like you or not. Don't be too friendly, we are only colleagues after all.
-- Bye
-	"navigator 2" (navigator2-smile-close): Bye
+	- Nevermind...
+		"navigator 2" (navigator2-upset-close): Okay then. Let's get back to work !
+		[end_timeline]
 [end_timeline]
