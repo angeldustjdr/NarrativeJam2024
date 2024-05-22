@@ -1,3 +1,26 @@
 join "navigator 1" 1
-"navigator 1": 'morning, how's the coffee ? So, I'm {navigator1_name} I'll be your navigator. I relay orders from mission control and guide you through your assignment. I'm sure we'll get along. Meet me outside when you'r ready.
+"navigator 1" (Bernard-Hub-smile-open): 'Morning, how's the coffee ? So, I'm {navigator1_name}, I'll be your navigator. I'm not really into this code naming thing, I think that's silly, so please call me by my real name.
+"navigator 1" (Bernard-Hub-smile-open): How should I call you?
+- "{mc_name}" is fine.
+"navigator 1" (Bernard-Hub-upset-open): Huh, for real...?
+- I'm just really not comfortable with my name.
+	"navigator 1" (Bernard-Hub-upset-close): Oh... I see. I understand, sorry for acting rudely just before.
+	"navigator 1" (Bernard-Hub-smile-close): I'm sure you'll soon get a code name that suits you as a pilot as a person.
+	"navigator 1" (Bernard-Hub-smile-open): And if one day you're comfortable enough telling me why you don't like your birth name, I'll gladly listen.
+- *Don't say anything.*
+"navigator 1" (Bernard-Hub-smile-close): Well... we have a little bit of time ahead before our mission start. Do you have any questions?
+- Your codename is "{navigator1_code}", right? How did you earn it?
+	"navigator 1" (Bernard-Hub-smile-open): Oh, that... I was really good at encoding and deciphering crypted messages. That's a hobby of mine, but it's also a valuable skill for a Navigator.
+	"navigator 1" (Bernard-Hub-smile-close): The collective subconscious, that we call the {sea_name}, is very hard to interpret after all. {armada_name} technology helps to visualize it, especially for the pilot, but it still requires a good Navigator to decode some signals from there.
+	- How long have you been working here?
+		"navigator 1" (Bernard-Hub-smile-open): Hum... about a year, now. But the numbers of missions into the {sea_name} have increased recently. I used to work more in the office before, helping the Intel Department.
+		"navigator 1" (Bernard-Hub-smile-close): I guess they need more real data to move on with with the Research section of MindSail, which is outside of the Armada.
+		- What do you think of MindSail so far?
+		"navigator 1" (Bernard-Hub-smile-open): Oh, that's a tough question. And not one to ask in the middle of the hub if you want an honest answer.
+		"navigator 1" (Bernard-Hub-smile-close): Let's say that I like being a Navigator, and I'm sincerely fascinated by the {sea_name}. I wish we had more insight on how the data we are collecting is used, though.
+		- I see... thank you for the conversation.
+		"navigator 1" (Bernard-Hub-smile-close): You're welcome, sailor.
+	- *Let the conversation die here*
+- I'm okay, let's go already.
+"navigator 1" (Bernard-Hub-smile-close): Alright, I've finished my coffee. I'll prepare for your departure in the Navigation room. See you later.
 [end_timeline]

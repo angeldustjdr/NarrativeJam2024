@@ -1,3 +1,21 @@
 join shipgirl 1
-shipgirl: Hey, i'm {shipgirl_name}, your shipgirl, I take care of the boring stuff so you can do your missions easily. If you damage your ship i'll get the techs to fix it in no time.
+shipgirl (Shipgirl-smile-open): Hey, I'm {shipgirl_name}, your deckhand, or shipgirl, as you wish. I take care of the boring stuff so you can do your missions easily. If you damage your ship I'll get the techs to fix it in no time.
+- Thank you!
+- *Nod quietly*
+shipgirl (Shipgirl-smile-close): How are you feeling for your first real mission? I wish I could go too! I'm still training on the simulator, though.
+- I'm a little nervous.
+	shipgirl (Shipgirl-smile-open): I'm sure you will be fine! I've watched all your previous training simulations, you're great! At least, you're way better than me. I hope I'll become a good {pilot_name} soon too! I can't wait to get my own Code name!
+	- Is that your dream?
+		shipgirl (Shipgirl-smile-open): Yes! Well, in fact, my ultimate goal is to become the first woman to reach the Captain position!
+		shipgirl (Shipgirl-upset-open): Oh but, don't tell the Captain, okay?
+		- I won't tell a soul.
+		shipgirl (Shipgirl-smile-open): Thank you! I knew you seemed like a nice uh...
+		shipgirl (Shipgirl-upset-close): *whispers* man...? woman...?
+		shipgirl (Shipgirl-smile-open): *outloud* person! A nice person!
+		shipgirl: Oh gosh, it's time for me to prepare your boat. See you around, thanks for the coffee!
+	- For starter, shouldn't you be preparing my boat?
+		shipgirl (Shipgirl-upset-open): Ha... sure! Huh, see you later, thanks for the coffee!
+- *shrugs shoulders*
+	shipgirl (Shipgirl-upset-close): Ha, uh... it's quite a beautiful day outside, isn't it? I hope people will be feeling good so it doesn't have repercussions on the {sea_name} weather.
+	shipgirl (Shipgirl-upset-close): ... I think it's time for me to prepare your boat. Thank you for the coffee, {mc_name}.
 [end_timeline]
