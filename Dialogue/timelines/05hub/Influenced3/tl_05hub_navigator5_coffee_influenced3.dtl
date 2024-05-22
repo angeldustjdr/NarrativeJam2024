@@ -1,9 +1,44 @@
 join "navigator 2" 1
-"navigator 2": Who Am I ? please don't assault me with question. I just want to relax after a day of work, okay ?
-"navigator 2": I don't know about your previous navigator. I'm just doing my job here.
-"navigator 2": You should be focus on your work, not your co-workers.\
-If you are so obcessed by that, go submit a form in order to take an appointment with managment.
-"navigator 2": Changements concerning the behavior of the projections ?\
-They are just projection, I don't think this mean anything.
-"navigator 2": Also, you should not waste time with thoses interactions. I'm sure you have been briefed about the Siren's Call. Do you really want to risk your life just to talk with illusions ?
+"navigator 2": Hum?
+- Who are you exactly?
+	"navigator 2" (navigator2-upset-open): Who am I? Please don't assault me with questions. It's writen on my badge. For now, I just want to relax after a day of work, you know.
+- Nice job on the mission!
+	"navigator 2" (navigator2-smile-open): Thanks! You did well too.
+"navigator 2" (navigator2-smile-close): Something else?
+- So you're my new navigator?
+	"navigator 2": Yep. That would be me. You got a problem with that?
+	- No, it's just that I like Bernard better
+		"navigator 2" (navigator2-upset-close): I don't know about your previous navigator. I can't even find his matricul in the logs. So don't bother. You know, I'm just doing my job here. So should you.
+		"navigator 2" (navigator2-upset-close): If you are so obcessed by that, go submit a form in order to take an appointment with the management.
+	- No, you're great
+		"navigator 2" (navigator2-smile-close): Thanks! I try to do my best for my sailor to be safe. And the cartographers are doing great also\: the ping I sent you was on point!
+		"navigator 2" (navigator2-smile-open): I like it when people are efficient. It makes succeeding the missions that much more exciting, right?
+	- Yeah, you're arrogant
+		"navigator 2" (navigator2-upset-open): No, I'm just focused on our missions. We have the opportunity to sail the Cognisea. Can't you see that we are true pioneers? Don't let anyone else persuade you otherwise.
+		"navigator 2" (navigator2-upset-close): In other words, don't be childish.
+		"navigator 2" (navigator2-upset-open): If you don't do it for science, do it for your career. You'll never get the rank of captain if you behave like you care too much.
+	- Nevermind...
+		"navigator 2" (navigator2-upset-close): Okay then.
+"navigator 2" (navigator2-smile-close): You wanted to add something?
+- Yeah... Did you noticed the people on the islets?
+	"navigator 2" (navigator2-upset-close): You mean the projections? Yeah... And?
+	- What do you think about them?
+		"navigator 2" (navigator2-smile-close): I find them amusing. They are like stereotypes of people in the real world.
+		"navigator 2" (navigator2-smile-open): It's fascinating how much people can have predictable behaviours. They are so easily influenced...
+		jump 1
+	- The data collectors are changing their minds!
+		"navigator 2" (navigator2-upset-open): Prove it! Can you quantify the impact of the data collectors?
+		"navigator 2" (navigator2-upset-close): You can't! Even the R&D department can't! So why bother?
+		"navigator 2" (navigator2-upset-open): We just do our job, which is to explore and activate data collectors. That's it. If you want to rank higher on the pay grade, maybe you should focus on your own job and not question authority.
+		jump 1
+	- Don't you feel compassion, you monster?
+		"navigator 2" (navigator2-upset-open): Calm down! I'm not some kind of saint!
+		"navigator 2" (navigator2-upset-open): Let me just do my job, cash my paycheck and then get out of here. You care too much. You don't even know if they are real...
+		"navigator 2" (navigator2-upset-close): If I were you, I wouldn't bother. Let's get back to work.
+		jump 1
+		label 1
+	- Nothing
+		[end_timeline]
+- No, I'll get back to work
+	[end_timeline]
 [end_timeline]

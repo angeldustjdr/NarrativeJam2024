@@ -1,7 +1,7 @@
 join "navigator 2" 1
 "navigator 2": {mc_name} you are off course. What are you doing ?
 "navigator 2": Another signal ?
-"navigator 2": Whatever it is, do not follow it. I repeat, do not follow the new ping.
+"navigator 2": Whatever it is, do not follow it. I repeat, do not follow the new ping. For your own sake, just don't!
 "navigator 2": Come back to hub immediatly.
 do GameState.advanceRevolution()
 [end_timeline]
