@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://1yyj200c6esy" path="res://visual_novel/ilot_generic.tscn" id="1_yjlni"]
 [ext_resource type="Script" path="res://visual_novel/ilot_2.gd" id="2_yxq2s"]
-[ext_resource type="Texture2D" uid="uid://dbp1nafofkelr" path="res://assets/graphics/backgrounds/ilot_jcd.jpg" id="3_mynfc"]
-[ext_resource type="Texture2D" uid="uid://fhhvqt0im10t" path="res://assets/graphics/backgrounds/ilot2-jcd-terne.png" id="4_1rvlp"]
-[ext_resource type="Texture2D" uid="uid://dro8byvg4yebm" path="res://assets/graphics/items/oscillo_icon_2.png" id="4_004n3"]
-[ext_resource type="Texture2D" uid="uid://cced4joio8bwe" path="res://assets/graphics/characters/character-ilot2-JCD-v2.png" id="6_wjp84"]
+[ext_resource type="Texture2D" uid="uid://cwlo4dcfs7lsa" path="res://assets/graphics/backgrounds/ilot_jcd.png" id="3_ymclj"]
+[ext_resource type="Texture2D" uid="uid://bwiwaixi5ndpx" path="res://assets/graphics/backgrounds/ilot2-jcd-terne.png" id="4_1rvlp"]
+[ext_resource type="Texture2D" uid="uid://b0vg5l83hfntc" path="res://assets/graphics/items/oscillo_icon_2.png" id="4_004n3"]
+[ext_resource type="Texture2D" uid="uid://bn1u1urqny37a" path="res://assets/graphics/characters/character-ilot2-JCD-v2.png" id="6_wjp84"]
 
 [node name="ilot_2" instance=ExtResource("1_yjlni")]
 script = ExtResource("2_yxq2s")
@@ -22,7 +22,7 @@ target_signal_prop = {
 numero_ilot = 2
 
 [node name="Background" parent="visual_novel_scene" index="0"]
-texture = ExtResource("3_mynfc")
+texture = ExtResource("3_ymclj")
 
 [node name="Background_corrupted" parent="visual_novel_scene" index="1"]
 offset_right = 1920.0
