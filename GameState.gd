@@ -242,18 +242,13 @@ func check_beacon_destruction():
 		return true
 
 func check_corpo_ending():
-	if self.revolutionStep > 0 and self.denialStep == 0:
+	if self.denialStep == 1:
 		return FIRED_ENDING
-	elif self.denialStep == 1:
-		return DENIAL_ENDING
-	elif self.revolutionStep == 0 and self.denialStep == 0:
+	else:
 		if self.employee_of_the_month():
 			return EMPLOYEE_OF_THE_MONTH_ENDING
 		else:
 			return TRY_NEXT_MONTH_ENDING
-	else:
-		push_error("ENDING : unexpected...")
-		return -1
 
 func check_and_launch_corpo_ending():
 	self.launch_ending(check_corpo_ending())
@@ -287,8 +282,8 @@ func launch_ending(i_ending):
 
 func employee_of_the_month(): # CONDITION for employee of the month
 	var added_corruption = self._get_sum_missions_corrupted() - self.current_corruption_level
-	return added_corruption == 0
-	#return self.get_nb_mission_in_time() > 3 # si le joueur a fait plus de trois missions dans les temps
+	#return added_corruption == 0
+	return self.get_nb_mission_in_time() > 4 # si le joueur a fait plus de trois missions dans les temps
 
 func get_nb_mission_in_time():
 	var c = 0

@@ -100,7 +100,10 @@ func _init_objectives():
 		# Si l'objectif est le HUB alors on l'active
 		objectiveArray[GameState.HUB].set_process_mode(PROCESS_MODE_PAUSABLE)
 		objectiveArray[GameState.HUB].visible = true
-		objectiveArray[GameState.HUB].set_next_scene(ilot_scenes_path[GameState.HUB])
+		if GameState.ilot_states["ilot_5"]["revealed"]:
+			objectiveArray[GameState.HUB].set_next_scene("res://Hub/motivational_speech.tscn")
+		else:
+			objectiveArray[GameState.HUB].set_next_scene(ilot_scenes_path[GameState.HUB])
 		objectiveArray[GameState.HUB].scene_need_changing.connect(self._scene_change)
 	else:
 		# Sinon 
