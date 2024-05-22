@@ -267,6 +267,12 @@ position = Vector2(2383, 758)
 scale = Vector2(0.619491, 0.619491)
 texture = ExtResource("4_6p7h3")
 
+[node name="Logo-vect-v3-pirate2" type="Sprite2D" parent="Terrain"]
+modulate = Color(1, 1, 1, 0.196078)
+position = Vector2(8178, 4263)
+scale = Vector2(0.619491, 0.619491)
+texture = ExtResource("4_6p7h3")
+
 [node name="Chromatic" type="Node2D" parent="Terrain"]
 script = ExtResource("5_mbd5j")
 
@@ -543,11 +549,11 @@ position = Vector2(7028, 2727)
 myMission = 3
 
 [node name="Objective4" parent="." instance=ExtResource("9_rqvr2")]
-position = Vector2(5373, 441)
+position = Vector2(5352, 413)
 myMission = 4
 
 [node name="Objective5" parent="." instance=ExtResource("9_rqvr2")]
-position = Vector2(8201, 4300)
+position = Vector2(8190, 4279)
 myMission = 5
 
 [node name="HUB" parent="." instance=ExtResource("9_rqvr2")]

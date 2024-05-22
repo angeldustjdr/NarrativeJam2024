@@ -7,7 +7,7 @@ var FigurantsSpeech = [
 	"Sorry, I don't have coffee credits anymore...",
 	"Let's get to work!",
 	"The coffee is disgusting anyway.",
-	"Did you know the Captain was a great sailor when he was younger?\nHis codename was Cipher!\nCool nah?",
+	"Did you know the Captain was a great sailor when he was younger?\nHis codename was Paragon!\nCool nah?",
 	"I wish my pay grade was higher.",
 	"I don't like coffee. \nBut we don't have tea at the office.",
 	"Cipher doesn't want to be called by his codename.\nHe want's to be called by his real name: Bernard.",

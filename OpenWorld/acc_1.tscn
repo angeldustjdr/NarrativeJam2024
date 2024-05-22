@@ -89,7 +89,7 @@ offset_bottom = 2417.0
 theme_override_colors/font_color = Color(0.513753, 1.11904e-06, 1.92523e-07, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_kleg5")
-text = "Data 
+text = "MindSail 
 Stream"
 horizontal_alignment = 1
 
@@ -108,7 +108,7 @@ rotation = 3.14159
 theme_override_colors/font_color = Color(0.513753, 1.11904e-06, 1.92523e-07, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_kleg5")
-text = "Data 
+text = "MindSail 
 Stream"
 horizontal_alignment = 1
 

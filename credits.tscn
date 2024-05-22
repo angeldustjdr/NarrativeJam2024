@@ -3,7 +3,7 @@
 [ext_resource type="Shader" path="res://wave2.gdshader" id="1_lj0ko"]
 [ext_resource type="Script" path="res://credits.gd" id="1_rnftj"]
 [ext_resource type="Shader" path="res://assets/shaders/oscillo.gdshader" id="2_32ho8"]
-[ext_resource type="FontFile" uid="uid://7rmtnvxqs8kt" path="res://Forum-Regular.ttf" id="4_hqvyd"]
+[ext_resource type="FontFile" uid="uid://c1q4kfrsped3p" path="res://Forum-Regular.ttf" id="4_hqvyd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohxwc"]
 size = Vector2(1941, 20)

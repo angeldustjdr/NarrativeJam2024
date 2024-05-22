@@ -35,7 +35,7 @@ signal save_finished
 							   "mission_3":{"started":false,"finished":false,"in_time":true,"debriefed":false},
 							   "mission_4":{"started":false,"finished":false,"in_time":true,"debriefed":false},
 							   "mission_5":{"started":false,"finished":false,"in_time":true,"debriefed":false}}
-@onready var mission_timer = {"mission_1": 180.,
+@onready var mission_timer = {"mission_1": 120.,
 							   "mission_2": 80.,
 							   "mission_3": 60.,
 							   "mission_4": 120.,
@@ -75,7 +75,7 @@ var _ether_chrono : Chrono
 
 ########### ACHIEVEMENTS
 @onready var nbCoffee = 0
-@onready var coffeeCredit = 3
+@onready var coffeeCredit = 2
 @onready var nbInteractions = {
 	SHIPGIRL:0,
 	NAVIGATOR1:0,
