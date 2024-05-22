@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dkl3uoms0oaf0" path="res://Hub/coffee-cup.svg" id="6_t3nfk"]
 [ext_resource type="Texture2D" uid="uid://co2u078b48hep" path="res://assets/graphics/backgrounds/Hub/cafe.png" id="7_02scy"]
 [ext_resource type="Texture2D" uid="uid://b6gcrdi4jc01x" path="res://Hub/Armada_orga.png" id="7_c7lv1"]
-[ext_resource type="Texture2D" uid="uid://c3e34gr5vnfig" path="res://assets/graphics/backgrounds/Hub/achievements.png" id="7_ovdvb"]
+[ext_resource type="Texture2D" uid="uid://cnsbjw48ex8sf" path="res://assets/graphics/backgrounds/Hub/achievements-2.png" id="7_noeby"]
 [ext_resource type="Texture2D" uid="uid://d1bnw78iail7c" path="res://OpenWorld/Point_blanc.png" id="8_5j0kt"]
 [ext_resource type="Texture2D" uid="uid://c4v8t88r4mul2" path="res://assets/graphics/characters/character-hub-navigator2-v1.png" id="9_8ieby"]
 [ext_resource type="PackedScene" uid="uid://0pyto5ajiupe" path="res://Hub/achivements_panel.tscn" id="11_q7yni"]
@@ -143,8 +143,8 @@ imageModulate = Color(1, 0.259977, 0.2011, 1)
 which = "Achivement"
 
 [node name="Icon" type="Sprite2D" parent="clickables/Achievements"]
-position = Vector2(74, -403)
-texture = ExtResource("7_ovdvb")
+position = Vector2(137, -507)
+texture = ExtResource("7_noeby")
 
 [node name="Label" type="Label" parent="clickables/Achievements"]
 visible = false

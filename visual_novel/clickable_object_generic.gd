@@ -1,15 +1,19 @@
 extends Node2D
 
-@export var is_clickable : bool
+@export var is_clickable : bool # is effectively clickable in current gamestate
 @export var imageModulate : Color
 @export var which : String
 
 var _sprite_2d_name : String
 
 @onready var _outline_base_width = 3.0
+var _clickable_true : bool # actually at this frame
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	SceneTransitionLayer.fade_in_finished.connect(self._on_transition_fade_in_finished)
+	SceneTransitionLayer.transition_out.connect(self._on_transition_fade_out_started)
+	self._clickable_true = false
 	$area.input_event.connect(self._on_input)
 	self._udpate_sprite_2d_name()
 	var myRect = RectangleShape2D.new()
@@ -18,6 +22,12 @@ func _ready():
 	self.global_position = sprite2d_node.global_position
 	sprite2d_node.position = Vector2(0.0,0.0)
 	$area/CollisionShape2D.shape = myRect 
+
+func _on_transition_fade_in_finished():
+	self._clickable_true = true
+
+func _on_transition_fade_out_started():
+	self._clickable_true = false
 
 func _udpate_sprite_2d_name():
 	self._sprite_2d_name = ""
@@ -36,14 +46,14 @@ func _process(_delta):
 	pass
 
 func _on_input(_node,event,_idx):
-	if is_clickable:
+	if is_clickable and _clickable_true :
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 				if Dialogic.current_timeline == null:
 					Radio.emit_signal("clickObject",which)
 
 func _on_area_mouse_entered():
-	if self.is_clickable:
+	if self.is_clickable and _clickable_true:
 		var node = self.get_node(self._sprite_2d_name)
 		node.material.set_shader_parameter("width",self._outline_base_width*1.0/(node.scale[0]))
 
