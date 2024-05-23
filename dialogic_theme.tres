@@ -69,4 +69,4 @@ base_overrides = {
 "global_font": "\"res://Reactor-Sans.ttf\""
 }
 layers = Array[ExtResource("2_0poht")]([SubResource("Resource_0haqm"), SubResource("Resource_2g7rx"), SubResource("Resource_6u3la"), SubResource("Resource_7wa83"), SubResource("Resource_tp5lu"), SubResource("Resource_sy5u5"), SubResource("Resource_ahe62"), SubResource("Resource_n1sx6")])
-metadata/_latest_layer = 2
+metadata/_latest_layer = 4
