@@ -1,6 +1,32 @@
 join "navigator 1" 1
-"navigator 1": Hey friend, not too tired ?
-"navigator 1": That was something, right ?
-"navigator 1": Superior will try to put pressure on you, but sweat it.
-"navigator 1": Go at your own pace and enjoy. Not everyone has the chance be a pioneer braking throught a new frontier.
+"navigator 1" (Bernard-Hub-smile-close): Hey friend, how are you doing today? Are you adapting to the MindSailors' life?
+- It's been en exhausting month...
+	"navigator 1" (Bernard-Hub-smile-open): Right? Missions have been pouring in. I'm glad we make such a great team, else it would have been hell.
+- I'm having fun!
+	"navigator 1" (Bernard-Hub-smile-open): That's good. I wish we got more time to hang out, though. It's nice to meet with you everyday for breaks, but I'd rather have beers over coffees sometimes.
+"navigator 1": So, what's up buddy?
+- I've been thinking...
+	- When do you think I'll get a Code name?
+		Most sailors get it during their second month here, and Captain {captain_name} is a man of tradition, so... probably next month.
+		I've been thinking of plently cool names for you. I'll make sure you end up with something that suits you.
+	- What can you tell me about the Siren's call?
+		It's a recently discovered psychological phenomenon. {pilot_name}s who spend too much time into the {sea_name} have trouble adapting back to real life. Some might not want to return at all.
+		I think instead of a tight timer for each mission, they should ensure pilots follow regular therapies and have more breaks between duties. I told the Captain, but you can easily imagine what was his reaction.
+	- Why MindSail wants to collect data so much?
+		MindSail is a big corp, the whole Armada is only a part of it. They have labs, industries, stuff like that. I know that the data serve fundamental research on human minds, in collaboration with the government.
+		But if you want my opinion, they probably also use the data for targeted marketing and advertising. I have no proofs, though.
+"navigator 1": Something else on your mind?
+
+- Just excited to leave for another mission soon!
+	"navigator 1": Ahah, you're so eager, that's nice. I know the Captain is pressuring you, but sweat it.
+	It's not that I don't believe you can't climb the ladder, because you technically can. You have the skills for it.
+	I just think that's a bait to make you work harder without any guarantees.
+	"navigator 1": Go at your own pace and enjoy. Not everyone has the chance be a pioneer braking throught a new frontier.
+- About my future code name
+	I won't give you any clues, except that it will have a link with the sea. You'll have to wait next month to find out!
+- About the Sirene's Call
+	Don't worry too much about it, even if the Captain pressures you. While it's dangerous to stay too long in the {sea_name}, it's not a matter of seconds.
+- About MindSail's research
+	If that bothers you so much, I'll try to dig a little more about it. I never found anything consistent, but it's been a while since the last time I tried. I'm intrigued too, to be honest. 
+It's my cue to leave to the Navigators' room. See you later!
 [end_timeline]
