@@ -5,6 +5,6 @@ join "navigator 1" 1
 	"navigator 1": You'r a by-the-book- person I see ! Ok, let me fire up the sim.
 	set {GameState.launch_tuto} = true
 - Skip the Tutorial
-	"navigator 1": I knew you were the practical kind, Let's go. 
+	"navigator 1": I knew you were the practical kind, Let's go.
 	set {GameState.launch_tuto} = false
 	[end_timeline]

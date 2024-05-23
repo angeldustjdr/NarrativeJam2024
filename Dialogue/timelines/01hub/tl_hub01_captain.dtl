@@ -1,6 +1,6 @@
 join captain (Captain-smile-close) 1
-captain (Captain-smile-open): Welcome to team 7 !\
-You will be working with {shipgirl_name}, she's your shipgirl, think of her as an assistant and an apprentice. 
+captain (Captain-smile-open): Welcome to team 7 !
+captain (Captain-smile-open): You will be working with {shipgirl_name}, she's your shipgirl, think of her as an assistant and an apprentice.
 join shipgirl (Shipgirl-smile-close) 3 [animation="Slide In Right"]
 shipgirl (Shipgirl-smile-close): *wave*
 leave shipgirl [animation="Slide Out Right"]
@@ -55,7 +55,7 @@ captain (Captain-smile-open): Good ! Now, I have time for about ... Hum ... let'
 - "I don't have any questions."
 	captain (Captain-smile-open): Allright then.
 	jump end
-captain (Captain-smile-open): Good talk ! I have to go now.\
+captain (Captain-smile-open): Good talk ! I have to go now.
 label end
 captain (Captain-smile-open): Blend with you co-worker for a bit, then head to the hangar bay to find your ship. You will receive your starting asignment afterward.
 [end_timeline]

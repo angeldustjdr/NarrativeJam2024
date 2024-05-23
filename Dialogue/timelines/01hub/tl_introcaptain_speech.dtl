@@ -1,7 +1,7 @@
 join captain 1
 captain (Captain-smile-open): Good Morning Recruit, Juniors and Stewards.
-captain (Captain-smile-open): I’m Captain {captain_name}. Some might know me, others will soon enough.\
-Today I want to talk about what my expectations of you are, the employees, the pillar of this great company.
+captain (Captain-smile-open): I’m Captain {captain_name}. Some might know me, others will soon enough.
+captain (Captain-smile-open): Today I want to talk about what my expectations of you are, the employees, the pillar of this great company.
 captain (Captain-smile-open): Those whom without, none of the missions would ever see completion. Those who do the vital job.
 captain (Captain-smile-open): As you know, you are now part of the dozens crew members under my command. Part of the dozens of {hub_name} under the command of Admiral {admiral_name}. Part of the dozens of fleets under the command of Grand Admiral {grandadmiral_name}.
 captain (Captain-smile-open): Some of you will have to sail into uncharted territory to literally breach through a new dimension, the new frontier that is the {sea_name}. A strange place where you can drift among the collective subconscious.
@@ -45,6 +45,6 @@ label ID
 - "{mc_name}"
 	captain (Captain-smile-open): Hmm, let me check... You are in team 7.
 captain (Captain-smile-open): Your break room is at the end of this corridor, on the left.
-captain (Captain-smile-open): Take thoses credits, you can meet your co-worker by offering them a cup of coffee. \
-I'll join shortly if you have questions.
+captain (Captain-smile-open): Take thoses credits, you can meet your co-worker by offering them a cup of coffee. 
+captain (Captain-smile-open): I'll join shortly if you have questions.
 [end_timeline]
