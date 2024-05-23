@@ -1,10 +1,18 @@
-join "navigator 1" 1
-"navigator 1": Hello, {mc_code}. I'm glad you came.
-"navigator 1": Surprised to see me, I suppose. I owe you an explaination.
+join "navigator 1" (Bernard-Pirate-smile-close) 1
+"navigator 1" (Bernard-Pirate-smile-open): Hello, {mc_code}. I'm glad you came.
+"navigator 1" (Bernard-Pirate-smile-close): Surprised to see me, I suppose. I owe you an explaination.
 - Where the hell were you?
-"navigator 1": I began to have doubt about what we were doing with those beacon, so I investigated.
-The company were listening every word I said to you. That's why I could not directly tell you what was happening.
-"navigator 1": The beacon are not just gathering data, and there are actually real life consequences for the projections if you interact with them.
+	"navigator 1" (Bernard-Pirate-upset-close): Sorry... I didn't mean to disappear, last month.
+	"navigator 1": I went to sleep in my room like usual, but I was awaken by the companny's security guards. They gave me 5 minutes to pack my stuff, then they kicked me out.
+	"navigator 1": I only grabbed the essential, but they also destroyed my communicator and my ID, so I couldn't contact you or come back to the {hub_name} anymore.
+"navigator 1": And well, since we are basically living in our workplace, I didn't have a place where to stay anymore. It was kind of a rough month.
+- Why did they kick you out?
+	"navigator 1"(Bernard-Pirate-smile-close): That one is pretty obvious, I think.
+	"navigator 1" (Bernard-Pirate-upset-close):I couldn't stop thinking about that sabotage attempt on one of our {beacon}. And I couldn't sleep properly after witnessing the corrupted islets.
+	"navigator 1":The most troubling part was that our logs were systematically cleaned after witessing anomalies. I started to doubt what we were doing with the {beacon}s, so I started to investigate.
+	"navigator 1" (Bernard-Pirate-upset-open):Little by little, I came to realize\: the {beacon} are not just gathering data. They are influencing people's subconciously. They are tools for mind control, {mc_code}.
+	Of course, {armada_name} noticed something was different about my behaviour. They ended up kicking me out. The official motive is the setup I had installed on your ship to listen to your interactions with the subconscious' projections.
+"navigator 1": <Empty Text Event>
 "navigator 1": {armada_name} is using the beacons to influence groups of people for the benefit of the company.
 "navigator 1": When they became suspicious of my action, I got fired.\
 They severed me from the subconscient. And probably covered up any trace of me being in {armada_name}.

@@ -1,5 +1,5 @@
 join "navigator 1" 1
 "navigator 1": I'm glad you decided to join us.
-"navigator 1": I've downloded a worm in your navigation computer. Plug it in a beacon and it will overheat it, causing an explosion.
+"navigator 1": I've downloded a worm in your navigation computer. Plug it in a {beacon} and it will overheat it, causing an explosion.
 "navigator 1": You just have to visit the previous beacon you have setup. I'm counting on you.
 [end_timeline]
