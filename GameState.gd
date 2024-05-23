@@ -250,11 +250,14 @@ func check_beacon_destruction():
 func check_corpo_ending():
 	if(self.ilot_states["ilot_5"]["revealed"]):
 		if self.denialStep == 1:
+			self.ending_speech = FIRED_ENDING
 			return FIRED_ENDING
 		else:
 			if self.employee_of_the_month():
+				self.ending_speech = EMPLOYEE_OF_THE_MONTH_ENDING
 				return EMPLOYEE_OF_THE_MONTH_ENDING
 			else:
+				self.ending_speech = TRY_NEXT_MONTH_ENDING
 				return TRY_NEXT_MONTH_ENDING
 	else:
 		return INTRO
