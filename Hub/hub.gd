@@ -118,7 +118,7 @@ func setClickableProcess(p_mode):
 func showUnlock(message):
 	var u = unlock.instantiate()
 	u.text = "Achivement unlocked : " + message
-	u.position = Vector2(64,1020-u.size.y)
+	u.position = Vector2(1920/2+200,100)
 	add_child(u)
 
 func _on_coffee_credit_update(coffee_credit_descrease):
