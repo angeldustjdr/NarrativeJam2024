@@ -53,7 +53,7 @@ func _on_emit_button_pressed():
 			victory.emit(self)
 		else:
 			print("NOT THIS TIME SUCKA")
-		if $ProgressBar.value >= 99.0 : Achievements.genericCheck("Instrumentation master")
+	if $ProgressBar.value >= 99.0 : Achievements.genericCheck("Instrumentation master")
 
 func _deactivation_of_sliders():
 	for property_name in $OscilloScreen.properties:

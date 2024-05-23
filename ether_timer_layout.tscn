@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://gi3xfrjn7c22"]
 
 [ext_resource type="Theme" uid="uid://bh0bu7qc8ksch" path="res://theme.tres" id="1_fmmyq"]
-[ext_resource type="Texture2D" uid="uid://co0ldwxof82aa" path="res://OpenWorld/stopwatch.svg" id="2_n87yo"]
+[ext_resource type="Texture2D" uid="uid://b2abjw21y18sn" path="res://OpenWorld/stopwatch.svg" id="2_n87yo"]
 [ext_resource type="Script" path="res://OpenWorld/TimerLabel.gd" id="3_15nwy"]
 
 [sub_resource type="Animation" id="Animation_6qugl"]
@@ -62,7 +62,7 @@ layout_mode = 2
 [node name="TimerLabel" type="Label" parent="TimerZone/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_fmmyq")
-text = "Ether Timer"
+text = "Siren's call"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TimerZone/MarginContainer/VBoxContainer"]
