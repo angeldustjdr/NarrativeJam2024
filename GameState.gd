@@ -60,7 +60,7 @@ signal save_finished
 @onready var player_position = init_player_position
 @onready var player_rotation = 0.0
 
-var _title_screen_state : int = CORPORATE
+var _title_screen_state : int
 
 var _save_dir = "res://saves/"
 
@@ -268,6 +268,7 @@ func launch_ending(i_ending):
 	match i_ending:
 		PIRATE_ENDING:
 			self._title_screen_state = PIRATE
+			Achievements.save_achievements()
 			Achievements.genericCheck("Rage against the machine")
 			#print("ENDING : PIRATE")
 			next_scene = "res://credits.tscn"

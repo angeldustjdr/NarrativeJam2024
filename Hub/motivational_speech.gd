@@ -17,18 +17,24 @@ func _launch_speech():
 			Achievements.genericCheck("Employee of the month")
 			$EmployeeMonth/MarginContainer/Panel/VBoxContainer/TextureRect.setTexture()
 			GameState.start_time_line("tl_06hub_meeting_best")
+			GameState._title_screen_state = GameState.CORPORATE
+			Achievements.save_achievements()
 			await(Dialogic.timeline_ended)
 			self.showEmployeeOfTheMonth()
 		GameState.TRY_NEXT_MONTH_ENDING:
 			#print("TRY NEXT MONTH")
 			Achievements.genericCheck("Maybe next month")
 			GameState.start_time_line("tl_06hub_meeting_denial")
+			GameState._title_screen_state = GameState.CORPORATE
+			Achievements.save_achievements()
 			await(Dialogic.timeline_ended)
 			self._change_scene_to_credits()
 		GameState.FIRED_ENDING:
 			#print("FIRED")
 			Achievements.genericCheck("You're fired!")
 			GameState.start_time_line("tl_06hub_meeting_fired")
+			GameState._title_screen_state = GameState.CORPORATE
+			Achievements.save_achievements()
 			await(Dialogic.timeline_ended)
 			self._change_scene_to_credits()
 		_:

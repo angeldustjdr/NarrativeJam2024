@@ -54,6 +54,7 @@ func save_achievements():
 	achievement_file.store_var(GameState.nbInteractions)
 	achievement_file.store_var(GameState.nbWard)
 	achievement_file.store_var(GameState.nbRetourHub)
+	achievement_file.store_var(GameState._title_screen_state)
 	achievement_file.store_var(self.AchievementDescription)
 	
 func load_achievements():
@@ -64,6 +65,7 @@ func load_achievements():
 		GameState.nbInteractions = achievement_file.get_var()
 		GameState.nbWard = achievement_file.get_var()
 		GameState.nbRetourHub = achievement_file.get_var()
+		GameState._title_screen_state = achievement_file.get_var()
 		self.AchievementDescription = achievement_file.get_var()
 
 func checkCoffee(howMuch):
