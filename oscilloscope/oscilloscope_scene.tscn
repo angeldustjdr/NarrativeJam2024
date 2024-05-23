@@ -42,7 +42,6 @@ _data = {
 }
 
 [node name="oscilloscope_scene" type="ReferenceRect"]
-texture_filter = 1
 offset_right = 1600.0
 offset_bottom = 920.0
 script = ExtResource("1_7v8s3")

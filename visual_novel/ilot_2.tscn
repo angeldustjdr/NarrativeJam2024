@@ -9,9 +9,9 @@
 
 [node name="ilot_2" instance=ExtResource("1_yjlni")]
 script = ExtResource("2_yxq2s")
-ilot_color = Color(0.50219, 0.733257, 0.63946, 1)
-ilot_color_corrupted = Color(0.623346, 0.497795, 0.541268, 1)
-ilot_color_normal = Color(0.501961, 0.733333, 0.639216, 1)
+ilot_color = Color(0.51783, 0.898375, 0.462623, 1)
+ilot_color_corrupted = Color(0.765011, 0.595987, 0.79237, 1)
+ilot_color_normal = Color(0.517647, 0.898039, 0.462745, 1)
 difficulty = 1
 target_signal_prop = {
 "ampl": 1.5,
@@ -31,6 +31,7 @@ texture = ExtResource("4_1rvlp")
 
 [node name="Sprite2D" parent="visual_novel_scene/clickable_oscilloscope" index="1"]
 position = Vector2(1088, 840)
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("4_004n3")
 
 [node name="clickable_character" parent="visual_novel_scene" index="4"]

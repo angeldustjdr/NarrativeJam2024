@@ -11,6 +11,16 @@
 light_mask = 3
 z_as_relative = false
 script = ExtResource("2_jr8tx")
+ilot_color = Color(1, 0.81973, 0.0703441, 1)
+ilot_color_corrupted = Color(0.376638, 0.446983, 0.753292, 1)
+ilot_color_normal = Color(1, 0.819608, 0.0705882, 1)
+target_signal_prop = {
+"ampl": 0.5,
+"mean": -0.5,
+"period": 0.0,
+"phase": 0.0
+}
+numero_ilot = 1
 
 [node name="Background" parent="visual_novel_scene" index="0"]
 texture = ExtResource("3_sav4k")
@@ -21,6 +31,7 @@ offset_bottom = 1080.0
 texture = ExtResource("4_f04ol")
 
 [node name="Sprite2D" parent="visual_novel_scene/clickable_oscilloscope" index="1"]
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("4_fbwxv")
 
 [node name="clickable_character" parent="visual_novel_scene" index="4"]
