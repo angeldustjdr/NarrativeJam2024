@@ -6,7 +6,7 @@ captain (Captain-upset-closed): Have you looked at the weather outside ?
 	captain (Captain-upset-open): Yeah, tell me about it.
 - "I didn't pay attention, no."
 	captain (Captain-upset-open): Maybe you need that coffee more than me. It a hammering downpour.
-captain (Captain-smile-open): Some of the city's sewers even overflowed... I'm glad I don't set foot over there much these days, having a personal cabin here in the mothership. Perks of the job, ha ha.
+captain (Captain-smile-open): Some of the city's sewers even overflowed... I'm glad I don't set foot over there much these days, having a the large captain's cabin here in the mothership. Perks of the job, ha ha.
 - Ha ha ha.
 - ...
 captain (Captain-smile-open): It most definitly will have an impact on the {sea_name}.\
@@ -17,6 +17,6 @@ captain (Captain-upset-open): We will have to advence our plan and set up one {b
 - I'm confident, we'll manage.
 	captain (Captain-smile-open): I like the spirit ! But we might need a hand on this one. I'll see if Captain Shepperd is willing to lend me some of his crew.
 captain (Captain-smile-open): It's gonna be a long day. Be prepared. Timing will be short.\
-However, I've prepared a reward for you. 
+However, I've prepared a reward for you.
 captain (Captain-smile-close): We'll discuss more about that later.
 [end_timeline]
