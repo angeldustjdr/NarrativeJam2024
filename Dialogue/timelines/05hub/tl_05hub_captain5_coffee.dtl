@@ -2,18 +2,13 @@ join captain (Captain-smile-close) 1
 captain (Captain-smile-open): Hi there, {mc_name}. If you were dedicated to the mission as much as you are to this coffee machine, we would have already maped all of our ethersea allocated space.
 captain (Captain-smile-open): Haha, I'm joking, I'm joking.
 captain (Captain-upset-closed): Or am I ? *stare*
-- "Where is {navigator1_name} ? Why do I have a new navigation ?"
-	captain (Captain-upset-open): I'm not at liberty to say. I appologize.
-	captain (Captain-smile-close): Warden is our best navigator, I throught maching the two of you would benefit your assignment.
-	- "I don't care about Warden, I want {navigator1_name} back !"
-		captain (Captain-upset-closed): Watch your tone ! Remember who you are talking to !
-		captain (Captain-upset-open): {navigator1_name} is no longer with us. The sooner you accomodate with this information the better.
-		- "I don't understand, we just celebrated for my code name yesterday, what happend ?"
-			captain (Captain-upset-open): *raising voice* End of discution, worker !
-		- I appologize, Sir. It wont happend again.
-			captain (Captain-upset-closed): I hope so !
-	- "Okay, I'll try to get along I gess ..."
-		captain (Captain-smile-close): Perfect then.
+- You seem tense Captain, is somthing wrong ?
+	captain (Captain-upset-open): You are observant.
+	captain (Captain-smile-close): A few hours ago, a bomb exploded at HQ...
+	- That's awefull ... Who did this ?
+		captain (Captain-smile-close): A terrorist group, who hates {armada_name}.
+		captain (Captain-smile-close): I have a lot of good friends over there. I hope they are all safe...
+		captain (Captain-smile-close): Anyway, let's focus on the job. We can't do anything about it for know.
 - "Nice one Cap', but your coffee addiction is way worse than mine !"
 	captain (Captain-smile-open): Touché !
 	- "A miracle that the rain stopped during the night. mission was a smooth ride compared to yesterday. "

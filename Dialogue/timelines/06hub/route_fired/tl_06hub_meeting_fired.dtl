@@ -1,12 +1,12 @@
 join captain 1
 captain (Captain-upset-closed): Hello, everyone. Thank you for attending this compulsory meeting. First of all, I would like to take a moment to mourn our lost colleagues. I'm glad that most of our fleet survived.
-captain (Captain-upset-open): This terrorist attack against MindSail's HQ was an horrible act of hatred and violence. If anything, this should remind us of the danger of extremist ideals.
+captain (Captain-upset-open): This terrorist attack against MindSail's HQ was a horrible act of hatred and violence. If anything, this should remind us of the dangers of extremist ideals.
 captain (Captain-upset-closed): But we all know that MindSail (and its holdings) will get back on its feet in no time. Human ressources are opening recruitment as we speak and will lift hundreds from poverty thanks to its social integration program. For that we can be thankful.
 captain (Captain-upset-open): This terrorist attack is nothing but a minor setback. One cannot destroy the system this easily.
 captain (Captain-smile-close): Anyway...
-captain (Captain-smile-open): Before celebrating our employee of the month, I have a sad annoucement to make.
+captain (Captain-smile-open): Before celebrating our employee of the month, I have a sad announcement to make.
 [wait time="1.0"]
-captain (Captain-upset-open): {mc_name} I'm very desapointed. Not only did you waste precious time and ressources on futile discussions with mind projections, but you also interacted with a member of a terrorist organisation.
+captain (Captain-upset-open): {mc_name} I'm very disappointed. Not only did you waste precious time and ressources on futile discussions with mind projections, but you also interacted with a member of a terrorist organization.
 captain (Captain-upset-open): This is not acceptable. You put all this crew at risk.
 captain (Captain-smile-open): I have no other choice than to remove you from your affectation.
 captain (Captain-upset-closed): You are placed under corporate arrest, and will face the board to respond of your actions.

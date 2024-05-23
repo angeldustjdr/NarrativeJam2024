@@ -23,10 +23,10 @@ captain (Captain-upset-open): ... *Clear throat* ...
 	captain (Captain-smile-open): A simple task asked to be done to perfection.
 	captain (Captain-smile-open): At first it seemed to be stupid, but the insight and diligence gained by performing this mundane task have made me the man I am today. By tying your shoe every morning, you achieve the first and most important task of the day.
 	captain (Captain-smile-open): It gives you a sense of pride and encouragement that guide you toward making another task, and one more after that. And one more ... By the time the sun is setting, you will have achieved greatness.
-	captain (Captain-smile-open): If you can’t make the small task, you will never be able to manage the more important task. So do not be ashamed by being assigned mundane, stupid task ! Because you are moving toward greatness.
+	captain (Captain-smile-open): If you can’t make the small task, you will never be able to manage the more important task. So do not be ashamed by being assigned mundane, stupid task! Because you are moving toward greatness.
 	captain (Captain-smile-open): In shorts, please tie your shoes.
 	captain (Captain-smile-open): That will be all, thank you. You are dismissed.
-	captain (Captain-smile-open): Allright. You, come closer.
+	captain (Captain-smile-open): Alright. You, come closer.
 	jump Orientation
 - Fall asleep
 	ZzZzZz ...
@@ -37,8 +37,8 @@ captain: That will be all, thank you. You are dismissed.
 captain: You, I saw you snooze during the brief. You've got to be more focus if you want to become captain like me.
 jump Orientation
 label Orientation
-captain (Captain-smile-open): What is your CCID ?
-- "My what ?"
+captain (Captain-smile-open): What is your CCID?
+- "My what?"
 	captain (Captain-upset-open): *sigh* Your chain code identification.
 	captain (Captain-upset-open): Three letters for your post, fleet designation, {hub_name} number, and your training numbers.
 label ID

@@ -1,6 +1,6 @@
 join captain 1
 captain (Captain-upset-closed): Hello, everyone. Thank you for attending this compulsory meeting. First of all, I would like to take a moment to mourn our lost colleagues. I'm glad that most of our fleet survived.
-captain (Captain-upset-open): This terrorist attack against MindSail's HQ was an horrible act of hatred and violence. If anything, this should remind us of the danger of extremist ideals.
+captain (Captain-upset-open): This terrorist attack against MindSail's HQ was a horrible act of hatred and violence. If anything, this should remind us of the dangers of extremist ideals.
 captain (Captain-upset-closed): But we all know that MindSail (and its holdings) will get back on its feet in no time. Human ressources are opening recruitment as we speak and will lift hundreds from poverty thanks to its social integration program. For that we can be thankful.
 captain (Captain-upset-open): This terrorist attack is nothing but a minor setback. One cannot destroy the system this easily.
 captain (Captain-smile-close): Anyway...
@@ -14,8 +14,8 @@ leave "navigator 2"
 join shipgirl (Shipgirl-upset-close) 3 [ mirrored="true"]
 shipgirl: Damn! I thought it would be {mc_name}.
 leave shipgirl
-captain (Captain-smile-close): {mc_name}, I know you can do much better. You can take your career into your own hand. I'm looking foward to hearing your fantastic future achievements!
-captain (Captain-smile-open): Well.. Good work everyone. Keep it on!
-captain (Captain-smile-open): Now it's time to get back to work. We have got a lot to do, and to rebuild. 
+captain (Captain-smile-close): {mc_name}, I know you can do much better. You can take your career into your own hand. I'm looking forward to hearing your fantastic future achievements!
+captain (Captain-smile-open): Well... Good work everyone. Keep it on!
+captain (Captain-smile-open): Now it's time to get back to work. We have a lot to do, and to rebuild. 
 captain (Captain-upset-open): Beginning with putting down this pathetic revolution...
 [end_timeline]
