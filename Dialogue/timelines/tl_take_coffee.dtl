@@ -1,5 +1,5 @@
 if {GameState.coffeeCredit} > 0:
-	I would like to take coffee with...
+	I have {GameState.coffeeCredit} coffee credits... I would like to take coffee with...
 	- {shipgirl_name} [if {GameState.is_character_available(GameState.SHIPGIRL)} == true][else="hide"]
 		set {character_choice} = {GameState.SHIPGIRL}
 	- {navigator1_name} [if {GameState.is_character_available(GameState.NAVIGATOR1)} == true][else="hide"]
