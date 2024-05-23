@@ -8,6 +8,8 @@ class_name IlotGeneric
 @export var target_signal_prop : Dictionary = {"ampl":0.0,"mean":0.0,"period":0.0,"phase":0.0}
 @export var numero_ilot = 0
 
+@export var transitionColor : Color
+
 var _current_time_line : String
 var _ilot_corrupted : bool = false
 
@@ -180,7 +182,7 @@ func _reveal_ilot_backup():
 	var duration = 0.5
 	var tween_1 = get_tree().create_tween()
 	var tween_2 = get_tree().create_tween()
-	tween_1.tween_property($visual_novel_scene/CanvasModulate, "color", Color.WHITE, duration).set_trans(Tween.TRANS_LINEAR)
+	tween_1.tween_property($visual_novel_scene/CanvasModulate, "color", transitionColor, duration).set_trans(Tween.TRANS_LINEAR)
 	tween_2.tween_property($visual_novel_scene/oscillo_light, "color", Color.BLACK, duration).set_trans(Tween.TRANS_LINEAR)
 	tween_1.tween_callback(self._hide_lightening_effect)
 

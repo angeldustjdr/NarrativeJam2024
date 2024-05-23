@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://b47cy6nmnfgyq" path="res://visual_novel/visual_novel_generic.tscn" id="1_lw4cy"]
 [ext_resource type="Script" path="res://visual_novel/ilot_generic.gd" id="2_kqrqd"]
 [ext_resource type="PackedScene" uid="uid://ealq7p4fp0k2" path="res://visual_novel/clickable_object_generic.tscn" id="3_50bvs"]
-[ext_resource type="Texture2D" uid="uid://cq0b0e4f6crme" path="res://assets/graphics/backgrounds/placeholder-1920x1080.png" id="3_81qk7"]
-[ext_resource type="Texture2D" uid="uid://dkmgnicleqvia" path="res://assets/graphics/items/placehold_oscillo.png" id="4_rbeap"]
+[ext_resource type="Texture2D" uid="uid://by0gcrv1p826" path="res://assets/graphics/backgrounds/placeholder-1920x1080.png" id="3_81qk7"]
+[ext_resource type="Texture2D" uid="uid://b2m2s14fdewjn" path="res://assets/graphics/items/placehold_oscillo.png" id="4_rbeap"]
 [ext_resource type="PackedScene" uid="uid://gi3xfrjn7c22" path="res://ether_timer_layout.tscn" id="5_y1wvj"]
 [ext_resource type="PackedScene" uid="uid://pqgd1whitxiw" path="res://intemperie_texture.tscn" id="6_40er2"]
 [ext_resource type="Script" path="res://visual_novel/oscillo_light.gd" id="6_gtqxj"]
@@ -33,6 +33,7 @@ target_signal_prop = {
 "phase": 0.0
 }
 numero_ilot = 0
+transitionColor = Color(0.560955, 0.560955, 0.560955, 1)
 
 [node name="wave_timer" type="Timer" parent="." index="0"]
 wait_time = 3.5
