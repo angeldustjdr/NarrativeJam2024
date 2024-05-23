@@ -1,6 +1,17 @@
-join captain 1
-captain: {mc_name} I'm very disapointed in you.
-captain: Keep your attitude that way and you will never level up in the hierarchy.
-captain: Take thoses credits and grab a coffee, I don't want to see your face anymore.
+join captain (Captain-upset-closed) 1
+captain (Captain-upset-open): Allright, {mc_name} that was a complicated one. I'm not going to blame you for being late, with the weather event. You're all in one piece, yes ? How do you feel ?
+- I'm good.
+	captain (Captain-smile-close): I'm happy to hear that.
+- Tired, but fine.
+	captain (Captain-upset-closed): I bet. I'm afraid it won't be the last time.
+captain (Captain-smile-open): So, you have been working hard. As every effort deserve a reward, I'm proud to anonce you that earnd your code name !
+captain (Captain-smile-open): In consultation with your team, I am offering you the code name {mc_code} !
+update captain (Captain-smile-close) 1
+join "navigator 1" 3
+join shipgirl 4
+*applaud*
+leave "navigator 1"
+leave shipgirl
+captain (Captain-smile-open): I hope you like it. Continue your efforts !
+captain (Captain-smile-close): Here is some credits, nothing better than a cup of coffee on a rainy day. I'll be joining you in the brake room shortly.
 [end_timeline]
-do SceneTransitionLayer.play_black_flash()
