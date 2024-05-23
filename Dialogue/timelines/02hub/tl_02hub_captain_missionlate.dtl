@@ -1,8 +1,8 @@
 #[background arg="res://assets/graphics/backgrounds/Intro.png" fade="0.0"]
 join captain (Captain-upset-closed) 1
 captain (Captain-upset-closed): {mc_name} You are late.
-captain (Captain-upset-open): I won't hold it against you for today, there is room for improvement. You have managed to complete your assignment, however be mindfull of the risk you take by oversaying in the {sea_name}. I will not have a promising worker like you fall for the siren's call.
-- I appologize, Captain.
+captain (Captain-upset-open): I won't hold it against you for today, there is room for improvement. You have managed to complete your assignment, however, be mindful of the risk you take by overstaying in the {sea_name}. I will not have a promising worker as you fall for the siren's call.
+- I apologize Captain.
 	captain (Captain-smile-open): Don't worry, I'm glad you are safe. You will do better next time. Here, have some credits for tomorrow morning's coffee.
 - I did my best, Sir.
 	captain (Captain-upset-open): Well, you will have to do better.\

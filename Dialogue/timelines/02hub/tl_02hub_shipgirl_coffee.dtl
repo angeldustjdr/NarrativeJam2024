@@ -4,7 +4,7 @@ shipgirl (Shipgirl-smile-open): Hello {mc_name}! How are you today? Ready for yo
 	shipgirl: Wow! You're incredible! You and {navigator1_name} have been working so hard this past month. I don't know how you can keep it together so well. I have to become as strong as you!
 - "I wish I could rest more"
 	shipgirl (Shipgirl-upset-open): Right?! I'm dead tired, too. I know I shouldn't complain since my work is not as important as yours, but being a deckhand is so exhausting sometimes. 
-	shipgirl: They didn't stop giving you missions this past month, so I had to sweat to keep up with the rythm.
+	shipgirl: They didn't stop giving you missions this past month, so I had to sweat to keep up with the pace.
 shipgirl (Shipgirl-smile-close): But the good part of the work is listening to sailor stories. I love hearing about how the islets look like, and the interactions with the ghosties - I mean, the subconscious projections of people in the {sea_name}
 shipgirl (Shipgirl-smile-open): I wish I could see them too! Even if they can't really hear you, it must be nice to listen to them.
 - "How is your training going?"
