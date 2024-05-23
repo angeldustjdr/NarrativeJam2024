@@ -1,5 +1,7 @@
+[background arg="res://assets/graphics/backgrounds/Intro.png" fade="0.0"]
 join captain 1
-captain: You made it in time {mc_name}, well done. Continue that way and you will soon have my job ! haha, no.
-captain: Take thoses credits and grab a coffee.
+captain: You just beat your record {mc_code}, well done.
+captain: I have a meeting with managment today, I don't have time for you. Sorry\
+See you in the morning.
 [end_timeline]
 do SceneTransitionLayer.play_black_flash()

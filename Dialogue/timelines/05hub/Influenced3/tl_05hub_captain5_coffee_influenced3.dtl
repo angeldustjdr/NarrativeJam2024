@@ -1,10 +1,34 @@
-join captain 1
-captain: {mc_name} if you were dedicated to the mission as much as you are to this coffee machine, we would have already maped all of our ethersea allocated space.
-captain: Haha, I'm joking, I'm joking.
-captain: Or am I ? *stare*
-captain: Talking about thoses projection things again ? You have to stop !
-captain: I don't care about it, so should you !
-captain: Focus on your mission and nothing else.\
-If you bring that up again, I'm gonna order you to take psych eval.
-captain: That's my last warning.
+join captain (Captain-smile-close) 1
+captain (Captain-smile-open): Hi there, {mc_name}. If you were dedicated to the mission as much as you are to this coffee machine, we would have already maped all of our ethersea allocated space.
+captain (Captain-smile-open): Haha, I'm joking, I'm joking.
+captain (Captain-upset-closed): Or am I ? *stare*
+- "Where is {navigator1_name} ? Why do I have a new navigation ?"
+	captain (Captain-upset-open): I'm not at liberty to say. I appologize.
+	captain (Captain-smile-close): Warden is our best navigator, I throught maching the two of you would benefit your assignment.
+	- "I don't care about Warden, I want {navigator1_name} back !"
+		captain (Captain-upset-closed): Watch your tone ! Remember who you are talking to !
+		captain (Captain-upset-open): {navigator1_name} is no longer with us. The sooner you accomodate with this information the better.
+		- "I don't understand, we just celebrated for my code name yesterday, what happend ?"
+			captain (Captain-upset-open): *raising voice* End of discution, worker !
+		- I appologize, Sir. It wont happend again.
+			captain (Captain-upset-closed): I hope so !
+	- "Okay, I'll try to get along I gess ..."
+		captain (Captain-smile-close): Perfect then.
+- "Nice one Cap', but your coffee addiction is way worse than mine !"
+	captain (Captain-smile-open): Touché !
+	- "A miracle that the rain stopped during the night. mission was a smooth ride compared to yesterday. "
+		captain (Captain-smile-open): You said it !
+	- "Haha."
+- "Are you ?"
+	captain (Captain-smile-close): Am I ?
+- "I went back to the previous islets ..."
+	captain (Captain-upset-open): *raising voice* {mc_name} you were told not to. Is there something wrong with you ?
+	- "Sir, I think we can have an impact on the projections.  I think we might be doing something wrong ..."
+		captain (Captain-upset-open): Are you out of your mind ? It's nonsense !\
+That's the last time I hear about this. Focus only on your job or I'll order you to pass a psych eval.
+		- "Understoud ..."
+			captain (Captain-upset-closed): I hope so !
+	- "I'm sorry Captain, I'm not doing that again."
+		captain (Captain-upset-closed): Better not !
+captain (Captain-smile-close): Thank you for the coffee, I'm heading back.
 [end_timeline]
