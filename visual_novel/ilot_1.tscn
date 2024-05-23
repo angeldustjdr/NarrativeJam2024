@@ -27,7 +27,7 @@ texture = ExtResource("4_fbwxv")
 position = Vector2(1672, 592)
 
 [node name="Sprite2D" parent="visual_novel_scene/clickable_character" index="1"]
-position = Vector2(-16, 16)
-scale = Vector2(0.131286, 0.131286)
+position = Vector2(-607.281, 11.1618)
+scale = Vector2(0.0930716, 0.0930716)
 texture = ExtResource("6_67gr8")
 flip_h = true

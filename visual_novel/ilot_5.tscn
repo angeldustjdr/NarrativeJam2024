@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://1yyj200c6esy" path="res://visual_novel/ilot_generic.tscn" id="1_oembw"]
 [ext_resource type="Script" path="res://visual_novel/ilot_5.gd" id="2_ejrpw"]
-[ext_resource type="Texture2D" uid="uid://bajij608rxrey" path="res://assets/graphics/backgrounds/ilot_hacktivist.jpg" id="3_1xomd"]
-[ext_resource type="Texture2D" uid="uid://dwpl0ob6jqn3b" path="res://assets/graphics/backgrounds/ilot5-activist-sature.png" id="3_8ij7h"]
-[ext_resource type="Texture2D" uid="uid://dp58mafkxvtxy" path="res://assets/graphics/items/oscillo_icon_5.png" id="4_tue12"]
-[ext_resource type="Texture2D" uid="uid://cggctb1607dl4" path="res://assets/graphics/characters/character-ilot5-activist-v2.png" id="6_ye33o"]
+[ext_resource type="Texture2D" uid="uid://ceyxpx2mih7if" path="res://assets/graphics/backgrounds/ilot_hacktivist.jpg" id="3_1xomd"]
+[ext_resource type="Texture2D" uid="uid://5xvv5l32wnw" path="res://assets/graphics/backgrounds/ilot5-activist-sature.png" id="3_8ij7h"]
+[ext_resource type="Texture2D" uid="uid://dq8ukfuj2ayev" path="res://assets/graphics/items/oscillo_icon_5.png" id="4_tue12"]
+[ext_resource type="Texture2D" uid="uid://dw2eds2pau0eo" path="res://assets/graphics/characters/character-ilot5-activist-v2.png" id="6_ye33o"]
 
 [node name="ilot_5" instance=ExtResource("1_oembw")]
 script = ExtResource("2_ejrpw")
@@ -30,7 +30,7 @@ offset_bottom = 1080.0
 texture = ExtResource("3_1xomd")
 
 [node name="Sprite2D" parent="visual_novel_scene/clickable_oscilloscope" index="1"]
-position = Vector2(160, 928)
+position = Vector2(312, 936)
 texture = ExtResource("4_tue12")
 
 [node name="clickable_character" parent="visual_novel_scene" index="4"]

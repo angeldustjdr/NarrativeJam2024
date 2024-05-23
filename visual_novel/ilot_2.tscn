@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://1yyj200c6esy" path="res://visual_novel/ilot_generic.tscn" id="1_yjlni"]
 [ext_resource type="Script" path="res://visual_novel/ilot_2.gd" id="2_yxq2s"]
-[ext_resource type="Texture2D" path="res://assets/graphics/backgrounds/ilot_jcd.png" id="3_ymclj"]
+[ext_resource type="Texture2D" uid="uid://cwlo4dcfs7lsa" path="res://assets/graphics/backgrounds/ilot_jcd.png" id="3_ltpkn"]
 [ext_resource type="Texture2D" uid="uid://bwiwaixi5ndpx" path="res://assets/graphics/backgrounds/ilot2-jcd-terne.png" id="4_1rvlp"]
 [ext_resource type="Texture2D" uid="uid://b0vg5l83hfntc" path="res://assets/graphics/items/oscillo_icon_2.png" id="4_004n3"]
 [ext_resource type="Texture2D" uid="uid://bn1u1urqny37a" path="res://assets/graphics/characters/character-ilot2-JCD-v2.png" id="6_wjp84"]
@@ -22,7 +22,7 @@ target_signal_prop = {
 numero_ilot = 2
 
 [node name="Background" parent="visual_novel_scene" index="0"]
-texture = ExtResource("3_ymclj")
+texture = ExtResource("3_ltpkn")
 
 [node name="Background_corrupted" parent="visual_novel_scene" index="1"]
 offset_right = 1920.0
@@ -37,6 +37,6 @@ texture = ExtResource("4_004n3")
 position = Vector2(488, 536)
 
 [node name="Sprite2D" parent="visual_novel_scene/clickable_character" index="1"]
-position = Vector2(96, 152)
-scale = Vector2(0.139169, 0.139169)
+position = Vector2(-184, 224)
+scale = Vector2(0.173762, 0.173762)
 texture = ExtResource("6_wjp84")
