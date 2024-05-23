@@ -38,6 +38,7 @@ shader_parameter/phase = 5.0
 shader_parameter/mean = 0.0
 shader_parameter/vel = 2.0
 shader_parameter/tightness = 10.0
+shader_parameter/quality_signal = true
 shader_parameter/modulate = Color(0, 1, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_evgne"]
@@ -49,6 +50,7 @@ shader_parameter/phase = 4.0
 shader_parameter/mean = 0.0
 shader_parameter/vel = 2.0
 shader_parameter/tightness = 10.0
+shader_parameter/quality_signal = true
 shader_parameter/modulate = Color(0, 0.501961, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xjvbr"]
@@ -59,6 +61,7 @@ shader_parameter/phase = 3.0
 shader_parameter/mean = 0.0
 shader_parameter/vel = 2.0
 shader_parameter/tightness = 10.0
+shader_parameter/quality_signal = true
 shader_parameter/modulate = Color(0.749881, 0, 0.406101, 1)
 
 [sub_resource type="Animation" id="Animation_5syeu"]

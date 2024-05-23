@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://1yyj200c6esy"]
+[gd_scene load_steps=11 format=3 uid="uid://1yyj200c6esy"]
 
 [ext_resource type="PackedScene" uid="uid://b47cy6nmnfgyq" path="res://visual_novel/visual_novel_generic.tscn" id="1_lw4cy"]
 [ext_resource type="Script" path="res://visual_novel/ilot_generic.gd" id="2_kqrqd"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cq0b0e4f6crme" path="res://assets/graphics/backgrounds/placeholder-1920x1080.png" id="3_81qk7"]
 [ext_resource type="Texture2D" uid="uid://dkmgnicleqvia" path="res://assets/graphics/items/placehold_oscillo.png" id="4_rbeap"]
 [ext_resource type="PackedScene" uid="uid://gi3xfrjn7c22" path="res://ether_timer_layout.tscn" id="5_y1wvj"]
+[ext_resource type="PackedScene" uid="uid://pqgd1whitxiw" path="res://intemperie_texture.tscn" id="6_40er2"]
+[ext_resource type="Script" path="res://visual_novel/oscillo_light.gd" id="6_85w8g"]
 
 [sub_resource type="Gradient" id="Gradient_34ik3"]
 offsets = PackedFloat32Array(0, 0.610526)
@@ -44,9 +46,9 @@ texture = ExtResource("3_81qk7")
 [node name="get_out_button" type="Button" parent="visual_novel_scene" index="2"]
 offset_left = 1432.0
 offset_top = 920.0
-offset_right = 1546.0
-offset_bottom = 954.0
-scale = Vector2(4, 4)
+offset_right = 1904.0
+offset_bottom = 1064.0
+theme_override_font_sizes/font_size = 64
 text = "LEAVE"
 
 [node name="clickable_oscilloscope" parent="visual_novel_scene" index="3" instance=ExtResource("3_50bvs")]
@@ -61,12 +63,16 @@ texture = ExtResource("4_rbeap")
 
 [node name="oscillo_light" type="PointLight2D" parent="visual_novel_scene" index="5"]
 texture = SubResource("GradientTexture2D_2skqj")
-texture_scale = 6.0
+texture_scale = 6.88517
+script = ExtResource("6_85w8g")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="visual_novel_scene" index="6"]
+visible = false
 color = Color(0, 0, 0, 1)
 
-[node name="ether_timer_layout" parent="." index="2" instance=ExtResource("5_y1wvj")]
+[node name="intemperie_texture" parent="." index="2" instance=ExtResource("6_40er2")]
 
-[node name="OscilloLayer" type="CanvasLayer" parent="." index="3"]
+[node name="ether_timer_layout" parent="." index="3" instance=ExtResource("5_y1wvj")]
+
+[node name="OscilloLayer" type="CanvasLayer" parent="." index="4"]
 layer = 2

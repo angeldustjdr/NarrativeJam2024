@@ -11,16 +11,6 @@
 light_mask = 3
 z_as_relative = false
 script = ExtResource("2_jr8tx")
-ilot_color = Color(0.996078, 0.815824, 0, 1)
-ilot_color_corrupted = Color(0.415717, 0.474342, 0.698085, 1)
-ilot_color_normal = Color(0.996078, 0.815686, 0, 1)
-target_signal_prop = {
-"ampl": 0.5,
-"mean": -0.5,
-"period": 0.0,
-"phase": 0.0
-}
-numero_ilot = 1
 
 [node name="Background" parent="visual_novel_scene" index="0"]
 texture = ExtResource("3_sav4k")
