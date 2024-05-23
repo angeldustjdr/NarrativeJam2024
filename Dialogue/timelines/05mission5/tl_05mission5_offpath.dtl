@@ -1,6 +1,6 @@
 join "navigator 2" 1
-"navigator 2" (navigator2-upset-close): {mc_name} you are off course. What are you doing ?
-"navigator 2" (navigator2-upset-open): Another signal ?
+"navigator 2" (navigator2-upset-open): {mc_name} you are off course. What are you doing ?
+"navigator 2" (navigator2-upset-close): Another signal ?
 "navigator 2" (navigator2-upset-open): Whatever it is, do not follow it. I repeat, do not follow the new ping. For your own sake, just don't!
 "navigator 2" (navigator2-upset-close): Come back to hub immediatly.
 do GameState.advanceRevolution()

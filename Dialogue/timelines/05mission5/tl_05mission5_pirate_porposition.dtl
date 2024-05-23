@@ -1,7 +1,8 @@
 join "navigator 1" 1
-"navigator 1": Hello again friend ! I'm glad you came.
-"navigator 1": Surprised to see me I suppose. I owe you an explaination.
-"navigator 1": I began to have doubt about what we were doing with those beacon, so I investigated.\
+"navigator 1": Hello, {mc_code}. I'm glad you came.
+"navigator 1": Surprised to see me, I suppose. I owe you an explaination.
+- Where the hell were you?
+"navigator 1": I began to have doubt about what we were doing with those beacon, so I investigated.
 The company were listening every word I said to you. That's why I could not directly tell you what was happening.
 "navigator 1": The beacon are not just gathering data, and there are actually real life consequences for the projections if you interact with them.
 "navigator 1": {armada_name} is using the beacons to influence groups of people for the benefit of the company.

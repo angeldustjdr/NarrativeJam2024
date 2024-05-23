@@ -1,6 +1,6 @@
 join jcd 1
-jcd (idle_portrait): I'm at upper management in the {armada_name} !
-jcd (idle_portrait): I could get you a spot somewhere if you want.\
-I have very good relations with HR.
+jcd (idle_portrait): I can't believe the numbers of 0 on my bank account right now 
+jcd (idle_portrait): What can I even do with all this money? 
+I'm going to invest into {armada_name}!
 do GameState.setMission_corrupted("mission_2")
 [end_timeline]
