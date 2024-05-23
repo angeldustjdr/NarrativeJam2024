@@ -1,3 +1,8 @@
 join galerien 1
-galerien (idle_portrait): Life is hard and the {armada_name} only exploit us.
+galerien (idle_portrait): Life is hard lately... I broke my arm while doing repairs for one of {armada_name}'s plant, but my superior refused to classify it as a work-related accident. I can't work anymore, and I'm not getting paid...
+- Try to comfort him
+	*Your words don't exactly reach the projection's mind, but he seems more relaxed. Or is it just an impression?*
+- Encourage him
+	... Maybe I should see with my colleagues if we can start an Union together.
+- Don't interfere
 [end_timeline]

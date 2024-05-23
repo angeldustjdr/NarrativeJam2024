@@ -10,7 +10,7 @@
 },
 "default_portrait": "Captain-smile-close",
 "description": "",
-"display_name": "{captain_name}",
+"display_name": "Captain {captain_name}",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),

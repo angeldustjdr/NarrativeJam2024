@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bsqs7hvavmdhe"]
 
 [ext_resource type="Script" path="res://OpenWorld/Acc1.gd" id="1_d003d"]
-[ext_resource type="Texture2D" uid="uid://dgxs3gl5i383l" path="res://OpenWorld/fleche_blanche.png" id="2_8m4is"]
+[ext_resource type="Texture2D" uid="uid://bo4wi0lq3boye" path="res://OpenWorld/fleche_blanche.png" id="2_8m4is"]
 [ext_resource type="Shader" path="res://OpenWorld/acc_1.gdshader" id="2_e2h4f"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_1u0i7"]

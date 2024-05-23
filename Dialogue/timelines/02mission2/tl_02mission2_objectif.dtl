@@ -1,7 +1,8 @@
 join "navigator 1" 1
-"navigator 1": Good morning sailor ! How are you doing ?
-"navigator 1": Today objective is a litle further than last time, so you might encouter obstacles.
-"navigator 1": If you sail carefully, averything is going to be allright.
+"navigator 1": Welcome aboard, sailor ! Ready to go?
+"navigator 1": Today objective is in the same area as our first mission together. Feels nostalgic, doesn't it? I
+"navigator 1": It's a litle further than last time and we have less time than we used to, but thanks to MindSail artificial streams, you should be alright.
+"navigator 1": Sail carefully, and everything is going to be allright.
 "navigator 1": Follow the ping to the location.
 [wait time="1.0"]
 jump tl_02mission2_interuption/

@@ -1,6 +1,20 @@
 join shipgirl 1
-shipgirl: Welcome back !
-shipgirl: How was it ? Did you see them ? did you ?
-shipgirl: I Call them ghosties, I wish I could go see them !
-shipgirl: I hope I get promoted soon so I can have my own ship.
+shipgirl (Shipgirl-smile-open): Hello {mc_name}! How are you today? Ready for your mission?
+- "Everything's fine"
+	shipgirl: Wow! You're incredible! You and {navigator1_name} have been working so hard this past month. I don't know how you can keep it together so well. I have to become as strong as you!
+- "I wish I could rest more"
+	shipgirl (Shipgirl-upset-open): Right?! I'm dead tired, too. I know I shouldn't complain since my work is not as important as yours, but being a deckhand is so exhausting sometimes. 
+	shipgirl: They didn't stop giving you missions this past month, so I had to sweat to keep up with the rythm.
+shipgirl (Shipgirl-smile-close): But the good part of the work is listening to sailor stories. I love hearing about how the islets look like, and the interactions with the ghosties - I mean, the subconscious projections of people in the {sea_name}
+shipgirl (Shipgirl-smile-open): I wish I could see them too! Even if they can't really hear you, it must be nice to listen to them.
+- "How is your training going?"
+	shipgirl (Shipgirl-upset-close): Hum... good! I mean, really better, thanks to your instructions! But it's harder to fit with some colleagues than I thought. I'm always mocked for my mistakes. 
+	shipgirl: They say mean stuff like "Girls can't do it properly after all". Or they whisper about my robotic hand... But they are female pilots... and my hand is working perfectly!
+	- "Fill a report on them for harassment"
+		shipgirl: Should I? I'm scared but... Maybe I should... 
+	- "Just ignore them and you'll be fine"
+		shipgirl: Yeah... I will try harder. Good work always pays off, right?
+- *Ignore her*
+	shipgirl (Shipgirl-upset-close): ...
+shipgirl (Shipgirl-smile-open): A-anyway, I should get going! The boat isn't going to prepare itself, right? Ha-haha. Good luck for your next mission, please tell me stories about your expeditions to the {sea_name} next time.
 [end_timeline]

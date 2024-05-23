@@ -1,5 +1,5 @@
 join "navigator 1" 1
 "navigator 1": You've arrived at the location.
-"navigator 1" (Bernard-Hub-smile-open): Now, you need to setup the beacon. You'll have to make the beacon signal match the receiving signal.
+"navigator 1" (Bernard-Hub-smile-open): Now, you need to setup the {beacon}. You'll have to make the {beacon} signal match the islet signal.
 "navigator 1" (Bernard-Hub-smile-close): Good luck !
 [end_timeline]

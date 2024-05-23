@@ -1,13 +1,17 @@
 join "navigator 1" 1
-"navigator 1": Becone active, job done !
-"navigator 1": Have you interacted with the projections ?
+"navigator 1" (Bernard-Hub-smile-open): Data collector active, job done !
+"navigator 1" (Bernard-Hub-smile-close): Have you interacted with the projections ?
 - Yes I did ! What are they ?
-	"navigator 1": They are manifestation of the peoples and ideas that are converging here.
-	"navigator 1": You can talk to them but unlike you they are not realy here, It's like a projection of their subconscient mind.
+	"navigator 1": They are the manifestation of the minds of people forming this psychosocial islet.
+	"navigator 1": You can talk to them but unlike you they are not really here, they won't hear you.
+	- Are you sure we can't reach them somehow?
+		"navigator 1": Research says we can't. We can only understand their thoughts thanks to the data collector, we cannot interact with them.
+		"navigator 1": While I find it entertaining to listen to them and try to talk to them, I think we should do it with caution, in case we discover that it has an influence on them.
+		"navigator 1": The human mind is fragile, after all.
 - Not yet
-	"navigator 1": You still have plenty of time, you should try !
-	"navigator 1": They are manifestation of the peoples and ideas that are converging here.
-	"navigator 1": You can talk to them but unlike you they are not realy here, It's like a projection of their subconscient mind.
-	"navigator 1": Go, have a chat.
-"navigator 1": Anyway, when you are done follow my ping. I will lead you back to the {hub_name}
+	"navigator 1" (Bernard-Hub-smile-open): You still have plenty of time, so you should try !
+	"navigator 1" (Bernard-Hub-smile-close): The projections are the manifestation of the minds of people who are forming this psychosocial islet.
+	"navigator 1": You can talk to them but unlike you they are not really here, they won't hear you.
+	"navigator 1" (Bernard-Hub-smile-open): Go, it's part of the unique experience of exploring the {sea_name}!
+"navigator 1" (Bernard-Hub-smile-close): Anyway, when you are done follow my ping. I will lead you back to the {hub_name}
 [end_timeline]

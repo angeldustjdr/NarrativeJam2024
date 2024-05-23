@@ -1,3 +1,4 @@
+[background arg="res://assets/graphics/backgrounds/Hub/hub.png" fade="0.0"]
 join captain 1
 captain: Well done {mc_name}, you completed you asignment with ease. Continue that way and you will soon have my job ! haha, no.
 captain: Stay mindfull of your time in the {sea_name}. It would be disastrous to loose an element like you to the Siren's call.
