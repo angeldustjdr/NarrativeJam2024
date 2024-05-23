@@ -54,6 +54,7 @@ func _ready():
 		else:
 			$visual_novel_scene/clickable_oscilloscope.is_clickable = false
 	$visual_novel_scene/oscillo_light.position = $visual_novel_scene/clickable_oscilloscope.position
+	MusicManager.set_bus("music")
 	SceneTransitionLayer.reveal_scene()
 	GameState.start_ilot_dialog_navigator(numero_ilot)
 
