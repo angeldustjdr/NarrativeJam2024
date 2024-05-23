@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://b47cy6nmnfgyq"]
 
 [ext_resource type="Script" path="res://visual_novel/visual_novel_generic.gd" id="1_v17rm"]
-[ext_resource type="Texture2D" uid="uid://cq0b0e4f6crme" path="res://assets/graphics/backgrounds/placeholder-1920x1080.png" id="2_ge8sn"]
+[ext_resource type="Texture2D" uid="uid://by0gcrv1p826" path="res://assets/graphics/backgrounds/placeholder-1920x1080.png" id="2_ge8sn"]
 [ext_resource type="PackedScene" uid="uid://ealq7p4fp0k2" path="res://visual_novel/clickable_object_generic.tscn" id="3_gedy5"]
-[ext_resource type="Texture2D" uid="uid://ba2p4lkasu3jx" path="res://assets/graphics/characters/character-hub-navigator1-entier.png" id="4_5pqyl"]
+[ext_resource type="Texture2D" uid="uid://qiw1y5ypfomu" path="res://assets/graphics/characters/character-hub-navigator1-entier.png" id="4_5pqyl"]
 
 [node name="VisualNovelGeneric" type="Node2D"]
 script = ExtResource("1_v17rm")
