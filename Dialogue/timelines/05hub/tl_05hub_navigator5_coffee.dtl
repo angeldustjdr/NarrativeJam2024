@@ -1,6 +1,6 @@
 join "navigator 2" 1
-"navigator 2": 'Morning, you need anything ?
-- how are you doing ?
+"navigator 2": 'Morning, you need anything?
+- how are you doing?
 	"navigator 2" (navigator2-upset-open): Please don't assault me with questions this early in the morning. For now, I just want to relax before a day of work, you know.
 	- Sorry...
 	- Pff Okay...
@@ -10,8 +10,8 @@ join "navigator 2" 1
 - It's just ...
 	"navigator 2" (navigator2-upset-close): *sigh* Go ahead...
 	- I miss Bernard...
-		"navigator 2" (navigator2-upset-close): I don't know about your previous navigator. I can't even find his matricul in the logs. So don't bother. You know, I'm just doing my job here. So should you.
-		"navigator 2" (navigator2-upset-close): If you are so obcessed by that, go submit a form in order to take an appointment with the management.
+		"navigator 2" (navigator2-upset-close): I don't know about your previous navigator. I can't even find his chain code in the logs. So don't bother. You know, I'm just doing my job here. So should you.
+		"navigator 2" (navigator2-upset-close): If you are so obsessed by that, go submit a form in order to make an appointment with the management.
 	- No, nothing... You're a nice navigator
 		"navigator 2" (navigator2-smile-close): Thanks! I try to do my best for my sailor to be safe. And the cartographers are doing great also\: the ping I sent you was last mission was on point!
 		"navigator 2" (navigator2-smile-open): I like it when people are efficient. It makes succeeding the missions that much more exciting, right?
@@ -21,7 +21,7 @@ join "navigator 2" 1
 		"navigator 2" (navigator2-upset-open): If you don't do it for the science, do it for your career. You'll never get the rank of captain if you behave like you care too much.
 	- Nevermind...
 		"navigator 2" (navigator2-upset-close): Okay then. 
-"navigator 2" (navigator2-upset-open): We have been working togother for a months, but you are just a co-worker OK?\
-Don't try to make friend with me, I'm not interested.
+"navigator 2" (navigator2-upset-open): We have been working together for a month, but you are just a co-worker OK?\
+Don't try to make friends with me, I'm not interested.
 "navigator 2" (navigator2-upset-close): Thanks for the coffee...
 [end_timeline]

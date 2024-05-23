@@ -1,24 +1,24 @@
 join hacktivist 1
-hacktivist: {armada_name} is poluting our minds and our lives !
-hacktivist: Down with the Megacorporations ! Down with {armada_name} !
+hacktivist: {armada_name} is polluting our minds and our lives!
+hacktivist: Down with the Megacorporations! Down with {armada_name}!
 join "navigator 2" (navigator2-upset-close) 2
-"navigator 2" (navigator2-upset-close): I told you not to waste time. They are terrorrists. Let's leave !
+"navigator 2" (navigator2-upset-close): I told you not to waste time. They are terrorists. Let's leave!
 leave "navigator 2"
 - No I want to talk to this projection
-	hacktivist (idle_portrait): Enough is enough. We aren't free anymore, even in our own minds !
-	- Try to disuade the protester
-		hacktivist (idle_portrait): I know you are in there ! In my mind ! We have learned how to destroy your {beacon}s ! And soon we will be stopping your hamful activities !
+	hacktivist (idle_portrait): Enough is enough. We aren't free anymore, even in our own minds!
+	- Try to dissuade the protester
+		hacktivist (idle_portrait): I know you are in there! In my mind! We have learned how to destroy your {beacon}s! And soon we will be stopping your harmful activities!
 		hacktivist (idle_portrait): You will not be safe, even in the so-called {sea_name}
-		hacktivist (idle_portrait): You cannot dissolve a popular movement. {armada_name}, and other Megacorporations will go down. By any means necessary!
+		hacktivist (idle_portrait): You cannot dissolve a popular movement. {armada_name}, and other Mega-corporations will go down. By any means necessary!
 	- Try to encourage the protester
-		hacktivist (idle_portrait): I know you are in there ! In my mind !
-		hacktivist (idle_portrait): What ? Are you encouraging us ? Wow ! That's unexpected...
+		hacktivist (idle_portrait): I know you are in there! In my mind!
+		hacktivist (idle_portrait): What? Are you encouraging us? Wow! That's unexpected...
 		hacktivist (idle_portrait): It means that there is a breach. There is hope. Even {armada_name} employees are with us.
-		hacktivist (idle_portrait): We will prevail !
+		hacktivist (idle_portrait): We will prevail!
 	- Just watch for a while
 		hacktivist (idle_portrait): They think that our lives and minds can be bought and sold. They are so wrong...
-		hacktivist (idle_portrait): The attack was just the beginning. We know how to counter them. We know how to sail the Cognisea. We will not stop. We are on the good side of history.
-		hacktivist (idle_portrait): Mark my words. The revolution has just begun ! Until we put an end to the harmful activities of {armada_name} and all Megacorporations, there will be no rest.
+		hacktivist (idle_portrait): The attack was just the beginning. We know how to counter them. We know how to sail the Cognisea. We will not stop. We are on the right side of history.
+		hacktivist (idle_portrait): Mark my words. The revolution has just begun! Until we put an end to the harmful activities of {armada_name} and all Mega-corporations, there will be no rest.
 
 - OK, you're right
 	[end_timeline]

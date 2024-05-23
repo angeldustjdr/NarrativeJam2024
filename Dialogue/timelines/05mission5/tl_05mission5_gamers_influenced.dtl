@@ -1,6 +1,6 @@
 join gamer 1
-gamer: Have you played Mind Warfare ? It's made by {armada_name} games. It's awesome.
-I've breaked some people's mind while playing, but that's so thrilling!
+gamer: Have you played Mind Warfare? It's made by {armada_name} games. It's awesome.
+I've broken some people's mind while playing, but that's so thrilling!
 gamer: They also have Deskjob Simulator, I have to try it.
 gamer: Who would've guessed that I'd be interested into that kind of game too, huh.
 do GameState.setMission_corrupted("mission_4")

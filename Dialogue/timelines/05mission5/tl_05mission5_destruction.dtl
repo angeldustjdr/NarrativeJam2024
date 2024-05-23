@@ -1,6 +1,6 @@
 join "navigator 1" (Bernard-Pirate-smile-open) 1
 "navigator 1": I'm glad we are doing this together, partner!
 "navigator 1" (Bernard-Pirate-smile-close): You know I... No, now is not the moment. But after everything is over, I will have something to tell you.
-"navigator 1": For now, let's burn down Megacorporations like {armada_name} together... let's make the {sea_name} a free place again. 
+"navigator 1": For now, let's burn down Mega-corporations like {armada_name} together... let's make the {sea_name} a free place again. 
 "navigator 1" (Bernard-Pirate-smile-open): {mc_code}... my dear friend.
 [end_timeline]
