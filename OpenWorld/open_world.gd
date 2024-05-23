@@ -45,6 +45,7 @@ func _ready():
 		%VBoxContainer_Ward.add_child(w)
 	# WTF? 
 	$player.player_connect()
+	if GameState._debug : $Ambient.visible = false
 
 	%MissionLabel.text = GameState.get_current_mission()
 	MusicManager.playMusicNamed(self._music_name,SceneTransitionLayer.get_duration("fade_in"))
