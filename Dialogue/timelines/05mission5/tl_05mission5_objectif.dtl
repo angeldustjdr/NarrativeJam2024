@@ -1,6 +1,6 @@
 join "navigator 2" 1
-"navigator 2" (navigator2-upset-close): Good morning {mc_code}. I'm going to need you to be exta focused today.
-"navigator 2" (navigator2-upset-close): Something aweful happened in the night. A event of inimaginable cruelty...
+"navigator 2" (navigator2-upset-close): {mc_code}. I'm going to need you to be exta focused today.
+"navigator 2" (navigator2-upset-close): Something aweful happened in the night. An event of inimaginable cruelty...
 "navigator 2" (navigator2-upset-open): There has been a terrorist attack against {armada_name}. Some anarchists droped a bomb at the HQ. Many good employees died yesterday. Some... frien-... hum colleagues too.
 "navigator 2" (navigator2-upset-close): The Cognisea is going to be impredictible. Be careful. I would be a shame to loose a Sailor in addition to yesterday's carnage. Let's honor their names.
 "navigator 2" (navigator2-upset-close): Mission-command asigned you a difficult mission, you will have to go way further than you ever did. So please, don't waste any time.

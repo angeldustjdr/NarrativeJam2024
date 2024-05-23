@@ -1,23 +1,27 @@
 join "navigator 2" 1
-"navigator 2": Hum?
-- Who are you exactly?
-	"navigator 2" (navigator2-upset-open): Who am I? Please don't assault me with questions. It's writen on my badge. For now, I just want to relax after a day of work, you know.
-- Nice job on the mission!
+"navigator 2": 'Morning, you need anything ?
+- how are you doing ?
+	"navigator 2" (navigator2-upset-open): Please don't assault me with questions this early in the morning. For now, I just want to relax before a day of work, you know.
+	- Sorry...
+	- Pff Okay...
+- Nice job on the last mission!
 	"navigator 2" (navigator2-smile-open): Thanks! You did well too.
 "navigator 2" (navigator2-smile-close): Something else?
-- So you're my new navigator?
-	"navigator 2": Yep. That would be me. You got a problem with that?
-	- No, it's just that I like Bernard better
+- It's just ...
+	"navigator 2" (navigator2-upset-close): *sigh* Go ahead...
+	- I miss Bernard...
 		"navigator 2" (navigator2-upset-close): I don't know about your previous navigator. I can't even find his matricul in the logs. So don't bother. You know, I'm just doing my job here. So should you.
 		"navigator 2" (navigator2-upset-close): If you are so obcessed by that, go submit a form in order to take an appointment with the management.
-	- No, you're great
-		"navigator 2" (navigator2-smile-close): Thanks! I try to do my best for my sailor to be safe. And the cartographers are doing great also\: the ping I sent you was on point!
+	- No, nothing... You're a nice navigator
+		"navigator 2" (navigator2-smile-close): Thanks! I try to do my best for my sailor to be safe. And the cartographers are doing great also\: the ping I sent you was last mission was on point!
 		"navigator 2" (navigator2-smile-open): I like it when people are efficient. It makes succeeding the missions that much more exciting, right?
 	- Yeah, you're arrogant
 		"navigator 2" (navigator2-upset-open): No, I'm just focused on our missions. We have the opportunity to sail the Cognisea. Can't you see that we are true pioneers? Don't let anyone else persuade you otherwise.
 		"navigator 2" (navigator2-upset-close): In other words, don't be childish.
 		"navigator 2" (navigator2-upset-open): If you don't do it for the science, do it for your career. You'll never get the rank of captain if you behave like you care too much.
 	- Nevermind...
-		"navigator 2" (navigator2-upset-close): Okay then. Let's get back to work !
-		[end_timeline]
+		"navigator 2" (navigator2-upset-close): Okay then. 
+"navigator 2" (navigator2-upset-open): We have been working togother for a months, but you are just a co-worker OK?\
+Don't try to make friend with me, I'm not interested.
+"navigator 2" (navigator2-upset-close): Thanks for the coffee...
 [end_timeline]
