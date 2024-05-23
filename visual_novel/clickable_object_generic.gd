@@ -27,10 +27,12 @@ func _ready():
 	$area/CollisionShape2D.shape = myRect 
 
 func _on_transition_fade_in_finished():
+	print(self.name + ",CLICKABLE TRUE : ", true)
 	self._clickable_true = true
 
 func _on_transition_fade_out_started():
 	self._clickable_true = false
+	print(self.name + ", CLICKABLE TRUE : ", false)
 
 func _udpate_sprite_2d_name():
 	self._sprite_2d_name = ""

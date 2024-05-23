@@ -7,15 +7,15 @@ var FigurantsSpeech = [
 	"Sorry, I don't have coffee credits anymore...",
 	"Let's get to work!",
 	"The coffee is disgusting anyway.",
-	"Did you know the Captain was a great sailor when he was younger?\nHis codename was Paragon!\nCool nah?",
+	"Did you know the Captain was a great sailor when he was younger?\nHis codename was " + str(Dialogic.VAR.captain_code) +"!\nCool nah?",
 	"I wish my pay grade was higher.",
 	"I don't like coffee. \nBut we don't have tea at the office.",
-	"Cipher doesn't want to be called by his codename.\nHe want's to be called by his real name: Bernard.",
-	"MindSail is a great company! You get to build your own career here.",
+	str(Dialogic.VAR.navigator1_code) + " doesn't want to be called by his codename.\nHe want's to be called by his real name: " + str(Dialogic.VAR.navigator1_name) + ".",
+	str(Dialogic.VAR.armada_name) + " is a great company! You get to build your own career here.",
 	"Hopefully, there are no unions in this company.\nCan you imagine going on strikes? Ewww!",
 	"You'll do great!",
 	"Sometimes work can be hard. \nBut when I think of the career opportunities, \nI feel better!",
-	"Be mindful of the Siren's call. \nSome rumors say the first sailor is somewhere \nin the Cognisea.",
+	"Be mindful of the Siren's call. \nSome rumors say the first sailor is somewhere \nin the "+str(Dialogic.VAR.sea_name)+".",
 	"I wish I were a sailor just like you. \nBut I'm only the IT guy."
 ]
 

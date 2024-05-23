@@ -1,9 +1,8 @@
-[background arg="res://assets/graphics/backgrounds/Intro.png" fade="0.0"]
+#[background arg="res://assets/graphics/backgrounds/Intro.png" fade="1.0"]
 join captain (Captain-smile-open) 1
 captain (Captain-smile-open): Well done {mc_name}, you completed you asignment with ease. Continue that way and you will soon have my job ! Haha, no.
 captain (Captain-upset-open): Stay mindfull of your time in the {sea_name}. It would be disastrous to loose an element like you to the Siren's call.
 captain (Captain-smile-close): Here, have some credits for tomorrow morning's coffee. You've earn them.\
 Good night worker.
-do SceneTransitionLayer.play_black_flash()
-[wait time="0.5"]
+#[background arg="res://assets/graphics/backgrounds/Intro.png" fade="1.0"]
 [end_timeline]

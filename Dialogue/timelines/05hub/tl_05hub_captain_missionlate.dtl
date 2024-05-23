@@ -1,9 +1,9 @@
-[background arg="res://assets/graphics/backgrounds/Intro.png" fade="0.0"]
+#[background arg="res://assets/graphics/backgrounds/Intro.png" fade="0.0"]
 join captain (Captain-upset-closed) 1
 captain (Captain-upset-closed): {mc_code} I'm very disapointed in you.
 captain (Captain-upset-open): Keep your attitude that way and you will never level up in the hierarchy.
 captain (Captain-upset-closed): I have a meeting with managment today, I don't have time for you. \
 Take thoses credits and go rest, I don't want to see your face anymore.
-do SceneTransitionLayer.play_black_flash()
-[wait time="0.5"]
+#do SceneTransitionLayer.play_black_flash()
+#[wait time="0.5"]
 [end_timeline]
