@@ -38,7 +38,7 @@ func update_character_names():
 		self.AchievementDescription["Idol of youth"][0] = "Talk to " + Dialogic.VAR.shipgirl_name + " 5 times"
 		self.AchievementDescription["Good soldier"][0] = "Talk to " + Dialogic.VAR.captain_name + " 5 times"
 		self.AchievementDescription["Old friend"][0] = "Talk to " + Dialogic.VAR.navigator1_name + " 4 times"
-		self.AchievementDescription["New friend"][0] = "Talk to " + Dialogic.VAR.navigator2_name + " 2 times"
+		#self.AchievementDescription["New friend"][0] = "Talk to " + Dialogic.VAR.navigator2_name + " 2 times"
 
 ################################################################################
 #ACHIEVEMENTS ##################################################################
