@@ -147,7 +147,7 @@ func showUnlock(message):
 	instanciateMessage(true,message,Vector2(1920/2,1080/2),true)
 
 func showThoughts(message):
-	var where = Vector2(randi_range(120,1920-320),randi_range(220,1080-220))
+	var where = Vector2(randi_range(120,1920/2),randi_range(220,1080-220))
 	instanciateMessage(false,message,where,false)
 
 func instanciateMessage(isAchivement,message,where,sound):
