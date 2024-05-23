@@ -3,29 +3,45 @@ join "navigator 1" (Bernard-Pirate-smile-close) 1
 "navigator 1" (Bernard-Pirate-smile-close): Surprised to see me, I suppose. I owe you an explaination.
 - Where the hell were you?
 	"navigator 1" (Bernard-Pirate-upset-close): Sorry... I didn't mean to disappear, last month.
-	"navigator 1": I went to sleep in my room like usual, but I was awaken by the companny's security guards. They gave me 5 minutes to pack my stuff, then they kicked me out.
-	"navigator 1": I only grabbed the essential, but they also destroyed my communicator and my ID, so I couldn't contact you or come back to the {hub_name} anymore.
-"navigator 1": And well, since we are basically living in our workplace, I didn't have a place where to stay anymore. It was kind of a rough month.
+	"navigator 1"(Bernard-Pirate-upset-close): I went to sleep in my room like usual, but I was awaken by the companny's security guards. They gave me 5 minutes to pack my stuff, then they kicked me out.
+	"navigator 1"(Bernard-Pirate-upset-close): I only grabbed the essential, but they also destroyed my communicator and my ID, so I couldn't contact you or come back to the {hub_name} anymore.
+"navigator 1"(Bernard-Pirate-upset-open): And well, since we are basically living in our workplace, I didn't have a place where to stay anymore. It was kind of a rough month.
 - Why did they kick you out?
-	"navigator 1"(Bernard-Pirate-smile-close): That one is pretty obvious, I think.
-	"navigator 1" (Bernard-Pirate-upset-close):I couldn't stop thinking about that sabotage attempt on one of our {beacon}. And I couldn't sleep properly after witnessing the corrupted islets.
-	"navigator 1":The most troubling part was that our logs were systematically cleaned after witessing anomalies. I started to doubt what we were doing with the {beacon}s, so I started to investigate.
-	"navigator 1" (Bernard-Pirate-upset-open):Little by little, I came to realize\: the {beacon} are not just gathering data. They are influencing people's subconciously. They are tools for mind control, {mc_code}.
-	Of course, {armada_name} noticed something was different about my behaviour. They ended up kicking me out. The official motive is the setup I had installed on your ship to listen to your interactions with the subconscious' projections.
-"navigator 1": <Empty Text Event>
-"navigator 1": {armada_name} is using the beacons to influence groups of people for the benefit of the company.
-"navigator 1": When they became suspicious of my action, I got fired.\
-They severed me from the subconscient. And probably covered up any trace of me being in {armada_name}.
-"navigator 1": Fortunatly, I got contacted by a group a people who wanted to do something againt this manipulation.
-"navigator 1": They have one of the scientist who discovered the ethersea among them, so help me reconect to the subconscient.
-"navigator 1": That's why i'm here.
-"navigator 1": What do you think ? Do you want to help us. Free thoses who are influenced ?
-- Join and destroy the beacon
-	"navigator 1": I'm glad, you made the right choice.
-	do GameState.advanceRevolution()
-	jump tl_05mission5_destruction/
-- Join but return to convince your co-workers
-	"navigator 1": You are very naive. I am afraid you underestimate the influence made by {armada_name}
-	do GameState.advanceDenial()
-Goodbye friend.
-[end_timeline]
+	"navigator 1" (Bernard-Pirate-smile-close): That one is pretty obvious, I think.
+	"navigator 1" (Bernard-Pirate-upset-close): I couldn't stop thinking about that sabotage attempt on one of our {beacon}.
+	"navigator 1"(Bernard-Pirate-upset-close):And I couldn't sleep properly after witnessing corrupted islets with my own eyes.
+	"navigator 1"(Bernard-Pirate-upset-close): The most troubling part was that our logs were systematically cleaned after witessing anomalies. I started to doubt what we were doing with the {beacon}s, so I started to investigate.
+	"navigator 1" (Bernard-Pirate-upset-open): Little by little, I came to realize\: the {beacon} are not just gathering data. They are influencing people's subconciously. They are tools for mind control, {mc_code}.
+	- But why?
+		"navigator 1" (Bernard-Pirate-upset-close): For the benefits of the company and their partners, but also to enpower the government in place, I suppose.
+"navigator 1" (Bernard-Pirate-upset-close): Of course, {armada_name} noticed something was different about my behaviour. That's why they kicking me out. 
+"navigator 1" (Bernard-Pirate-smile-close): *Heh* The official reason is the setup I had installed on your ship to listen to your interactions with the subconscious' projections.
+- I can't believe {armada_name} would do such evil things.
+	"navigator 1"(Bernard-Pirate-upset-close):... I know it's difficult to accept. But that's the truth.
+- That's... horrible
+	"navigator 1"(Bernard-Pirate-upset-close):Yeah... I'm still struggling with that reality, too.
+You and I have likely ruined countless lives by placing {beacon}s throughout the {sea_name}. But it's not too late to make amends. Join the Revolution with me, and together we can right the wrongs we've committed.
+- "The Revolution?"
+	"navigator 1"(Bernard-Pirate-upset-close):After I got contacted by a group a people who wanted to do something againt this manipulation.
+	"navigator 1"(Bernard-Pirate-upset-close):They have one of the scientist who discovered the ollective subconscious among them, and a lot of technicians, so they could recreate the machines to connect ourselves to the {sea_name}
+	"navigator 1"(Bernard-Pirate-upset-close):They know a safe way to destroy the {beacon} without breaking people's mind.
+	"navigator 1"(Bernard-Pirate-upset-close):What do you think ? Do you want to help us free thoses who are influenced ?
+	- "... Alright. Let's do it together"
+		"navigator 1"(Bernard-Pirate-smile-open):I'm glad, you made the right choice.
+		jump tl_05mission5_destruction/
+		do GameState.advanceRevolution()
+	- "What about our colleagues?"
+		"navigator 1"(Bernard-Pirate-upset-close):... We can't do anything for them, yet. Riots are spreading everywhere.  We have to move into action right now.
+		- "... Alright. Let's do it together."
+			"navigator 1"(Bernard-Pirate-smile-open):I'm glad, you made the right choice.
+			jump tl_05mission5_destruction/
+			do GameState.advanceRevolution()
+		- No. I'm going back to them"
+			"navigator 1"(Bernard-Pirate-upset-open):... I see. You are very loyal to the fleet... They are some good people there, but they are powerless. I'm afraid the executive board won't let it go after they've noticed we talked together.
+			"navigator 1"(Bernard-Pirate-upset-close):Still... good luck, my dear friend. I have to go. I hope we will meet again in a better world.
+			do GameState.advanceDenial()
+	- "I won't join terrorrists"
+		"navigator 1"(Bernard-Pirate-upset-open):...You are very naive. I am afraid you underestimate the influence made by {armada_name}. They are the real terrorists, {mc_code}.
+		"navigator 1"(Bernard-Pirate-upset-close):... I used really like you so, it pains me a little to see you gettint manipulated like this.
+		"navigator 1"(Bernard-Pirate-upset-close):... I have to go. Farewell.
+		do GameState.advanceDenial()
