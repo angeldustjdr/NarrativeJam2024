@@ -2,11 +2,11 @@ join jcd 1
 jcd (idle_portrait): I used to be super thrilled about this promotion to upper management in {armada_name}...
 jcd (idle_portrait): But since last week, I have second thoughts. Making more money is nice, I could get that third house on the beach I dream of, but... there are some scandals going out about the company. Maybe I should think about it longer?
 - "If you don't feel like it, maybe you should wait"
-	*She doesn't hear you, but she nods to herself anyway*
-	Yeah, I can wait and see a bit more. In the worst-case scenario, I can still get my third house through other means. Tiny bit more morally acceptable means.
+	jcd: *She doesn't hear you, but she nods to herself anyway*
+	jcd: Yeah, I can wait and see a bit more. In the worst-case scenario, I can still get my third house through other means. Tiny bit more morally acceptable means.
 - Don't interfere
 leave jcd
 join "navigator 1" (Bernard-Hub-smile-close) 1
-"navigator 1": Dang, now that the device I've set up to help me listen to the projections with you work perfectly, it had to be for a whining rich businesswoman. Not my luck.
-Still, some of the things she said were interesting... Anyway, we should probably head back.
+"navigator 1" (Bernard-Hub-upset-open): Dang, now that the device I've set up to help me listen to the projections with you work perfectly, it had to be for a whining rich businesswoman. Not my luck.
+"navigator 1" (Bernard-Hub-smile-open): Still, some of the things she said were interesting... Anyway, we should probably head back.
 [end_timeline]

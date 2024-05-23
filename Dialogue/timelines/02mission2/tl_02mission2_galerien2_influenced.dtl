@@ -1,6 +1,6 @@
 join galerien 1
 galerien (idle_portrait): Life is hard but maybe if I work hard enough, the {armada_name} will reward me.
-(His thoughts are repeating the same stuff over and over again, you can't interact with him at all.)
+galerien: (His thoughts are repeating the same stuff over and over again, you can't interact with him at all.)
 join "navigator 1" (Bernard-Hub-upset-close) 3
 "navigator 1" (Bernard-Hub-upset-open): This is weird... In fact, the whole island gives me an unsettling feeling. It didn't look like that last time we came here, did it?
 "navigator 1" (Bernard-Hub-upset-close): ... We shouldn't stay too long, just in case.

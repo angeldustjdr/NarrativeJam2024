@@ -2,13 +2,13 @@ join outcast 1
 outcast (idle_portrait): Hello. Are you real? Or are you in my head?
 - Can you hear me?
 	outcast (idle_portrait): Yes... I can hear a lot of voices, all around me, but they are not there.\
-	I don't understand.
+	outcast: I don't understand.
 	outcast: People are mean to me because I'm weird.
 	outcast (idle_portrait): Usually, voices don't reply, though. Does that mean you're MM?
 	- Yes, I am.
 		outcast: I see... I'm glad. It's very dark where in the room where I am, and it's raining a lot outside. I was feeling lonely.
 		- Where are you?
-			outcast: In {armada_name} orphanage. I just arrived weeks ago... The instructors want me to fit in with the other kids, but I don't know how to relate to them. 
+			outcast: In {armada_name} orphanage. I just arrived weeks ago... The instructors want me to fit in with the other kids, but I don't know how to relate to them.
 			outcast: People in white coats are visiting me. They ask me a lot of questions about the voices, and they want to run tests on me. They say it's safe, but I'm scared.
 			outcast: I wish my parents were still here...
 			join "navigator 1" (Bernard-Hub-upset-close) 3

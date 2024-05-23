@@ -2,7 +2,7 @@ join galerien 1
 galerien (idle_portrait): My family says I'm obsessed with serving {armada_name}.
 galerien (idle_portrait): I don't understand why they are not seeing things the way I see it.
 galerien: It's an honor to give it your all to a greater cause.
-If I work hard enough, I will be recognized for that.
-(His thoughts are repeating the same stuff over and over again, you can't interact with him at all.)
+galerien: If I work hard enough, I will be recognized for that.
+galerien: (His thoughts are repeating the same stuff over and over again, you can't interact with him at all.)
 do GameState.setMission_corrupted("mission_1")
 [end_timeline]
