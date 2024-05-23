@@ -157,8 +157,8 @@ func _on_oscillo_clicked():
 	
 func _on_oscillo_victory(oscillo_scene):
 	MusicManager.playMusicNamed(self.name,SceneTransitionLayer.get_duration("fade_out"))
-	SceneTransitionLayer.play_black_flash()
-	await(SceneTransitionLayer.mid_flash)
+	#SceneTransitionLayer.play_white_flash()
+	#await(SceneTransitionLayer.mid_flash)
 	$OscilloLayer.remove_child(oscillo_scene)
 	$visual_novel_scene/clickable_oscilloscope.is_clickable = false
 	GameState.ilot_states[self.name]["revealed"] = true
@@ -170,6 +170,13 @@ func _on_oscillo_victory(oscillo_scene):
 		node.set_process(true)
 
 func _reveal_ilot():
+	SoundManager.playSoundNamed("flash")
+	%oscillo_light.play_growth()
+	#await(%oscillo_light.shining)
+	SceneTransitionLayer.play_white_flash()
+	
+
+func _reveal_ilot_backup():
 	var duration = 0.5
 	var tween_1 = get_tree().create_tween()
 	var tween_2 = get_tree().create_tween()

@@ -25,6 +25,13 @@ func black_flash():
 	if not self._anim_player.animation_finished.is_connected(self._on_animation_finished_packed_scene):
 		self._anim_player.animation_finished.connect(self._on_animation_finished_packed_scene)
 	self._anim_player.play("black_flash")
+	
+func white_flash():
+	if not self._anim_player.animation_finished.is_connected(self._on_animation_finished_file_scene):
+		self._anim_player.animation_finished.connect(self._on_animation_finished_file_scene)
+	if not self._anim_player.animation_finished.is_connected(self._on_animation_finished_packed_scene):
+		self._anim_player.animation_finished.connect(self._on_animation_finished_packed_scene)
+	self._anim_player.play("white_flash")
 
 func transition_to_packed_scene(next_packed_scene):
 	if self._anim_player.animation_finished.is_connected(self._on_animation_finished_file_scene):
@@ -71,4 +78,4 @@ func _on_animation_finished_file_scene(anime_name):
 	elif anime_name == "black_flash":
 		fade_in_finished.emit()
 	else:
-		push_error("unexpected behavior")
+		push_warning("unexpected behavior")

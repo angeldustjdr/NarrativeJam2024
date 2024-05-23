@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://1yyj200c6esy"]
+[gd_scene load_steps=11 format=3 uid="uid://1yyj200c6esy"]
 
 [ext_resource type="PackedScene" uid="uid://b47cy6nmnfgyq" path="res://visual_novel/visual_novel_generic.tscn" id="1_lw4cy"]
 [ext_resource type="Script" path="res://visual_novel/ilot_generic.gd" id="2_kqrqd"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dkmgnicleqvia" path="res://assets/graphics/items/placehold_oscillo.png" id="4_rbeap"]
 [ext_resource type="PackedScene" uid="uid://gi3xfrjn7c22" path="res://ether_timer_layout.tscn" id="5_y1wvj"]
 [ext_resource type="PackedScene" uid="uid://pqgd1whitxiw" path="res://intemperie_texture.tscn" id="6_40er2"]
+[ext_resource type="Script" path="res://visual_novel/oscillo_light.gd" id="6_gtqxj"]
 
 [sub_resource type="Gradient" id="Gradient_34ik3"]
 offsets = PackedFloat32Array(0, 0.610526)
@@ -63,6 +64,7 @@ texture = ExtResource("4_rbeap")
 [node name="oscillo_light" type="PointLight2D" parent="visual_novel_scene" index="5"]
 texture = SubResource("GradientTexture2D_2skqj")
 texture_scale = 6.88517
+script = ExtResource("6_gtqxj")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="visual_novel_scene" index="6"]
 visible = false

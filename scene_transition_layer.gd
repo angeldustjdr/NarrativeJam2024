@@ -38,6 +38,11 @@ func play_black_flash():
 	Radio.click_enabled = false
 	transition_out.emit()
 	$scene_transition.black_flash()
+
+func play_white_flash():
+	Radio.click_enabled = false
+	transition_out.emit()
+	$scene_transition.white_flash()
 	
 	
 func quit_game():
