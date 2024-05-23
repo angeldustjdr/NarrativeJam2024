@@ -182,7 +182,4 @@ func _hide_lightening_effect():
 	$visual_novel_scene/oscillo_light.visible = false
 
 func showUnlock(message):
-	var u = unlock.instantiate()
-	u.text = "Achivement unlocked : " + message
-	u.position = Vector2(64,1020-u.size.y)
-	add_child(u)
+	AchievementUnlockLayer.showMessage(true,message,Vector2(200,100),true)

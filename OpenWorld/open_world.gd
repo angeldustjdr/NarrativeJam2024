@@ -149,7 +149,7 @@ func _process(_delta):
 	GameState.player_rotation = %player.rotation
 
 func showUnlock(message):
-	AchievementUnlockLayer.showMessage(true,message,Vector2(1920/2,1080/2),true)
+	AchievementUnlockLayer.showMessage(true,message,Vector2(200,100),true)
 
 func showThoughts(message):
 	var where = Vector2(randi_range(120,1920/2),randi_range(220,1080-220))
