@@ -1,4 +1,5 @@
 join captain 1
-captain: You made it in time {mc_name}, well done. Continue that way and you will soon have my job ! haha, no.
-captain: Take thoses credits and grab a coffee.
+captain: Welcome back {mc_name}, graat work. 
+captain: You managed to do your task on time despite the change of plan. I knew you would be a good asset for this crew.
+captain: You are on track for a very good career. Take thoses credits for the coffee. See you tomorow.
 [end_timeline]

@@ -38,11 +38,11 @@ captain: You, I saw you snooze during the brief. You've got to be more focus if 
 jump Orientation
 label Orientation
 captain (Captain-smile-open): What is your CCID ?
-- My what ?
+- "My what ?"
 	captain (Captain-upset-open): *sigh* Your chain code identification.
 	captain (Captain-upset-open): Three letters for you post, fleet designation, {hub_name} number, and your training numbers.
 label ID
-- {mc_name}
+- "{mc_name}"
 	captain (Captain-smile-open): Hmm, let me check... You are in team 7.
 captain (Captain-smile-open): Your break room is at the end of this corridor, on the left.
 captain (Captain-smile-open): Take thoses credits, you can meet your co-worker by offering them a cup of coffee. \
