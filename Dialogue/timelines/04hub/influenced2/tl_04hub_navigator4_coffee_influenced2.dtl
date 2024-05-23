@@ -1,7 +1,8 @@
 join "navigator 1" 1
-"navigator 1": Hello again, friend.
-"navigator 1": Sorry if I was confusing earlier. I think there is something wrong with the beacons.
-"navigator 1": The projection are...
-"navigator 1": I need to check something on my own. I'll share my findings with you tomorow.
-"navigator 1": Don't talk about it to our superiors.
+"navigator 1": ...Hey {mc_code}, how is it going for you? I'm happy to be able to call you by your new name. It really suits you. Must feel like some kind of rebirth for you, after months of being called with numbers by the others...
+- "You seem a bit out of it"
+"navigator 1" (Bernard-Hub-upset-close): Ha... Sorry, I know we should be celebrating. I'm really happy for you but... I'm still a bit shaken by what we saw.
+
+"navigator 1" (Bernard-Hub-smile-close): Aah... I shouldn't bother you any longer with my ramblings when you should be enjoying your night. I'll look into it, and we can talk about it another time.
+"navigator 1" (Bernard-Hub-smile-open): Have fun tonight, {mc_code}. I'm glad to be your partner.
 [end_timeline]
