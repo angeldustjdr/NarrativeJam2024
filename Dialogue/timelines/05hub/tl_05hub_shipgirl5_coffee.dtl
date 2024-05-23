@@ -1,7 +1,43 @@
 join shipgirl 1
-shipgirl: How's it going ?
-shipgirl: I'm washed out todoy. So much work...
-shipgirl: Was you mission easier than yesterday ?
-shipgirl: Who's {navigator1_name} ?
-shipgirl: Woops, I'm needed at the hangar bay. See you later.
+shipgirl (Shipgirl-smile-close): How's it going ? How was your mission today ?
+- Where is {navigator1_name} ?
+	shipgirl (Shipgirl-upset-close): Hum... Well. This name rings a bell but I can't seem to remember. Did you check in the employee's log ? Maybe you can find in which department he works.
+	- You don't remember {navigator1_name}?
+		shipgirl (Shipgirl-upset-open): No. I... I don't remember. I really don't. I promise.
+		shipgirl (Shipgirl-upset-open): Oooooh... My brain hurts.
+		shipgirl (Shipgirl-upset-open): I guess it's because of the workload today. I was on the deck the whole day. I need vacations... Hum... As a Shipgirl, I don't have vacations.
+		shipgirl (Shipgirl-smile-open): Can't wait to be promoted then !
+	- What are you hiding?
+		shipgirl (Shipgirl-upset-close): N... Nothing! Why would I hide something from you. You are the only one who is nice with me!
+		shipgirl (Shipgirl-upset-open): You know what ? I'll ask around. If I have informations, I'll come back to you.
+		shipgirl (Shipgirl-upset-open): Oh boy, my head hurts. I guess it's because of the workload today. I was on the deck the whole day. I need vacations... Hum... As a Shipgirl, I don't have vacations.
+		shipgirl (Shipgirl-smile-open): Can't wait to be promoted then !
+- Do you know {navigator2_code}?
+	shipgirl (Shipgirl-smile-open): No, it's the first time I work with her ! But she is great nah ? She is so professional. So stoic.
+	shipgirl (Shipgirl-smile-close): It's like she could handle any situation without a sweat.
+	shipgirl (Shipgirl-smile-open): Plus, she has been employee of the month for almost half a year! She's a beast !
+	- Why is she replacing {navigator1_name} ?
+	- She doesn't seem to know {navigator1_name}
+		shipgirl (Shipgirl-upset-close): Who ?
+		- You don't remember {navigator1_name}?
+			shipgirl (Shipgirl-upset-open): No. I... I don't remember. I really don't. I promise.
+			shipgirl (Shipgirl-upset-open): Oooooh... My brain hurts.
+			shipgirl (Shipgirl-upset-open): I guess it's because of the workload today. I was on the deck the whole day. I need vacations... Hum... As a Shipgirl, I don't have vacations.
+			shipgirl (Shipgirl-smile-open): Can't wait to be promoted then !
+		- What are you hiding?
+			shipgirl (Shipgirl-upset-close): N... Nothing! Why would I hide something from you. You are the only one who is nice with me!
+			shipgirl (Shipgirl-upset-open): You know what ? I'll ask around. If I have informations, I'll come back to you.
+			shipgirl (Shipgirl-upset-open): Oh boy, my head hurts. I guess it's because of the workload today. I was on the deck the whole day. I need vacations... Hum... As a Shipgirl, I don't have vacations.
+			shipgirl (Shipgirl-smile-open): Can't wait to be promoted then !
+- Yeah. It was alright.
+	shipgirl (Shipgirl-upset-close): I'm washed out today too. So much work... Thanks for the coffee !
+shipgirl (Shipgirl-upset-close): You look worried. Are you all right ?
+shipgirl (Shipgirl-smile-close): Com'on ! Cheer up ! If you like, we can have a beer after work. I'm sure you won't be thinking about this {navigator1_name} after the special pint they serve!
+- Thank you. I think I will join !
+	shipgirl (Shipgirl-smile-open): Great ! I'm looking forward to it ! We'll meeting after the extra-hours I need to work.
+- No thanks. I'm not in the mood.
+	shipgirl (Shipgirl-smile-open): No problem. I understand. I need to work extra-hours anyway!
+[wait time="1.0"]
+
+shipgirl (Shipgirl-smile-open): Woops, I'm needed at the hangar bay. See you later. Thanks again for the coffee !
 [end_timeline]
