@@ -1,6 +1,6 @@
 join "navigator 1" 1
-"navigator 1": Mission command want you to set up a {beacon} on a nearby islet.
-"navigator 1": The Cartographers think this islet is an agregate made by the collective subconscious of industrial workers. 
+"navigator 1": Mission command wants you to set up a {beacon} on a nearby islet.
+"navigator 1": The Cartographers think this islet is an agregate made by the collective subconscious of industrial workers.
 "navigator 1": The {beacon} that we will put there will confirm that and help the researchers to understand better how these islets form.
 "navigator 1": There is no danger here, you can go ahead and follow the red signal I'm sending you.
 [end_timeline]
