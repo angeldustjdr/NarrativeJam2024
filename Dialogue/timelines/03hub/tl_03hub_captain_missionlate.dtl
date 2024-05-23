@@ -1,5 +1,15 @@
+[background arg="res://assets/graphics/backgrounds/Intro.png" fade="0.0"]
 join captain 1
-captain (Captain-upset-open): {mc_name} I'm very disapointed in you.
-captain (Captain-upset-open): Keep your attitude that way and you will never level up in the hierarchy.
-captain (Captain-upset-closed): Take thoses credits and grab a coffee, I don't want to see your face anymore.
+captain (Captain-upset-closed): You are late. I won't hide that I'm a bit disapointed, {mc_name}.
+captain (Captain-upset-open): I understand the last minute change regarding the mission objective made things more difficult, but you must take a hold of yourself. You know the risks of doing overtime in there.
+- "I appologize captain, I'll do better next time".
+	captain (Captain-upset-closed): I know you will. You have a lot of potential. don't let it go to waste.
+- "It wasn't my fault the ..."
+	captain (Captain-upset-open): I'll stop you right here. I don't want to hear any excuses.
+	captain (Captain-upset-open): Being on time is a crucial part of your assignment. You have to take your responsability.
+- "I completed the mission didn't I ?"
+	captain (Captain-upset-open): You did, however being on time is a crucial part of your assignment. You have to take your responsability.
+	captain (Captain-upset-closed): And watch your tone when you talk to your superior.
+captain (Captain-upset-open): You are a good asset to this crew. I don't want what happened five months ago to happen again. Watch. Your. Timer.
+captain (Captain-upset-closed): You are dismissed. Good night.
 [end_timeline]

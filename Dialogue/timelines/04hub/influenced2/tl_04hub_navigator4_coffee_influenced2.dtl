@@ -1,7 +1,16 @@
 join "navigator 1" 1
-"navigator 1": Hello again, friend.
-"navigator 1": Sorry if I was confusing earlier. I think there is something wrong with the beacons.
-"navigator 1": The projection are...
-"navigator 1": I need to check something on my own. I'll share my findings with you tomorow.
-"navigator 1": Don't talk about it to our superiors.
+"navigator 1": ...Hey {mc_code}, how is it going for you? I'm happy to be able to call you by your new name. It really suits you. Must feel like some kind of rebirth for you, after months of being called by numbers...
+- "You seem a bit out of it"
+"navigator 1" (Bernard-Hub-upset-close): Ha... Sorry, I know we should be celebrating. I'm really happy for you but... I'm still a bit shaken by what we saw.
+"navigator 1" (Bernard-Hub-smile-close): Maybe I'm the one hearing the Siren's call, ah-ah...
+- Do you want to talk about it?
+	"navigator 1" (Bernard-Hub-upset-close): Now is not the moment, but... yeah. I've been looking onto it, y'know? The {beacon} incident, I think was a sabotage. The things we heard, too...
+	"navigator 1": And it got me thinking... are we actually just collecting data?
+	"navigator 1" (Bernard-Hub-upset-open): I'm not naive to the point that I didn't think the sampling we were doing was used for, say, marketing reasons. I didn't like it but... I could live with it.
+	"navigator 1" (Bernard-Hub-upset-close): But I'm thinking now... we may be the pawns of a much darker plan.
+- *Stay silent*
+
+"navigator 1" (Bernard-Hub-smile-close): Aah... I shouldn't bother you any longer with my ramblings when you should be enjoying your night. I'll just... head back to my room for now. We can talk about it another time.
+"navigator 1": Sorry to leave so early... tomorrow's coffee will be on me. It will be after the mission, though, because you'll be send into the {sea_name} very early.
+"navigator 1" (Bernard-Hub-smile-open): Have fun tonight, {mc_code}. I'm glad to be your partner.
 [end_timeline]

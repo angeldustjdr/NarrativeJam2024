@@ -1,7 +1,17 @@
 join shipgirl 1
-shipgirl: Hello there !
-shipgirl: Did you get out during the weather alert ? Waw.
-shipgirl: Ship is not in a bad condition. I'm impressed !
-shipgirl: If you become captain don't forget about me, if you know what I mean.
-shipgirl: *whisper* I mean I want to be promoted. I need the paygrade update.
+shipgirl: Congratulations on getting a Code name, Tide!
+shipgirl: I wanted you to know, you're really my role model, honest! I hope I'll be the same kind of pilot as you. I'm sure you'll become Captain one day!
+shipgirl (Shipgirl-smile-close): Hey, is that happens, don't forget about me, okay? Remember how shiny and chrome your ship was everytime you went aboard it!
+- Yeah, I'll give you a great paygrade too
+	shipgirl (Shipgirl-smile-open): Really?! Yay, haha! I vote for you!
+	shipgirl (Shipgirl-upset-close): Too bad that's not how it works.
+- *Stay silent*
+shipgirl(Shipgirl-upset-open): ... You seem preoccupied. Did something happen? Was the weather really that bad in the {sea_name}?
+- I'm okay.
+- Spare her the details
+shipgirl(Shipgirl-upset-close): ...I'm worried about {navigator1_name}, too. He was really out of it earlier when I tried to talk to him. I saw him being scolded by the Captain, and he was GLARING back at him.
+	shipgirl (Shipgirl-upset-open):{navigator1_name} sure has guts. He's so laidback usually that I didn't realize that. Captain {captain_name} is a nice man and all, but he scares me when he's angry.
+shipgirl(Shipgirl-upset-close):I hope everyone will be alright tomorrow. I should go to sleep soon. Your departure is set really early. I have to wake up in the middle of the night to get your ship ready on time. 
+shipgirl (Shipgirl-upset-open):Too bad the hierarchy didn't let you have one day of break...
+shipgirl (Shipgirl-smile-close):Good night {mc_code}! 
 [end_timeline]
