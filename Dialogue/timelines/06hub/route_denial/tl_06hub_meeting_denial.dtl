@@ -6,7 +6,7 @@ captain (Captain-upset-open): This terrorist attack is nothing but a minor setba
 captain (Captain-smile-close): Anyway...
 captain (Captain-smile-close): I would like to thank you all for your devotion. And... now the moment you were all waiting for... The annoncement of the results of this month.
 [wait time="1.0"]
-captain (Captain-smile-open): {navigator2_name}, I'm very proud of your effort. As always!
+captain (Captain-smile-open): {navigator2_code}, I'm very proud of your effort. As always!
 captain (Captain-smile-open): Therefore, I'm naming you ... Employee of the month, for the fifth time this year. Congratulations! You are an inspiration for us all.
 join "navigator 2" 3 [ mirrored="true"]
 "navigator 2" (navigator2-smile-open): Thank you Cap'!

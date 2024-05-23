@@ -4,7 +4,7 @@ shipgirl (Shipgirl-smile-close): It's been a while. Any interesting event to sha
 - "Let's see..."
 	- Tell her about the broken {beacon}
 		shipgirl (Shipgirl-smile-open): Oh yes! {navigator1_name} told me about how unusual it was, because it didn't seem like a {sea_name} weathering problem. Maybe it was a flawed {beacon}, some of them are not manufactured well.
-		shipgirl (Shipgirl-smile-close): He didn't went into details for the technical stuff, but he told me about that annoying rich lady, haha! {navigator1_name}is so funny. I'm glad he managed to set up his radio so he could hear the projections with you.
+		shipgirl (Shipgirl-smile-close): He didn't went into details for the technical stuff, but he told me about that annoying rich lady, haha! {navigator1_name} is so funny. I'm glad he managed to set up his radio so he could hear the projections with you.
 		shipgirl (Shipgirl-upset-close): Not sure that's legal, though.
 		- "What about you?"
 - "Nothing special. You?"
