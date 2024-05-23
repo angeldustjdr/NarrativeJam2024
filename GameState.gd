@@ -79,7 +79,7 @@ var _ether_chrono : Chrono
 
 ########### ACHIEVEMENTS
 @onready var nbCoffee = 0
-@onready var coffeeCredit = 3
+@onready var coffeeCredit = 2
 @onready var nbInteractions = {
 	SHIPGIRL:0,
 	NAVIGATOR1:0,

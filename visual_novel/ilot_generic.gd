@@ -129,7 +129,7 @@ func _on_ask_to_talk_ilot_ended():
 
 func _on_button_pressed():
 	if GameState.ilot_states[self.name]["revealed"]:
-		GameState.coffeeCredit = 3
+		GameState.coffeeCredit = 2
 		MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
 		GameState.coming_from = GameState.ILOT
 		SceneTransitionLayer.transition_to_packed_scene(GameState.openworld_packed_scene)

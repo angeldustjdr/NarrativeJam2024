@@ -24,11 +24,6 @@ func _ready():
 	Achievements.connect("unlock",showUnlock)
 	if GameState.coming_from != GameState.NO_WHERE: # si on ne vient pas de load
 		GameState.nbRetourHub += 1
-	#if GameState.nbRetourHub>0 : Achievements.genericCheck("True pilot")
-	if GameState.get_ether_timer_timeleft() > 0 :
-		Achievements.genericCheck("Safe return")
-	if GameState.get_ether_timer_timeleft() <= 0.1 : 
-		Achievements.genericCheck("Better late than sorry")
 	var time_elapsed = GameState.stop_ether_timer()
 	GameState.print_time_elapsed(time_elapsed)
 	MusicManager.playMusicNamed(self.name,SceneTransitionLayer.get_duration("fade_in"))
@@ -36,6 +31,9 @@ func _ready():
 	GameState.update_dialogs()
 	Radio.connect("clickObject",clickObject)
 	%TalkToMenu.coffee_credit_update.connect(self._on_coffee_credit_update)
+	for m in GameState.mission_states:
+		if GameState.mission_states[m]["in_time"] and GameState.ilot_states["ilot_1"]["revealed"]: Achievements.genericCheck("Safe return")
+		if !GameState.mission_states[m]["in_time"] and GameState.ilot_states["ilot_1"]["revealed"]: Achievements.genericCheck("Better late than sorry")
 	SceneTransitionLayer.reveal_scene()
 
 func clickObject(which):
@@ -120,7 +118,7 @@ func setClickableProcess(p_mode):
 func showUnlock(message):
 	var u = unlock.instantiate()
 	u.text = "Achivement unlocked : " + message
-	u.position = Vector2(64,1020-u.size.y)
+	u.position = Vector2(1920/2+200,100)
 	add_child(u)
 
 func _on_coffee_credit_update(coffee_credit_descrease):
@@ -139,3 +137,9 @@ func closePanels():
 		elem.visible = false
 	for clickable in $clickables.get_children():
 		clickable.process_mode = PROCESS_MODE_ALWAYS
+
+
+func _on_employee_month_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			closePanels()

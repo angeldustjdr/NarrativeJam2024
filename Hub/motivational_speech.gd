@@ -1,7 +1,10 @@
 extends Node2D
 
+@onready var unlock = preload("res://achivement_unlocked.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Achievements.connect("unlock",showUnlock)
 	MusicManager.set_bus("music")
 	MusicManager.playMusicNamed("motivational",SceneTransitionLayer.get_duration("fade_in"))
 	SceneTransitionLayer.reveal_scene()
@@ -14,7 +17,7 @@ func _launch_speech():
 			Achievements.genericCheck("Employee of the month")
 			GameState.start_time_line("tl_06hub_meeting_best")
 			await(Dialogic.timeline_ended)
-			self._change_scene_to_credits()
+			self.showEmployeeOfTheMonth()
 		GameState.TRY_NEXT_MONTH_ENDING:
 			#print("TRY NEXT MONTH")
 			Achievements.genericCheck("Maybe next month")
@@ -44,3 +47,18 @@ func _change_scene_to_main():
 func _change_scene_to_credits():
 	MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
 	SceneTransitionLayer.transition_to_file_scene("res://credits.tscn")
+
+func showUnlock(message):
+	var u = unlock.instantiate()
+	u.text = "Achivement unlocked : " + message
+	u.position = Vector2(1920/2+200,100)
+	add_child(u)
+
+func showEmployeeOfTheMonth():
+	$EmployeeMonth.visible = true
+
+
+func _on_employee_month_gui_input(event):
+	if event is InputEventMouseButton:
+			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+				self._change_scene_to_credits()
