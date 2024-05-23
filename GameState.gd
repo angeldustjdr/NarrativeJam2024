@@ -349,7 +349,7 @@ func get_scolding_dialog():
 # Related to dialogs
 func start_time_line(timeline_name,wait=false):
 	if Dialogic.current_timeline == null:
-		Dialogic.start(timeline_name).layer = 50
+		Dialogic.start(timeline_name).layer = 5
 		if wait: # morche po :'(
 			await(Dialogic.timeline_ended)
 

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://vgupdebh5x7g"]
+
+[ext_resource type="Script" path="res://achievement_unlock_layer.gd" id="1_qb0m1"]
+
+[node name="achievement_unlock_layer" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_qb0m1")

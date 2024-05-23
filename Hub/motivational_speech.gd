@@ -49,10 +49,7 @@ func _change_scene_to_credits():
 	SceneTransitionLayer.transition_to_file_scene("res://credits.tscn")
 
 func showUnlock(message):
-	var u = unlock.instantiate()
-	u.text = "Achivement unlocked : " + message
-	u.position = Vector2(1920/2+200,100)
-	add_child(u)
+	AchievementUnlockLayer.showMessage(true,message,Vector2(1920/2+200,100),true)
 
 func showEmployeeOfTheMonth():
 	$EmployeeMonth.visible = true

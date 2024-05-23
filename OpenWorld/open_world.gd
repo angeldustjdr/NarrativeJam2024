@@ -149,19 +149,11 @@ func _process(_delta):
 	GameState.player_rotation = %player.rotation
 
 func showUnlock(message):
-	instanciateMessage(true,message,Vector2(1920/2,1080/2),true)
+	AchievementUnlockLayer.showMessage(true,message,Vector2(1920/2,1080/2),true)
 
 func showThoughts(message):
 	var where = Vector2(randi_range(120,1920/2),randi_range(220,1080-220))
-	instanciateMessage(false,message,where,false)
-
-func instanciateMessage(isAchivement,message,where,sound):
-	var u = unlock.instantiate()
-	if isAchivement : u.text = "Achivement unlocked : " 
-	u.text += message
-	u.position = where
-	u.withSound = sound
-	$CanvasLayer/TextControl.add_child(u)
+	AchievementUnlockLayer.showMessage(false,message,where,false)
 
 func _input(event):
 	if event is InputEventKey:

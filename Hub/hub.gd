@@ -116,10 +116,7 @@ func setClickableProcess(p_mode):
 	for clickable in $clickables.get_children(): clickable.process_mode = p_mode
 
 func showUnlock(message):
-	var u = unlock.instantiate()
-	u.text = "Achivement unlocked : " + message
-	u.position = Vector2(1920/2+200,100)
-	add_child(u)
+	AchievementUnlockLayer.showMessage(true,message,Vector2(1920/2+200,100),true)
 
 func _on_coffee_credit_update(coffee_credit_descrease):
 	setClickableProcess(PROCESS_MODE_ALWAYS)

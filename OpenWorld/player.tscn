@@ -1,12 +1,12 @@
 [gd_scene load_steps=28 format=3 uid="uid://bst1xbumpsfra"]
 
 [ext_resource type="Script" path="res://OpenWorld/player.gd" id="1_dhf2n"]
-[ext_resource type="Texture2D" uid="uid://dft684dgc0o5j" path="res://OpenWorld/WaterTrailGradient_alpha.png" id="2_q7j1v"]
+[ext_resource type="Texture2D" uid="uid://b7bdcgjrpxrp5" path="res://OpenWorld/WaterTrailGradient_alpha.png" id="2_q7j1v"]
 [ext_resource type="Shader" path="res://OpenWorld/wave.gdshader" id="2_q8raa"]
 [ext_resource type="Script" path="res://OpenWorld/Trail.gd" id="3_3ebvi"]
-[ext_resource type="Texture2D" uid="uid://b6wltimqoo2yt" path="res://OpenWorld/fleche.png" id="5_w7suv"]
+[ext_resource type="Texture2D" uid="uid://rqxdhbj2hbs5" path="res://OpenWorld/fleche.png" id="5_w7suv"]
 [ext_resource type="PackedScene" uid="uid://cysuqq7mfjitr" path="res://audio_manager/smooth_loop.tscn" id="6_n3ck4"]
-[ext_resource type="Texture2D" uid="uid://cqa54dodr6aed" path="res://OpenWorld/fleche_mini_blanc.png" id="6_yhjig"]
+[ext_resource type="Texture2D" uid="uid://d06ujexli3lkm" path="res://OpenWorld/fleche_mini_blanc.png" id="6_yhjig"]
 [ext_resource type="PackedScene" uid="uid://dt5sdcudsay8b" path="res://OpenWorld/thoughts.tscn" id="8_6qau0"]
 [ext_resource type="Shader" path="res://OpenWorld/open_world_snow.gdshader" id="9_t6qle"]
 

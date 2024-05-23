@@ -58,6 +58,7 @@ _data = {
 
 [node name="AchivementUnlocked" type="Label"]
 top_level = true
+z_index = 60
 offset_bottom = 26.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_nigux")
 horizontal_alignment = 1
