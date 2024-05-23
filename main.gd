@@ -24,7 +24,7 @@ func _ready():
 			MusicManager.playMusicNamed("title_pirate",SceneTransitionLayer.get_duration("fade_in"))
 		_:
 			push_error("unexpected behavior")
-	if not FileAccess.file_exists("res://saves/slot_1.save"):
+	if not FileAccess.file_exists("user://mindfarer/saves/slot_1.save"):
 		%load.visible = false
 	SceneTransitionLayer.reveal_scene()
 

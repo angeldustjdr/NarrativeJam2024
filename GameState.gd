@@ -62,7 +62,7 @@ signal save_finished
 
 var _title_screen_state : int
 
-var _save_dir = "res://saves/"
+var _save_dir = "user://mindfarer/saves/"
 
 ########### ENDINGS
 
@@ -139,8 +139,10 @@ func print_data():
 	print(self.PV)
 
 func save_game_and_create_save_dir(slot_file_name):
-	var dir = DirAccess.open("res://")
+	var dir = DirAccess.open("user://")
 	if not dir.dir_exists(self._save_dir):
+		dir.make_dir("mindfarer")
+		dir = DirAccess.open("user://mindfarer/")
 		dir.make_dir(self._save_dir)
 	self.save_game(self._save_dir + slot_file_name)
 

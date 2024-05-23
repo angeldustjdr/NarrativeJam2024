@@ -49,7 +49,7 @@ func update_character_names():
 ################################################################################
 
 func save_achievements():
-	var achievement_file = FileAccess.open("res://achievements.save",FileAccess.WRITE)
+	var achievement_file = FileAccess.open("user://mindfarer/achievements.save",FileAccess.WRITE)
 	achievement_file.store_var(GameState.nbCoffee)
 	achievement_file.store_var(GameState.nbInteractions)
 	achievement_file.store_var(GameState.nbWard)
@@ -58,7 +58,7 @@ func save_achievements():
 	achievement_file.store_var(self.AchievementDescription)
 	
 func load_achievements():
-	var file_name = "res://achievements.save"
+	var file_name = "user://mindfarer/achievements.save"
 	if FileAccess.file_exists(file_name):
 		var achievement_file = FileAccess.open(file_name, FileAccess.READ)
 		GameState.nbCoffee = achievement_file.get_var()
