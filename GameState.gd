@@ -2,7 +2,7 @@ extends Node
 
 enum {HUB = -1, ILOT = 5555, NO_WHERE = 7777} # HUB position in list
 
-var _debug = true
+var _debug = false
 
 enum {NONE, WEAK, STRONG} # level of intemperie
 

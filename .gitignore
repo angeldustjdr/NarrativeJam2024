@@ -6,3 +6,4 @@ export_presets.cfg
 *.import
 logs/*
 assets/screen*
+export/*
