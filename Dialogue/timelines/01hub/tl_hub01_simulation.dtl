@@ -2,9 +2,9 @@ join "navigator 1" 1
 "navigator 1" (Bernard-Hub-smile-close): Allright, I'm sure you know the drill but I'm obligated to follow procedure ok.
 "navigator 1" (Bernard-Hub-smile-open): First of all you can use your Z or W to move forward.
 "navigator 1" (Bernard-Hub-smile-close): You can turn using Q and D or A and D.
-"navigator 1" (Bernard-Hub-smile-open): Try not to hit obstacles. It should be safe but you might encounter dangerous thing like emotions stream that boost your speed or despair clouds that slows you down. The Red signal is where you need to go. That's it, you're all setup.
-"navigator 1" (Bernard-Hub-smile-close): You'll need to explore the Cognisea, so you can place Wards by clicking on them on the right side control panel. It will emit light so you don't get lost.
-"navigator 1" (Bernard-Hub-smile-open): That's it, you're all setup.
+"navigator 1" (Bernard-Hub-smile-open): Try not to hit obstacles. It should be safe but you might encounter dangerous things like emotions stream that boost your speed or despair clouds that slows you down. The Red signal is where you need to go. That's it, you're all set up.
+"navigator 1" (Bernard-Hub-smile-close): You'll need to explore the Cognisea, so you can place wards by clicking on them on the right side control panel. It will emit light so you don't get lost.
+"navigator 1" (Bernard-Hub-smile-open): That's it, you're all set up.
 jump tl_mission1_navigator1_objectif/
 
 [end_timeline]

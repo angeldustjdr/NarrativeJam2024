@@ -4,7 +4,7 @@ captain (Captain-smile-open): You will be working with {shipgirl_name}, she's yo
 join shipgirl (Shipgirl-smile-close) 3 [animation="Slide In Right"]
 shipgirl (Shipgirl-smile-close): *wave*
 leave shipgirl [animation="Slide Out Right"]
-captain (Captain-smile-open): You can order her any deskjob, low or moderatly technical task, she should be able to handle it.
+captain (Captain-smile-open): You can order her any desk job, low or moderately technical task, she should be able to handle it.
 captain (Captain-smile-open): {navigator1_code} is your navigator, you are equal in ranking. He will guide you through the {sea_name} and relay order from mission-command.
 join "navigator 1" (Bernard-Hub-smile-close) 3 [animation="Slide In Right"]
 "navigator 1" (Bernard-Hub-upset-close): Ugh... Please call me {navigator1_name} instead. *thumps up*
@@ -57,5 +57,5 @@ captain (Captain-smile-open): Good ! Now, I have time for about ... Hum ... let'
 	jump end
 captain (Captain-smile-open): Good talk ! I have to go now.
 label end
-captain (Captain-smile-open): Blend with you co-worker for a bit, then head to the hangar bay to find your ship. You will receive your starting asignment afterward.
+captain (Captain-smile-open): Blend with your co-worker for a bit, then head to the hangar bay to find your ship. You will receive your starting asignment afterward.
 [end_timeline]

@@ -8,7 +8,7 @@ captain (Captain-smile-open): Some of you will have to sail into uncharted terri
 captain (Captain-smile-open): Some will need to support those sailors with guidance, equipment and maintenance. Some will need to support, well everyone, with assistance and accommodation. But all of you will work hand in hand to a brighter future.
 - Stay Focused
 	captain (Captain-smile-open): As part of this great family, it is now your duty to respect each other by following the policies implemented by your superiors.
-	captain (Captain-smile-open): It is you duty to respect each other’s social privacy by only communicating work-related information between yourselves. And most importantly, to respect the chain of command and the hierarchy.
+	captain (Captain-smile-open): It is your duty to respect each other’s social privacy by only communicating work-related information between yourselves. And most importantly, to respect the chain of command and the hierarchy.
 	captain (Captain-smile-open): I’m sure you heard before that anyone can change the world. But here in our beautiful {hub_name}, right now I know that what we are doing will have an impact, for our company and for our lives.
 	captain (Captain-smile-open): I’ve been a partner of {armada_name} for quite some time, and I’ve even been a sailor for a longer time, so bear my rambling for a bit.
 - Fall asleep
@@ -40,11 +40,11 @@ label Orientation
 captain (Captain-smile-open): What is your CCID ?
 - "My what ?"
 	captain (Captain-upset-open): *sigh* Your chain code identification.
-	captain (Captain-upset-open): Three letters for you post, fleet designation, {hub_name} number, and your training numbers.
+	captain (Captain-upset-open): Three letters for your post, fleet designation, {hub_name} number, and your training numbers.
 label ID
 - "{mc_name}"
 	captain (Captain-smile-open): Hmm, let me check... You are in team 7.
 captain (Captain-smile-open): Your break room is at the end of this corridor, on the left.
-captain (Captain-smile-open): Take thoses credits, you can meet your co-worker by offering them a cup of coffee. 
+captain (Captain-smile-open): Take those credits, you can meet your co-worker by offering them a cup of coffee. 
 captain (Captain-smile-open): I'll join shortly if you have questions.
 [end_timeline]

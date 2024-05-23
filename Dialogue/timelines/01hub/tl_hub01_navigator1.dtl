@@ -10,11 +10,11 @@ join "navigator 1" 1
 - *Don't say anything.*
 "navigator 1" (Bernard-Hub-smile-close): Well... we have a little bit of time ahead before our mission start. Do you have any questions?
 - Your codename is "{navigator1_code}", right? How did you earn it?
-	"navigator 1" (Bernard-Hub-smile-open): Oh, that... I was really good at encoding and deciphering crypted messages. That's a hobby of mine, but it's also a valuable skill for a Navigator.
-	"navigator 1" (Bernard-Hub-smile-close): The collective subconscious, that we call the {sea_name}, is very hard to interpret after all. {armada_name} technology helps to visualize it, especially for the pilot, but it still requires a good Navigator to decode some signals from there.
+	"navigator 1" (Bernard-Hub-smile-open): Oh, that... I was really good at encoding and deciphering encrypted messages. That's a hobby of mine, but it's also a valuable skill for a Navigator.
+	"navigator 1" (Bernard-Hub-smile-close): The collective subconscious, which we call the {sea_name}, is very hard to interpret after all. {armada_name} technology helps to visualize it, especially for the pilot, but it still requires a good Navigator to decode some signals from there.
 	- How long have you been working here?
 		"navigator 1" (Bernard-Hub-smile-open): Hum... about a year, now. But the numbers of missions into the {sea_name} have increased recently. I used to work more in the office before, helping the Intel Department.
-		"navigator 1" (Bernard-Hub-smile-close): I guess they need more real data to move on with with the Research section of MindSail, which is outside of the Armada.
+		"navigator 1" (Bernard-Hub-smile-close): I guess they need more real data to move on with the Research section of MindSail, which is outside of the Armada.
 		- What do you think of MindSail so far?
 		"navigator 1" (Bernard-Hub-smile-open): Oh, that's a tough question. And not one to ask in the middle of the hub if you want an honest answer.
 		"navigator 1" (Bernard-Hub-smile-close): Let's say that I like being a Navigator, and I'm sincerely fascinated by the {sea_name}. I wish we had more insight on how the data we are collecting is used, though.
