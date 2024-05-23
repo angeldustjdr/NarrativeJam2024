@@ -17,7 +17,7 @@ func _launch_speech():
 			Achievements.genericCheck("Employee of the month")
 			GameState.start_time_line("tl_06hub_meeting_best")
 			await(Dialogic.timeline_ended)
-			self._change_scene_to_credits()
+			self.showEmployeeOfTheMonth()
 		GameState.TRY_NEXT_MONTH_ENDING:
 			#print("TRY NEXT MONTH")
 			Achievements.genericCheck("Maybe next month")
@@ -51,5 +51,14 @@ func _change_scene_to_credits():
 func showUnlock(message):
 	var u = unlock.instantiate()
 	u.text = "Achivement unlocked : " + message
-	u.position = Vector2(64,1020-u.size.y)
+	u.position = Vector2(1920/2+200,100)
 	add_child(u)
+
+func showEmployeeOfTheMonth():
+	$EmployeeMonth.visible = true
+
+
+func _on_employee_month_gui_input(event):
+	if event is InputEventMouseButton:
+			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+				self._change_scene_to_credits()

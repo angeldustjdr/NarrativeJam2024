@@ -137,3 +137,9 @@ func closePanels():
 		elem.visible = false
 	for clickable in $clickables.get_children():
 		clickable.process_mode = PROCESS_MODE_ALWAYS
+
+
+func _on_employee_month_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			closePanels()

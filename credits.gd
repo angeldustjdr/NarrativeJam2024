@@ -1,10 +1,13 @@
 extends Control
 
+@onready var unlock = preload("res://achivement_unlocked.tscn")
+
 var speed = 100.
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SceneTransitionLayer.reveal_scene()
+	Achievements.connect("unlock",showUnlock)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,3 +28,9 @@ func _on_gui_input(event):
 func backToMain():
 	SceneTransitionLayer.transition_to_file_scene("res://main.tscn")
 	MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
+
+func showUnlock(message):
+	var u = unlock.instantiate()
+	u.text = "Achivement unlocked : " + message
+	u.position = Vector2(1920/2+200,100)
+	add_child(u)
