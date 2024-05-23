@@ -21,7 +21,8 @@ var sound_paths = {	"white_noise":"res://assets/sounds/white-noise-8117_cut.wav"
 					"glitch":"res://assets/sounds/sfx/glitch/Static Glitch Short Shpaeforms.wav",
 					"hoover":"res://assets/sounds/sfx/bleep bip click/Menu - hover Zorg & Shlak.wav",
 					"lock":"res://assets/sounds/sfx/cassette button/CASSETTE_BUTTON_05 Shapeform.wav",
-					"unlock":"res://assets/sounds/sfx/cassette button/CASSETTE_BUTTON_12 Shapeform.wav"}
+					"unlock":"res://assets/sounds/sfx/cassette button/CASSETTE_BUTTON_12 Shapeform.wav",
+					"flash":"res://assets/sounds/sfx/bleep bip click/Bleep_01 BLEOOP.wav"}
 
 var sound_loops = {"white_noise":true,
 				   "crowd":true,
@@ -35,7 +36,8 @@ var sound_loops = {"white_noise":true,
 					"glitch":false,
 					"hoover":false,
 					"lock":false,
-					"unlock":false}
+					"unlock":false,
+					"flash":false}
 
 var base_volumes = {"white_noise":-20.0,
 					"crowd":0.0,
@@ -49,7 +51,8 @@ var base_volumes = {"white_noise":-20.0,
 					"glitch":0.0,
 					"hoover":0.0,
 					"lock":-5.0,
-					"unlock":-5.0}
+					"unlock":-5.0,
+					"flash":0.0}
 
 var base_pitches = {"white_noise":1.0,
 					"crowd":1.0,
@@ -63,7 +66,8 @@ var base_pitches = {"white_noise":1.0,
 					"glitch":1.0,
 					"hoover":0.9,
 					"lock":1.1,
-					"unlock":1.1}
+					"unlock":1.1,
+					"flash":1.0}
 
 func _ready():
 	# Create the pool of AudioStreamPlayer nodes.
