@@ -15,6 +15,7 @@ func _launch_speech():
 		GameState.EMPLOYEE_OF_THE_MONTH_ENDING:
 			#print("EMPLOYEE_OF_THE_MONTH")
 			Achievements.genericCheck("Employee of the month")
+			$EmployeeMonth/MarginContainer/Panel/VBoxContainer/TextureRect.setTexture()
 			GameState.start_time_line("tl_06hub_meeting_best")
 			await(Dialogic.timeline_ended)
 			self.showEmployeeOfTheMonth()

@@ -573,6 +573,7 @@ shape = SubResource("RectangleShape2D_bxyec")
 [node name="RevolutionObjective1" parent="Revolution" instance=ExtResource("13_85j8s")]
 visible = false
 position = Vector2(163, 1369)
+myColor = Color(0, 0, 0, 1)
 
 [node name="MissionOffPath" type="Area2D" parent="Revolution"]
 

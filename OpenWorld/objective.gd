@@ -3,6 +3,7 @@ class_name Objective
 
 var _next_scene = null # scene to which the objective 
 @export var myMission : int
+@export var myColor : Color
 
 signal scene_need_changing
 
@@ -13,8 +14,8 @@ func _ready():
 	Radio.connect("interaction",interaction)
 	if myMission > 0 :
 		if GameState.mission_states["mission_"+str(myMission)]["finished"]:
-			$PointBlanc.modulate = Color("green")
-			$Sprite2D.modulate = Color("green")
+			$PointBlanc.modulate = myColor
+			$Sprite2D.modulate = myColor
 
 func _on_area_2d_body_entered(body):
 	Radio.emit_signal("bodyEnteredObjective",self,body)

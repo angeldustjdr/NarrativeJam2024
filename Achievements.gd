@@ -2,6 +2,7 @@ extends Node
 
 var AchievementsList = []
 var AchievementDescription = {
+	"Good listener" : ["Listen to the motivational speech until the end",false,"Isn't the Captain a good orator?"],
 	"Morning routine" : ["Drink 5 coffees",false,"Need more cafein?"],
 	#"Heavy lifting" : ["Lift the anchor for the first time",false],
 	"Fun slide" : ["Take the accelerator for the first time",false,"What's the limit speed again?"],

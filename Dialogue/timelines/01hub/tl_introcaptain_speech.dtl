@@ -25,6 +25,7 @@ captain (Captain-upset-open): ... *Clear throat* ...
 	captain (Captain-smile-open): It gives you a sense of pride and encouragement that guide you toward making another task, and one more after that. And one more ... By the time the sun is setting, you will have achieved greatness.
 	captain (Captain-smile-open): If you can’t make the small task, you will never be able to manage the more important task. So do not be ashamed by being assigned mundane, stupid task! Because you are moving toward greatness.
 	captain (Captain-smile-open): In shorts, please tie your shoes.
+	do Achievements.genericCheck("Good listener")
 	captain (Captain-smile-open): That will be all, thank you. You are dismissed.
 	captain (Captain-smile-open): Alright. You, come closer.
 	jump Orientation
@@ -32,7 +33,7 @@ captain (Captain-upset-open): ... *Clear throat* ...
 	ZzZzZz ...
 	captain (Captain-upset-closed): ...
 	label End nap
-	captain (Captain-smile-open): In shorts, please tie your shoes. \
+	captain (Captain-smile-open): In shorts, please tie your shoes.
 captain: That will be all, thank you. You are dismissed.
 captain: You, I saw you snooze during the brief. You've got to be more focus if you want to become captain like me.
 jump Orientation
@@ -45,6 +46,6 @@ label ID
 - "{mc_name}"
 	captain (Captain-smile-open): Hmm, let me check... You are in team 7.
 captain (Captain-smile-open): Your break room is at the end of this corridor, on the left.
-captain (Captain-smile-open): Take those credits, you can meet your co-worker by offering them a cup of coffee. 
+captain (Captain-smile-open): Take those credits, you can meet your co-worker by offering them a cup of coffee.
 captain (Captain-smile-open): I'll join shortly if you have questions.
 [end_timeline]
