@@ -145,7 +145,8 @@ func setObjective():
 
 func _process(_delta):
 	# Update player position in GameState so that player appear in the good position after ilot
-	GameState.player_position = $player.position
+	GameState.player_position = %player.position
+	GameState.player_rotation = %player.rotation
 
 func showUnlock(message):
 	instanciateMessage(true,message,Vector2(1920/2,1080/2),true)

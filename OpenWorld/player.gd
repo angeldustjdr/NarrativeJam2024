@@ -24,7 +24,12 @@ func _ready():
 
 func player_connect():
 	self._set_rocket_volume()
-	self.global_position = GameState.player_position
+	if GameState.coming_from == GameState.HUB:
+		self.global_position = GameState.init_player_position
+		self.rotation = 0.0
+	else:
+		self.global_position = GameState.player_position
+		self.rotation = GameState.player_rotation
 	Radio.connect("bodyEnteredObjective",bodyEnteredObjective)
 	Radio.connect("bodyExitedObjective",bodyExitedObjective)
 	Radio.connect("bodyEnteredAccelerationZone",_on_accelaration_zone_body_entered)

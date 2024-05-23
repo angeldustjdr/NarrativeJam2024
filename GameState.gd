@@ -56,7 +56,9 @@ signal save_finished
 
 @onready var current_corruption_level : int = self._get_sum_missions_corrupted()
 
-@onready var player_position = Vector2(838,4603) # initial coordinates of player
+@onready var init_player_position = Vector2(838,4603) # initial coordinates of player
+@onready var player_position = init_player_position
+@onready var player_rotation = 0.0
 
 var _title_screen_state : int = CORPORATE
 
@@ -160,6 +162,7 @@ func save_game(file_name):
 	savefile.store_var(self._ether_timer.paused)
 	##################################
 	savefile.store_var(self.player_position)
+	savefile.store_var(self.player_rotation)
 	savefile.store_var(self.PV)
 	savefile.store_var(self._title_screen_state)
 	savefile.store_var(get_tree().current_scene.scene_file_path)
@@ -189,6 +192,7 @@ func load_game(file_name):
 		self._ether_timer.paused = true
 	##################################
 	self.player_position = savefile.get_var()
+	self.player_rotation = savefile.get_var()
 	self.PV = savefile.get_var()
 	self._title_screen_state = savefile.get_var()
 	var file_scene_name = savefile.get_var()
