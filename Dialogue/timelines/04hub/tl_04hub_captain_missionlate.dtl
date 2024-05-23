@@ -1,3 +1,4 @@
+[background arg="res://assets/graphics/backgrounds/Intro.png" fade="0.0"]
 join captain (Captain-upset-closed) 1
 captain (Captain-upset-open): Allright, {mc_name} that was a complicated one. I'm not going to blame you for being late, with the weather event. You're all in one piece, yes ? How do you feel ?
 - I'm good.

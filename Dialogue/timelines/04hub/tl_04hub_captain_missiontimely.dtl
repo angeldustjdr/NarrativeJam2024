@@ -1,3 +1,4 @@
+[background arg="res://assets/graphics/backgrounds/Intro.png" fade="0.0"]
 join captain (Captain-smile-close) 1
 captain (Captain-smile-open): You made it in time {mc_name}, I'm honestly surprised considering the weather event ! \
 Very well done.
