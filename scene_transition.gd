@@ -58,6 +58,8 @@ func _on_animation_finished_packed_scene(anime_name):
 		fade_in_finished.emit()
 	elif anime_name == "black_flash":
 		fade_in_finished.emit()
+	elif anime_name == "white_flash":
+		fade_in_finished.emit()
 	else:
 		push_warning("unexpected behavior")
 
@@ -76,6 +78,8 @@ func _on_animation_finished_file_scene(anime_name):
 	elif anime_name == "fade_in":
 		fade_in_finished.emit()
 	elif anime_name == "black_flash":
+		fade_in_finished.emit()
+	elif anime_name == "white_flash":
 		fade_in_finished.emit()
 	else:
 		push_warning("unexpected behavior")

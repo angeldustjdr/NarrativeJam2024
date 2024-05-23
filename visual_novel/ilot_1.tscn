@@ -42,6 +42,3 @@ position = Vector2(-607.281, 11.1618)
 scale = Vector2(0.0930716, 0.0930716)
 texture = ExtResource("6_67gr8")
 flip_h = true
-
-[node name="oscillo_light" parent="visual_novel_scene" index="5"]
-unique_name_in_owner = true
