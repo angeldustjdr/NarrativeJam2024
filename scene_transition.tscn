@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://fi00v13mgow6"]
+[gd_scene load_steps=6 format=3 uid="uid://fi00v13mgow6"]
 
 [ext_resource type="Script" path="res://scene_transition.gd" id="1_ivc7n"]
 
@@ -34,14 +34,44 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_k2vou"]
+resource_name = "black_flash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_mid_flash"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ggorj"]
 _data = {
+"black_flash": SubResource("Animation_k2vou"),
 "fade_in": SubResource("Animation_soq0f"),
 "fade_out": SubResource("Animation_yamvt")
 }
 
 [node name="scene_transition" type="ColorRect"]
-modulate = Color(0, 0, 0, 0)
+modulate = Color(0, 0, 0, 1)
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2

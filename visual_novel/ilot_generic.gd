@@ -145,11 +145,15 @@ func _on_oscillo_clicked():
 	var o_scale = oscillo_scale[0]*GameState.get_current_window_ratio()
 	oscillo_scene.position = Vector2(0.5*v_port_size[0]-0.5*o_scale*oscillo_size[0],
 									 0.5*v_port_size[1]-0.5*o_scale*oscillo_size[1])
+	SceneTransitionLayer.play_black_flash()
+	await(SceneTransitionLayer.mid_flash)
 	$OscilloLayer.add_child(oscillo_scene)
 	oscillo_scene.victory.connect(self._on_oscillo_victory)
 	
 func _on_oscillo_victory(oscillo_scene):
-	MusicManager.playMusicNamed(self.name,1.0)
+	MusicManager.playMusicNamed(self.name,SceneTransitionLayer.get_duration("fade_out"))
+	SceneTransitionLayer.play_black_flash()
+	await(SceneTransitionLayer.mid_flash)
 	$OscilloLayer.remove_child(oscillo_scene)
 	$visual_novel_scene/clickable_oscilloscope.is_clickable = false
 	GameState.ilot_states[self.name]["revealed"] = true

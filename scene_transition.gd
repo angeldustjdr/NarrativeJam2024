@@ -1,6 +1,7 @@
 extends ColorRect
 
 signal fade_in_finished
+signal mid_flash
 
 @onready var _anim_player = $AnimationPlayer
 @onready var _next_packed_scene = null
@@ -14,6 +15,16 @@ func get_duration(anim_name):
 
 func reveal_scene():
 	self._anim_player.play("fade_in")
+
+func emit_mid_flash():
+	mid_flash.emit()
+
+func black_flash():
+	if not self._anim_player.animation_finished.is_connected(self._on_animation_finished_file_scene):
+		self._anim_player.animation_finished.connect(self._on_animation_finished_file_scene)
+	if not self._anim_player.animation_finished.is_connected(self._on_animation_finished_packed_scene):
+		self._anim_player.animation_finished.connect(self._on_animation_finished_packed_scene)
+	self._anim_player.play("black_flash")
 
 func transition_to_packed_scene(next_packed_scene):
 	if self._anim_player.animation_finished.is_connected(self._on_animation_finished_file_scene):
@@ -38,6 +49,8 @@ func _on_animation_finished_packed_scene(anime_name):
 		get_tree().change_scene_to_packed(self._next_packed_scene)
 	elif anime_name == "fade_in":
 		fade_in_finished.emit()
+	elif anime_name == "black_flash":
+		fade_in_finished.emit()
 	else:
 		push_error("unexpected behavior")
 
@@ -53,5 +66,9 @@ func quit_game():
 func _on_animation_finished_file_scene(anime_name):
 	if anime_name == "fade_out":
 		get_tree().change_scene_to_file(self._next_packed_scene)
+	elif anime_name == "fade_in":
+		fade_in_finished.emit()
+	elif anime_name == "black_flash":
+		fade_in_finished.emit()
 	else:
-		fade_in_finished.emit() 
+		push_error("unexpected behavior")
