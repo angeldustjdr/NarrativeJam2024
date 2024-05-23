@@ -1,8 +1,8 @@
 join outcast 1
 outcast (idle_portrait): The {armada_name} isn't so bad.
 outcast (idle_portrait): They say they have a program to make people like me normal again. So that I can be accepted into society.
-outcast (idle_portrait): The voices aren't real. I just have to take my pills and let them run tests on me. It's going to be allright.
-- Can you hear me ?
+outcast (idle_portrait): The voices aren't real. I just have to take my pills and let them run tests on me. It's going to be all right.
+- Can you hear me?
 	(He shudders, but pretends he doesn't hear you and repeat the same things as a mantra)
 - Leave
 do GameState.setMission_corrupted("mission_3")

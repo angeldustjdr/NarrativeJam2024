@@ -1,28 +1,28 @@
 join captain 1
 captain (Captain-upset-open): Tough time with the weather today hum.
-captain (Captain-smile-open): What do you think about your code name ? Do you like it ?
-- "I love it ! Thank you !"
-	captain (Captain-smile-close): I'm glad ! Don't thanks me, thanks your co-workers. They were the ones with the valuable inputs to chose it.
+captain (Captain-smile-open): What do you think about your code name? Do you like it?
+- "I love it! Thank you!"
+	captain (Captain-smile-close): I'm glad! Don't thanks me, thanks your co-workers. They were the ones with the valuable inputs to chose it.
 - "It suits me."
-	captain (Captain-smile-close): It does ! Thanks your co-workers, they were the ones with the valuable inputs to chose it.
+	captain (Captain-smile-close): It does! Thanks your co-workers, they were the ones with the valuable inputs to choose it.
 - "Meh ..."
 	- I'm kidding, I like it.
-		captain (Captain-upset-closed): Phew~ ! You go me scared here.
+		captain (Captain-upset-closed): Phew~! You go me scared here.
 label dialog cut
-- "What is your code name, Captain ?"
+- "What is your code name, Captain?"
 	captain (Captain-smile-open): Oh, I was named Paragon.
-	captain (Captain-smile-close): I only use it on special operations now, because I don't pilot often. I was the best pilot and sailor of my generation and even then, I was always trying to overachieve.
-- "Can I talk to you about my co-worker for a moment ?"
-	captain (Captain-upset-open): I... I don't want to talk about Cypher right know.
-	- "Oh, I meant wendy but ..."
-		captain (Captain-upset-closed): Go ahead, what about her ?
-		- "She's being bullied... Could you do something ?"
-			captain (Captain-upset-open): Being a woman in a man's enviroment, it was to be expected.
+	captain (Captain-smile-close): I only use it on special operations now, because I don't often pilot. I was the best pilot and sailor of my generation and even then, I was always trying to overachieve.
+- "Can I talk to you about my co-worker for a moment?"
+	captain (Captain-upset-open): I... I don't want to talk about {navigator1_code} right now.
+	- "Oh, I meant {shipgirl_name} but ..."
+		captain (Captain-upset-closed): Go ahead, what about her?
+		- "She's being bullied... Could you do something?"
+			captain (Captain-upset-open): Being a woman in a man's environment, it was to be expected.
 			I'm sure it will toughen her up a bit.
 			- "That's not right, please do something."
-				captain (Captain-smile-close): Allright, I'll see what I can do. I wouldn't want to work against the Tide ! Haha.
+				captain (Captain-smile-close): Alright, I'll see what I can do. I wouldn't want to work against the Tide! Haha.
 			- *stay silent*
-- *Finish you coffee*
-captain (Captain-smile-open): ... Tomorrow, you are on early asignment. You should go rest soon.\
+- *Finish your coffee*
+captain (Captain-smile-open): ... Tomorrow, you are on early assignment. You should go rest soon.\
 Good night {mc_code}.
 [end_timeline]

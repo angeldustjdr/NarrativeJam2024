@@ -1,7 +1,7 @@
 join jcd 1
-jcd (idle_portrait): I'm part of the upper management board of {armada_name} now !
-jcd (idle_portrait): I'm so happy ! I don't know why I waited that long to accept this offer.
-jcd (idle_portrait): I mean, my job has no purpose... I'm crushing workers for a living, and I give life to questionnable projects... But hey, I got my third house near the beach of my dreams!!!
+jcd (idle_portrait): I'm part of the upper management board of {armada_name} now!
+jcd (idle_portrait): I'm so happy! I don't know why I waited that long to accept this offer.
+jcd (idle_portrait): I mean, my job has no purpose... I'm crushing workers for a living, and I give life to questionable projects... But hey, I got my third house near the beach of my dreams!!!
 (Her thoughts are spiraling, you can't interact with her at all.)
 join "navigator 1" (Bernard-Hub-upset-close) 3
 "navigator 1" (Bernard-Hub-upset-open): ... This island has changed a lot, no? It's... kind of eerie. The way this woman is thinking, too. It's disturbing.

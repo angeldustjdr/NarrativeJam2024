@@ -10,7 +10,7 @@ shipgirl(Shipgirl-upset-open): ... You seem preoccupied. Did something happen? W
 - I'm okay.
 - Spare her the details
 shipgirl(Shipgirl-upset-close): ...I'm worried about {navigator1_name}, too. He was really out of it earlier when I tried to talk to him. I saw him being scolded by the Captain, and he was GLARING back at him.
-	shipgirl (Shipgirl-upset-open):{navigator1_name} sure has guts. He's so laidback usually that I didn't realize that. Captain {captain_name} is a nice man and all, but he scares me when he's angry.
+	shipgirl (Shipgirl-upset-open):{navigator1_name} sure has guts. He's so laid-back usually that I didn't realize that. Captain {captain_name} is a nice man and all, but he scares me when he's angry.
 shipgirl(Shipgirl-upset-close):I hope everyone will be alright tomorrow. I should go to sleep soon. Your departure is set really early. I have to wake up in the middle of the night to get your ship ready on time. 
 shipgirl (Shipgirl-upset-open):Too bad the hierarchy didn't let you have one day of break...
 shipgirl (Shipgirl-smile-close):Good night {mc_code}! 
