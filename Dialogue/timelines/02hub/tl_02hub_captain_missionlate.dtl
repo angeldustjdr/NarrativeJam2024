@@ -9,5 +9,6 @@ captain (Captain-upset-open): I won't hold it against you for today, there is ro
 Here, have some credits for tomorrow morning's coffee.\
 Good night worker.
 captain (Captain-smile-close): Good night worker.
-[end_timeline]
 do SceneTransitionLayer.play_black_flash()
+[wait time="0.5"]
+[end_timeline]

@@ -2,4 +2,6 @@ join captain 1
 captain: Welcome back {mc_name}, graat work. 
 captain: You managed to do your task on time despite the change of plan. I knew you would be a good asset for this crew.
 captain: You are on track for a very good career. Take thoses credits for the coffee. See you tomorow.
+do SceneTransitionLayer.play_black_flash()
+[wait time="0.5"]
 [end_timeline]

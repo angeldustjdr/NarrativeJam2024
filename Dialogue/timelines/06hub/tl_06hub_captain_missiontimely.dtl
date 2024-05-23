@@ -1,5 +1,6 @@
 join captain 1
 captain: You made it in time {mc_name}, well done. Continue that way and you will soon have my job ! haha, no.
 captain: Take thoses credits and grab a coffee.
-[end_timeline]
 do SceneTransitionLayer.play_black_flash()
+[wait time="0.5"]
+[end_timeline]
