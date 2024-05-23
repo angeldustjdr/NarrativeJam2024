@@ -287,10 +287,10 @@ texture = ExtResource("9_hlq2x")
 script = ExtResource("9_kbdo6")
 
 [node name="Label" type="Label" parent="Terrain/Vortex"]
-offset_left = 696.0
-offset_top = 4819.0
-offset_right = 1039.0
-offset_bottom = 4874.0
+offset_left = 701.0
+offset_top = 4781.0
+offset_right = 1044.0
+offset_bottom = 4836.0
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_m8fao")
 text = "Reality vortex"
