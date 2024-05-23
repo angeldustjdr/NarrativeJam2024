@@ -2,9 +2,9 @@ join outcast 1
 outcast (idle_portrait): Hello. Are you real? Or are you in my head?
 - Can you hear me?
 	outcast (idle_portrait): Yes... I can hear a lot of voices, all around me, but they are not there.\
-	outcast: I don't understand.
+outcast\: I don't understand.
 	outcast: People are mean to me because I'm weird.
-	outcast (idle_portrait): Usually, voices don't reply, though. Does that mean you're MM?
+	outcast (idle_portrait): Usually, voices don't reply, though. Does that mean you're real?
 	- Yes, I am.
 		outcast: I see... I'm glad. It's very dark where in the room where I am, and it's raining a lot outside. I was feeling lonely.
 		- Where are you?
