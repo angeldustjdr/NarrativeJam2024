@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://1c2poulo2qea"]
+[gd_scene load_steps=45 format=3 uid="uid://1c2poulo2qea"]
 
 [ext_resource type="Script" path="res://OpenWorld/open_world.gd" id="1_dqjoa"]
 [ext_resource type="Shader" path="res://OpenWorld/open_world_background.gdshader" id="1_mopfe"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://OpenWorld/Depression1.gd" id="9_42640"]
 [ext_resource type="Texture2D" uid="uid://d1bnw78iail7c" path="res://OpenWorld/Point_blanc.png" id="9_hlq2x"]
 [ext_resource type="Script" path="res://OpenWorld/Vortex.gd" id="9_kbdo6"]
+[ext_resource type="Script" path="res://OpenWorld/reality_vortex_label.gd" id="9_kxu6r"]
 [ext_resource type="PackedScene" uid="uid://d2dy7i3w8ddv0" path="res://OpenWorld/objective.tscn" id="9_rqvr2"]
 [ext_resource type="PackedScene" uid="uid://bsqs7hvavmdhe" path="res://OpenWorld/acc_1.tscn" id="10_0tbb1"]
 [ext_resource type="Script" path="res://OpenWorld/Alert Message.gd" id="11_ti07w"]
@@ -295,6 +296,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_m8fao")
 text = "Reality vortex"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("9_kxu6r")
 
 [node name="Ward" type="Node2D" parent="."]
 
