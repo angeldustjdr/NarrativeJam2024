@@ -184,14 +184,15 @@ glossary/default_case_sensitive=true
 layout/style_list=["res://dialogic_theme.tres"]
 layout/default_style="res://dialogic_theme.tres"
 variables={
-"Var": "coucou",
+"Var": "",
 "admiral_name": "Akbard",
 "armada_name": "MindSail",
+"beacon": "data collector",
 "captain_code": "Paragon",
 "captain_name": "Lee",
 "character_choice": 0,
 "confirm_exit": "tamere",
-"galerien_name": "Jean-Luc Galérien",
+"galerien_name": "Tired Machinist",
 "galerien_superinfluence": "no",
 "grandadmiral_name": "Throne",
 "hub_name": "mothership",
