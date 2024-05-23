@@ -6,6 +6,7 @@ var _hoover_sound = "hoover"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	MusicManager.set_bus("music")
 	GameState._ready()
 	Achievements.update_character_names()
 	GameState.ending_speech = GameState.INTRO

@@ -261,7 +261,7 @@ func launch_ending(i_ending):
 		PIRATE_ENDING:
 			self._title_screen_state = PIRATE
 			Achievements.genericCheck("Rage against the machine")
-			print("ENDING : PIRATE")
+			#print("ENDING : PIRATE")
 			next_scene = "res://credits.tscn"
 		DENIAL_ENDING:
 			Achievements.genericCheck("Cosmic denial")

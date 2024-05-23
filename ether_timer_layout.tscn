@@ -62,7 +62,7 @@ layout_mode = 2
 [node name="TimerLabel" type="Label" parent="TimerZone/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_fmmyq")
-text = "Ether Timer"
+text = "Siren's call"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TimerZone/MarginContainer/VBoxContainer"]

@@ -19,7 +19,7 @@ var AchievementDescription = {
 	#ENDING ACHIEVEMENTS
 	"Maybe next month" : ["Don't meet the rebellion and complete less than 3 mission in time",false,"???"],
 	"Employee of the month" : ["Don't meet the rebellion and complete at least 3 missions in time",false,"???"],
-	"Cosmic denial" : ["Refuse to join the rebellion",false,"???"],
+	#"Cosmic denial" : ["Refuse to join the rebellion",false,"???"],
 	"You're fired!" : ["Get fired after joining the rebellion",false,"???"],
 	"Rage against the machine" : ["Join the rebellion",false,"???"]
 }

@@ -10,17 +10,20 @@ func _ready():
 func _launch_speech():
 	match GameState.check_corpo_ending():
 		GameState.EMPLOYEE_OF_THE_MONTH_ENDING:
-			print("EMPLOYEE_OF_THE_MONTH")
+			#print("EMPLOYEE_OF_THE_MONTH")
+			Achievements.genericCheck("Employee of the month")
 			GameState.start_time_line("tl_06hub_meeting_best")
 			await(Dialogic.timeline_ended)
 			self._change_scene_to_credits()
 		GameState.TRY_NEXT_MONTH_ENDING:
-			print("TRY NEXT MONTH")
+			#print("TRY NEXT MONTH")
+			Achievements.genericCheck("Maybe next month")
 			GameState.start_time_line("tl_06hub_meeting_denial")
 			await(Dialogic.timeline_ended)
 			self._change_scene_to_credits()
 		GameState.FIRED_ENDING:
-			print("FIRED")
+			#print("FIRED")
+			Achievements.genericCheck("You're fired!")
 			GameState.start_time_line("tl_06hub_meeting_fired")
 			await(Dialogic.timeline_ended)
 			self._change_scene_to_credits()
