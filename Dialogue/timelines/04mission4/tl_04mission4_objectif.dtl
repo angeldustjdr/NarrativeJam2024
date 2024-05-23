@@ -1,11 +1,13 @@
 join "navigator 2" 1
-"navigator 2": Good morning sailor {mc_name} ! Ready for your asignment ?
-- Who are you and where is Bernard?
-	"navigator 2" (navigator2-upset-close): {navigator1_name} ? Who's that ? Do you have his matricul ? Let me check.
-	"navigator 2": Hmm no, I don't see anything remotly resembling this name or matricul.
-	"navigator 2" (navigator2-upset-open): Are you sure you had your morning coffee ? Anyway let's not loose time with thoses details
-	"navigator 2" (navigator2-upset-close): Anyway let's not loose time with thoses details, start the engine and go to the objective.\
+"navigator 2": Good morning, sailor {mc_name}. Ready for your asignment ?
+- Who are you ? Where is Bernard?
+	"navigator 2" (navigator2-upset-open): {navigator1_name} ? Who's that ? Do you have his code name and number ?
+	- {navigator1_code} {navigator1_number}
+	"navigator 2" (navigator2-upset-close): Let me check.
+	"navigator 2": Hmm no, I don't have any match with this ID within the navigators.
+	"navigator 2" (navigator2-upset-open): Are you sure you had your morning coffee ?
+	"navigator 2" (navigator2-upset-close): Anyway let's not loose time with thoses details, fire the engine and go to the objective.
 	"navigator 2": I'm sending the coordonate, right about now.
 - OK, let's go.
-	"navigator 2" (navigator2-smile-open): I like it when co-workers aren't too talkative. Let's get the work done. I'm sending the coordonate, right about now.
+	"navigator 2" (navigator2-smile-open): I like it when co-workers are focused on the mission. Let's get the work done. I'm sending the coordonates right now.
 [end_timeline]
