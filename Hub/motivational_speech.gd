@@ -1,7 +1,10 @@
 extends Node2D
 
+@onready var unlock = preload("res://achivement_unlocked.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Achievements.connect("unlock",showUnlock)
 	MusicManager.set_bus("music")
 	MusicManager.playMusicNamed("motivational",SceneTransitionLayer.get_duration("fade_in"))
 	SceneTransitionLayer.reveal_scene()
@@ -44,3 +47,9 @@ func _change_scene_to_main():
 func _change_scene_to_credits():
 	MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
 	SceneTransitionLayer.transition_to_file_scene("res://credits.tscn")
+
+func showUnlock(message):
+	var u = unlock.instantiate()
+	u.text = "Achivement unlocked : " + message
+	u.position = Vector2(64,1020-u.size.y)
+	add_child(u)
