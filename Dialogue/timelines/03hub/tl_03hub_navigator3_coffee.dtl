@@ -1,7 +1,7 @@
 join "navigator 1" 1
-"navigator 1": Morning champ'. How'r you doing?
+"navigator 1": Morning champ'. How're you doing?
 "navigator 1" (Bernard-Hub-upset-close): ...Hey, since the Cap' is busy right now, I've been meaning to ask... 
-Do you remember when we arrived on this Business-class island for the repair, last month...? I think I noticed something on the navigation screen. Did you see it too?
+Do you remember when we arrived on this business-class island for the repair, last month...? I think I noticed something on the navigation screen. Did you see it too?
 - Yes
 	"navigator 1" (Bernard-Hub-upset-close): It looked like... a Jolly Roger, no? I'm not sure... I couldn't find any traces of it on my log.
 - No
@@ -15,6 +15,6 @@ Do you remember when we arrived on this Business-class island for the repair, la
 	- *Avoid the subject*
 join captain 3
 "navigator 1": (The Captain is taking another coffee with someone else nearby)
-"navigator 1" (Bernard-Hub-smile-close): ...Anyway, lets talk about something else\: do you know which day we are? It's been two months since your arrival in Fleet 3! Which means tonight the Captain will officially give you your code name.
-"navigator 1": It was a team thing, but {shipgirl_name} and I had a great part in choosing it. I hope you will like it.
+"navigator 1" (Bernard-Hub-smile-close): ...Anyway, let’s talk about something else\: do you know which day we are? It's been two months since your arrival in Fleet 3! Which means tonight the Captain will officially give you your code name.
+"navigator 1": It was a team thing, but {shipgirl_name} and I had a big influence in the decision it. I hope you will like it.
 "navigator 1": We should leave soon, I'll catch you on the radio when you get aboard.

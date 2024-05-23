@@ -25,7 +25,7 @@ radius = 199.161
 
 [node name="Objective" type="Node2D"]
 script = ExtResource("1_jq82l")
-myColor = Color(0.763591, 1.6942e-05, 0.533669, 1)
+myColor = Color(0.598961, 1.10219e-05, 0.415279, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 scale = Vector2(10, 10)

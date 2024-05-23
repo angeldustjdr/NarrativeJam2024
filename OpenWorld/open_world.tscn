@@ -303,7 +303,7 @@ script = ExtResource("9_kxu6r")
 [node name="Initial" type="Node2D" parent="Ward"]
 
 [node name="Ward" parent="Ward/Initial" instance=ExtResource("3_vogn0")]
-position = Vector2(1574, 3863)
+position = Vector2(1847, 3552)
 withRipples = false
 
 [node name="Ward3" parent="Ward/Initial" instance=ExtResource("3_vogn0")]

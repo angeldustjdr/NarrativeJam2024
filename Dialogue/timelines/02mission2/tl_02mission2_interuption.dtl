@@ -1,7 +1,7 @@
 join "navigator 1" 1
 "navigator 1": Wait a second.
-"navigator 1": Mission command is altering the mission. You need to go repair a {beacon} that was setup some time ago, on some kind of [color=d786e5]Business class islet[/color].
-"navigator 1": It seem it has sustained damagages and is not working properly.
+"navigator 1": Mission command is altering the mission. You need to go repair a {beacon} that was set up some time ago, on some kind of [color=d786e5]Business class islet[/color].
+"navigator 1": It seems it has sustained damages and is not working properly.
 "navigator 1": Sorry about that. I'll update your ping.
 do Radio.showAlertFromDialogic("Ping updated")
 [end_timeline]

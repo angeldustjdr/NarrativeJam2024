@@ -58,9 +58,9 @@ func _ready():
 		GameState.unpause_ether_timer()
 		$player.movable = true
 	else :
-		print(GameState.need_scolding())
-		if GameState.need_scolding():
+		if GameState.need_scolding() and not GameState.mission_states[GameState.get_current_mission()]["scolded"]:
 			showIntermediateDialog(GameState.get_scolding_dialog())
+			GameState.mission_states[GameState.get_current_mission()]["scolded"] = true
 		else:
 			if not Dialogic.current_timeline == null:
 				await(Dialogic.timeline_ended)
@@ -154,7 +154,15 @@ func showUnlock(message):
 
 func showThoughts(message):
 	var where = Vector2(randi_range(120,1920/2),randi_range(220,1080-220))
-	AchievementUnlockLayer.showMessage(false,message,where,false)
+	instanciateMessage(false,message,where,false)
+
+func instanciateMessage(isAchivement,message,where,sound):
+	var u = unlock.instantiate()
+	if isAchivement : u.text = "Achivement unlocked : " 
+	u.text += message
+	u.position = where
+	u.withSound = sound
+	$CanvasLayer/TextControl.add_child(u)
 
 func _input(event):
 	if event is InputEventKey:

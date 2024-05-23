@@ -32,11 +32,11 @@ signal save_finished
 							"ilot_3":{"revealed":false,"beacon_destroyed":false,"visited_during_mission":[false,false,false,false,false]},
 							"ilot_4":{"revealed":false,"beacon_destroyed":false,"visited_during_mission":[false,false,false,false,false]},
 							"ilot_5":{"revealed":false,"beacon_destroyed":false,"visited_during_mission":[false,false,false,false,false]}}
-@onready var mission_states = {"mission_1":{"started":false,"finished":false,"in_time":true,"debriefed":false},
-							   "mission_2":{"started":false,"finished":false,"in_time":true,"debriefed":false},
-							   "mission_3":{"started":false,"finished":false,"in_time":true,"debriefed":false},
-							   "mission_4":{"started":false,"finished":false,"in_time":true,"debriefed":false},
-							   "mission_5":{"started":false,"finished":false,"in_time":true,"debriefed":false}}
+@onready var mission_states = {"mission_1":{"started":false,"finished":false,"in_time":true,"debriefed":false,"scolded":false},
+							   "mission_2":{"started":false,"finished":false,"in_time":true,"debriefed":false,"scolded":false},
+							   "mission_3":{"started":false,"finished":false,"in_time":true,"debriefed":false,"scolded":false},
+							   "mission_4":{"started":false,"finished":false,"in_time":true,"debriefed":false,"scolded":false},
+							   "mission_5":{"started":false,"finished":false,"in_time":true,"debriefed":false,"scolded":false}}
 @onready var mission_timer = {"mission_1": 120.,
 							   "mission_2": 80.,
 							   "mission_3": 60.,
@@ -320,7 +320,6 @@ func setMission_corrupted(which):
 	mission_corrupted[which] += 1
 
 func need_scolding():
-	print(GameState.mission_corrupted)
 	match self.get_current_mission_idx():
 		3: #MISSION4
 			return (GameState.mission_corrupted["mission_1"]>0 and 
@@ -390,7 +389,6 @@ func start_briefing_dialog():
 		return true
 	elif self.coming_from == ILOT:
 		var mission = self.get_current_mission()
-		print(self.mission_states[mission])
 		if not self.mission_states[mission]["debriefed"]:
 			self.mission_states[mission]["debriefed"] = true
 			if ilot_states["ilot_1"]["revealed"] and mission_states["mission_1"]["started"] and !mission_states["mission_1"]["finished"]:
