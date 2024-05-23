@@ -10,7 +10,7 @@
 },
 "default_portrait": "navigator2-upset-close",
 "description": "",
-"display_name": "{navigator2_name}",
+"display_name": "{navigator2_code}",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),
