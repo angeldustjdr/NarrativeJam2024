@@ -32,6 +32,9 @@ func _ready():
 	AchievementsList = AchievementDescription.keys()
 	self.load_achievements()
 
+func get_status_of_achievement(ach_name):
+	return self.AchievementDescription[ach_name][1]
+
 func update_character_names():
 	if not self._updated_descr:
 		self._updated_descr = true

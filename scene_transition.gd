@@ -8,7 +8,7 @@ signal mid_flash
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	self.modulate = Color(1.0,1.0,1.0,0.0)
 
 func get_duration(anim_name):
 	return self._anim_player.get_animation(anim_name).get_length()

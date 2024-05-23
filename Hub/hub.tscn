@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://brdj1bj3uct6x"]
+[gd_scene load_steps=24 format=3 uid="uid://brdj1bj3uct6x"]
 
 [ext_resource type="Script" path="res://Hub/hub.gd" id="1_fsrsg"]
 [ext_resource type="Texture2D" uid="uid://b3td8voyeb8mv" path="res://assets/graphics/backgrounds/Hub/hub.png" id="2_q2sva"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://0pyto5ajiupe" path="res://Hub/achivements_panel.tscn" id="11_q7yni"]
 [ext_resource type="Script" path="res://Hub/TalkToMenu.gd" id="12_obt7f"]
 [ext_resource type="Texture2D" uid="uid://dtjrgf8wrfw83" path="res://assets/graphics/items/diploma-warden.png" id="14_yyyut"]
+[ext_resource type="Script" path="res://Hub/employee_of_the_month_texture.gd" id="15_8fxoj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iklag"]
 bg_color = Color(0, 0, 0, 1)
@@ -329,6 +330,7 @@ horizontal_alignment = 1
 layout_mode = 2
 texture = ExtResource("14_yyyut")
 stretch_mode = 3
+script = ExtResource("15_8fxoj")
 
 [node name="AchivementsPanel" parent="CanvasLayer" instance=ExtResource("11_q7yni")]
 unique_name_in_owner = true
