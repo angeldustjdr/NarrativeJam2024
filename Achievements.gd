@@ -8,7 +8,7 @@ var AchievementDescription = {
 	"Idol of youth" : ["Talk to the Shipgirl 6 times",false,"Create bonds with a younger person."],
 	"Good soldier" : ["Talk to the Captain 6 times",false,"Create bonds with an officier."],
 	"Old friend" : ["Talk to your navigator 4 times",false,"Create bonds with someone you know for a long time."],
-	"New friend" : ["Talk to your new navigator 3 times",false,"Create bonds with someone new."],
+	#"New friend" : ["Talk to your new navigator 3 times",false,"Create bonds with someone new."],
 	"Hi everyone !" : ["Talk to all characters once",false,"Be sociable in your workplace."],
 	"True pioneer" : ["Drop 5 wards",false,"Enlighten your way when exploring."],
 	"Safe return" : ["Finish a mission before the Ether timer ends",false,"Don't risk your life on the Ethersea."],
@@ -35,10 +35,10 @@ func _ready():
 func update_character_names():
 	if not self._updated_descr:
 		self._updated_descr = true
-		self.AchievementDescription["Idol of youth"][0] = "Talk to " + Dialogic.VAR.shipgirl_name + " 6 times"
-		self.AchievementDescription["Good soldier"][0] = "Talk to " + Dialogic.VAR.captain_name + " 6 times"
+		self.AchievementDescription["Idol of youth"][0] = "Talk to " + Dialogic.VAR.shipgirl_name + " 5 times"
+		self.AchievementDescription["Good soldier"][0] = "Talk to " + Dialogic.VAR.captain_name + " 5 times"
 		self.AchievementDescription["Old friend"][0] = "Talk to " + Dialogic.VAR.navigator1_name + " 4 times"
-		self.AchievementDescription["New friend"][0] = "Talk to " + Dialogic.VAR.navigator2_name + " 3 times"
+		self.AchievementDescription["New friend"][0] = "Talk to " + Dialogic.VAR.navigator2_name + " 2 times"
 
 ################################################################################
 #ACHIEVEMENTS ##################################################################
@@ -67,18 +67,19 @@ func checkCoffee(howMuch):
 		genericCheck("Morning routine")
 
 func genericCheck(title):
-	if AchievementDescription[title][1]==false : 
-		AchievementDescription[title][1] =  true
-		emit_signal("unlock",title)
-	self.save_achievements()
+	if title in AchievementsList :
+		if AchievementDescription[title][1]==false : 
+			AchievementDescription[title][1] =  true
+			emit_signal("unlock",title)
+		self.save_achievements()
 
 func checkInteraction(who):
 	self.save_achievements()
 	var nbInteractionNeeded = {
-		GameState.SHIPGIRL:6,
+		GameState.SHIPGIRL:5,
 		GameState.NAVIGATOR1:4,
-		GameState.NAVIGATOR2:3,
-		GameState.CAPTAIN:6
+		GameState.NAVIGATOR2:2,
+		GameState.CAPTAIN:5
 	}
 	var interactionAchievementTitles = {
 		GameState.SHIPGIRL:"Idol of youth",
