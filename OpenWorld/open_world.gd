@@ -57,6 +57,7 @@ func _ready():
 		GameState.unpause_ether_timer()
 		$player.movable = true
 	else :
+		print(GameState.need_scolding())
 		if GameState.need_scolding():
 			showIntermediateDialog(GameState.get_scolding_dialog())
 		else:

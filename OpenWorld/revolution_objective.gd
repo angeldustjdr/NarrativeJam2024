@@ -11,7 +11,7 @@ func _ready():
 		$Area2D.set_deferred("monitoring",true)
 
 func needs_monitoring():
-	return GameState.is_bernard_calling()
+	return GameState.is_bernard_calling() and GameState.revolutionStep > 0
 
 func interaction(interactable):
 	if interactable == self :
@@ -24,7 +24,7 @@ func interaction(interactable):
 			if GameState.is_destruction_launched():
 				GameState.launch_ending(GameState.PIRATE_ENDING)
 			else:
-				self.ON_OFF()
+				self.monotoring_OFF()
 				self.visible = false
 				%player.revolutionObjective = null
 		#elif GameState.is_bernard_calling() and GameState.is_destruction_launched():
@@ -32,9 +32,16 @@ func interaction(interactable):
 		#		print("ENCORE DES BEACONS")
 		#	else:
 		#		GameState.launch_ending(GameState.PIRATE_ENDING)
+		else:
+			self.monotoring_OFF()
+			self.visible = false
+			%player.revolutionObjective = null
 
 func monotoring_ON():
 	$Area2D.set_deferred("monitoring",true)
+	
+func monotoring_OFF():
+	$Area2D.set_deferred("monitoring",false)
 	
 func ON_OFF():
 	$Area2D.set_deferred("monitoring",!$Area2D.monitoring)

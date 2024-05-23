@@ -116,11 +116,11 @@ func _on_character_clicked():
 	else:
 		GameState.start_time_line("tl_ask_to_talk_ilot")
 		Dialogic.timeline_ended.connect(self._on_ask_to_talk_ilot_ended)
-		GameState.ilot_states[self.name]["visited_during_mission"][GameState.get_current_mission_idx()] = true
 		
 func _on_ask_to_talk_ilot_ended():
 	Dialogic.timeline_ended.disconnect(self._on_ask_to_talk_ilot_ended)
 	if Dialogic.VAR.talk_to_ilot:
+		GameState.ilot_states[self.name]["visited_during_mission"][GameState.get_current_mission_idx()] = true
 		GameState.decrement_ether_timer()
 		await get_tree().create_timer(0.1).timeout #FUCKING DIALOGIC : my guess : si t'as pas attendu suffisamment y a des trucs qui sont pas decharges ça fout la merde.
 		# MAIS CURRENT_TIMELINE est quand même NULL haha!

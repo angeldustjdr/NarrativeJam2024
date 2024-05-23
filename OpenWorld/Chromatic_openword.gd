@@ -11,6 +11,6 @@ func _ready():
 	#add_child(chrom)
 	
 
-func _process(delta): # c'est du postprocessing, on ne peut pas l'attacher directement au player --'
+func _process(_delta): # c'est du postprocessing, on ne peut pas l'attacher directement au player --'
 	self.global_position = %player.global_position
 	self.rotation = %player.rotation

@@ -179,9 +179,9 @@ func load_game(file_name):
 	self.denialStep = savefile.get_var()
 	#ether_timer######################
 	var stopped_timer = savefile.get_var()
-	var wait_time_timer = savefile.get_var()
+	var _wait_time_timer = savefile.get_var()
 	var time_left_timer = savefile.get_var()
-	var timer_paused = savefile.get_var()
+	var _timer_paused = savefile.get_var()
 	self._init_ether_timer()
 	if not stopped_timer:
 		self._ether_timer.wait_time = time_left_timer
@@ -260,7 +260,6 @@ func check_and_launch_corpo_ending():
 
 func launch_ending(i_ending):
 	self.ending_speech = i_ending
-	var added_corruption = self._get_sum_missions_corrupted() - self.current_corruption_level
 	var next_scene : String
 	match i_ending:
 		PIRATE_ENDING:
@@ -286,7 +285,7 @@ func launch_ending(i_ending):
 	SceneTransitionLayer.transition_to_file_scene(next_scene)
 
 func employee_of_the_month(): # CONDITION for employee of the month
-	var added_corruption = self._get_sum_missions_corrupted() - self.current_corruption_level
+	#var added_corruption = self._get_sum_missions_corrupted() - self.current_corruption_level
 	#return added_corruption == 0
 	return self.get_nb_mission_in_time() > 4 # si le joueur a fait plus de trois missions dans les temps
 
@@ -317,6 +316,7 @@ func setMission_corrupted(which):
 	mission_corrupted[which] += 1
 
 func need_scolding():
+	print(GameState.mission_corrupted)
 	match self.get_current_mission_idx():
 		3: #MISSION4
 			return (GameState.mission_corrupted["mission_1"]>0 and 
@@ -386,6 +386,7 @@ func start_briefing_dialog():
 		return true
 	elif self.coming_from == ILOT:
 		var mission = self.get_current_mission()
+		print(self.mission_states[mission])
 		if not self.mission_states[mission]["debriefed"]:
 			self.mission_states[mission]["debriefed"] = true
 			if ilot_states["ilot_1"]["revealed"] and mission_states["mission_1"]["started"] and !mission_states["mission_1"]["finished"]:
@@ -404,6 +405,7 @@ func start_briefing_dialog():
 				self.start_time_line("tl_05mission5_return")
 				return true
 			else :
+				self.mission_states[mission]["debriefed"] = false
 				return false
 		else:
 			return false

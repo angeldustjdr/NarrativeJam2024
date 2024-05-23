@@ -4,4 +4,5 @@ I made it into their program to become a productive member of society.
 outcast (idle_portrait): They say if I have weird thoughts I have to keep them to myself, bury them in my mind. \
 I'm very anxious but my family is excited.\
 They used to avoid me.
+do GameState.setMission_corrupted("mission_3")
 [end_timeline]
