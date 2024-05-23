@@ -1,4 +1,8 @@
 join galerien 1
-galerien (idle_portrait): I work very hard and my health is not so great. But i need to keep it up for the {armada_name}.
+galerien (idle_portrait): I work very hard and my health is not so great. But i need to keep it up because {armada_name} makes the world a better place.
+(His thoughts are repeating the same stuff over and over again, you can't interact with him at all.)
+join "navigator 1" (Bernard-Hub-upset-close) 3
+"navigator 1" (Bernard-Hub-upset-open): ...
+"navigator 1" (Bernard-Hub-upset-close): ... That's... scary. We shouldn't stay too long, just in case.
 do GameState.setMission_corrupted("mission_1")
 [end_timeline]
