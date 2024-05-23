@@ -2,33 +2,26 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	MusicManager.set_bus("music")
 	MusicManager.playMusicNamed("motivational",SceneTransitionLayer.get_duration("fade_in"))
 	SceneTransitionLayer.reveal_scene()
 	self._launch_speech()
 
 func _launch_speech():
-	var added_corruption = GameState._get_sum_missions_corrupted() - GameState.current_corruption_level
-	match GameState.ending_speech:
-		GameState.DENIAL_ENDING:
-			if added_corruption == 0:
-				GameState.start_time_line("tl_06hub_meeting_denial")
-			else:
-				GameState.start_time_line("tl_06hub_meeting_denial_influenced4")
-			await(Dialogic.timeline_ended)
-			self._change_scene_to_credits()
+	match GameState.check_corpo_ending():
 		GameState.EMPLOYEE_OF_THE_MONTH_ENDING:
+			print("EMPLOYEE_OF_THE_MONTH")
 			GameState.start_time_line("tl_06hub_meeting_best")
 			await(Dialogic.timeline_ended)
 			self._change_scene_to_credits()
 		GameState.TRY_NEXT_MONTH_ENDING:
-			GameState.start_time_line("tl_06hub_meeting_employee_influence4")
+			print("TRY NEXT MONTH")
+			GameState.start_time_line("tl_06hub_meeting_denial")
 			await(Dialogic.timeline_ended)
 			self._change_scene_to_credits()
 		GameState.FIRED_ENDING:
-			if added_corruption == 0:
-				GameState.start_time_line("tl_06hub_meeting_fired")
-			else:
-				GameState.start_time_line("tl_06hub_meeting_fired_influenced4")
+			print("FIRED")
+			GameState.start_time_line("tl_06hub_meeting_fired")
 			await(Dialogic.timeline_ended)
 			self._change_scene_to_credits()
 		_:
