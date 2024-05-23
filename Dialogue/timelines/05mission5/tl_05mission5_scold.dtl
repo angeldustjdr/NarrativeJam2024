@@ -1,5 +1,8 @@
 join "navigator 2" 1
-"navigator 2": Hey, what are you doing.
-"navigator 2": You don't have time do tourism. Do you know what is happening right now ?
-"navigator 2": Come back immediately !
+"navigator 2" (navigator2-upset-close): Hey, what are you doing.
+"navigator 2" (navigator2-upset-close): Don't be a fool. Think of your career. MindSail wouldn't bear to loose a Sailor like you. Don't be silly.
+"navigator 2" (navigator2-upset-close): ...
+"navigator 2" (navigator2-upset-close): ...
+"navigator 2" (navigator2-smile-close): I don't want to loose a Sailor. So... Yeah...
+"navigator 2" (navigator2-upset-open): Come back immediately!
 [end_timeline]

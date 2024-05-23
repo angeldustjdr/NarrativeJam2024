@@ -1,5 +1,5 @@
 join "navigator 2" 1
 "navigator 2": We'r at the rendez-vous point.
-"navigator 2": Get ready to deploy the beacon
+"navigator 2": Get ready to deploy the data collector.
 "navigator 2": Tune the signal and take off. You don't need to investigate the area.
 [end_timeline]

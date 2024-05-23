@@ -17,6 +17,7 @@ var invulnerable = false
 @onready var _rocket_volume_incr = 0.01
 
 func _ready():
+	if GameState._debug: speed=1000
 	pass
 
 func player_connect():
