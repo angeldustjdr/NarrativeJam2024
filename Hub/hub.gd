@@ -27,7 +27,7 @@ func _ready():
 	#if GameState.nbRetourHub>0 : Achievements.genericCheck("True pilot")
 	if GameState.get_ether_timer_timeleft() > 0 :
 		Achievements.genericCheck("Safe return")
-	if GameState.nbRetourHub > 0 : 
+	if GameState.get_ether_timer_timeleft() <= 0.1 : 
 		Achievements.genericCheck("Better late than sorry")
 	var time_elapsed = GameState.stop_ether_timer()
 	GameState.print_time_elapsed(time_elapsed)
