@@ -152,6 +152,7 @@ directories/dtl_directory={
 "tl_hub01_navigator1": "res://Dialogue/timelines/01hub/tl_hub01_navigator1.dtl",
 "tl_hub01_shipgirl": "res://Dialogue/timelines/01hub/tl_hub01_shipgirl.dtl",
 "tl_hub01_simulation": "res://Dialogue/timelines/01hub/tl_hub01_simulation.dtl",
+"tl_i_should_get_going": "res://Dialogue/timelines/tl_i_should_get_going.dtl",
 "tl_introcaptain_speech": "res://Dialogue/timelines/01hub/tl_introcaptain_speech.dtl",
 "tl_jcd_influenced": "res://Dialogue/timelines/tl_jcd_influenced.dtl",
 "tl_jcd_normal": "res://Dialogue/timelines/tl_jcd_normal.dtl",

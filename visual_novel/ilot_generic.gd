@@ -110,9 +110,14 @@ func clickObject(which):
 			push_warning("clickable not recognized")
 
 func _on_character_clicked():
-	GameState.start_time_line("tl_ask_to_talk_ilot")
-	Dialogic.timeline_ended.connect(self._on_ask_to_talk_ilot_ended)
-
+	if GameState.ilot_states[self.name]["visited_during_mission"][GameState.get_current_mission_idx()]:
+		GameState.start_time_line("tl_i_should_get_going")
+		await(Dialogic.timeline_ended)
+	else:
+		GameState.start_time_line("tl_ask_to_talk_ilot")
+		Dialogic.timeline_ended.connect(self._on_ask_to_talk_ilot_ended)
+		GameState.ilot_states[self.name]["visited_during_mission"][GameState.get_current_mission_idx()] = true
+		
 func _on_ask_to_talk_ilot_ended():
 	Dialogic.timeline_ended.disconnect(self._on_ask_to_talk_ilot_ended)
 	if Dialogic.VAR.talk_to_ilot:

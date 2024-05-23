@@ -73,7 +73,8 @@ func _physics_process(delta):
 			velocity = velocity.lerp(Vector2.ZERO, friction)
 			
 		var norm = (velocity.x**2 + velocity.y**2)**0.5
-		if norm/speed > 0.01 : rotation += rotation_diretion*rotation_speed*delta
+		#if norm/speed > 0.01 : rotation += rotation_diretion*rotation_speed*delta
+		rotation += rotation_diretion*rotation_speed*delta
 			
 		var temp_velocity = velocity*0.75
 		var collision_before = self.get_slide_collision_count()

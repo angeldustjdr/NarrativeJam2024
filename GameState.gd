@@ -25,11 +25,11 @@ enum thoughts {DEPRIME,COLERE,PEUR,RIEN=-1} # thoughts
 
 ########### STATEMACHINE
 signal save_finished
-@onready var ilot_states = {"ilot_1":{"revealed":false,"beacon_destroyed":false},
-							"ilot_2":{"revealed":false,"beacon_destroyed":false},
-							"ilot_3":{"revealed":false,"beacon_destroyed":false},
-							"ilot_4":{"revealed":false,"beacon_destroyed":false},
-							"ilot_5":{"revealed":false,"beacon_destroyed":false}}
+@onready var ilot_states = {"ilot_1":{"revealed":false,"beacon_destroyed":false,"visited_during_mission":[false,false,false,false,false]},
+							"ilot_2":{"revealed":false,"beacon_destroyed":false,"visited_during_mission":[false,false,false,false,false]},
+							"ilot_3":{"revealed":false,"beacon_destroyed":false,"visited_during_mission":[false,false,false,false,false]},
+							"ilot_4":{"revealed":false,"beacon_destroyed":false,"visited_during_mission":[false,false,false,false,false]},
+							"ilot_5":{"revealed":false,"beacon_destroyed":false,"visited_during_mission":[false,false,false,false,false]}}
 @onready var mission_states = {"mission_1":{"started":false,"finished":false,"in_time":true,"debriefed":false},
 							   "mission_2":{"started":false,"finished":false,"in_time":true,"debriefed":false},
 							   "mission_3":{"started":false,"finished":false,"in_time":true,"debriefed":false},
@@ -242,13 +242,16 @@ func check_beacon_destruction():
 		return true
 
 func check_corpo_ending():
-	if self.denialStep == 1:
-		return FIRED_ENDING
-	else:
-		if self.employee_of_the_month():
-			return EMPLOYEE_OF_THE_MONTH_ENDING
+	if(self.ilot_states["ilot_5"]["revealed"]):
+		if self.denialStep == 1:
+			return FIRED_ENDING
 		else:
-			return TRY_NEXT_MONTH_ENDING
+			if self.employee_of_the_month():
+				return EMPLOYEE_OF_THE_MONTH_ENDING
+			else:
+				return TRY_NEXT_MONTH_ENDING
+	else:
+		return INTRO
 
 func check_and_launch_corpo_ending():
 	self.launch_ending(check_corpo_ending())
