@@ -52,7 +52,7 @@ func _on_animation_finished_packed_scene(anime_name):
 	elif anime_name == "black_flash":
 		fade_in_finished.emit()
 	else:
-		push_error("unexpected behavior")
+		push_warning("unexpected behavior")
 
 func quit_game():
 	if self._anim_player.animation_finished.is_connected(self._on_animation_finished_packed_scene):
@@ -71,4 +71,4 @@ func _on_animation_finished_file_scene(anime_name):
 	elif anime_name == "black_flash":
 		fade_in_finished.emit()
 	else:
-		push_error("unexpected behavior")
+		push_warning("unexpected behavior")
