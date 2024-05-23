@@ -3,7 +3,8 @@ join "navigator 1" 1
 "navigator 1": Wait, you'r have to do navigation simulation before. It's supposed to be mandatory but if you want to skip it, I'll keep it between us.
 - Do the Tutorial
 	"navigator 1": You'r a by-the-book- person I see ! Ok, let me fire up the sim.
-	jump tl_hub01_simulation/
+	set {GameState.launch_tuto} = true
 - Skip the Tutorial
 	"navigator 1": I knew you were the practical kind, Let's go. 
+	set {GameState.launch_tuto} = false
 	[end_timeline]

@@ -1,5 +1,7 @@
 join "navigator 1" 1
 "navigator 1": Allright, I'm sure you know the drill but I'm obligated to follow procedure ok.\
 First, lift the ancor using A or the side toggle. Then use your Z or W to move forward.\
-You can turn using Q and D or A and D. Try not to hit obstacles. Here it's safe but you might encounter dangerous thing like emotions stream that boost your speed or despair clouds that slows you down. The Red signal is where you need to go. That's it, you'r all setup.
+You can turn using Q and D or A and D. Try not to hit obstacles. Here it's safe but you might encounter dangerous thing like emotions stream that boost your speed or despair clouds that slows you down. The Red signal is where you need to go. That's it, you're all setup.
+jump tl_mission1_navigator1_objectif/
+
 [end_timeline]

@@ -71,7 +71,7 @@ _data = {
 }
 
 [node name="scene_transition" type="ColorRect"]
-modulate = Color(0, 0, 0, 1)
+modulate = Color(0, 0, 0, 0)
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2

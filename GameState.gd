@@ -20,6 +20,8 @@ enum {PIRATE_ENDING, DENIAL_ENDING, TRY_NEXT_MONTH_ENDING, EMPLOYEE_OF_THE_MONTH
 
 enum thoughts {DEPRIME,COLERE,PEUR,RIEN=-1} # thoughts
 
+var launch_tuto = false
+
 @onready var openworld_packed_scene = preload("res://OpenWorld/open_world.tscn")
 @onready var oscillo_packed_scene = preload("res://oscilloscope/oscilloscope_scene.tscn")
 
@@ -367,7 +369,10 @@ func start_briefing_dialog():
 		resetPV()
 		match self.get_current_mission_idx():
 			0: #MISSION 1
-				self.start_time_line("tl_mission1_navigator1_objectif")
+				if self.launch_tuto:
+					self.start_time_line("tl_hub01_simulation")
+				else:
+					self.start_time_line("tl_mission1_navigator1_objectif")
 			1: #MISSION 2
 				self.start_time_line("tl_02mission2_objectif")
 			2: #MISSION 3
