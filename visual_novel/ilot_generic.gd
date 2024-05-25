@@ -18,7 +18,6 @@ var _ilot_corrupted : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$intemperie_texture.set_intemperie(GameState.check_intemperie())
-	MusicManager.set_bus("music")
 	Achievements.connect("unlock",showUnlock)
 	GameState.pause_ether_timer()
 	$visual_novel_scene/get_out_button.pressed.connect(self._on_button_pressed)
@@ -39,6 +38,7 @@ func _ready():
 		$visual_novel_scene/clickable_oscilloscope.is_clickable = true
 		$visual_novel_scene/get_out_button.disabled = true
 	else:
+		MusicManager.set_bus("music")
 		if GameState.get_current_mission_idx() > self._get_ilot_number():
 			MusicManager.playMusicNamed("ilot_corrupted",SceneTransitionLayer.get_duration("fade_in"))
 		else:
@@ -54,7 +54,6 @@ func _ready():
 		else:
 			$visual_novel_scene/clickable_oscilloscope.is_clickable = false
 	$visual_novel_scene/oscillo_light.position = $visual_novel_scene/clickable_oscilloscope.position
-	MusicManager.set_bus("music")
 	SceneTransitionLayer.reveal_scene()
 	GameState.start_ilot_dialog_navigator(numero_ilot)
 
@@ -159,6 +158,7 @@ func _on_oscillo_clicked():
 	oscillo_scene.victory.connect(self._on_oscillo_victory)
 	
 func _on_oscillo_victory(oscillo_scene):
+	MusicManager.set_bus("music")
 	MusicManager.playMusicNamed(self.name,SceneTransitionLayer.get_duration("fade_out"))
 	#SceneTransitionLayer.play_white_flash()
 	#await(SceneTransitionLayer.mid_flash)

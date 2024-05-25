@@ -298,7 +298,7 @@ func launch_ending(i_ending):
 func employee_of_the_month(): # CONDITION for employee of the month
 	#var added_corruption = self._get_sum_missions_corrupted() - self.current_corruption_level
 	#return added_corruption == 0
-	return self.get_nb_mission_in_time() > 4 # si le joueur a fait plus de trois missions dans les temps
+	return self.get_nb_mission_in_time() >= 4 # si le joueur a fait plus de trois missions dans les temps
 
 func get_nb_mission_in_time():
 	var c = 0

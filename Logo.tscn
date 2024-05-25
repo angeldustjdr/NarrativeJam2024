@@ -2,9 +2,9 @@
 
 [ext_resource type="Theme" uid="uid://bh0bu7qc8ksch" path="res://theme.tres" id="1_b6ggk"]
 [ext_resource type="Script" path="res://Logo.gd" id="1_rthdb"]
-[ext_resource type="FontFile" uid="uid://dcgl075cakv2s" path="res://assets/fonts/punk_rockf.ttf" id="2_twkfo"]
+[ext_resource type="FontFile" uid="uid://cqbj2f70so1n1" path="res://assets/fonts/punk_rockf.ttf" id="2_twkfo"]
 [ext_resource type="Shader" path="res://assets/shaders/Outline.gdshader" id="3_sx2tj"]
-[ext_resource type="Texture2D" uid="uid://c3d6rkxy232yu" path="res://assets/graphics/items/casserole-sheet.png" id="5_5xxyi"]
+[ext_resource type="Texture2D" uid="uid://boag5fkyp5txk" path="res://assets/graphics/items/casserole-sheet.png" id="5_5xxyi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jtpkf"]
 shader = ExtResource("3_sx2tj")
