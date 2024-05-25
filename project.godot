@@ -10,8 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Narrative Jam 2024"
+config/name="Mindfarer"
 run/main_scene="res://Logo.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="mindfarer"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://assets/graphics/items/logo-vect-v2-icon.png"
 
