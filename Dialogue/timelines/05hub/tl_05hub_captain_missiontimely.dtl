@@ -1,4 +1,4 @@
-#[background arg="res://assets/graphics/backgrounds/Intro.png" fade="0.0"]
+# #[background arg="res://assets/graphics/backgrounds/Intro.png" fade="0.0"]
 join captain 1
 captain: You just beat your record {mc_code}, well done. Your aptitude does not stop to amaze me!
 - "Where is {navigator1_name}? Why do I have a new navigation?"
@@ -15,8 +15,8 @@ captain: You just beat your record {mc_code}, well done. Your aptitude does not 
 		captain (Captain-smile-close): Perfect then.
 - Thank you for the compliment, Cap'.
 	captain (Captain-upset-open): You're very welcome.
-captain: I have a meeting with management today, I don't have any more time for you. Sorry\
-See you in the morning.
-#do SceneTransitionLayer.play_black_flash()
-#[wait time="0.5"]
+captain: I have a meeting with management today, I don't have any more time for you. Sorry
+"navigator 1": One more thing, I want to read your mission report after my meeting. Could you write it before you leave ? Take those credits, coffee will help.
+# #do SceneTransitionLayer.play_black_flash()
+# #[wait time="0.5"]
 [end_timeline]

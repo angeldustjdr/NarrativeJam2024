@@ -1,7 +1,7 @@
-#[background arg="res://assets/graphics/backgrounds/Intro.png" fade="0.0"]
+# #[background arg="res://assets/graphics/backgrounds/Intro.png" fade="0.0"]
 join captain (Captain-smile-close) 1
-captain (Captain-smile-open): You made it in time {mc_name}, I'm honestly surprised considering the weather event! \
-Very well done.
+captain (Captain-smile-open): You made it in time {mc_name}, I'm honestly surprised considering the weather event! 
+captain (Captain-smile-open): Very well done.
 captain (Captain-smile-open): How do you feel?
 - I'm great.
 	captain (Captain-smile-close): I'm really happy to hear that.
@@ -17,6 +17,6 @@ leave "navigator 1"
 leave shipgirl
 captain (Captain-smile-open): I hope you like it. Continue your efforts!
 captain (Captain-smile-open): Here, have some credits, nothing better than a cup of coffee on a rainy day. I'll be joining you in the break room shortly.
-#do SceneTransitionLayer.play_black_flash()
-#[wait time="0.5"]
+# #do SceneTransitionLayer.play_black_flash()
+# #[wait time="0.5"]
 [end_timeline]

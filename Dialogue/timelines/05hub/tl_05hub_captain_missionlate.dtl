@@ -2,7 +2,7 @@
 join captain (Captain-upset-closed) 1
 captain (Captain-upset-closed): {mc_code} I'm very disappointed in you.
 captain (Captain-upset-open): Keep your attitude that way and you will never level up in the hierarchy.
-- "Where is {navigator1_name}? Why do I have a new navigation?"
+- "Where is {navigator1_name}? Why do I have a new navigator?"
 	captain (Captain-upset-open): I'm not at liberty to say. I apologize.
 	captain (Captain-smile-close): Warden is our best navigator, I through matching the two of you would benefit your assignment.
 	- "I don't care about Warden, I want {navigator1_name} back!"
@@ -16,8 +16,9 @@ captain (Captain-upset-open): Keep your attitude that way and you will never lev
 		captain (Captain-smile-close): Perfect then.
 - I'll be better I guess.
 	captain (Captain-upset-open): I've heard that before...
-captain (Captain-upset-closed): I have a meeting with management today, I don't have any more time for you. \
-Take those credits and go rest, I don't want to see your face anymore.
+captain (Captain-upset-closed): I have a meeting with management today, I don't have any more time for you. 
+captain (Captain-upset-open): Take those credits and go grab a coffee, I want your mission report on my desk before the end of my meeting.
+captain (Captain-upset-closed): I don't want to see your face until then.
 # #do SceneTransitionLayer.play_black_flash()
 # #[wait time="0.5"]
 [end_timeline]

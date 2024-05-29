@@ -1,6 +1,7 @@
 join "navigator 2" 1
 "navigator 2": Good morning, sailor {mc_name}. Ready for your assignment?
 - Who are you? Where is Bernard?
+	"navigator 2" (navigator2-upset-open): My name is {navigator2_name} but I would like you to call me {navigator2_code}.
 	"navigator 2" (navigator2-upset-open): {navigator1_name}? Who's that? Do you have his code name and number?
 	- {navigator1_code} {navigator1_number}
 	"navigator 2" (navigator2-upset-close): Let me check.
