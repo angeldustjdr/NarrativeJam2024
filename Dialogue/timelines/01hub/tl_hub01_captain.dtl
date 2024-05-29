@@ -16,7 +16,7 @@ captain (Captain-smile-open): Good! Now, I have time for about ... Hum ... let's
 	captain (Captain-smile-open): There are even islets, which are clusters of ideas and thoughts belonging to people who are in the same area as the {hub_name}.
 	captain (Captain-smile-open): That's where we need to chart and collect data.
 	- "Could you tell me more about {armada_name}?"
-		captain (Captain-smile-open): Well, you know that {armada_name} is a megacorporation that does, about everything. Here we are specialized in applied research, data collection and analytics.
+		captain (Captain-smile-open): Well, you know that {armada_name} is a mega-corporation that does, about everything. Here we are specialized in applied research, data collection and analytics.
 		captain (Captain-smile-open): You, you will have data collection assignments. Having access to the {sea_name} during missions is a privilege, so be proud of what you will accomplish.
 		captain (Captain-smile-open): You can check the chain of command and career paths of our branch on the chart here in the break room.
 	- "How can we enter people mind?"
@@ -25,7 +25,7 @@ captain (Captain-smile-open): Good! Now, I have time for about ... Hum ... let's
 		captain (Captain-smile-open): We don't actually go inside people’s heads , it's some kind of new dimension I think they say.
 		captain (Captain-smile-open): That's all I can tell about that.
 - "Could you tell me more about {armada_name}?"
-	captain (Captain-smile-open): Well, you know that {armada_name} is a megacorporation that does, about everything. Here we are specialized in applied research, data collection and analytics.
+	captain (Captain-smile-open): Well, you know that {armada_name} is a mega-corporation that does, about everything. Here we are specialized in applied research, data collection and analytics.
 	captain (Captain-smile-open): You, you will have data collection assignments. Having access to the {sea_name} during missions is a privilege, so be proud of what you will accomplish.
 	captain (Captain-smile-open): You can check the chain of command and career paths of our branch on the chart here in the break room.
 	- "Could you tell me more about the {sea_name}?"

@@ -1,7 +1,7 @@
 join captain 1
 captain (Captain-smile-open): Good Morning Recruit, Juniors and Stewards.
 captain (Captain-smile-open): I’m Captain {captain_name}. Some might know me, others will soon enough.
-captain (Captain-smile-open): Today I want to talk about what my expectations of you are, the employees, the pillar of this great company.
+captain (Captain-smile-open): Today I want to talk about what my expectations of you, the employees, the pillar of this great company.
 captain (Captain-smile-open): Those whom without, none of the missions would ever see completion. Those who do the vital job.
 captain (Captain-smile-open): As you know, you are now part of the dozens crew members under my command. Part of the dozens of {hub_name} under the command of Admiral {admiral_name}. Part of the dozens of fleets under the command of Grand Admiral {grandadmiral_name}.
 captain (Captain-smile-open): Some of you will have to sail into uncharted territory to literally breach through a new dimension, the new frontier that is the {sea_name}. A strange place where you can drift among the collective subconscious.
@@ -10,20 +10,20 @@ captain (Captain-smile-open): Some will need to support those sailors with guida
 	captain (Captain-smile-open): As part of this great family, it is now your duty to respect each other by following the policies implemented by your superiors.
 	captain (Captain-smile-open): It is your duty to respect each other’s social privacy by only communicating work-related information between yourselves. And most importantly, to respect the chain of command and the hierarchy.
 	captain (Captain-smile-open): I’m sure you heard before that anyone can change the world. But here in our beautiful {hub_name}, right now I know that what we are doing will have an impact, for our company and for our lives.
-	captain (Captain-smile-open): I’ve been a partner of {armada_name} for quite some time, and I’ve even been a sailor for a longer time, so bear my rambling for a bit.
+	captain (Captain-smile-open): I’ve been a partner of {armada_name} for quite some time, and I’ve even been a sailor for a even longer, so bear my rambling for a bit.
 - Fall asleep
 	ZzZzZz ...
 	captain (Captain-upset-closed): ...
 	jump End nap
 captain (Captain-upset-open): ... *Clear throat* ...
 - Stay focused
-	captain (Captain-smile-open): The lessons you will learn here will be relevant, regardless of your background social, religious or ethnic. Your challenges will be shared, your obstacles will be equivalent and the way you apply what you’ve learned will impact everyone equally.
+	captain (Captain-smile-open): The lessons you will learn here will be relevant, regardless of your social, religious or ethnic background. Your challenges will be shared, your obstacles will be equivalent and the way you apply what you’ve learned will impact everyone equally.
 	captain (Captain-smile-open): Because you are all in this together.
 	captain (Captain-smile-open): During my training, when I was nothing but an aspiring sailor, my tutor would inspect my shoes every day in the morning. If right, the bootlace would make two perfectly symmetrical loops then zigzag through the shoe, tightly securing the ankle.
 	captain (Captain-smile-open): A simple task asked to be done to perfection.
 	captain (Captain-smile-open): At first it seemed to be stupid, but the insight and diligence gained by performing this mundane task have made me the man I am today. By tying your shoe every morning, you achieve the first and most important task of the day.
 	captain (Captain-smile-open): It gives you a sense of pride and encouragement that guide you toward making another task, and one more after that. And one more ... By the time the sun is setting, you will have achieved greatness.
-	captain (Captain-smile-open): If you can’t make the small task, you will never be able to manage the more important task. So do not be ashamed by being assigned mundane, stupid task! Because you are moving toward greatness.
+	captain (Captain-smile-open): If you can’t make the small task, you will never be able to manage the more important tasks. So do not be ashamed by being assigned mundane, stupid tasks! Because you are moving toward greatness.
 	captain (Captain-smile-open): In shorts, please tie your shoes.
 	do Achievements.genericCheck("Good listener")
 	captain (Captain-smile-open): That will be all, thank you. You are dismissed.
