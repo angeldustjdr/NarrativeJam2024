@@ -29,5 +29,4 @@ func interaction(interactable):
 		if self._next_scene == null:
 			push_error("next_scene not defined")
 		else:
-			print(self._next_scene)
 			self.scene_need_changing.emit(self._next_scene)

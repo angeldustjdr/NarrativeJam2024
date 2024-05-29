@@ -11,7 +11,10 @@ var musics_names = {"placehold":"res://assets/musics/1-05. Negative Mass.mp3",
 					"ilot_corrupted":"res://assets/musics/eathersea/ilot/ilot corrompu/glitch abstract trap-QubeSounds.mp3",
 					"title_corpo":"res://assets/musics/reserve/space epic cinematic journey-Rockot.mp3",
 					"title_pirate":"res://assets/musics/reserve/dark cyberpunk mechanical robotic future industrial dubstep-SoundGalleryDT.mp3",
-					"motivational":"res://assets/musics/hub/intro discours/starfleet command-geoffharvey.mp3"}
+					"motivational":"res://assets/musics/hub/intro discours/starfleet command-geoffharvey.mp3",
+					"try_next_month_credits":"res://assets/musics/ending/try next month/Pixel Perfect.wav",
+					"pirate_credits":"res://assets/musics/ending/revolution/Music - Action.wav",
+					"fired_credits":"res://assets/musics/ending/return to hub/close-to-the-sun-205545.mp3"}
 
 var musics_base_volumes = {"placehold":0.0,
 						   "navigation":0.0,
@@ -24,7 +27,10 @@ var musics_base_volumes = {"placehold":0.0,
 						   "ilot_corrupted":0.0,
 						   "title_corpo":0.0,
 						   "title_pirate":0.0,
-						   "motivational":0.0}
+						   "motivational":0.0,
+						   "try_next_month_credits":0.0,
+						   "pirate_credits":0.0,
+						   "fired_credits":0.0}
 
 var musics_base_offset = {"placehold":0.0,
 						  "navigation":0.0,
@@ -37,8 +43,11 @@ var musics_base_offset = {"placehold":0.0,
 						  "ilot_corrupted":0.0,
 						  "title_corpo":0.0,
 						  "title_pirate":0.0,
-						  "motivational":0.0}
-						
+						  "motivational":0.0,
+						  "try_next_month_credits":0.0,
+						  "pirate_credits":0.0,
+						  "fired_credits":0.0}
+
 var musics_loops = {"placehold":true,
 					"navigation":true,
 					"ilot_1":true,
@@ -50,7 +59,10 @@ var musics_loops = {"placehold":true,
 					"ilot_corrupted":true,
 					"title_corpo":true,
 					"title_pirate":true,
-					"motivational":true}
+					"motivational":true,
+					"try_next_month_credits":true,
+					"pirate_credits":true,
+					"fired_credits":true}
 					
 var _current_music_name = null
 var _bus_name = "music"

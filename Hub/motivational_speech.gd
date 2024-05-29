@@ -52,7 +52,8 @@ func _change_scene_to_main():
 	SceneTransitionLayer.transition_to_file_scene("res://main.tscn")
 	
 func _change_scene_to_credits():
-	MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
+	if GameState.check_corpo_ending() != GameState.EMPLOYEE_OF_THE_MONTH_ENDING:
+		MusicManager.stopCurrent(SceneTransitionLayer.get_duration("fade_out"))
 	SceneTransitionLayer.transition_to_file_scene("res://credits.tscn")
 
 func showUnlock(message):
