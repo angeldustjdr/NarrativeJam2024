@@ -5,7 +5,7 @@ var AchievementDescription = {
 	"Good listener" : ["Listen to the motivational speech until the end",false,"Isn't the Captain a good orator?"],
 	"Morning routine" : ["Drink 5 coffees",false,"Need more cafein?"],
 	#"Heavy lifting" : ["Lift the anchor for the first time",false],
-	"Fun slide" : ["Take the accelerator for the first time",false,"What's the limit speed again?"],
+	"Fun slide" : ["Take the accelerator for the first time",false,"What's the speed limit again?"],
 	"Idol of youth" : ["Talk to the Shipgirl 6 times",false,"Create bonds with a younger person."],
 	"Good soldier" : ["Talk to the Captain 6 times",false,"Create bonds with an officier."],
 	"Old friend" : ["Talk to your navigator 4 times",false,"Create bonds with someone who can be trusted."],
