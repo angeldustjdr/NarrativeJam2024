@@ -1,5 +1,5 @@
 join "navigator 1" 1
-"navigator 1" (Bernard-Hub-smile-open): 'Morning, how's the coffee ? So, I'm {navigator1_name}, I'll be your navigator. I'm not really into this code naming thing, I think that's silly, so please call me by my real name.
+"navigator 1" (Bernard-Hub-smile-open): 'Morning, how's the coffee ? So, I'm {navigator1_name}, I'll be your Navigator. I'm not really into this code naming thing, I think that's silly, so please call me by my real name.
 "navigator 1" (Bernard-Hub-smile-open): How should I call you?
 - "{mc_name} is fine."
 "navigator 1" (Bernard-Hub-upset-open): Huh, for real...?
@@ -22,5 +22,5 @@ join "navigator 1" 1
 		"navigator 1" (Bernard-Hub-smile-close): You're welcome, sailor.
 	- *Let the conversation die here*
 - "I'm okay, let's go already."
-"navigator 1" (Bernard-Hub-smile-close): Alright, I've finished my coffee. I'll prepare for your departure in the Navigation room. See you later.
+"navigator 1" (Bernard-Hub-smile-close): Alright, I've finished my coffee. I'll prepare for your departure from mission control. See you later.
 [end_timeline]

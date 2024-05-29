@@ -12,7 +12,7 @@
 "description": "",
 "display_name": "Captain {captain_name}",
 "mirror": false,
-"nicknames": [""],
+"nicknames": ["Paragon"],
 "offset": Vector2(0, 0),
 "portraits": {
 "Captain-smile-close": {
@@ -21,7 +21,7 @@
 },
 "mirror": false,
 "offset": Vector2(0, 0),
-"scale": 1,
+"scale": 1.0,
 "scene": ""
 },
 "Captain-smile-open": {

@@ -12,7 +12,7 @@
 "description": "",
 "display_name": "{navigator2_code}",
 "mirror": false,
-"nicknames": [""],
+"nicknames": ["{navigator2_name}"],
 "offset": Vector2(0, 0),
 "portraits": {
 "navigator2-smile-close": {

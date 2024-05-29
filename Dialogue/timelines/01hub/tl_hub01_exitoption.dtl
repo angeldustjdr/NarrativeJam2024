@@ -1,8 +1,8 @@
 join "navigator 1" 1
 "navigator 1": Ready for your assignment ? Hop in your ship, I'll guide you remotely from mission control.
-"navigator 1": Wait, you have to do navigation simulation before. It's supposed to be mandatory but if you want to skip it, I'll keep it between us.
+"navigator 1": Wait, you have to do the navigation simulation before. It's supposed to be mandatory, but if you want to skip it, I'll keep it between us.
 - Do the Tutorial
-	"navigator 1": You're a by-the-book- person I see ! Ok, let me fire up the sim.
+	"navigator 1": You're a by-the-book person, I see ! Ok, let me fire up the sim.
 	set {GameState.launch_tuto} = true
 - Skip the Tutorial
 	"navigator 1": I knew you were the practical kind, Let's go.
