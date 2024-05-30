@@ -1,5 +1,5 @@
 join "navigator 1" 1
 "navigator 1": Your ship has docked with the {beacon}, I'm engaging auto-repair.
 "navigator 1": Done, it should be good now.
-"navigator 1": You just need to tune it back, just like usual.
+"navigator 1": You just need to tune it back, just as usual.
 [end_timeline]

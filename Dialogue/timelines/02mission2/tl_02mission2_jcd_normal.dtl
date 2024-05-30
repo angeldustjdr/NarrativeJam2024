@@ -1,7 +1,7 @@
 join jcd 1
 jcd (idle_portrait): I used to be super thrilled about this promotion to upper management in {armada_name}...
 jcd (idle_portrait): But since last week, I have second thoughts. Making more money is nice, I could get that third house on the beach I dream of, but... there are some scandals going out about the company. Maybe I should think about it longer?
-- "If you don't feel like it, maybe you should wait"
+- If you don't feel like it, maybe you should wait
 	jcd: *She doesn't hear you, but she nods to herself anyway*
 	jcd: Yeah, I can wait and see a bit more. In the worst-case scenario, I can still get my third house through other means. Tiny bit more morally acceptable means.
 - Don't interfere

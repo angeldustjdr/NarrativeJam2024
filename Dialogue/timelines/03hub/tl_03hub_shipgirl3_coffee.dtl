@@ -1,18 +1,18 @@
 join shipgirl 1
 shipgirl: I'm so happy that you take the time to have coffee with me, {mc_name}! You're so kind.
 shipgirl (Shipgirl-smile-close): It's been a while. Any interesting event to share?
-- "Let's see..."
+- Let's see...
 	- Tell her about the broken {beacon}
 		shipgirl (Shipgirl-smile-open): Oh yes! {navigator1_name} told me about how unusual it was, because it didn't seem like a {sea_name} weathering problem. Maybe it was a flawed {beacon}, some of them are not manufactured well.
 		shipgirl (Shipgirl-smile-close): He didn't go into details for the technical stuff, but he told me about that annoying rich lady, haha! {navigator1_name} is so funny. I'm glad he managed to set up his radio so he could hear the projections with you.
 		shipgirl (Shipgirl-upset-close): Not sure that's legal, though.
-		- "What about you?"
-- "Nothing special. You?"
+		- What about you?
+- Nothing special. You?
 shipgirl (Shipgirl-upset-close): Me? Well, the boring usual, y'know. I'm getting better at the simulator, and faster during my duties, so the nasty remarks from my colleagues have calmed down a little.
 shipgirl (Shipgirl-upset-open): I hope I'll get promoted soon, though...
-- "Did you fill a report about your harassers?"
+- Did you fill a report about your harassers?
 	shipgirl (Shipgirl-upset-close): I'm thinking about it but... not yet. I'm afraid it will hinder my promotion.
-- "I'll talk the Captain about it"
+- I'll talk the Captain about your colleagues.
 	shipgirl (Shipgirl-smile-open): Really? Thank you! But don't overdo it. I don't want him to think I'm a whinnie.
 - *Nod silently*
 shipgirl (Shipgirl-smile-open): Ah! There will be a surprise for you tonight from the whole team. I hope you'll like it!

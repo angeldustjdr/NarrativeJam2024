@@ -1,22 +1,22 @@
 join captain (Captain-smile-close) 1
-captain (Captain-smile-open): Greetings, I see you want to indulge my caffeine addiction!\
-Well, you know what? It is greatly appreciated!
+captain (Captain-smile-open): Greetings, I see you want to indulge my caffeine addiction!
+captain (Captain-smile-open): Well, you know what? It is greatly appreciated!
 captain (Captain-upset-closed): Have you looked at the weather outside?
-- "Yeah, the rain is getting intense."
+- Yeah, the rain is getting intense.
 	captain (Captain-upset-open): Yeah, tell me about it.
-- "I didn't pay attention, no."
+- I didn't pay attention, no.
 	captain (Captain-upset-open): Maybe you need that coffee more than me. It's a hammering downpour.
 captain (Captain-smile-open): Some of the city's sewers even overflowed... I'm glad I don't set foot over there much these days, having the large captain's cabin here in the mothership. Perks of the job, ha ha.
 - Ha ha ha.
 - ...
-captain (Captain-smile-open): It most definitely will have an impact on the {sea_name}.\
-It does not help that we are late on schedule due to last month's broken {beacon} ...
+captain (Captain-smile-open): It most definitely will have an impact on the {sea_name}.
+captain: It does not help that we are late on schedule due to last month's broken {beacon} ...
 captain (Captain-upset-open): We will have to advance our plan and set up one {beacon} today and another tomorrow. It's gonna be a crunch.
-- "How are we going to be able to handle the calibration of two {beacon}? That's too much work!"
+- How are we going to be able to handle the calibration of two {beacon}? That's too much work!
 	captain (Captain-upset-closed): I'm gonna see if I can have some reinforcements from Captain Shepperd.
 - I'm confident, we'll manage.
 	captain (Captain-smile-open): I like the spirit! But we might need a hand on this one. I'll see if Captain Shepperd is willing to lend me some of his crew.
-captain (Captain-smile-open): It's gonna be a long day. Be prepared. Timing will be short.\
-However, I've prepared a reward for you.
+captain (Captain-smile-open): It's gonna be a long day. Be prepared. Timing will be short.
+captain (Captain-smile-open): However, I've prepared a reward for you.
 captain (Captain-smile-close): We'll discuss more about that later.
 [end_timeline]
