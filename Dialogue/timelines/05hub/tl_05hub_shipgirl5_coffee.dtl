@@ -17,7 +17,6 @@ shipgirl (Shipgirl-smile-close): How's it going? How was your mission today?
 	shipgirl (Shipgirl-smile-close): It's like she could handle any situation without a sweat.
 	shipgirl (Shipgirl-smile-open): Plus, she has been employee of the month for almost half a year! She's a beast!
 	- Why is she replacing {navigator1_name}?
-	- She doesn't seem to know {navigator1_name}
 		shipgirl (Shipgirl-upset-close): Who?
 		- You don't remember {navigator1_name}?
 			shipgirl (Shipgirl-upset-open): No. I... I don't remember. I really don't. I promise.
@@ -29,10 +28,15 @@ shipgirl (Shipgirl-smile-close): How's it going? How was your mission today?
 			shipgirl (Shipgirl-upset-open): You know what? I'll ask around. If I have informations, I'll come back to you.
 			shipgirl (Shipgirl-upset-open): Oh boy, my head hurts. I guess it's because of the workload today. I was on the deck the whole day. I need vacations... Hum... As a Shipgirl, I don't have vacations.
 			shipgirl (Shipgirl-smile-open): Can't wait to be promoted then!
+	- Ok, I gess she might improve our productivity.
 - Yeah. It was alright.
 	shipgirl (Shipgirl-upset-close): I'm washed out today too. So much work... Thanks for the coffee!
+	shipgirl (Shipgirl-upset-close): You look worried. Are you all right?
+	shipgirl (Shipgirl-smile-close): Com'on! Cheer up! If you like, we can have a beer after work. I'm sure you won't be thinking about your troubles after the special pint they serve!
+	jump skip
 shipgirl (Shipgirl-upset-close): You look worried. Are you all right?
 shipgirl (Shipgirl-smile-close): Com'on! Cheer up! If you like, we can have a beer after work. I'm sure you won't be thinking about this {navigator1_name} after the special pint they serve!
+label skip
 - Thank you. I think I will join!
 	shipgirl (Shipgirl-smile-open): Great! I'm looking forward to it! We'll meet after the extra-hours I need to work.
 - No thanks. I'm not in the mood.
@@ -40,23 +44,16 @@ shipgirl (Shipgirl-smile-close): Com'on! Cheer up! If you like, we can have a be
 
 shipgirl (Shipgirl-smile-close): And by the way, you did talk with more ghosties, am I right?
 shipgirl (Shipgirl-smile-open): They are so fascinating! You are so lucky!
-- I think they changed, {shipgirl_name}.
+- Ther might be something wrong with them, {shipgirl_name}.
 	shipgirl (Shipgirl-upset-close): Wh... What? What do you mean?
-	- I think the {beacon} changes their mind
-		shipgirl (Shipgirl-upset-close): Are... you sure? I mean...
-		shipgirl (Shipgirl-upset-open): Now that I think about it, you might be right. It's not a normal phenomenon.
-		shipgirl (Shipgirl-upset-close): Do you think we need to alert the management?
-		shipgirl (Shipgirl-upset-close): ...
-		shipgirl (Shipgirl-upset-open): No. Let's not do that. It's the best way to get fired. Or worse. Did you know that MindSail had a Disciplinary Section?
-		shipgirl (Shipgirl-smile-close): I will try to lurk around and gather information. I'll keep you informed. You can count on me!
-	- MindSail is behind this conspiracy
-		shipgirl (Shipgirl-upset-close): Are... you sure? I mean...
-		shipgirl (Shipgirl-upset-close): At first, I was thinking of {beacon} malfunctioning. But now that you mention it, maybe the company has other plans.
-		shipgirl (Shipgirl-upset-open): We can definitely not trust the Captain then.
-		shipgirl (Shipgirl-upset-open): Let's try to be cautious. I don't want to get fired. Or worse. Did you know that MindSail had a Disciplinary Section?
+	- {navigator1_name} encouraged me to go back to the islet. He was sucpicious about something.
+		shipgirl (Shipgirl-upset-close): I... don't know who... Ow my head... Are... you sure? I mean...
+		shipgirl (Shipgirl-upset-close): If you think something is wrong you should try to return to all your previous {beacon}...
+		shipgirl (Shipgirl-upset-open): But... Let's try to be cautious. I don't want to get fired. Or worse. Did you know that MindSail had a Disciplinary Section?
 		shipgirl (Shipgirl-smile-close): I will try to lurk around and gather information. I'll keep you informed. You can count on me!
 	- Nothing. Forget about it.
 - *Silently nod*
+*radio call* {shipgirl_number} report.
 
 [wait time="1.0"]
 

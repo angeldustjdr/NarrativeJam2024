@@ -1,5 +1,6 @@
 join galerien 1
-galerien (idle_portrait): Life is hard but maybe if I work hard enough, the {armada_name} will reward me.
+galerien (idle_portrait): The {armada_name} offered me a loan to cover the medical expenses for my arm. The interest rate is high, but at least I can start working again. I hope I can make enough money to pay the loan.
+galerien (idle_portrait): If I can exceed the quotat, I might qualify for health insurance. I will need to work even harder, but I'm sure {armada_name} will reward me.
 galerien: (His thoughts are repeating the same stuff over and over again, you can't interact with him at all.)
 join "navigator 1" (Bernard-Hub-upset-close) 3
 "navigator 1" (Bernard-Hub-upset-open): This is weird... In fact, the whole island gives me an unsettling feeling. It didn't look like that last time we came here, did it?

@@ -17,7 +17,6 @@ shipgirl (Shipgirl-smile-close): How's it going? How was your mission today?
 	shipgirl (Shipgirl-smile-close): It's like she could handle any situation without a sweat.
 	shipgirl (Shipgirl-smile-open): Plus, she has been employee of the month for almost half a year! She's a beast!
 	- Why is she replacing {navigator1_name}?
-	- She doesn't seem to know {navigator1_name}
 		shipgirl (Shipgirl-upset-close): Who ?
 		- You don't remember {navigator1_name}?
 			shipgirl (Shipgirl-upset-open): No. I... I don't remember. I really don't. I promise.
@@ -29,8 +28,12 @@ shipgirl (Shipgirl-smile-close): How's it going? How was your mission today?
 			shipgirl (Shipgirl-upset-open): You know what? I'll ask around. If I have informations, I'll come back to you.
 			shipgirl (Shipgirl-upset-open): Oh boy, my head hurts. I guess it's because of the workload today. I was on the deck the whole day. I need vacations... Hum... As a Shipgirl, I don't have vacations.
 			shipgirl (Shipgirl-smile-open): Can't wait to be promoted then!
+	- Ok, I gess she might improve our productivity.
 - Yeah. It was alright.
 	shipgirl (Shipgirl-upset-close): I'm washed out today too. So much work... Thanks for the coffee!
+	shipgirl (Shipgirl-upset-close): You look worried. Are you all right?
+	shipgirl (Shipgirl-smile-close): Com'on! Cheer up! If you like, we can have a beer after work. I'm sure you won't be thinking about your troubles after the special pint they serve!
+	jump skip
 shipgirl (Shipgirl-upset-close): You look worried. Are you all right?
 shipgirl (Shipgirl-smile-close): Com'on! Cheer up! If you like, we can have a beer after work. I'm sure you won't be thinking about this {navigator1_name} after the special pint they serve!
 - Thank you. I think I will join!
@@ -57,6 +60,7 @@ shipgirl (Shipgirl-smile-open): They are so fascinating! You are so lucky!
 		shipgirl (Shipgirl-smile-close): I will try to lurk around and gather information. I'll keep you informed. You can count on me!
 	- Nothing. Forget about it.
 - *Silently nod*
+*radio call* {shipgirl_number} report.
 
 [wait time="1.0"]
 

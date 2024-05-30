@@ -1,12 +1,12 @@
 join "navigator 1" 1
 "navigator 1": ...Hey {mc_code}, congrats. I'm happy to be able to call you by your new name. It really suits you. Must feel like some kind of rebirth for you, after months of being called by numbers...
-- "You seem a bit out of it"
+- You seem a bit out of it
 "navigator 1" (Bernard-Hub-upset-close): Ha... Sorry, I know we should be celebrating. I'm really happy for you but... I'm just... having hard time with the whole corporate stuff lately. I'm glad you're fitting better than me, though.
 "navigator 1" (Bernard-Hub-smile-close): Maybe I'm the one hearing the Siren's call, ah-ah...
 - Do you want to talk about it?
-	"navigator 1" (Bernard-Hub-upset-close): Now is not the moment, but... yeah. Maybe another day. I'm just asking myself a lot of questions, about our purpose, what we are really doing in the {sea_name}... stuff like that.
+	"navigator 1" (Bernard-Hub-upset-close): Now is not the right time, but... yeah. Maybe another day. I'm just asking myself a lot of questions, about our purpose, what we are really doing in the {sea_name}... stuff like that.
 - *Stay silent*
-"navigator 1" (Bernard-Hub-smile-close): Aah... I shouldn't bother you any longer with my ramblings when you should be enjoying your night. I'll just... head back to my room for now.
+"navigator 1" (Bernard-Hub-smile-close): Aah... I shouldn't bother you any longer with my ramblings when you deserve to be enjoying your night. I'll just... head back to my room for now.
 "navigator 1": Sorry to leave so early... tomorrow's coffee will be on me. It will be after the mission, though, because you'll be send into the {sea_name} very early.
 "navigator 1" (Bernard-Hub-smile-open): Have fun tonight, {mc_code}.
 [end_timeline]

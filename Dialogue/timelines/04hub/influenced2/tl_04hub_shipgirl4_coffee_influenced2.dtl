@@ -1,21 +1,21 @@
 join shipgirl 1
 shipgirl: Congratulations on getting a Code name, Tide!
 shipgirl: I wanted you to know, you're really my role model, honest! I hope I'll be the same kind of pilot as you. I'm sure you'll become Captain one day!
-shipgirl (Shipgirl-smile-close): Hey, is that happens, don't forget about me, okay? Remember how shiny and chrome your ship was everytime you went aboard it!
+shipgirl (Shipgirl-smile-close): Hey, is that happens, don't forget about me, okay? Remember how shiny and chrome your ship was every time you went aboard it!
 - Yeah, I'll give you a great paygrade too
 	shipgirl (Shipgirl-smile-open): Really?! Yay, haha! I vote for you!
 	shipgirl (Shipgirl-upset-close): Too bad that's not how it works.
 - *Stay silent*
-shipgirl(Shipgirl-upset-open): ... You seem preoccupied. Did something happen? Was the weather really that bad in the {sea_name}?
+shipgirl (Shipgirl-upset-open): ... You seem preoccupied. Did something happen? Was the weather really that bad in the {sea_name}?
 - Tell her about what you saw
-	shipgirl (Shipgirl-upset-close):Oh, that's... weird. I don't know what to think. But, I checked your detectors' log earlier, they didn't report any anomaly. Are you sure of what you saw...?
-	shipgirl (Shipgirl-upset-close):The Captain is not giving you a lot of rest between missions. I know the orders come from above him but... that's not helping you.
-	shipgirl (Shipgirl-upset-open):I've heard that they plan to give us therapy tickets. It will give us one free appointment per month. Maybe you should ask for some? The registration file is a bit hard to understand, though.
+	shipgirl (Shipgirl-upset-close): Oh, that's... weird. I don't know what to think. But, I checked your detectors' log earlier, they didn't report any anomaly. Are you sure of what you saw...?
+	shipgirl (Shipgirl-upset-close): The Captain is not giving you a lot of rest between missions. I know the orders come from above him but... that's not helping you.
+	shipgirl (Shipgirl-upset-open): I've heard that they plan to give us therapy tickets. It will give us one free appointment per month. Maybe you should ask for some? The registration file is a bit hard to understand, though.
 	shipgirl (Shipgirl-upset-close): Still, you're worrying me... I'll see if I hear similar rumors from the other pilots.
 - Spare her the details
-shipgirl(Shipgirl-upset-close): ...I'm worried about {navigator1_name}, too. He was really out of it earlier when I tried to talk to him. I saw him being scolded by the Captain, and he was GLARING back at him.
-	shipgirl (Shipgirl-upset-open):{navigator1_name} sure has guts. He's so laid-back usually that I didn't realize that. Captain {captain_name} is a nice man and all, but he scares me when he's angry.
-shipgirl(Shipgirl-upset-close):I hope everyone will be alright tomorrow. I should go to sleep soon. Your departure is set really early. I have to wake up in the middle of the night to get your ship ready on time. 
-shipgirl (Shipgirl-upset-open):Too bad the hierarchy didn't let you have one day of break...
-shipgirl (Shipgirl-smile-close):Good night {mc_code}! 
+shipgirl (Shipgirl-upset-close): ...I'm worried about {navigator1_name}, too. He was really out of it earlier when I tried to talk to him. I saw him being scolded by the Captain, and he was GLARING back at him.
+shipgirl (Shipgirl-upset-open): {navigator1_name} sure has guts. He's so laid-back usually. Captain {captain_name} is a nice man and all, but he scares me when he's angry.
+shipgirl (Shipgirl-upset-close): I hope everyone will be alright tomorrow. I should go to sleep soon. Your departure is set really early. I have to wake up in the middle of the night to get your ship ready on time.
+shipgirl (Shipgirl-upset-open): We won't even have time for our morning coffee routine... Too bad the hierarchy didn't even let you have one day of break...
+shipgirl (Shipgirl-smile-close): Good night {mc_code}!
 [end_timeline]
