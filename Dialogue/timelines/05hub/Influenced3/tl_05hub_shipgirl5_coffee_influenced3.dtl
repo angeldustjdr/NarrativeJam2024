@@ -1,68 +1,40 @@
-join shipgirl 1
-shipgirl (Shipgirl-smile-close): How's it going? How was your mission today?
+join shipgirl (Shipgirl-upset-close) 1
+shipgirl (Shipgirl-smile-close): Oh, hey {mc_code}... How's it going? How was your mission today?
 - Where is {navigator1_name}?
-	shipgirl (Shipgirl-upset-close): Hum... Well. This name rings a bell but I can't seem to remember. Did you check in the employee's log? Maybe you can find in which department he works.
-	- You don't remember {navigator1_name}?
-		shipgirl (Shipgirl-upset-open): No. I... I don't remember. I really don't. I promise.
-		shipgirl (Shipgirl-upset-open): Oooooh... My brain hurts.
-		shipgirl (Shipgirl-upset-open): I guess it's because of the workload today. I was on the deck the whole day. I need vacations... Hum... As a Shipgirl, I don't have vacations.
-		shipgirl (Shipgirl-smile-open): Can't wait to be promoted then!
-	- What are you hiding?
-		shipgirl (Shipgirl-upset-close): N... Nothing! Why would I hide something from you. You are the only one who is nice with me!
-		shipgirl (Shipgirl-upset-open): You know what? I'll ask around. If I have informations, I'll come back to you.
-		shipgirl (Shipgirl-upset-open): Oh boy, my head hurts. I guess it's because of the workload today. I was on the deck the whole day. I need vacations... Hum... As a Shipgirl, I don't have vacations.
-		shipgirl (Shipgirl-smile-open): Can't wait to be promoted then!
+	shipgirl (Shipgirl-upset-close): Bernard... Nobody wanted to tell me, either... Did you check in the employee's log? Maybe with your {pilot_name}'s rights you can find if he was transferred elsewhere.
+	- Are you sure you don't know anything?...
+		shipgirl (Shipgirl-upset-close): N... Nothing! Why would I hide something from you? You and Bernard were the only one who were nice with me!
+		shipgirl (Shipgirl-upset-open): You know what? I'll ask around again. If I get any information, I'll come back to you, I promise!
+		shipgirl (Shipgirl-upset-close): Oh boy, my head hurts. I guess it's because of the workload today. I was on the deck the whole day. I need vacations... but, as a Shipgirl, I don't have any.
+		shipgirl (Shipgirl-upset-close): *sigh* Can't wait to be promoted.
+	- Tell her about {navigator1_name}'s strange behaviour lately
+		shipgirl (Shipgirl-upset-open): {navigator1_name} was insistent that you go back to the previous islets? He was suspicious of something regarding them?
+		shipgirl (Shipgirl-upset-close): Oh, no... He shouldn't have asked you that, it's dangerous to stay too long in the {sea_name}. Was he suffering of the Siren's Call? He's the Navigator, though, he shouldn't be affected by it...
+		shipgirl (Shipgirl-upset-close): ... If you want to check one of the previous island anyway, please be careful. And don't get caught by the Captain. There are severe disciplinary measures for insubordinates and deserters.
 - Do you know {navigator2_code}?
-	shipgirl (Shipgirl-smile-open): No, it's the first time I work with her! But she is great nah? She is so professional. So stoic.
-	shipgirl (Shipgirl-smile-close): It's like she could handle any situation without a sweat.
-	shipgirl (Shipgirl-smile-open): Plus, she has been employee of the month for almost half a year! She's a beast!
+	shipgirl (Shipgirl-smile-close): No, it's the first time I work with her! But she looks great, doesn't she?
+	shipgirl (Shipgirl-smile-open): It's like she could handle any situation without a sweat.
+	shipgirl (Shipgirl-smile-close): Plus, she has been employee of the month for almost half a year! She's a queen!
 	- Why is she replacing {navigator1_name}?
-		shipgirl (Shipgirl-upset-close): Who ?
-		- You don't remember {navigator1_name}?
-			shipgirl (Shipgirl-upset-open): No. I... I don't remember. I really don't. I promise.
-			shipgirl (Shipgirl-upset-open): Oooooh... My brain hurts.
-			shipgirl (Shipgirl-upset-open): I guess it's because of the workload today. I was on the deck the whole day. I need vacations... Hum... As a Shipgirl, I don't have vacations.
-			shipgirl (Shipgirl-smile-open): Can't wait to be promoted then!
-		- What are you hiding?
-			shipgirl (Shipgirl-upset-close): N... Nothing! Why would I hide something from you. You are the only one who is nice with me!
-			shipgirl (Shipgirl-upset-open): You know what? I'll ask around. If I have informations, I'll come back to you.
-			shipgirl (Shipgirl-upset-open): Oh boy, my head hurts. I guess it's because of the workload today. I was on the deck the whole day. I need vacations... Hum... As a Shipgirl, I don't have vacations.
-			shipgirl (Shipgirl-smile-open): Can't wait to be promoted then!
-	- Ok, I gess she might improve our productivity.
+		shipgirl (Shipgirl-upset-close): Well... I have been wondering the same, but nobody answered when I asked. I even got scolded by the Captain. He told me to never say that name again.
+		shipgirl (Shipgirl-upset-open): ... I'm going to miss him. He was so kind and funny.
+	- Ok, I guess she might improve our productivity.
 - Yeah. It was alright.
-	shipgirl (Shipgirl-upset-close): I'm washed out today too. So much work... Thanks for the coffee!
-	shipgirl (Shipgirl-upset-close): You look worried. Are you all right?
-	shipgirl (Shipgirl-smile-close): Com'on! Cheer up! If you like, we can have a beer after work. I'm sure you won't be thinking about your troubles after the special pint they serve!
-	jump skip
-shipgirl (Shipgirl-upset-close): You look worried. Are you all right?
-shipgirl (Shipgirl-smile-close): Com'on! Cheer up! If you like, we can have a beer after work. I'm sure you won't be thinking about this {navigator1_name} after the special pint they serve!
-- Thank you. I think I will join!
-	shipgirl (Shipgirl-smile-open): Great! I'm looking forward to it! We'll meeting after the extra-hours I need to work.
-- No thanks. I'm not in the mood.
-	shipgirl (Shipgirl-smile-open): No problem. I understand. I need to work extra-hours anyway!
-
-shipgirl (Shipgirl-smile-close): And by the way, you did talk with more ghosties, am I right?
-shipgirl (Shipgirl-smile-open): They are so fascinating! You are so lucky!
-- I think they changed, {shipgirl_name}.
-	shipgirl (Shipgirl-upset-close): Wh... What ? What do you mean?
-	- I think the {beacon} changes their mind
-		shipgirl (Shipgirl-upset-close): Are... you sure? I mean...
-		shipgirl (Shipgirl-upset-open): Now that I think about it, you might be right. It's not a normal phenomenon.
+	shipgirl (Shipgirl-smile-close): I'm glad, then!
+shipgirl (Shipgirl-smile-close): Did you see anything interesting during your mission with {navigator2_code}?
+- I went back to one of the previous islet.
+	shipgirl (Shipgirl-upset-open): Wh... What ? What do you mean?
+	- I think the {beacon} influence the people's mind.
+		shipgirl (Shipgirl-upset-open): Are... you sure? I mean...
 		shipgirl (Shipgirl-upset-close): Do you think we need to alert the management?
 		shipgirl (Shipgirl-upset-close): ...
-		shipgirl (Shipgirl-upset-open): No. Let's not do that. It's the best way to get fired. Or worse. Did you know that MindSail had a Disciplinary Section?
-		shipgirl (Shipgirl-smile-close): I will try to lurk around and gather information. I'll keep you informed. You can count on me!
-	- MindSail is behind this conspiracy
-		shipgirl (Shipgirl-upset-close): Are... you sure? I mean...
-		shipgirl (Shipgirl-upset-close): At first, I was thinking of {beacon} malfunctioning. But now that you mention it, maybe the company has other plans.
-		shipgirl (Shipgirl-upset-open): We can definitly not trust the Captain then.
-		shipgirl (Shipgirl-upset-open): Let's try to be cautious. I don't want to get fired. Or worse. Did you know that MindSail had a Disciplinary Section?
-		shipgirl (Shipgirl-smile-close): I will try to lurk around and gather information. I'll keep you informed. You can count on me!
+		shipgirl (Shipgirl-upset-close): No. Let's not do that. We don't even know what has happened to {navigator1_name} yet. We could risk our carriers, or worse...
+		shipgirl (Shipgirl-upset-open): Don't do anything reckless until we know more, alright? Let's wait and see for now.
 	- Nothing. Forget about it.
-- *Silently nod*
-*radio call* {shipgirl_number} report.
-
-[wait time="1.0"]
-
-shipgirl (Shipgirl-smile-open): Woops, I'm needed at the hangar bay. See you later. Thanks again for the coffee !
+- Just the usual.
+shipgirl (Shipgirl-smile-close): Hey, hum... how about we have a beer after work, for once? It'll cheer up the mood a bit. Everyone seems a bit down since, well... and you know, I don't think {navigator1_name} would be happy to see us brooding over his absence like this.
+- Thank you. I think I will join!
+	shipgirl (Shipgirl-smile-open): Great! I'm looking forward to it! We'll meet after the extra-hours I need to work. Thanks again for the coffee!
+- No thanks. I'm not in the mood.
+	shipgirl (Shipgirl-upset-close): No problem. I understand... See you later, then. I'm needed at the hangar bay. Thanks for the coffee.
 [end_timeline]

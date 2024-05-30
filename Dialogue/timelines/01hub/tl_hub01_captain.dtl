@@ -1,15 +1,6 @@
 join captain (Captain-smile-close) 1
 captain (Captain-smile-open): Welcome to team 7!
-captain (Captain-smile-open): You will be working with {shipgirl_name}, she's your shipgirl, think of her as an assistant and an apprentice.
-join shipgirl (Shipgirl-smile-close) 3 [animation="Slide In Right"]
-shipgirl (Shipgirl-smile-close): *wave*
-leave shipgirl [animation="Slide Out Right"]
-captain (Captain-smile-open): You can order her any desk job, low or moderately technical task, she should be able to handle it.
-captain (Captain-smile-open): {navigator1_code} is your navigator, you are equal in ranking. He will guide you through the {sea_name} and relay orders from mission-command.
-join "navigator 1" (Bernard-Hub-smile-close) 3 [animation="Slide In Right"]
-"navigator 1" (Bernard-Hub-upset-close): Ugh... Please call me {navigator1_name} instead. *thumbs up*
-leave "navigator 1" [animation="Slide Out Right"]
-captain (Captain-smile-open): Good! Now, I have time for about ... Hum ... let's say two questions. Go ahead.
+captain (Captain-smile-open): I have time for about ... Hum ... let's say two questions. Go ahead.
 - Could you tell me more about the {sea_name}?
 	captain (Captain-smile-open): It's a weird place, created by the thoughts and emotions of everyone. It's not really a physical space, but through our technology we can give it a shape and interact with it.
 	captain (Captain-smile-open): We can sail through the {sea_name} as we would in the ocean, except our boat is more like a spaceship. You trained in the simulation, so you know how the ship is.
