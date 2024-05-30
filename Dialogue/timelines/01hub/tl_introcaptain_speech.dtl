@@ -55,6 +55,6 @@ join "navigator 1" (Bernard-Hub-smile-close) 3 [animation="Slide In Right"]
 "navigator 1" (Bernard-Hub-upset-close): Ugh... Please call me {navigator1_name} instead. *thumbs up*
 leave "navigator 1" [animation="Slide Out Right"]
 captain (Captain-smile-close): Your break room is at the end of this corridor, on the left.
-captain (Captain-smile-open): Take those credits, you can meet your co-worker by offering them a cup of coffee.
+captain (Captain-smile-open): Take those credits, you can get to know each other by offering them a cup of coffee.
 captain (Captain-smile-close): I'll join shortly if you have questions.
 [end_timeline]

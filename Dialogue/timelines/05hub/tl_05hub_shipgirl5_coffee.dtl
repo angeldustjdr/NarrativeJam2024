@@ -23,7 +23,9 @@ shipgirl (Shipgirl-smile-close): Oh, hey {mc_code}... How's it going? How was yo
 	shipgirl (Shipgirl-smile-close): I'm glad, then!
 shipgirl (Shipgirl-smile-close): Hey, hum... how about we have a beer after work, for once? It'll cheer up the mood a bit. Everyone seems a bit down since, well... and you know, I don't think {navigator1_name} would be happy to see us brooding over his absence like this.
 - Thank you. I think I will join!
-	shipgirl (Shipgirl-smile-open): Great! I'm looking forward to it! We'll meet after the extra-hours I need to work. Thanks again for the coffee!
+	shipgirl (Shipgirl-smile-open): Great! I'm looking forward to it! We'll meet after my overtime shift. 
 - No thanks. I'm not in the mood.
-	shipgirl (Shipgirl-upset-close): No problem. I understand... See you later, then. I'm needed at the hangar bay. Thanks for the coffee.
+	shipgirl (Shipgirl-upset-close): No problem. I understand... 
+*radio call* {shipgirl_number} report.
+shipgirl (Shipgirl-upset-close): I'm needed at the hangar bay. Thanks again for the coffee!
 [end_timeline]
