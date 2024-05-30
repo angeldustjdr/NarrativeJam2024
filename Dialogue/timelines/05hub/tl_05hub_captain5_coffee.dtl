@@ -2,23 +2,23 @@ join captain (Captain-smile-close) 1
 captain (Captain-smile-open): If you were dedicated to the mission as much as you are to this coffee machine, we would have already mapped all of our {sea_name} allocated space.
 captain (Captain-smile-open): Haha, I'm joking, I'm joking.
 captain (Captain-upset-closed): Or am I? *stare*
-- "You seem to be in a good mood, your meeting went well?"
+- You seem to be in a good mood, your meeting went well?
 	captain (Captain-smile-open): You are observant.
 	captain (Captain-smile-close): I just got a bonus on my paygrade.
-	- "Oh. Congratulation I gess..."
+	- Oh. Congratulation I gess...
 		captain (Captain-smile-open): I deserved it.
-	- "I bet it's linked to my navig..."
+	- I bet it's linked to my navig...
 		captain (Captain-upset-closed): DO. NOT!
 		captain (Captain-upset-open): I'm going to review your report. You're dissmissed
 		[end_timeline]
-- "Nice one Cap', but your coffee addiction is way worse than mine!"
+- Nice one Cap', but your coffee addiction is way worse than mine!
 	captain (Captain-smile-open): Touché!
-	- "A miracle that the rain stopped during the night. Mission was a smooth ride compared to yesterday. "
+	- A miracle that the rain stopped during the night. Mission was a smooth ride compared to last month.
 		captain (Captain-smile-open): You said it!
-	- "Haha."
-- "Are you?"
+	- Haha.
+- Are you?
 	captain (Captain-smile-close): Am I?
-- "What about my navigator, was he joke to you?"
+- What about my navigator, was he joke to you?
 	captain (Captain-upset-closed): DO. NOT!
 	captain (Captain-upset-closed): I'm going to review your report. You're dissmissed
 	[end_timeline]

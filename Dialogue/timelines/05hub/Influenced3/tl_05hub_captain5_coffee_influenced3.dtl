@@ -2,41 +2,41 @@ join captain (Captain-smile-close) 1
 captain (Captain-smile-open): If you were dedicated to the mission as much as you are to this coffee machine, we would have already mapped all of our {sea_name} allocated space.
 captain (Captain-smile-open): Haha, I'm joking, I'm joking.
 captain (Captain-upset-closed): Or am I? *stare*
-- "You seem to be in a good mood, your meeting went well?"
+- You seem to be in a good mood, your meeting went well?
 	captain (Captain-smile-open): You are observant.
 	captain (Captain-smile-close): I just got a bonus on my paygrade.
-	- "Oh. Congratulation I gess..."
+	- Oh. Congratulation I gess...
 		captain (Captain-smile-open): I deserved it.
-	- "I bet it's linked to my navig..."
+	- I bet it's linked to my navig...
 		captain (Captain-upset-closed): DO. NOT!
 		captain (Captain-upset-open): I'm going to review your report. You're dissmissed
 		[end_timeline]
-- "Nice one Cap', but your coffee addiction is way worse than mine!"
+- Nice one Cap', but your coffee addiction is way worse than mine!
 	captain (Captain-smile-open): Touché!
-	- "A miracle that the rain stopped during the night. Mission was a smooth ride compared to yesterday. "
+	- A miracle that the rain stopped during the night. Mission was a smooth ride compared to yesterday.
 		captain (Captain-smile-open): You said it!
-	- "Haha."
-- "Are you?"
+	- Haha.
+- Are you?
 	captain (Captain-smile-close): Am I?
-- "What about my navigator, was he joke to you?"
+- What about my navigator, was he joke to you?
 	captain (Captain-upset-closed): DO. NOT!
 	captain (Captain-upset-closed): I'm going to review your report. You're dissmissed
 	[end_timeline]
-- "I went back to the previous islets..."
+- I went back to the previous islets...
 	captain (Captain-upset-open): *raising voice* {mc_name} you were told not to.
 	captain (Captain-upset-open): Is there something wrong with you?
-	- "Sir, I think we can have an impact on the projections.  I think we might be doing something wrong..."
+	- Sir, I think we can have an impact on the projections.  I think we might be doing something wrong...
 		captain (Captain-upset-open): Are you out of your mind? It's nonsense!
 		captain (Captain-upset-open): That's the last time I hear about this. Focus only on your job or I'll order you to pass a psych eval.
-		- "I'm sorry Captain, I'm not doing that again."
+		- I'm sorry Captain, I'm not doing that again.
 			captain (Captain-upset-closed): Better not!
 			captain (Captain-upset-closed): I'm going to review your report. You're dissmissed
 			[end_timeline]
-		- "Understoud ..."
+		- Understoud ...
 			captain (Captain-upset-closed): I hope so!
 			captain (Captain-upset-closed): I'm going to review your report. You're dissmissed
 			[end_timeline]
-	- "I was distracted and made a mistake. Please accept my apology.
+	- I was distracted and made a mistake. Please accept my apology.
 		captain (Captain-upset-closed): Well... At least you are honest. I urge you to be more focused.
 captain (Captain-smile-close): Thank you for the coffee, I'm going to review your report. You're dissmissed
 [end_timeline]

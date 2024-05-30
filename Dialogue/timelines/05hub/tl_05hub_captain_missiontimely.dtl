@@ -1,17 +1,17 @@
 # #[background arg="res://assets/graphics/backgrounds/Intro.png" fade="0.0"]
 join captain 1
 captain: You just beat your record {mc_code}, well done. Your aptitude does not stop to amaze me!
-- "Where is {navigator1_name}? Why do I have a new navigation?"
+- Where is {navigator1_name}? Why do I have a new navigation?
 	captain (Captain-upset-open): I'm not at liberty to say. I apologize.
 	captain (Captain-smile-close): Warden is our best navigator, I through making the two of you would benefit your assignment.
-	- "I don't care about Warden, I want {navigator1_name} back!"
+	- I don't care about Warden, I want {navigator1_name} back!
 		captain (Captain-upset-closed): Watch your tone! Remember who you are talking to!
 		captain (Captain-upset-open): {navigator1_name} is no longer with us. The sooner you accommodate with this information the better.
-		- "I don't understand, we just celebrated for my code name yesterday, what happened?"
+		- I don't understand, we just celebrated for my code name yesterday, what happened?
 			captain (Captain-upset-open): *raising voice* End of discussion, worker!
 		- I apologize, Sir. It won’t happen again.
 			captain (Captain-upset-closed): I hope so!
-	- "Okay, I'll try to get along I guess ..."
+	- Okay, I'll try to get along I guess ...
 		captain (Captain-smile-close): Perfect then.
 - Thank you for the compliment, Cap'.
 	captain (Captain-upset-open): You're very welcome.
