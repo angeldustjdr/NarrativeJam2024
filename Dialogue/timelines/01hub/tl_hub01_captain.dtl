@@ -10,49 +10,49 @@ join "navigator 1" (Bernard-Hub-smile-close) 3 [animation="Slide In Right"]
 "navigator 1" (Bernard-Hub-upset-close): Ugh... Please call me {navigator1_name} instead. *thumbs up*
 leave "navigator 1" [animation="Slide Out Right"]
 captain (Captain-smile-open): Good! Now, I have time for about ... Hum ... let's say two questions. Go ahead.
-- "Could you tell me more about the {sea_name}?"
+- Could you tell me more about the {sea_name}?
 	captain (Captain-smile-open): It's a weird place, created by the thoughts and emotions of everyone. It's not really a physical space, but through our technology we can give it a shape and interact with it.
 	captain (Captain-smile-open): We can sail through the {sea_name} as we would in the ocean, except our boat is more like a spaceship. You trained in the simulation, so you know how the ship is.
 	captain (Captain-smile-open): There form islets, which are clusters of ideas and thoughts belonging to people who are in the same area as the {hub_name}.
 	captain (Captain-smile-open): That's where we need to chart and collect data.
-	- "Could you tell me more about {armada_name}?"
+	- Could you tell me more about {armada_name}?
 		captain (Captain-smile-open): Well, you know that {armada_name} is a mega-corporation that does, about everything. Our Department is specialized in the {sea_name} data collection, analytics and research.
 		captain (Captain-smile-open): As a {pilot_name}, you will have exploration and data collection assignments. Having access to the {sea_name} during missions is a privilege, so be proud of what you will accomplish.
 		captain (Captain-smile-open): You can check the chain of command and career paths of our branch on the chart here in the break room.
-	- "How can we enter people mind?"
+	- How can we enter people mind?
 		captain (Captain-upset-close): Do I look like a science guy?
 		captain (Captain-smile-close): All I know is that a bunch of lab-coats made up some machine that makes us whoosh into the unknown.
 		captain (Captain-smile-close): We don't actually go inside people’s heads, it's some kind of dimension projected by their thoughts... If I recall correctly.
 		captain (Captain-smile-close): That's all I can tell about that.
-- "Could you tell me more about {armada_name}?"
+- Could you tell me more about {armada_name}?
 	captain (Captain-smile-open): Well, you know that {armada_name} is a mega-corporation that does, about everything. Our Department is specialized in the {sea_name} data collection, analytics and research.
 	captain (Captain-smile-open): As a {pilot_name}, you will have exploration and data collection assignments. Having access to the {sea_name} during missions is a privilege, so be proud of what you will accomplish.
 	captain (Captain-smile-open): You can check the chain of command and career paths of our branch on the chart here in the break room.
-	- "Could you tell me more about the {sea_name}?"
+	- Could you tell me more about the {sea_name}?
 		captain (Captain-smile-open): It's a weird place, created by the thoughts and emotions of everyone. It's not really a physical space, but through our technology we can give it a shape and interact with it.
 		captain (Captain-smile-open): We can sail through the {sea_name} as we would in the ocean, except our boat is more like a spaceship. You trained in the simulation, so you know how the ship is.
 		captain (Captain-smile-open): There are even islets, which are clusters of ideas and thoughts belonging to people who are in the same area as the {hub_name}.
 		captain (Captain-smile-open): That's where we need to chart and collect data.
-	- "How can we enter people mind?"
+	- How can we enter people mind?
 		captain (Captain-smile-open): Do I look like a science guy?
 		captain (Captain-smile-open): All I know is that a bunch of lab-coats made up some machine that makes us whoosh into the unknown.
 		captain (Captain-smile-open): We don't actually go inside people’s heads , it's some kind of new dimension I think they say.
 		captain (Captain-smile-open): That's all I can tell about that.
-- "How can we enter people mind?"
+- How can we enter people mind?
 	captain (Captain-smile-open): Do I look like a science guy?
 	captain (Captain-smile-open): All I know is that a bunch of lab-coats made up some machine that makes us whoosh into the unknown.
 	captain (Captain-smile-open): We don't actually go inside people’s heads , it's some kind of new dimension I think they say.
 	captain (Captain-smile-open): That's all I can tell about that.
-	- "Could you tell me more about {armada_name}?"
+	- Could you tell me more about {armada_name}?
 		captain (Captain-smile-open): Well, you know that {armada_name} is a megacorporation that does, about everything. Here we are specialized in applied research, data collection and analytics.
 		captain (Captain-smile-open): As a {pilot_name}, you will have exploration and data collection assignments. Having access to the {sea_name} during missions is a privilege, so be proud of what you will accomplish.
 		captain (Captain-smile-open): You can check the chain of command and career paths of our branch on the chart here in the break room.
-	- "Could you tell me more about the {sea_name}?"
+	- Could you tell me more about the {sea_name}?
 		captain (Captain-smile-open): It's a weird place, created by the thoughts and emotions of everyone. It's not really a physical space, but through our technology we can give it a shape and interact with it.
 		captain (Captain-smile-open): We can sail through the {sea_name} as we would in the ocean, except our boat is more like a spaceship. You trained in the simulation, so you know how the ship is.
 		captain (Captain-smile-open): There are even islets, which are clusters of ideas and thoughts belonging to people who are in the same area as the {hub_name}.
 		captain (Captain-smile-open): That's where we need to chart and collect data.
-- "I don't have any questions."
+- I don't have any questions.
 	captain (Captain-smile-open): Alright then.
 	jump end
 captain (Captain-smile-open): Good talk! I have to go now.

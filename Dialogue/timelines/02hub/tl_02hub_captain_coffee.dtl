@@ -2,65 +2,65 @@ join captain (Captain-smile-close) 1
 captain (Captain-smile-open): Good Morning {mc_name}.
 captain (Captain-smile-open): You have been working hard for the past month, and management is pleased with the result from the exploitation of the data extractor you placed on your first mission. Analysts think it's time to push further in the {sea_name} and set up another.
 captain (Captain-smile-open): Are you up to the task?
-- "Of course!"
+- Of course!
 	captain (Captain-smile-open): Great!
-- "Hum ... no?"
+- Hum ... no?
 	captain (Captain-smile-open): Haha, nice joke.
 captain (Captain-smile-open): Do you have any questions before you go?
-- "How does the data collectors works?"
+- How does the data collectors works?
 	captain (Captain-smile-open): Well, they tap on the frequencies of the islet they are set up on. Analyzing emotions and thoughts of peoples connected to the area.
 	captain (Captain-smile-open): Then the data are collected automatically and transferred to here.
 	captain (Captain-smile-open): After that the analysts do their magic and send feedback on adjustments to do with the extractor. That's why you have been doing daily trips to tweak the frequencies for the past month.
 	captain (Captain-smile-open): Now that they are confident about the setup, we can move to the next step.
-	- "What are the data are used for?"
+	- What are the data are used for?
 		captain (Captain-smile-open): Mostly for expanding our knowledge of the {sea_name}, to understand the formation patterns of the islets, understand why people are linked and how they are linked. Then it helps us map everything in the area and plan future missions.
-		- "What about the privacy of those people?"
+		- What about the privacy of those people?
 			captain (Captain-smile-open): Don't worry about that, everything is anonymized, plus everyone agreed to our term and service at one point in their life.
-		- "Thank you, I don't have any other questions."
+		- Thank you, I don't have any other questions.
 			captain (Captain-smile-open): Alright, then.
 			jump end
-	- "What about the privacy of those people?"
+	- What about the privacy of those people?
 		captain (Captain-smile-open): Don't worry about that, everything is anonymized, plus everyone agreed to our term and service at one point in their life.
-		- "What are the data are used for?"
+		- What are the data are used for?
 			captain (Captain-smile-open): Mostly for expanding our knowledge of the {sea_name}, to understand the formation patterns of the islets, understand why people are linked and how they are linked. Then it helps us map everything in the area and plan future missions.
-		- "Thank you, I don't have any other questions."
+		- Thank you, I don't have any other questions.
 			captain (Captain-smile-open): Alright, then.
 			jump end
-	- "Have you talked to one of the projections, in the {sea_name}?"
+	- Have you talked to one of the projections, in the {sea_name}?
 		captain (Captain-upset-open): I have, once. But I think talking to them is just misplaced curiosity. You don't know these people and they won't remember you. The only thing you gain is an increasing risk of falling for the Siren's call.
-		- "Have we lost anyone to the Siren's call recently?"
+		- Have we lost anyone to the Siren's call recently?
 			captain (Captain-upset-open): On this mothership, the last time was 4 months ago ... She thought she saw her dead wife. It was devastating to the crew's moral. Please, do come back in time.
-		- "Thank you, I don't have any other questions."
+		- Thank you, I don't have any other questions.
 			captain (Captain-smile-open): Alright, then.
 			jump end
-	- "Thank you, I don't have any other questions."
+	- Thank you, I don't have any other questions.
 		captain (Captain-smile-open): Alright, then.
 		jump end
-- "Have you talked to one of the projections, in the {sea_name}?"
+- Have you talked to one of the projections, in the {sea_name}?
 	captain (Captain-upset-open): I have, once. But I think talking to them is just misplaced curiosity. You don't know these people and they won't remember you. The only thing you gain is an increasing risk of falling for the Siren's call.
-	- "Have we lost anyone to the Siren's call recently?"
+	- Have we lost anyone to the Siren's call recently?
 		captain (Captain-upset-open): On this mothership, the last time was 4 months ago ... She thought she saw her dead wife. It was devastating to the crew's moral. Please, do come back in time.
-	- "How does the data collectors work?"
+	- How does the data collectors work?
 		captain (Captain-smile-open): Well, they tap on the frequencies of the islet they are set up on. Analyzing emotions and thoughts of peoples connected to the area.
 		captain (Captain-smile-open): Then the data are collected automatically and transferred to here.
 		captain (Captain-smile-open): After that the analysts do their magic and send feedback on adjustments to do with the extractor. That's why you have been doing daily trips to tweak the frequencies for the past month.
 		captain (Captain-smile-open): Now that they are confident about the setup, we can move to the next step.
-		- "What are the data are used for?"
+		- What are the data are used for?
 			captain (Captain-smile-open): Mostly for expanding our knowledge of the {sea_name}, to understand the formation patterns of the islets, understand why people are linked and how they are linked. Then it helps us map everything in the area and plan future missions.
-			- "What about the privacy of those people?"
+			- What about the privacy of those people?
 				captain (Captain-smile-open): Don't worry about that, everything is anonymized, plus everyone agreed to our term and service at one point in their life.
-			- "Thank you, I don't have any other questions."
+			- Thank you, I don't have any other questions.
 				captain (Captain-smile-open): Alright, then.
 				jump end
-		- "What about the privacy of those people?"
+		- What about the privacy of those people?
 			captain (Captain-smile-open): Don't worry about that, everything is anonymized, plus everyone agreed to our term and service at one point in their life.
-		- "Thank you, I don't have any other questions."
+		- Thank you, I don't have any other questions.
 			captain (Captain-smile-open): Alright, then.
 			jump end
-	- "Thank you, I don't have any other questions."
+	- Thank you, I don't have any other questions.
 		captain (Captain-smile-open): Alright, then.
 		jump end
-- "No."
+- No.
 	captain (Captain-smile-open): Alright, then.
 label end
 captain (Captain-smile-open): Remember to watch the time you stay in there.

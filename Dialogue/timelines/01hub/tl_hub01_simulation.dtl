@@ -1,8 +1,8 @@
 join "navigator 1" 1
 "navigator 1" (Bernard-Hub-smile-close): Alright. I'm sure you know the drill, but I'm obligated to follow the procedure, okay?
 "navigator 1" (Bernard-Hub-smile-open): First of all, you can use your Z/W to move forward, and Q/A and D to turn. Alternatively, you can use arrows.
-"navigator 1" (Bernard-Hub-smile-close): If you need to pause, press Tab and take a deep breath!\
-It might even [color=#2e86c1]save[/color] you some time.
+"navigator 1" (Bernard-Hub-smile-close): If you need to pause, press Tab and take a deep breath!
+"navigator 1": It might even [color=#2e86c1]save[/color] you some time.
 "navigator 1" (Bernard-Hub-smile-close): Also, there is a phenomenon called "Siren's Call". If a Sailor stays too long in the {sea_name}, they may start to lose their sense of reality.
 "navigator 1" (Bernard-Hub-smile-close): That can lead to severe depression and desillusion when back into our world. In the worst case scenarios, some Sailors might never return from the {sea_name}
 "navigator 1" (Bernard-Hub-smile-close): In order to avoid loosing Sailors, {armada_name} has decided to time missions. So mind the timer at the top of the control panel.

@@ -3,7 +3,7 @@ captain (Captain-smile-open): Good Morning Recruits, Juniors and Stewards.
 captain (Captain-smile-open): I’m Captain {captain_name}. Some might know me, the rest will soon enough.
 captain (Captain-smile-open): Today, I want to talk about what are my expectations for you, the employees, as new additions to {armada_name}™.
 captain (Captain-smile-open): You have now the privilege of being part of the numerous crew members of my {hub_name} belonging to Admiral {admiral_name}'s fleet, part of the dozens of {armada_name}™'s Exploration Branch's fleets under the command of Grand Admiral {grandadmiral_name}.
-captain (Captain-smile-open): Those of you who have signed to be {pilot_name}s will have to sail into the uncharted territory that is the {sea_name}. A strange place where you can drift among the collective subconscious thanks to {armada_name}™'s technology.
+captain (Captain-smile-open): Those of you who have signed to be {pilot_name}s will have to sail into the uncharted territory and breach the new frontier that is the {sea_name}. A strange place where you can drift among the collective subconscious thanks to {armada_name}™'s technology.
 captain (Captain-smile-open): With the guidance of their Navigators, {pilot_name}s will explore the {sea_name} and set {beacon}s on the psychosocial islets that form in this new dimension. This will help researchers better understand how people's minds work and interact with each other.
 captain (Captain-smile-open): The techs and deckhands will support the sailors with equipment and ship maintenance. I expect all of you to work hand in hand to build a brighter future for our society together.
 - Stay Focused
@@ -39,11 +39,11 @@ captain: You, I saw you snooze during the brief. You've got to be more focus if 
 jump Orientation
 label Orientation
 captain (Captain-smile-open): What is your CCID?
-- "My what?"
+- My what?
 	captain (Captain-upset-open): *sigh* Your chain code identification.
 	captain (Captain-upset-open): Three letters for your post, fleet designation, {hub_name}, and recruit number.
 label ID
-- "{mc_name}"
+- {mc_name}
 	captain (Captain-smile-close): Hmm, let me check... You are in team 7.
 captain (Captain-smile-close): Your break room is at the end of this corridor, on the left.
 captain (Captain-smile-open): Take those credits, you can meet your co-worker by offering them a cup of coffee.

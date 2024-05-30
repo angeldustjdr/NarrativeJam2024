@@ -1,18 +1,18 @@
 join shipgirl 1
 shipgirl (Shipgirl-smile-open): Hello {mc_name}! How are you today? Ready for your mission?
-- "Everything's fine"
+- Everything's fine
 	shipgirl: Wow! You're incredible! You and {navigator1_name} have been working so hard this past month. I don't know how you can keep it together so well. I have to become as strong as you!
-- "I wish I could rest more"
-	shipgirl (Shipgirl-upset-open): Right?! I'm dead tired, too. I know I shouldn't complain since my work is not as important as yours, but being a deckhand is so exhausting sometimes. 
+- I wish I could rest more
+	shipgirl (Shipgirl-upset-open): Right?! I'm dead tired, too. I know I shouldn't complain since my work is not as important as yours, but being a deckhand is so exhausting sometimes.
 	shipgirl: They didn't stop giving you missions this past month, so I had to sweat to keep up with the pace.
 shipgirl (Shipgirl-smile-close): But the good part of the work is listening to sailor stories. I love hearing about how the islets look like, and the interactions with the ghosties - I mean, the subconscious projections of people in the {sea_name}
 shipgirl (Shipgirl-smile-open): I wish I could see them too! Even if they can't really hear you, it must be nice to listen to them.
-- "How is your training going?"
-	shipgirl (Shipgirl-upset-close): Hum... good! I mean, really better, thanks to your instructions! But it's harder to fit with some colleagues than I thought. I'm always mocked for my mistakes. 
+- How is your training going?
+	shipgirl (Shipgirl-upset-close): Hum... good! I mean, really better, thanks to your instructions! But it's harder than I thought to fit in with some colleagues . I'm always mocked for my mistakes.
 	shipgirl: They say mean stuff like "Girls can't do it properly after all". Or they whisper about my robotic hand... But there are female pilots in other fleets... and my hand is working perfectly!
-	- "Fill a report on them for harassment"
-		shipgirl: Should I? I'm scared but... Maybe I should... 
-	- "Just ignore them and you'll be fine"
+	- Fill a report on them for harassment
+		shipgirl: Should I? I'm scared but... Maybe I should...
+	- Just ignore them and you'll be fine
 		shipgirl: Yeah... I will try harder. Good work always pays off, right?
 - *Ignore her*
 	shipgirl (Shipgirl-upset-close): ...
