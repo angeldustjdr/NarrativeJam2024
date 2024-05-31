@@ -12,7 +12,7 @@ var musics_names = {"placehold":"res://assets/musics/1-05. Negative Mass.mp3",
 					"title_corpo":"res://assets/musics/reserve/space epic cinematic journey-Rockot.mp3",
 					"title_pirate":"res://assets/musics/reserve/dark cyberpunk mechanical robotic future industrial dubstep-SoundGalleryDT.mp3",
 					"motivational":"res://assets/musics/hub/intro discours/starfleet command-geoffharvey.mp3",
-					"try_next_month_credits":"res://assets/musics/ending/try next month/Pixel Perfect.wav",
+					"try_next_month_credits":"res://assets/musics/ending/try next month/Pixel Perfect.mp3",
 					"pirate_credits":"res://assets/musics/ending/revolution/Music - Action.wav",
 					"fired_credits":"res://assets/musics/ending/return to hub/close-to-the-sun-205545.mp3"}
 
