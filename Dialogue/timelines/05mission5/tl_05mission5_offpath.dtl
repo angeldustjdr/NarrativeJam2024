@@ -1,7 +1,8 @@
 join "navigator 2" 1
 "navigator 2" (navigator2-upset-open): {mc_code} you are off course. What are you doing?
+- I'm picking up another signal.
 "navigator 2" (navigator2-upset-close): Another signal?
-"navigator 2" (navigator2-upset-open): I'm not seeing it. Are you sure you're not hallucinating? The {sea_name} can do that to {pilot_name} who have spend too much time immerged into the collective subconscious. 
+"navigator 2" (navigator2-upset-open): I'm not seeing it. Are you sure you're not hallucinating? The {sea_name} can do that to {pilot_name} who have spend too much time immerged into the collective subconscious.
 "navigator 2" (navigator2-upset-open): Whatever it is, do not follow it. It's too dangerous. Just follow the red ping.
 "navigator 2" (navigator2-upset-close): Come back to the mothership immediately.
 do GameState.advanceRevolution()
