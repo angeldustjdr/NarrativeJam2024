@@ -4,13 +4,13 @@ if {GameState.coffeeCredit} > 0:
 		set {character_choice} = {GameState.SHIPGIRL}
 	- {navigator1_name} [if {GameState.is_character_available(GameState.NAVIGATOR1)} == true][else="hide"]
 		set {character_choice} = {GameState.NAVIGATOR1}
-	- {navigator2_name} [if {GameState.is_character_available(GameState.NAVIGATOR2)} == true][else="hide"]
+	- {navigator2_code} [if {GameState.is_character_available(GameState.NAVIGATOR2)} == true][else="hide"]
 		set {character_choice} = {GameState.NAVIGATOR2}
 	- {captain_name} [if {GameState.is_character_available(GameState.CAPTAIN)} == true][else="hide"]
 		set {character_choice} = {GameState.CAPTAIN}
 	- No one
 		set {character_choice} = {GameState.NO_ONE}
 else:
-	Damn, no coffee credit left... I guess they limit the amount only to make our breaks are shorter...
+	Damn, no coffee credit left... I guess they limit the amount only to make our breaks shorter...
 	set {character_choice} = {GameState.NO_ONE}
 [end_timeline]

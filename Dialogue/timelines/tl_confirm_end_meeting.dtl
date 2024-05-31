@@ -11,5 +11,5 @@ if {GameState.coffeeCredit} == 1:
 	- No 
 		set {confirm_exit} = "false"
 if {GameState.coffeeCredit} == 0:
-		set {confirm_exit} = "true"
+	set {confirm_exit} = "true"
 [end_timeline]

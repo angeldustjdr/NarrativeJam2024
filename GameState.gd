@@ -638,6 +638,7 @@ func _init_ether_timer():
 	self._ether_timer.one_shot = true
 	self._ether_timer.timeout.connect(self._on_ether_timer_timeout)
 	self.add_child(self._ether_timer)
+	self._ether_timer.set_process_mode(Node.PROCESS_MODE_PAUSABLE)
 	# CHRONO
 	self._ether_chrono = Chrono.new()
 	self.add_child(self._ether_chrono)
