@@ -8,16 +8,16 @@ leave "navigator 2"
 	hacktivist (idle_portrait): Enough is enough. We aren't free anymore, even in our own minds!
 	- Try to dissuade the protester
 		hacktivist (idle_portrait): I know you are in there! In my mind! We have learned how to destroy your {beacon}s! And soon we will be stopping your harmful activities!
-		hacktivist (idle_portrait): You will not be safe, even in the so-called {sea_name}
+		hacktivist (idle_portrait): You will not be safe, even in the so-called {sea_name}. The white rabbit is out of the hole, you either follow it or get stuck in wonderlad.
 		hacktivist (idle_portrait): You cannot dissolve a popular movement. {armada_name}, and other Mega-corporations will go down. By any means necessary!
 	- Try to encourage the protester
 		hacktivist (idle_portrait): I know you are in there! In my mind!
 		hacktivist (idle_portrait): What? Are you encouraging us? Wow! That's unexpected...
 		hacktivist (idle_portrait): It means that there is a breach. There is hope. Even {armada_name} employees are with us.
-		hacktivist (idle_portrait): We will prevail!
+		hacktivist (idle_portrait): Don't get stuck in wonderland, follow the white rabbit! We will prevail!
 	- Just watch for a while
 		hacktivist (idle_portrait): They think that our lives and minds can be bought and sold. They are so wrong...
-		hacktivist (idle_portrait): The attack was just the beginning. We know how to counter them. We know how to sail the Cognisea. We will not stop. We are on the right side of history.
+		hacktivist (idle_portrait): The attack was just the beginning. We know how to counter them. We know how to sail the Cognisea. We will not stop. We are on the right side of history. The white rabbit is out of the hole, you either follow it or get stuck in wonderlad.
 		hacktivist (idle_portrait): Mark my words. The revolution has just begun! Until we put an end to the harmful activities of {armada_name} and all Mega-corporations, there will be no rest.
 
 - OK, you're right

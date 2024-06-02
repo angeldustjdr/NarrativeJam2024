@@ -1,4 +1,4 @@
 join anonymous 1
-anonymous: coordonate 192.168.88.03 join me.
+anonymous: Coordonate 4°08'15.0" 162°03'42.0" Follow the white ping.
 do Radio.showAlertFromDialogic("New ping added")
 [end_timeline]
